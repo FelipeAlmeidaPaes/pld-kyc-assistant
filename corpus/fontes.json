@@ -6,7 +6,7 @@
     "orgao": "Presidência da República",
     "formato": "planalto",
     "url": "https://www.planalto.gov.br/ccivil_03/leis/l9613compilado.htm",
-    "urlVerificada": false
+    "urlVerificada": true
   },
   {
     "id": "lei-7492",
@@ -15,7 +15,7 @@
     "orgao": "Presidência da República",
     "formato": "planalto",
     "url": "https://www.planalto.gov.br/ccivil_03/leis/l7492.htm",
-    "urlVerificada": false
+    "urlVerificada": true
   },
   {
     "id": "lei-13810",
@@ -24,7 +24,7 @@
     "orgao": "Presidência da República",
     "formato": "planalto",
     "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13810.htm",
-    "urlVerificada": false
+    "urlVerificada": true
   },
   {
     "id": "circular-bcb-3978",
