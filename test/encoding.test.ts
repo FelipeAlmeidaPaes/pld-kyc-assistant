@@ -15,8 +15,13 @@ describe("detectarCharset", () => {
     expect(detectarCharset(comMeta("windows-1252"), "text/html")).toBe("windows-1252");
   });
 
-  it("assume UTF-8 sem nenhuma indicação", () => {
-    expect(detectarCharset(new Uint8Array(corpo), null)).toBe("utf-8");
+  it("sem nenhuma indicação, usa UTF-8 quando os bytes são UTF-8 válido", () => {
+    expect(detectarCharset(new Uint8Array(Buffer.from("Ação nº", "utf-8")), null)).toBe("utf-8");
+  });
+
+  it("sem nenhuma indicação, usa windows-1252 quando os bytes não são UTF-8 válido", () => {
+    expect(detectarCharset(new Uint8Array(corpo), "text/html")).toBe("windows-1252");
+    expect(decodificar(new Uint8Array(corpo), "text/html")).toBe("Ação nº");
   });
 });
 

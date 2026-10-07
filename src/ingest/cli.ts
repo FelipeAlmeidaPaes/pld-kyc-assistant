@@ -4,7 +4,7 @@ import { parseArgs } from "node:util";
 import { buscarFonte } from "../corpus/fontes.js";
 import type { Fonte, NormaNormalizada } from "../corpus/types.js";
 import { decodificar } from "./encoding.js";
-import { parsePlanalto, verificarArtigos } from "./planalto.js";
+import { parsePlanalto, removerRuidoDoFirewall, verificarArtigos } from "./planalto.js";
 
 const USO = `Uso: npm run ingest -- <id-da-fonte> [--arquivo pagina.html] [--data AAAA-MM-DD]
 
@@ -13,17 +13,20 @@ const USO = `Uso: npm run ingest -- <id-da-fonte> [--arquivo pagina.html] [--dat
 
 const RAIZ = new URL("../../", import.meta.url);
 
+// O firewall do Planalto derruba a conexão quando o User-Agent não começa com "Mozilla/5.0".
+const USER_AGENT = "Mozilla/5.0 (compatible; pld-kyc-assistant; projeto de estudo)";
+
 async function obterHtml(fonte: Fonte, arquivo: string | undefined) {
   if (arquivo) {
-    const bytes = await readFile(arquivo);
+    const bytes = removerRuidoDoFirewall(await readFile(arquivo));
     return { bytes, html: decodificar(bytes) };
   }
 
   const resposta = await fetch(fonte.url, {
-    headers: { "User-Agent": "pld-kyc-assistant (projeto de estudo)" },
+    headers: { "User-Agent": USER_AGENT },
   });
   if (!resposta.ok) throw new Error(`Falha ao baixar ${fonte.url}: HTTP ${resposta.status}`);
-  const bytes = Buffer.from(await resposta.arrayBuffer());
+  const bytes = removerRuidoDoFirewall(new Uint8Array(await resposta.arrayBuffer()));
 
   const pastaBruta = new URL("corpus/raw/", RAIZ);
   await mkdir(pastaBruta, { recursive: true });
