@@ -1,0 +1,731 @@
+{
+  "fonte": {
+    "id": "resolucao-conjunta-6-2023",
+    "titulo": "Resolução Conjunta nº 6, de 23 de maio de 2023",
+    "sigla": "Resolução Conjunta CMN/BCB 6/2023",
+    "orgao": "Conselho Monetário Nacional e Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=6",
+    "urlVerificada": true
+  },
+  "capturadoEm": "2026-10-07",
+  "documento": "https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20Conjunta&p2=6",
+  "sha256": "0303c8bb273042f42ea10e37279edd7d18b5fdd8a5cb561b9ab0589ce7d8b8cc",
+  "artigos": [
+    {
+      "numero": "1º",
+      "rotulo": "art. 1º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 1º, caput",
+          "texto": "Esta Resolução Conjunta dispõe sobre requisitos para compartilhamento de dados e informações sobre indícios de fraudes a serem observados pelas instituições financeiras, instituições de pagamento e demais instituições autorizadas a funcionar pelo Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 1º, § 1º",
+          "texto": "O disposto nesta Resolução Conjunta não se aplica às administradoras de consórcio.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 1º, § 2º",
+          "texto": "Para os fins desta Resolução Conjunta, as instituições de que trata o caput são consideradas instituições financeiras para os efeitos da Lei Complementar nº 105, de 10 de janeiro de 2001.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "2º",
+      "rotulo": "art. 2º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 2º, caput",
+          "texto": "As instituições devem compartilhar dados e informações com as demais instituições referidas no art. 1º com a finalidade de subsidiar seus procedimentos e controles para prevenção de fraudes.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 2º, § 1º",
+          "texto": "O compartilhamento de que trata o caput deve ser realizado por meio de sistema eletrônico que contemple, no mínimo, as seguintes funcionalidades:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 2º, § 1º, I",
+          "texto": "o registro de dados e de informações sobre indícios de ocorrências ou de tentativas de fraudes identificadas pelas instituições em suas atividades;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 2º, § 1º, II",
+          "texto": "a alteração e a exclusão dos dados e das informações registrados nos termos do § 1º, inciso I, deste artigo, conforme o caso; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 2º, § 1º, III",
+          "texto": "a consulta dos dados e das informações registrados de que trata o § 1º, inciso I, deste artigo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 2º, § 2º",
+          "texto": "O registro dos dados e das informações de que trata o § 1º, inciso I, deste artigo devem contemplar, no mínimo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 2º, § 2º, I",
+          "texto": "a identificação de quem, segundo os indícios disponíveis, teria executado ou tentado executar a fraude, quando aplicável;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 2º, § 2º, II",
+          "texto": "a descrição dos indícios da ocorrência ou da tentativa de fraude;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 2º, § 2º, III",
+          "texto": "a identificação da instituição responsável pelo registro dos dados e das informações; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 2º, § 2º, IV",
+          "texto": "a identificação dos dados da conta destinatária e de seu titular, em caso de transferência ou pagamento de recursos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 2º, § 3º",
+          "texto": "As instituições de que trata o caput devem obter do cliente com quem possuam relacionamento o consentimento prévio e geral, possibilitando o registro dos dados e das informações de que trata o § 2º que digam respeito ao referido cliente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 2º, § 4º",
+          "texto": "O consentimento de que trata o § 3º deve:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 2º, § 4º, I",
+          "texto": "ter como finalidade o tratamento e o compartilhamento de dados e informações sobre indícios de fraudes no âmbito desta Resolução Conjunta; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 2º, § 4º, II",
+          "texto": "constar de contrato firmado entre o cliente e a instituição, mediante cláusula em destaque no corpo do instrumento contratual ou por outro instrumento jurídico válido.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 5º",
+          "caminho": "art. 2º, § 5º",
+          "texto": "A documentação de que trata o inciso II do § 4º deve ficar à disposição do Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 6º",
+          "caminho": "art. 2º, § 6º",
+          "texto": "Os dados e as informações a serem compartilhados, conforme o disposto no caput deste artigo, devem ser disponibilizados em conformidade com a legislação e a regulamentação em vigor, observado o dever de sigilo, a proteção dos dados pessoais e a livre concorrência.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 7º",
+          "caminho": "art. 2º, § 7º",
+          "texto": "O registro de que trata o § 1º, inciso I, deste artigo não se aplica aos dados e às informações sigilosos, nos termos de legislação especial, relacionados a indícios da prática dos crimes de \"lavagem” ou ocultação de bens, direitos e valores e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 8º",
+          "caminho": "art. 2º, § 8º",
+          "texto": "As instituições devem estabelecer e documentar os procedimentos e critérios para identificação de que trata o inciso I do § 2º deste artigo, de forma detalhada e compatível com o perfil de risco da instituição, com a legislação e com a regulamentação em vigor, os quais incluirão, no mínimo, a conferência com dados constantes de sistemas, cadastros e demais bases de dados disponíveis para consulta.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 9º",
+          "caminho": "art. 2º, § 9º",
+          "texto": "Os procedimentos e controles de que trata o caput incluem, por exemplo, aqueles previstos para fins de prestação de serviços de pagamento, bem como para a abertura e a manutenção de contas de depósitos e de pagamento, nos termos da regulamentação em vigor.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "3º",
+      "rotulo": "art. 3º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 3º, caput",
+          "texto": "As instituições de que trata o art. 1º, para atingir a finalidade do compartilhamento de que trata o art. 2º, devem conduzir suas atividades em observância da legislação e da regulamentação em vigor, observados o dever de sigilo, a proteção de dados pessoais e a livre concorrência, bem como os seguintes princípios:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 3º, I",
+          "texto": "segurança e privacidade de dados e de informações compartilhados no âmbito desta Resolução Conjunta;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 3º, II",
+          "texto": "qualidade dos dados e informações compartilhados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 3º, III",
+          "texto": "acesso pleno e não discriminatório das instituições às funcionalidades do sistema eletrônico de que trata o art. 2º, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 3º, IV",
+          "texto": "eficiência no cumprimento dos requisitos do sistema eletrônico de que trata esta Resolução Conjunta, inclusive no padrão único e comum de comunicação de que trata o art. 4º, inciso II;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 3º, V",
+          "texto": "reciprocidade com outras instituições, no tocante aos dados e às informações compartilhados no âmbito desta Resolução Conjunta; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 3º, VI",
+          "texto": "interoperabilidade com outros sistemas eletrônicos implementados em atendimento ao disposto nesta Resolução Conjunta, quando existentes, nos termos do art. 4º, inciso IV.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "4º",
+      "rotulo": "art. 4º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 4º, caput",
+          "texto": "As instituições devem observar, para fins de implementação do sistema eletrônico de que trata o art. 2º, § 1º, os seguintes requisitos:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 4º, I",
+          "texto": "permitir o acesso pleno das instituições de que trata o art. 1º às funcionalidades do referido sistema com a respectiva identificação de quem realizou o acesso;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 4º, II",
+          "texto": "adotar um padrão único e comum de comunicação que permita a execução das suas funcionalidades;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 4º, III",
+          "texto": "contemplar procedimentos e controles para assegurar:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 4º, III, a",
+          "texto": "o cumprimento da legislação e da regulamentação em vigor;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 4º, III, b",
+          "texto": "a confidencialidade, a integridade, a disponibilidade e a recuperação dos dados e das informações nele registrados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 4º, III, c",
+          "texto": "a sua aderência a certificações de segurança;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 4º, III, d",
+          "texto": "a elaboração de relatórios por empresa de auditoria especializada independente relativos aos procedimentos e aos controles utilizados na execução das suas funcionalidades;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 4º, III, e",
+          "texto": "o provimento de informações e de recursos de gestão adequados ao monitoramento de suas funcionalidades;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 4º, III, f",
+          "texto": "a identificação e a segregação dos dados e das informações registrados por meio de controles físicos ou lógicos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 4º, III, g",
+          "texto": "a qualidade dos controles de acesso voltados à proteção dos dados e das informações registrados por meio do referido sistema; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 4º, III, h",
+          "texto": "ao titular dos dados, o livre acesso às informações que lhe digam respeito, bem como a exclusão ou a correção tempestiva dos dados e das informações registrados, em caso de eventuais erros, inconsistências ou outras demandas, em observância da legislação e da regulamentação vigentes; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 4º, IV",
+          "texto": "assegurar a sua interoperabilidade com outros sistemas eletrônicos implementados em atendimento ao disposto nesta Resolução Conjunta, quando existentes.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 4º, parágrafo único",
+          "texto": "O atendimento aos requisitos de que trata este artigo deve ser documentado.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "5º",
+      "rotulo": "art. 5º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 5º, caput",
+          "texto": "É facultada a contratação de empresa para a prestação do serviço de compartilhamento de dados e informações de que trata o art. 2o, com observância do disposto nesta Resolução Conjunta, na legislação e na regulamentação em vigor, especialmente nas regulamentações dispondo sobre a contratação de serviços de processamento e armazenamento de dados e de computação em nuvem por instituições financeiras, instituições de pagamento e demais instituições autorizadas a funcionar pelo Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 5º, § 1º",
+          "texto": "No caso da contratação de que trata o caput, permanecerão com a instituição contratante as responsabilidades para os fins desta Resolução Conjunta, inclusive referentes ao tratamento dos dados compartilhados, realizado em nome da instituição contratante.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 5º, § 2º",
+          "texto": "O serviço prestado de que trata o caput é considerado relevante para fins da aplicação da regulamentação vigente sobre a contratação de serviços de processamento e armazenamento de dados e de computação em nuvem por instituições financeiras, instituições de pagamento e demais instituições autorizadas a funcionar pelo Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "6º",
+      "rotulo": "art. 6º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 6º, caput",
+          "texto": "As instituições de que trata o art. 1º são responsáveis:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 6º, I",
+          "texto": "pela confiabilidade, integridade, disponibilidade, segurança e pelo sigilo em relação aos dados e informações por elas registrados nos termos do art. 2º, § 1º, inciso I;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 6º, II",
+          "texto": "pela implementação das funcionalidades do sistema de que trata o art. 2º, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 6º, III",
+          "texto": "pela observância aos requisitos citados no art. 4º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 6º, IV",
+          "texto": "pela utilização dos dados e das informações por elas obtidos em consulta ao sistema eletrônico de que trata o art. 2º, § 1º, e pela preservação do sigilo de tais dados; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 6º, V",
+          "texto": "pelo cumprimento da legislação e da regulamentação em vigor.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "7º",
+      "rotulo": "art. 7º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 7º, caput",
+          "texto": "As instituições de que trata o art. 1º devem instituir mecanismos de acompanhamento e de controle com vistas a assegurar a efetividade do cumprimento do disposto nesta Resolução Conjunta, incluindo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 7º, I",
+          "texto": "a definição de processos, testes e trilhas de auditoria;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 7º, II",
+          "texto": "a definição de métricas e indicadores adequados; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 7º, III",
+          "texto": "a identificação e a correção de eventuais deficiências.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 7º, parágrafo único",
+          "texto": "Os mecanismos de que trata o caput devem ser submetidos a testes periódicos pela auditoria interna, quando aplicável, compatíveis com os controles internos da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "8º",
+      "rotulo": "art. 8º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 8º, caput",
+          "texto": "As instituições devem deixar à disposição do Banco Central do Brasil:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 8º, I",
+          "texto": "a documentação sobre o sistema eletrônico de que trata o art. 2º, § 1º, inclusive a respeito dos requisitos de que trata o art. 4º, parágrafo único;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 8º, II",
+          "texto": "por dez anos, os dados e as informações compartilhados, nos termos do art. 2º, § 6º, inciso II, e a documentação com os critérios e procedimentos a que se refere o art. 2º, § 8º; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 8º, III",
+          "texto": "por cinco anos, os dados, os registros e as informações relativas à aplicação dos mecanismos de acompanhamento e de controle de que trata o art. 7º, contado o prazo referido neste inciso a partir de cada aplicação dos citados mecanismos.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "9º",
+      "rotulo": "art. 9º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 9º, caput",
+          "texto": "O Banco Central do Brasil poderá adotar, no âmbito de suas atribuições legais, as medidas necessárias à execução do disposto nesta Resolução Conjunta, o que inclui estabelecer, entre outros aspectos:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 9º, I",
+          "texto": "as funcionalidades do sistema eletrônico, observado o conteúdo mínimo do art. 2º, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 9º, II",
+          "texto": "o escopo dos dados e das informações a serem registrados de que trata ao art. 2º, § 1º, inciso I, observado o conteúdo mínimo disposto no art. 2º, § 2º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 9º, III",
+          "texto": "o detalhamento dos parâmetros sobre acordos de níveis de serviço na execução das funcionalidades do sistema de que trata o art. 2º, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 9º, IV",
+          "texto": "os requisitos técnicos de segurança para funcionamento do sistema de que trata o art. 2º, § 1º, observado o disposto no art. 4º, conforme o caso;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 9º, V",
+          "texto": "a adequação dos mecanismos de que trata o art. 7º; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 9º, VI",
+          "texto": "demais requisitos técnicos e procedimentos operacionais para o compartilhamento de dados e informações de que trata o art. 2º.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 9º, § 1º",
+          "texto": "Na regulamentação das medidas de que trata o caput, o Banco Central do Brasil deverá observar os princípios referidos no art. 3º.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 9º, § 2º",
+          "texto": "Na regulamentação de que trata o inciso II do caput, o Banco Central do Brasil deverá observar, também, as seguintes diretrizes gerais:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 9º, § 2º, I",
+          "texto": "os dados e as informações sobre indícios de ocorrências ou de tentativas de fraudes a serem registrados deverão ser aqueles necessários e adequados para subsidiar os procedimentos e controles das instituições referidas no art. 1º para prevenção de fraudes; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 9º, § 2º, II",
+          "texto": "o conteúdo do registro deverá acompanhar as inovações tecnológicas e procedimentais, a fim de manter sua aptidão para o objetivo de prevenção a fraudes em cenários futuros.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "10",
+      "rotulo": "art. 10",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 10, caput",
+          "texto": "O Banco Central do Brasil poderá vetar ou impor restrições à contratação de que trata o art. 5º, quando constatar, a qualquer tempo, a inobservância do disposto nesta Resolução Conjunta, bem como a limitação à atuação do Banco Central do Brasil, estabelecendo prazo para a adequação de processos.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "11",
+      "rotulo": "art. 11",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 11, caput",
+          "texto": "O acesso aos dados e às informações compartilhados nos termos desta Resolução Conjunta será restrito às instituições referidas no art. 1º, ao Banco Central do Brasil e às demais autoridades competentes, nos termos da legislação em vigor.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "12",
+      "rotulo": "art. 12",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 12, caput",
+          "texto": "O disposto nesta Resolução Conjunta não exime a instituição da responsabilidade de:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 12, I",
+          "texto": "efetuar os procedimentos e os controles para prevenção de fraudes previstos na regulamentação em vigor; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 12, II",
+          "texto": "comunicar informações a respeito de fraudes às autoridades competentes, nos termos da legislação em vigor.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "13",
+      "rotulo": "art. 13",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 13, caput",
+          "texto": "Esta Resolução Conjunta entra em vigor em 1º de novembro de 2023.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    }
+  ]
+}

@@ -147,3 +147,6 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# HTML bruto baixado das fontes oficiais; o texto normalizado fica em corpus/normalized
+corpus/raw/

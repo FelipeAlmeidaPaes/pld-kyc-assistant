@@ -1,0 +1,56 @@
+[
+  {
+    "id": "lei-9613",
+    "titulo": "Lei nº 9.613, de 3 de março de 1998",
+    "sigla": "Lei 9.613/1998",
+    "orgao": "Presidência da República",
+    "formato": "planalto",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l9613compilado.htm",
+    "urlVerificada": true
+  },
+  {
+    "id": "lei-7492",
+    "titulo": "Lei nº 7.492, de 16 de junho de 1986",
+    "sigla": "Lei 7.492/1986",
+    "orgao": "Presidência da República",
+    "formato": "planalto",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l7492.htm",
+    "urlVerificada": true
+  },
+  {
+    "id": "lei-13810",
+    "titulo": "Lei nº 13.810, de 8 de março de 2019",
+    "sigla": "Lei 13.810/2019",
+    "orgao": "Presidência da República",
+    "formato": "planalto",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13810.htm",
+    "urlVerificada": true
+  },
+  {
+    "id": "circular-bcb-3978",
+    "titulo": "Circular nº 3.978, de 23 de janeiro de 2020",
+    "sigla": "Circular BCB 3.978/2020",
+    "orgao": "Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3978",
+    "urlVerificada": true
+  },
+  {
+    "id": "carta-circular-bcb-4001",
+    "titulo": "Carta Circular nº 4.001, de 29 de janeiro de 2020",
+    "sigla": "Carta Circular BCB 4.001/2020",
+    "orgao": "Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Carta%20Circular&numero=4001",
+    "urlVerificada": true
+  },
+  {
+    "id": "resolucao-conjunta-6-2023",
+    "titulo": "Resolução Conjunta nº 6, de 23 de maio de 2023",
+    "sigla": "Resolução Conjunta CMN/BCB 6/2023",
+    "orgao": "Conselho Monetário Nacional e Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=6",
+    "urlVerificada": true
+  }
+]
