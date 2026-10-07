@@ -15,7 +15,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "pdfjs-dist": "6.3.289"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

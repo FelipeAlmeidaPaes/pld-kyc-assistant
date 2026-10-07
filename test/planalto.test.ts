@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
-import { parsePlanalto, removerRuidoDoFirewall, verificarArtigos } from "../src/ingest/planalto.js";
+import { verificarArtigos } from "../src/ingest/dispositivos.js";
+import { parsePlanalto, removerRuidoDoFirewall } from "../src/ingest/planalto.js";
 
 const html = await readFile(new URL("./fixtures/planalto-ficticia.html", import.meta.url), "utf-8");
 const artigos = parsePlanalto(html);
