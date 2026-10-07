@@ -13,13 +13,13 @@ export interface Fonte {
   urlVerificada: boolean;
 }
 
-export type TipoDispositivo = "caput" | "paragrafo" | "inciso" | "alinea";
+export type TipoDispositivo = "caput" | "paragrafo" | "inciso" | "alinea" | "item";
 
 export interface Dispositivo {
   tipo: TipoDispositivo;
-  /** Rótulo isolado: "caput", "§ 1º", "parágrafo único", "I", "a". */
+  /** Rótulo isolado: "caput", "§ 1º", "parágrafo único", "I", "a", "1". */
   rotulo: string;
-  /** Caminho citável dentro da norma, ex.: "art. 1º, § 1º, II, a". */
+  /** Caminho citável dentro da norma, ex.: "art. 1º, § 1º, II, a" ou, com item, "art. 24, § 3º, VI, g, 1". */
   caminho: string;
   texto: string;
   /** Anotações do texto compilado, ex.: "(Redação dada pela Lei nº 12.683, de 2012)". */
@@ -41,7 +41,9 @@ export interface NormaNormalizada {
   fonte: Fonte;
   /** Data de referência: dia em que o texto compilado foi capturado (AAAA-MM-DD). */
   capturadoEm: string;
-  /** SHA-256 do HTML bruto, para auditar de qual versão o texto saiu. */
+  /** De onde o texto saiu: URL baixada (no BCB, o PDF compilado ou a API) ou arquivo local. */
+  documento: string;
+  /** SHA-256 do documento bruto (HTML ou PDF), para auditar de qual versão o texto saiu. */
   sha256: string;
   artigos: Artigo[];
 }
