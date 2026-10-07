@@ -22,6 +22,7 @@ O corpus da v1 tem estas normas, registradas em `corpus/fontes.json`:
 - Usa-se sempre o texto compilado, com as alterações incorporadas. O texto riscado (revogado) é descartado na ingestão.
 - A data de referência de cada norma é o dia da captura. O hash SHA-256 do documento bruto (HTML ou PDF) e o endereço de onde ele veio ficam registrados para auditar a versão.
 - O texto normalizado (`corpus/normalized/`) é versionado no Git. O HTML bruto não.
+- Dispositivo sem texto próprio fica no texto normalizado, para a numeração continuar completa, mas não entra no índice de busca. São eles: os revogados, os de vigência encerrada (Lei 9.613, art. 17-F) e os que dizem só "(VETADO)" (Lei 7.492, arts. 24 e 32 e §§ 1º a 3º do art. 32; Lei 13.810, art. 6º, parágrafo único). O "(Vetado)" no meio de um texto válido, como na Lei 7.492, fica: é parte do texto oficial.
 - No BCB, o texto compilado vem do PDF "limpo" (`_v<N>_L.pdf`) da versão mais recente. O texto em HTML da API do BCB é o original, sem as alterações, e não serve para normas alteradas.
 
 ## Pendências

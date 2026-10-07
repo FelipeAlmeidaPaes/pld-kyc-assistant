@@ -52,7 +52,8 @@ docker compose up -d
 - **Embeddings:** locais primeiro (família e5 via transformers.js), comparados com API pela avaliação; troca só com ganho de pelo menos 5 p.p. em recall@5 (ADR 0003).
 - **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
-- **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Escolhido pelo Claude depois de o autor dizer "segue" sem escolher; falta confirmação.
+- **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
+- **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
 - **Planalto:** o firewall (F5) derruba a conexão se o User-Agent não começar com `Mozilla/5.0`; com `curl` padrão a resposta é vazia, o que parece bloqueio de rede e não é. O F5 também injeta `<script id="f5_cspm">` com token aleatório em cada resposta; `removerRuidoDoFirewall` tira o script antes do hash. As páginas não declaram charset (nem cabeçalho nem `<meta>`) e vêm em windows-1252.
@@ -73,7 +74,7 @@ docker compose up -d
 - Antes de commitar: `npm run typecheck` e `npm test`.
 
 ## Estado atual (2026-10-07, fim da segunda sessão)
-- **Branch:** `claude/test-domain-connection-7yur2q`, que contém a `ccr-a02eebd2-6nvng1` e o trabalho desta sessão. Nada foi mesclado na `main`.
+- **Branch:** o trabalho das duas primeiras sessões (branches `ccr-a02eebd2-6nvng1` e `claude/test-domain-connection-7yur2q`) foi mesclado na `main` por PR em 2026-10-07. A próxima sessão parte da `main`.
 - **Rede (testada com `curl`):** respondem `www.planalto.gov.br` (só com User-Agent `Mozilla/5.0...`), `www.bcb.gov.br`, `normativos.bcb.gov.br`, `huggingface.co` (inclusive os pesos via `us.aws.cdn.hf.co`), `openrouter.ai`, `generativelanguage.googleapis.com`, `registry.npmjs.org`, `mirror.gcr.io`. `cdn-lfs.huggingface.co` é negado pela política, mas o download de modelo não passa por ele hoje. Docker Hub responde 429. Não há `GEMINI_API_KEY` nem `OPENROUTER_API_KEY` no ambiente.
 - **Pronto:**
   - As seis normas do corpus ingeridas e com `urlVerificada: true` (título do documento baixado bate com o manifesto). Capturas determinísticas: o hash não muda entre downloads.
@@ -98,13 +99,9 @@ docker compose up -d
   - Lei 13.810 não tem nenhuma nota de alteração na página do Planalto. Pode nunca ter sido alterada; não foi conferido em outra fonte.
 
 ## Próximos passos
-1. Divisão em trechos, embeddings locais e indexação no Qdrant. Decidir antes o que entra no índice (ver pendências sobre 17-F e "(VETADO)").
+1. Divisão em trechos, embeddings locais e indexação no Qdrant, aplicando a regra do índice (ADR 0005).
 2. Rascunhar as primeiras perguntas de avaliação para o autor revisar.
 
 ## Pendências com o autor
-- Confirmar a v1 sem framework de RAG (ADR 0001).
-- Confirmar a extração de PDF com `pdfjs-dist` (ADR 0006), aplicada sem escolha explícita do autor.
+- Confirmar a v1 sem framework de RAG (ADR 0001). Em 2026-10-07 o autor leu como "v1 sem RAG"; foi explicado que o RAG fica, só que escrito à mão. Aguarda resposta.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Art. 17-F da Lei 9.613: incluído pela MP 1.158/2023, com "Vigência encerrada" e texto riscado. Hoje fica sem texto e não marcado como `revogado`, e o CLI avisa. Decidir se vira um estado próprio (ex.: `semEficacia`) ou se sai do índice.
-- Dispositivos "(VETADO)" (lei 7.492) ficam com o texto "(VETADO)." e não são marcados. Decidir se entram no índice.
-- Abrir PR e mesclar a branch na `main`.

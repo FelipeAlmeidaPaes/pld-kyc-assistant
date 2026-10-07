@@ -1,12 +1,12 @@
 # ADR 0006: Texto dos PDFs do BCB extraído com pdfjs-dist
 
-- Status: Aceita (a confirmar pelo autor)
+- Status: Aceita
 - Data: 2026-10-07
 
 ## Contexto
 O BCB só publica o texto compilado da Circular 3.978 e da Carta Circular 4.001 em PDF (`_v<N>_L.pdf`); o HTML da API é a redação original (ADR 0005). O PDF não tem estrutura de parágrafo: só trechos de texto com posição. É preciso remontar cada dispositivo sem colar um no outro, porque a citação depende disso.
 
-O autor pediu para seguir sem escolher entre as opções abaixo; esta é a recomendação aplicada, e pode ser revista.
+Proposta pelo Claude e aceita pelo autor "por enquanto": revisar se aparecer PDF que esta abordagem não leia bem.
 
 ## Alternativas
 | Opção | A favor | Contra |
