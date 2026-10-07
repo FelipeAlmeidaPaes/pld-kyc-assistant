@@ -33,7 +33,7 @@
     "orgao": "Banco Central do Brasil",
     "formato": "bcb",
     "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3978",
-    "urlVerificada": false
+    "urlVerificada": true
   },
   {
     "id": "carta-circular-bcb-4001",
@@ -42,7 +42,7 @@
     "orgao": "Banco Central do Brasil",
     "formato": "bcb",
     "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Carta%20Circular&numero=4001",
-    "urlVerificada": false
+    "urlVerificada": true
   },
   {
     "id": "resolucao-conjunta-6-2023",
@@ -51,6 +51,6 @@
     "orgao": "Conselho Monetário Nacional e Banco Central do Brasil",
     "formato": "bcb",
     "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20Conjunta&numero=6",
-    "urlVerificada": false
+    "urlVerificada": true
   }
 ]

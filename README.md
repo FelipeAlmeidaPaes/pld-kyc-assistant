@@ -2,13 +2,13 @@
 
 Assistente de perguntas e respostas sobre normas brasileiras de prevenção à lavagem de dinheiro (PLD), financiamento do terrorismo e antifraude. Toda resposta se baseia no texto da norma e cita o dispositivo de origem.
 
-> Status: em desenvolvimento (v1). Pronto: estrutura do projeto, decisões de arquitetura e ingestão de leis do Planalto. Em andamento: indexação, busca e avaliação.
+> Status: em desenvolvimento (v1). Pronto: estrutura do projeto, decisões de arquitetura e ingestão das seis normas do corpus (Planalto e BCB). Em andamento: indexação, busca e avaliação.
 
 ## Por que este projeto
 Normas de PLD/KYC são longas, remetem umas às outras e mudam com frequência. Um assistente que responde com confiança e sem fonte é pior do que nenhum assistente, ainda mais em compliance. Aqui, citação, recusa e custo são requisitos, e cada um é medido.
 
 ## Escopo da v1
-- Ingestão das normas, com divisão por artigo e por dispositivo (caput, parágrafo, inciso, alínea)
+- Ingestão das normas, com divisão por artigo e por dispositivo (caput, parágrafo, inciso, alínea, item)
 - Controle de vigência: usa o texto compilado, descarta o texto revogado e guarda a data de referência e o hash de cada captura
 - Busca semântica em banco vetorial local
 - Respostas com citação obrigatória do dispositivo (ex.: Lei 9.613/1998, art. 1º, § 2º, I)
@@ -59,10 +59,12 @@ docker compose up -d        # sobe o Qdrant em localhost:6333
 npm test                    # testes
 npm run typecheck           # checagem de tipos
 
-# Baixa a lei do Planalto e grava o texto normalizado em corpus/normalized/
-npm run ingest -- lei-9613
-# Se o download for bloqueado, salve a página pelo navegador e use:
+# Baixa a norma e grava o texto normalizado em corpus/normalized/
+npm run ingest -- lei-9613             # Planalto: página do texto compilado
+npm run ingest -- circular-bcb-3978    # BCB: PDF compilado mais recente, achado pela API do BCB
+# Se o download for bloqueado, salve o documento e use:
 npm run ingest -- lei-9613 --arquivo caminho/da/pagina.html
+npm run ingest -- circular-bcb-3978 --arquivo caminho/do/compilado.pdf
 ```
 
 ## Fontes
