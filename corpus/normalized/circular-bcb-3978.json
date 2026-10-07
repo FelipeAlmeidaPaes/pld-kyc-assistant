@@ -1,0 +1,3629 @@
+{
+  "fonte": {
+    "id": "circular-bcb-3978",
+    "titulo": "Circular nº 3.978, de 23 de janeiro de 2020",
+    "sigla": "Circular BCB 3.978/2020",
+    "orgao": "Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3978",
+    "urlVerificada": true
+  },
+  "capturadoEm": "2026-10-07",
+  "documento": "https://normativos.bcb.gov.br/Lists/Normativos/Attachments/50905/Circ_3978_v6_L.pdf",
+  "sha256": "8f89e136804780b139decdb1974f87493bb23b5e70f05845ccf3c93b169d594a",
+  "artigos": [
+    {
+      "numero": "1º",
+      "rotulo": "art. 1º",
+      "agrupamento": "CAPÍTULO I - DO OBJETO E DO ÂMBITO DE APLICAÇÃO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 1º, caput",
+          "texto": "Esta Circular dispõe sobre a política, os procedimentos e os controles internos a serem adotados pelas instituições autorizadas a funcionar pelo Banco Central do Brasil visando à prevenção da utilização do sistema financeiro para a prática dos crimes de “lavagem” ou ocultação de bens, direitos e valores, de que trata a Lei nº 9.613, de 3 de março de 1998, e de financiamento do terrorismo, previsto na Lei nº 13.260, de 16 de março de 2016.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 1º, parágrafo único",
+          "texto": "Para os fins desta Circular, os crimes referidos no caput serão denominados genericamente “lavagem de dinheiro” e “financiamento do terrorismo”.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "2º",
+      "rotulo": "art. 2º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 2º, caput",
+          "texto": "As instituições mencionadas no art. 1º devem implementar e manter política formulada com base em princípios e diretrizes que busquem prevenir a sua utilização para as práticas de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 2º, parágrafo único",
+          "texto": "A política de que trata o caput deve ser compatível com os perfis de risco:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 2º, parágrafo único, I",
+          "texto": "dos clientes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 2º, parágrafo único, II",
+          "texto": "da instituição;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 2º, parágrafo único, III",
+          "texto": "das operações, transações, produtos e serviços; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 2º, parágrafo único, IV",
+          "texto": "dos funcionários, parceiros e prestadores de serviços terceirizados.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "3º",
+      "rotulo": "art. 3º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 3º, caput",
+          "texto": "A política referida no art. 2º deve contemplar, no mínimo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 3º, I",
+          "texto": "as diretrizes para:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 3º, I, a",
+          "texto": "a definição de papéis e responsabilidades para o cumprimento das obrigações de que trata esta Circular;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 3º, I, b",
+          "texto": "a definição de procedimentos voltados à avaliação e à análise prévia de novos produtos e serviços, bem como da utilização de novas tecnologias, tendo em vista o risco de lavagem de dinheiro e de financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 3º, I, c",
+          "texto": "a avaliação interna de risco e a avaliação de efetividade de que tratam os arts. 10 e 62;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 3º, I, d",
+          "texto": "a verificação do cumprimento da política, dos procedimentos e dos controles internos de que trata esta Circular, bem como a identificação e a correção das deficiências verificadas;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 3º, I, e",
+          "texto": "a promoção de cultura organizacional de prevenção à lavagem de dinheiro e ao financiamento do terrorismo, contemplando, inclusive, os funcionários, os parceiros e os prestadores de serviços terceirizados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 3º, I, f",
+          "texto": "a seleção e a contratação de funcionários e de prestadores de serviços terceirizados, tendo em vista o risco de lavagem de dinheiro e de financiamento do terrorismo; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 3º, I, g",
+          "texto": "a capacitação dos funcionários sobre o tema da prevenção à lavagem de dinheiro e ao financiamento do terrorismo, incluindo os funcionários dos correspondentes no País que prestem atendimento em nome das instituições mencionadas no art. 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 3º, II",
+          "texto": "as diretrizes para implementação de procedimentos:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 3º, II, a",
+          "texto": "de coleta, verificação, validação e atualização de informações cadastrais, visando a conhecer os clientes, os funcionários, os parceiros e os prestadores de serviços terceirizados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 3º, II, b",
+          "texto": "de registro de operações e de serviços financeiros;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 3º, II, c",
+          "texto": "de monitoramento, seleção e análise de operações e situações suspeitas; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 3º, II, d",
+          "texto": "de comunicação de operações ao Conselho de Controle de Atividades Financeiras (Coaf); e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 3º, III",
+          "texto": "o comprometimento da alta administração com a efetividade e a melhoria contínua da política, dos procedimentos e dos controles internos relacionados com a prevenção à lavagem de dinheiro e ao financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "4º",
+      "rotulo": "art. 4º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 4º, caput",
+          "texto": "Admite-se a adoção de política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo única por conglomerado prudencial e por sistema cooperativo de crédito.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 4º, parágrafo único",
+          "texto": "As instituições que não constituírem política própria, em decorrência do disposto no caput, devem formalizar a opção por essa faculdade em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "5º",
+      "rotulo": "art. 5º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 5º, caput",
+          "texto": "As instituições mencionadas no art. 1º devem assegurar a aplicação da política referida no art. 2º em suas unidades situadas no exterior.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 5º, parágrafo único",
+          "texto": "Na hipótese de impedimento ou limitação legal à aplicação da política referida no caput à unidade da instituição situada no exterior, deverá ser elaborado relatório justificando o impedimento ou a limitação.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "6º",
+      "rotulo": "art. 6º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 6º, caput",
+          "texto": "A política referida no art. 2º deve ser divulgada aos funcionários da instituição, parceiros e prestadores de serviços terceirizados, mediante linguagem clara e acessível, em nível de detalhamento compatível com as funções desempenhadas e com a sensibilidade das informações.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "7º",
+      "rotulo": "art. 7º",
+      "agrupamento": "CAPÍTULO II - DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 7º, caput",
+          "texto": "A política referida no art. 2º deve ser:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 7º, I",
+          "texto": "documentada;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 7º, II",
+          "texto": "aprovada pelo conselho de administração ou, se inexistente, pela diretoria da instituição; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 7º, III",
+          "texto": "mantida atualizada.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "8º",
+      "rotulo": "art. 8º",
+      "agrupamento": "CAPÍTULO III - DA GOVERNANÇA DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 8º, caput",
+          "texto": "As instituições mencionadas no art. 1º devem dispor de estrutura de governança visando a assegurar o cumprimento da política referida no art. 2º e dos procedimentos e controles internos de prevenção à lavagem de dinheiro e ao financiamento do terrorismo previstos nesta Circular.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "9º",
+      "rotulo": "art. 9º",
+      "agrupamento": "CAPÍTULO III - DA GOVERNANÇA DA POLÍTICA DE PREVENÇÃO À LAVAGEM DE DINHEIRO E AO FINANCIAMENTO DO TERRORISMO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 9º, caput",
+          "texto": "As instituições referidas no art. 1º devem indicar formalmente ao Banco Central do Brasil diretor responsável pelo cumprimento das obrigações previstas nesta Circular.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 9º, § 1º",
+          "texto": "O diretor mencionado no caput pode desempenhar outras funções na instituição, desde que não haja conflito de interesses.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 9º, § 2º",
+          "texto": "A responsabilidade mencionada no caput deve ser observada em cada instituição, mesmo no caso de opção pela faculdade estabelecida nos arts. 4º, 11, 42, 46 e 52.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "10",
+      "rotulo": "art. 10",
+      "agrupamento": "CAPÍTULO IV - DA AVALIAÇÃO INTERNA DE RISCO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 10, caput",
+          "texto": "As instituições referidas no art. 1º devem realizar avaliação interna com o objetivo de identificar e mensurar o risco de utilização de seus produtos e serviços na prática da lavagem de dinheiro e do financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 10, § 1º",
+          "texto": "Para identificação do risco de que trata o caput, a avaliação interna deve considerar, no mínimo, os perfis de risco:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 10, § 1º, I",
+          "texto": "dos clientes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 10, § 1º, II",
+          "texto": "da instituição, incluindo o modelo de negócio e a área geográfica de atuação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 10, § 1º, III",
+          "texto": "das operações, transações, produtos e serviços, abrangendo todos os canais de distribuição e a utilização de novas tecnologias; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 10, § 1º, IV",
+          "texto": "das atividades exercidas pelos funcionários, parceiros e prestadores de serviços terceirizados.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 10, § 2º",
+          "texto": "O risco identificado deve ser avaliado quanto à sua probabilidade de ocorrência e à magnitude dos impactos financeiro, jurídico, reputacional e socioambiental para a instituição.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 10, § 3º",
+          "texto": "Devem ser definidas categorias de risco que possibilitem a adoção de controles de gerenciamento e de mitigação reforçados para as situações de maior risco e a adoção de controles simplificados nas situações de menor risco.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 10, § 4º",
+          "texto": "Devem ser utilizadas como subsídio à avaliação interna de risco, quando disponíveis, avaliações realizadas por entidades públicas do País relativas ao risco de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "11",
+      "rotulo": "art. 11",
+      "agrupamento": "CAPÍTULO IV - DA AVALIAÇÃO INTERNA DE RISCO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 11, caput",
+          "texto": "A avaliação interna de risco pode ser realizada de forma centralizada em instituição do conglomerado prudencial e do sistema cooperativo de crédito.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 11, parágrafo único",
+          "texto": "As instituições que optarem por realizar a avaliação interna de risco na forma do caput devem formalizar essa opção em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "12",
+      "rotulo": "art. 12",
+      "agrupamento": "CAPÍTULO IV - DA AVALIAÇÃO INTERNA DE RISCO",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 12, caput",
+          "texto": "A avaliação interna de risco deve ser:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 12, I",
+          "texto": "documentada e aprovada pelo diretor referido no art. 9º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 12, II",
+          "texto": "encaminhada para ciência:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 12, II, a",
+          "texto": "ao comitê de risco, quando houver;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 12, II, b",
+          "texto": "ao comitê de auditoria, quando houver; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 12, II, c",
+          "texto": "ao conselho de administração ou, se inexistente, à diretoria da instituição; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 12, III",
+          "texto": "revisada a cada dois anos, bem como quando ocorrerem alterações significativas nos perfis de risco mencionados no art. 10, § 1º.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "13",
+      "rotulo": "art. 13",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção I - Dos Procedimentos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 13, caput",
+          "texto": "As instituições mencionadas no art. 1º devem implementar procedimentos destinados a conhecer seus clientes, incluindo procedimentos que assegurem a devida diligência na sua identificação, qualificação e classificação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 13, § 1º",
+          "texto": "Os procedimentos referidos no caput devem ser compatíveis com:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 13, § 1º, I",
+          "texto": "o perfil de risco do cliente, contemplando medidas reforçadas para clientes classificados em categorias de maior risco, de acordo com a avaliação interna de risco referida no art. 10;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 13, § 1º, II",
+          "texto": "a política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo de que trata o art. 2º; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 13, § 1º, III",
+          "texto": "a avaliação interna de risco de que trata o art. 10.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 13, § 2º",
+          "texto": "Os procedimentos mencionados no caput devem ser formalizados em manual específico.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 13, § 3º",
+          "texto": "O manual referido no § 2º deve ser aprovado pela diretoria da instituição e mantido atualizado.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "14",
+      "rotulo": "art. 14",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção I - Dos Procedimentos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 14, caput",
+          "texto": "As informações obtidas e utilizadas nos procedimentos referidos no art. 13 devem ser armazenadas em sistemas informatizados e utilizadas nos procedimentos de que trata o Capítulo VII.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "15",
+      "rotulo": "art. 15",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção I - Dos Procedimentos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 15, caput",
+          "texto": "Os procedimentos previstos neste Capítulo devem ser observados sem prejuízo do disposto na regulamentação que disciplina produtos e serviços específicos.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "16",
+      "rotulo": "art. 16",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção II - Da Identificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 16, caput",
+          "texto": "As instituições referidas no art. 1º devem adotar procedimentos de identificação que permitam verificar e validar a identidade do cliente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 16, § 1º",
+          "texto": "Os procedimentos referidos no caput devem incluir a obtenção, a verificação e a validação da autenticidade de informações de identificação do cliente, inclusive, se necessário, mediante confrontação dessas informações com as disponíveis em bancos de dados de caráter público e privado.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 16, § 2º",
+          "texto": "No processo de identificação do cliente devem ser coletados, no mínimo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 16, § 2º, I",
+          "texto": "o nome completo e o número de registro no Cadastro de Pessoas Físicas (CPF), no caso de pessoa natural; e",
+          "notas": [
+            "(Redação dada, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 16, § 2º, II",
+          "texto": "a firma ou denominação social e o número de registro no Cadastro Nacional da Pessoa Jurídica (CNPJ), no caso de pessoa jurídica.",
+          "notas": [
+            "(Redação dada, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 16, § 3º",
+          "texto": "No caso de cliente pessoa natural residente no exterior desobrigada de inscrição no CPF, na forma definida pela Secretaria da Receita Federal do Brasil, admite-se a utilização de documento de viagem na forma da Lei, devendo ser coletados, no mínimo, o país emissor, o número e o tipo do documento.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 16, § 4º",
+          "texto": "No caso de cliente pessoa jurídica com domicílio ou sede no exterior desobrigada de inscrição no CNPJ, na forma definida pela Secretaria da Receita Federal do Brasil, as instituições devem coletar, no mínimo, o nome da empresa, o endereço da sede e o número de identificação ou de registro da empresa no respectivo país de origem.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "17",
+      "rotulo": "art. 17",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção II - Da Identificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 17, caput",
+          "texto": "As informações referidas no art. 16 devem ser mantidas atualizadas.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "18",
+      "rotulo": "art. 18",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção III - Da Qualificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 18, caput",
+          "texto": "As instituições mencionadas no art. 1º devem adotar procedimentos que permitam qualificar seus clientes por meio da coleta, verificação e validação de informações, compatíveis com o perfil de risco do cliente e com a natureza da relação de negócio.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 18, § 1º",
+          "texto": "Os procedimentos de qualificação referidos no caput devem incluir a coleta de informações que permitam:",
+          "notas": [
+            "(Redação dada, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 18, § 1º, I",
+          "texto": "identificar o local de residência, no caso de pessoa natural;",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 18, § 1º, II",
+          "texto": "identificar o local da sede ou filial, no caso de pessoa jurídica; e",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 18, § 1º, III",
+          "texto": "avaliar a capacidade financeira do cliente, incluindo a renda, no caso de pessoa natural, ou o faturamento, no caso de pessoa jurídica.",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 18, § 2º",
+          "texto": "A necessidade de verificação e de validação das informações referidas no § 1º deve ser avaliada pelas instituições de acordo com o perfil de risco do cliente e com a natureza da relação de negócio.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 18, § 3º",
+          "texto": "Nos procedimentos de que trata o caput, devem ser coletadas informações adicionais do cliente compatíveis com o risco de utilização de produtos e serviços na prática da lavagem de dinheiro e do financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 18, § 4º",
+          "texto": "A qualificação do cliente deve ser reavaliada de forma permanente, de acordo com a evolução da relação de negócio e do perfil de risco.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 5º",
+          "caminho": "art. 18, § 5º",
+          "texto": "As informações coletadas na qualificação do cliente devem ser mantidas atualizadas.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 6º",
+          "caminho": "art. 18, § 6º",
+          "texto": "O Banco Central do Brasil poderá divulgar rol de informações a serem coletadas, verificadas e validadas em procedimentos específicos de qualificação de clientes.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "19",
+      "rotulo": "art. 19",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção III - Da Qualificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 19, caput",
+          "texto": "Os procedimentos de qualificação referidos no art. 18 devem incluir a verificação da condição do cliente como pessoa exposta politicamente, nos termos do art. 27, bem como a verificação da condição de representante, familiar ou estreito colaborador dessas pessoas.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 19, § 1º",
+          "texto": "Para os fins desta Circular, considera-se:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 19, § 1º, I",
+          "texto": "familiar, os parentes, na linha reta ou colateral, até o segundo grau, o cônjuge, o companheiro, a companheira, o enteado e a enteada; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 19, § 1º, II",
+          "texto": "estreito colaborador:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 19, § 1º, II, a",
+          "texto": "pessoa natural conhecida por ter qualquer tipo de estreita relação com pessoa exposta politicamente, inclusive por:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "item",
+          "rotulo": "1",
+          "caminho": "art. 19, § 1º, II, a, 1",
+          "texto": "ter participação conjunta em pessoa jurídica de direito privado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "item",
+          "rotulo": "2",
+          "caminho": "art. 19, § 1º, II, a, 2",
+          "texto": "figurar como mandatária, ainda que por instrumento particular da pessoa mencionada no item 1; ou",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "item",
+          "rotulo": "3",
+          "caminho": "art. 19, § 1º, II, a, 3",
+          "texto": "ter participação conjunta em arranjos sem personalidade jurídica; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 19, § 1º, II, b",
+          "texto": "pessoa natural que tem o controle de pessoas jurídicas ou de arranjos sem personalidade jurídica, conhecidos por terem sido criados para o benefício de pessoa exposta politicamente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 19, § 2º",
+          "texto": "Para os clientes qualificados como pessoa exposta politicamente ou como representante, familiar ou estreito colaborador dessas pessoas, as instituições mencionadas no art. 1º devem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 19, § 2º, I",
+          "texto": "adotar procedimentos e controles internos compatíveis com essa qualificação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 19, § 2º, II",
+          "texto": "considerar essa qualificação na classificação do cliente nas categorias de risco referidas no art. 20; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 19, § 2º, III",
+          "texto": "avaliar o interesse no início ou na manutenção do relacionamento com o cliente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 19, § 3º",
+          "texto": "A avaliação mencionada no § 2º, inciso III, deve ser realizada por detentor de cargo ou função de nível hierárquico superior ao do responsável pela autorização do relacionamento com o cliente.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "20",
+      "rotulo": "art. 20",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção IV - Da Classificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 20, caput",
+          "texto": "As instituições mencionadas no art. 1º devem classificar seus clientes nas categorias de risco definidas na avaliação interna de risco mencionada no art. 10, com base nas informações obtidas nos procedimentos de qualificação do cliente referidos no art. 18.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 20, parágrafo único",
+          "texto": "A classificação mencionada no caput deve ser:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 20, parágrafo único, I",
+          "texto": "realizada com base no perfil de risco do cliente e na natureza da relação de negócio; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 20, parágrafo único, II",
+          "texto": "revista sempre que houver alterações no perfil de risco do cliente e na natureza da relação de negócio.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "21",
+      "rotulo": "art. 21",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção V - Disposições Comuns à Identificação, à Qualificação e à Classificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 21, caput",
+          "texto": "As instituições referidas no art. 1º devem adotar os procedimentos de identificação, de qualificação e de classificação previstos neste Capítulo para os administradores de clientes pessoas jurídicas e para os representantes de clientes.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 21, parágrafo único",
+          "texto": "Os procedimentos referidos no caput devem ser compatíveis com a função exercida pelo administrador e com a abrangência da representação.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "22",
+      "rotulo": "art. 22",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção V - Disposições Comuns à Identificação, à Qualificação e à Classificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 22, caput",
+          "texto": "Os critérios utilizados para a definição das informações necessárias e dos procedimentos de verificação, validação e atualização das informações para cada categoria de risco devem ser previstos no manual de que trata o art. 13, § 2º.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "23",
+      "rotulo": "art. 23",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção V - Disposições Comuns à Identificação, à Qualificação e à Classificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 23, caput",
+          "texto": "É vedado às instituições referidas no art. 1º iniciar relação de negócios sem que os procedimentos de identificação e de qualificação do cliente estejam concluídos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 23, parágrafo único",
+          "texto": "Admite-se, por um período máximo de trinta dias, o início da relação de negócios em caso de insuficiência de informações relativas à qualificação do cliente, desde que não haja prejuízo aos procedimentos de monitoramento e seleção de que trata o art. 39.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "23-A",
+      "rotulo": "art. 23-A",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção V - Disposições Comuns à Identificação, à Qualificação e à Classificação dos Clientes",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 23-A, caput",
+          "texto": "As instituições referidas no art. 1º ficam dispensadas de realizar os procedimentos de qualificação e de classificação de clientes na contratação de operação de crédito amparada por programa instituído pelo poder público federal destinado à renegociação de dívidas de pessoas físicas inscritas em cadastros de inadimplentes, desde que, cumulativamente:",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 344, de 4/10/2023.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 23-A, I",
+          "texto": "as operações renegociadas estejam inadimplidas na data do estabelecimento do respectivo programa;",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 344, de 4/10/2023.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 23-A, II",
+          "texto": "os recursos liberados na operação de que trata o caput sejam transferidos diretamente ao credor da dívida renegociada, sem qualquer interferência do devedor; e",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 344, de 4/10/2023.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 23-A, III",
+          "texto": "refiram-se a dívidas inadimplidas com pessoas jurídicas não financeiras ou instituições autorizadas a funcionar pelo Banco Central do Brasil que sejam os responsáveis pela inscrição do devedor em cadastros de inadimplentes.",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 344, de 4/10/2023.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 23-A, parágrafo único",
+          "texto": "O disposto no caput não se aplica à contratação de outros produtos e serviços pelo cliente beneficiário da renegociação.",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 344, de 4/10/2023.)"
+          ],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "24",
+      "rotulo": "art. 24",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção VI - Da Identificação e da Qualificação do Beneficiário Final",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 24, caput",
+          "texto": "Os procedimentos de qualificação do cliente pessoa jurídica devem incluir a análise da cadeia de participação societária até a identificação da pessoa natural caracterizada como seu beneficiário final, observado o disposto no art. 25.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 24, § 1º",
+          "texto": "Devem ser aplicados à pessoa natural referida no caput, no mínimo, os procedimentos de qualificação definidos para a categoria de risco do cliente pessoa jurídica na qual o beneficiário final detenha participação societária.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 24, § 2º",
+          "texto": "É também considerado beneficiário final o representante, inclusive o procurador e o preposto, que exerça o comando de fato sobre as atividades da pessoa jurídica.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 24, § 3º",
+          "texto": "Excetuam-se do disposto no caput:",
+          "notas": [
+            "(Redação dada, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 24, § 3º, I",
+          "texto": "as pessoas jurídicas caracterizadas como companhia aberta;",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 24, § 3º, II",
+          "texto": "as entidade sem fins lucrativos;",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 24, § 3º, III",
+          "texto": "as cooperativas;",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 24, § 3º, IV",
+          "texto": "os fundos e clubes de investimento registrados na Comissão de Valores Mobiliários, desde que, cumulativamente:",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 24, § 3º, IV, a",
+          "texto": "não sejam fundos exclusivos;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 24, § 3º, IV, b",
+          "texto": "obtenham recursos de investidores com o propósito de atribuir o desenvolvimento e a gestão de uma carteira de investimento a um gestor qualificado que deve ter plena discricionariedade na representação e na tomada de decisão perante as entidades investidas, não sendo obrigado a consultar os cotistas para essas decisões e tampouco indicar os cotistas ou partes a eles ligadas para atuar nas entidades investidas; e",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 24, § 3º, IV, c",
+          "texto": "seja informado o número de registro no CPF, no caso de pessoa natural, ou do número de registro no CNPJ, no caso de pessoa jurídica, de todos os cotistas para a Secretaria Especial da Receita Federal do Brasil (RFB), na forma por esta definida em regulamentação específica;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 24, § 3º, V",
+          "texto": "os fundos de investimento registrados na Comissão de Valores Mobiliários, constituídos na forma de condomínio fechado, cujas cotas sejam negociadas em mercado organizado; e",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 24, § 3º, VI",
+          "texto": "os investidores não residentes classificados como:",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 24, § 3º, VI, a",
+          "texto": "governos, entidades governamentais e bancos centrais, assim como fundos soberanos ou companhias de investimento controladas por fundos soberanos e similares;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 24, § 3º, VI, b",
+          "texto": "organismos multilaterais;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 24, § 3º, VI, c",
+          "texto": "companhias abertas ou equivalentes;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 24, § 3º, VI, d",
+          "texto": "instituições financeiras ou similares, operando por conta própria;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 24, § 3º, VI, e",
+          "texto": "administradores de carteiras, operando por conta própria;",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 24, § 3º, VI, f",
+          "texto": "sociedades seguradoras e entidades de previdência privada; e",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 24, § 3º, VI, g",
+          "texto": "fundos de investimento, desde que, cumulativamente:",
+          "notas": [
+            "(Incluída, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "item",
+          "rotulo": "1",
+          "caminho": "art. 24, § 3º, VI, g, 1",
+          "texto": "o número de cotistas seja igual ou superior a cem e nenhum deles detenha mais de 25% (vinte e cinco por cento) das cotas; e",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "item",
+          "rotulo": "2",
+          "caminho": "art. 24, § 3º, VI, g, 2",
+          "texto": "a administração da carteira de ativos seja feita de forma discricionária por administrador profissional sujeito à fiscalização de autoridade supervisora com a qual o Banco Central do Brasil mantenha convênio para a troca de informações relativas à prevenção da utilização do sistema financeiro para a prática dos crimes de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 24, § 4º",
+          "texto": "No caso das entidades relacionadas no § 3º, as informações coletadas devem abranger as das pessoas naturais autorizadas a representá-las, bem como as de seus controladores, administradores ou gestores, e diretores, se houver.",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "25",
+      "rotulo": "art. 25",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção VI - Da Identificação e da Qualificação do Beneficiário Final",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 25, caput",
+          "texto": "As instituições mencionadas no art. 1º devem estabelecer valor mínimo de referência de participação societária para a identificação de beneficiário final.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 25, § 1º",
+          "texto": "O valor mínimo de referência de participação societária de que trata o caput deve ser estabelecido com base no risco e não pode ser superior a 25% (vinte e cinco por cento), considerada, em qualquer caso, a participação direta e a indireta.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 25, § 2º",
+          "texto": "O valor de referência de que trata o caput deve ser justificado e documentado no manual de procedimentos referido no art. 13, § 2º.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "26",
+      "rotulo": "art. 26",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção VI - Da Identificação e da Qualificação do Beneficiário Final",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 26, caput",
+          "texto": "No caso de relação de negócio com cliente residente no exterior, que também seja cliente de instituição do mesmo grupo no exterior, fiscalizada por autoridade supervisora com a qual o Banco Central do Brasil mantenha convênio para a troca de informações, admite-se que as informações relativas ao beneficiário final sejam obtidas da instituição no exterior, desde que assegurado ao Banco Central do Brasil o acesso às informações e aos procedimentos adotados.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "27",
+      "rotulo": "art. 27",
+      "agrupamento": "CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção VII - Da Qualificação como Pessoa Exposta Politicamente",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 27, caput",
+          "texto": "As instituições mencionadas no art. 1º devem implementar procedimentos que permitam qualificar seus clientes como pessoa exposta politicamente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 27, § 1º",
+          "texto": "Consideram-se pessoas expostas politicamente:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 27, § 1º, I",
+          "texto": "os detentores de mandatos eletivos dos Poderes Executivo e Legislativo da União;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 27, § 1º, II",
+          "texto": "os ocupantes de cargo, no Poder Executivo da União, de:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 27, § 1º, II, a",
+          "texto": "Ministro de Estado ou equiparado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 27, § 1º, II, b",
+          "texto": "Natureza Especial ou equivalente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 27, § 1º, II, c",
+          "texto": "presidente, vice-presidente e diretor, ou equivalentes, de entidades da administração pública indireta; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 27, § 1º, II, d",
+          "texto": "Grupo Direção e Assessoramento Superiores (DAS), nível 6, ou equivalente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 27, § 1º, III",
+          "texto": "os membros do Conselho Nacional de Justiça, do Supremo Tribunal Federal, dos Tribunais Superiores, dos Tribunais Regionais Federais, dos Tribunais Regionais do Trabalho, dos Tribunais Regionais Eleitorais, do Conselho Superior da Justiça do Trabalho e do Conselho da Justiça Federal;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 27, § 1º, IV",
+          "texto": "os membros do Conselho Nacional do Ministério Público, o Procurador-Geral da República, o Vice-Procurador-Geral da República, o Procurador-Geral do Trabalho, o Procurador-Geral da Justiça Militar, os Subprocuradores-Gerais da República e os Procuradores-Gerais de Justiça dos Estados e do Distrito Federal;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 27, § 1º, V",
+          "texto": "os membros do Tribunal de Contas da União, o Procurador-Geral e os Subprocuradores-Gerais do Ministério Público junto ao Tribunal de Contas da União;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 27, § 1º, VI",
+          "texto": "os presidentes e os tesoureiros nacionais, ou equivalentes, de partidos políticos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VII",
+          "caminho": "art. 27, § 1º, VII",
+          "texto": "os Governadores e os Secretários de Estado e do Distrito Federal, os Deputados Estaduais e Distritais, os presidentes, ou equivalentes, de entidades da administração pública indireta estadual e distrital e os presidentes de Tribunais de Justiça, Tribunais Militares, Tribunais de Contas ou equivalentes dos Estados e do Distrito Federal; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VIII",
+          "caminho": "art. 27, § 1º, VIII",
+          "texto": "os Prefeitos, os Vereadores, os Secretários Municipais, os presidentes, ou equivalentes, de entidades da administração pública indireta municipal e os Presidentes de Tribunais de Contas ou equivalentes dos Municípios.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 27, § 2º",
+          "texto": "São também consideradas expostas politicamente as pessoas que, no exterior, sejam:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 27, § 2º, I",
+          "texto": "chefes de estado ou de governo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 27, § 2º, II",
+          "texto": "políticos de escalões superiores;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 27, § 2º, III",
+          "texto": "ocupantes de cargos governamentais de escalões superiores;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 27, § 2º, IV",
+          "texto": "oficiais-generais e membros de escalões superiores do Poder Judiciário;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 27, § 2º, V",
+          "texto": "executivos de escalões superiores de empresas públicas; ou",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 27, § 2º, VI",
+          "texto": "dirigentes de partidos políticos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 27, § 3º",
+          "texto": "São também consideradas pessoas expostas politicamente os dirigentes de escalões superiores de entidades de direito internacional público ou privado.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 27, § 4º",
+          "texto": "No caso de clientes residentes no exterior, para fins do disposto no caput, as instituições mencionadas no art. 1º devem adotar pelo menos duas das seguintes providências:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 27, § 4º, I",
+          "texto": "solicitar declaração expressa do cliente a respeito da sua qualificação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 27, § 4º, II",
+          "texto": "recorrer a informações públicas disponíveis; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 27, § 4º, III",
+          "texto": "consultar bases de dados públicas ou privadas sobre pessoas expostas politicamente.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 5º",
+          "caminho": "art. 27, § 5º",
+          "texto": "A condição de pessoa exposta politicamente deve ser aplicada pelos cinco anos seguintes à data em que a pessoa deixou de se enquadrar nas categorias previstas nos §§ 1º, 2º, e 3º.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 6º",
+          "caminho": "art. 27, § 6º",
+          "texto": "No caso de relação de negócio com cliente residente no exterior que também seja cliente de instituição do mesmo grupo no exterior, fiscalizada por autoridade supervisora com a qual o Banco Central do Brasil mantenha convênio para troca de informações, admite-se que as informações de qualificação de pessoa exposta politicamente sejam obtidas da instituição no exterior, desde que assegurado ao Banco Central do Brasil o acesso aos respectivos dados e procedimentos adotados.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "28",
+      "rotulo": "art. 28",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção I - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 28, caput",
+          "texto": "As instituições referidas no art. 1º devem manter registros de todas as operações realizadas, produtos e serviços contratados, inclusive saques, depósitos, aportes, pagamentos, recebimentos, transferências de recursos e operações no mercado de câmbio.",
+          "notas": [
+            "(Redação dada pela Resolução BCB nº 282, de 31/12/2022.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 28, § 1º",
+          "texto": "Os registros referidos no caput devem conter, no mínimo, as seguintes informações sobre cada operação:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 28, § 1º, I",
+          "texto": "tipo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 28, § 1º, II",
+          "texto": "valor, quando aplicável;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 28, § 1º, III",
+          "texto": "data de realização;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 28, § 1º, IV",
+          "texto": "nome e número de inscrição no CPF ou no CNPJ do titular e do beneficiário da operação, no caso de pessoa residente ou sediada no País; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 28, § 1º, V",
+          "texto": "canal utilizado.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 28, § 2º",
+          "texto": "No caso de operações envolvendo pessoa natural residente no exterior desobrigada de inscrição no CPF, na forma definida pela Secretaria da Receita Federal do Brasil, as instituições devem incluir no registro as seguintes informações:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 28, § 2º, I",
+          "texto": "nome;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 28, § 2º, II",
+          "texto": "tipo e número do documento de viagem e respectivo país emissor; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 28, § 2º, III",
+          "texto": "organismo internacional de que seja representante para o exercício de funções específicas no País, quando for o caso.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 28, § 3º",
+          "texto": "No caso de operações envolvendo pessoa jurídica com domicílio ou sede no exterior desobrigada de inscrição no CNPJ, na forma definida pela Secretaria da Receita Federal do Brasil, as instituições devem incluir no registro as seguintes informações:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 28, § 3º, I",
+          "texto": "nome da empresa; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 28, § 3º, II",
+          "texto": "número de identificação ou de registro da empresa no respectivo país de origem.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 28, § 4º",
+          "texto": "No caso de operações no mercado de câmbio, as instituições referidas no art. 1º devem, adicionalmente, manter registro e guarda dos documentos comprobatórios exigidos para a realização de operações nesse mercado, conforme critérios alinhados à avaliação interna de risco de que trata o Capítulo IV.",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 282, de 31/12/2022.)"
+          ],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "29",
+      "rotulo": "art. 29",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção I - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 29, caput",
+          "texto": "Os registros de que trata este Capítulo devem ser realizados inclusive nas situações em que a operação ocorrer no âmbito da mesma instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "30",
+      "rotulo": "art. 30",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção II - Do Registro de Operações de Pagamento, de Recebimento e de Transferência de Recursos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 30, caput",
+          "texto": "No caso de operações relativas a pagamentos, recebimentos e transferências de recursos, por meio de qualquer instrumento, as instituições referidas no art. 1º devem incluir nos registros mencionados no art. 28 as informações necessárias à identificação da origem e do destino dos recursos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 30, § 1º",
+          "texto": "A origem mencionada no caput refere-se à instituição pagadora, sacada ou remetente e à pessoa sacada ou remetente dos recursos, bem como ao instrumento de transferência ou de pagamento utilizado na transação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 30, § 2º",
+          "texto": "O destino mencionado no caput refere-se à instituição recebedora ou destinatária e à pessoa recebedora ou destinatária dos recursos, bem como ao instrumento de transferência ou de pagamento utilizado na transação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 30, § 3º",
+          "texto": "Para fins do cumprimento do disposto no caput, devem ser incluídas no registro das operações, no mínimo, as seguintes informações, quando couber:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 30, § 3º, I",
+          "texto": "nome e número de inscrição no CPF ou no CNPJ do remetente ou sacado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 30, § 3º, II",
+          "texto": "nome e número de inscrição no CPF ou no CNPJ do recebedor ou beneficiário;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 30, § 3º, III",
+          "texto": "códigos de identificação, no sistema de liquidação de pagamentos ou de transferência de fundos, das instituições envolvidas na operação; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 30, § 3º, IV",
+          "texto": "números das dependências e das contas envolvidas na operação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 30, § 4º",
+          "texto": "No caso de transferência de recursos por meio de cheque, as instituições mencionadas no art. 1º devem incluir no registro da operação, além das informações referidas no § 3º, o número do cheque.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "31",
+      "rotulo": "art. 31",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção II - Do Registro de Operações de Pagamento, de Recebimento e de Transferência de Recursos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 31, caput",
+          "texto": "Caso as instituições referidas no art. 1º estabeleçam relação de negócio com terceiros não sujeitos a autorização para funcionar do Banco Central do Brasil, participantes de arranjo de pagamento do qual a instituição também participe, deve ser estipulado em contrato o acesso da instituição à identificação dos destinatários finais dos recursos, para fins de prevenção à lavagem de dinheiro e do financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 31, parágrafo único",
+          "texto": "O disposto no caput se aplica inclusive no caso de relação de negócio que envolva a interoperabilidade com arranjo de pagamento não sujeito a autorização pelo Banco Central do Brasil, do qual as instituições referidas no art. 1º não participem.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "32",
+      "rotulo": "art. 32",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção II - Do Registro de Operações de Pagamento, de Recebimento e de Transferência de Recursos",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 32, caput",
+          "texto": "No caso de transferência de recursos por meio da compensação interbancária de cheque, a instituição sacada deve informar à instituição depositária, e a instituição depositária deve informar à instituição sacada, os números de inscrição no CPF ou no CNPJ dos titulares da conta sacada e da conta depositária, respectivamente.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "33",
+      "rotulo": "art. 33",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção III - Do Registro das Operações em Espécie",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 33, caput",
+          "texto": "No caso de operações com utilização de recursos em espécie de valor individual superior a R$2.000,00 (dois mil reais), as instituições referidas no art. 1º devem incluir no registro, além das informações previstas nos arts. 28 e 30, o nome e o respectivo número de inscrição no CPF do portador dos recursos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 33, parágrafo único",
+          "texto": "Nas operações de que trata o caput, realizadas por empresa de transporte de valores devidamente autorizada e registrada na autoridade competente, nos termos da legislação em vigor, considera-se essa empresa como a portadora dos recursos, a qual será identificada por meio do registro do número de inscrição no CNPJ e da firma ou denominação social.",
+          "notas": [
+            "(Incluído, a partir de 1º/9/2021, pela Resolução BCB nº 119, de 27/7/2021.)"
+          ],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "34",
+      "rotulo": "art. 34",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção III - Do Registro das Operações em Espécie",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 34, caput",
+          "texto": "No caso de operações de depósito ou aporte em espécie de valor individual igual ou superior a R$50.000,00 (cinquenta mil reais), as instituições referidas no art. 1º devem incluir no registro, além das informações previstas nos arts. 28 e 30:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 34, I",
+          "texto": "o nome e o respectivo número de inscrição no CPF ou no CNPJ, conforme o caso, do proprietário dos recursos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 34, II",
+          "texto": "o nome e o respectivo número de inscrição no CPF do portador dos recursos; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 34, III",
+          "texto": "a origem dos recursos depositados ou aportados.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 34, parágrafo único",
+          "texto": "Na hipótese de recusa do cliente ou do portador dos recursos em prestar a informação referida no inciso III do caput, a instituição deve registrar o fato e utilizar essa informação nos procedimentos de monitoramento, seleção e análise de que tratam os art. 38 a 47.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "35",
+      "rotulo": "art. 35",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção III - Do Registro das Operações em Espécie",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 35, caput",
+          "texto": "No caso de operações de saque, inclusive as realizadas por meio de cheque ou ordem de pagamento, de valor individual igual ou superior a R$50.000,00 (cinquenta mil reais), as instituições referidas no art. 1º devem incluir no registro, além das informações previstas nos arts. 28 e 30:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 35, I",
+          "texto": "o nome e o respectivo número de inscrição no CPF ou no CNPJ, conforme o caso, do destinatário dos recursos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 35, II",
+          "texto": "o nome e o respectivo número de inscrição no CPF do portador dos recursos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 35, III",
+          "texto": "a finalidade do saque; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 35, IV",
+          "texto": "o número do protocolo referido no art. 36, § 2º, inciso II.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 35, parágrafo único",
+          "texto": "Na hipótese de recusa do cliente ou do portador dos recursos em prestar a informação referida no inciso III do caput, a instituição deve registrar o fato e utilizar essa informação nos procedimentos de monitoramento, seleção e análise de que tratam os art. 38 a 47.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "36",
+      "rotulo": "art. 36",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção III - Do Registro das Operações em Espécie",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 36, caput",
+          "texto": "As instituições mencionadas no art. 1º devem requerer dos sacadores clientes e não clientes solicitação de provisionamento com, no mínimo, três dias úteis de antecedência, das operações de saque, inclusive as realizadas por meio de cheque ou ordem de pagamento, de valor igual ou superior a R$50.000,00 (cinquenta mil reais).",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 36, § 1º",
+          "texto": "As operações de saque de que trata o caput devem ser consideradas individualmente, para efeitos de observação do limite previsto no caput.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 36, § 2º",
+          "texto": "As instituições referidas no caput devem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 36, § 2º, I",
+          "texto": "possibilitar a solicitação de provisionamento por meio do sítio eletrônico da instituição na internet e das agências ou Postos de Atendimento;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 36, § 2º, II",
+          "texto": "emitir protocolo de atendimento ao cliente ou ao sacador não cliente, no qual devem ser informados o valor da operação, a dependência na qual deverá ser efetuado o saque e a data programada para o saque; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 36, § 2º, III",
+          "texto": "registrar, no ato da solicitação de provisionamento, as informações indicadas no art. 35, conforme o caso.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 36, § 3º",
+          "texto": "No caso de saque em espécie a ser realizado por meio de cheque por sacador não cliente, a solicitação de provisionamento de que trata o caput deve ser realizada exclusivamente em agências ou em Postos de Atendimento.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 4º",
+          "caminho": "art. 36, § 4º",
+          "texto": "O disposto neste artigo deve ser observado sem prejuízo do art. 2º da Resolução nº 3.695, de 26 de março de 2009.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "37",
+      "rotulo": "art. 37",
+      "agrupamento": "CAPÍTULO VI - DO REGISTRO DE OPERAÇÕES > Seção III - Do Registro das Operações em Espécie",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 37, caput",
+          "texto": "As instituições referidas no art. 1º devem manter registro específico de recebimentos de boleto de pagamento pagos com recursos em espécie.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 37, parágrafo único",
+          "texto": "A instituição que receber boleto de pagamento que não seja de sua emissão deve remeter à instituição emissora a informação de que o boleto foi pago em espécie.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "38",
+      "rotulo": "art. 38",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção I - Dos Procedimentos de Monitoramento, Seleção e Análise de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 38, caput",
+          "texto": "As instituições referidas no art. 1º devem implementar procedimentos de monitoramento, seleção e análise de operações e situações com o objetivo de identificar e dispensar especial atenção às suspeitas de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 38, § 1º",
+          "texto": "Para os fins desta Circular, operações e situações suspeitas referem-se a qualquer operação ou situação que apresente indícios de utilização da instituição para a prática dos crimes de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 38, § 2º",
+          "texto": "Os procedimentos de que trata o caput devem ser aplicados, inclusive, às propostas de operações.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 38, § 3º",
+          "texto": "Os procedimentos mencionados no caput devem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 38, § 3º, I",
+          "texto": "ser compatíveis com a política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo de que trata o art. 2º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 38, § 3º, II",
+          "texto": "ser definidos com base na avaliação interna de risco de que trata o art. 10;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 38, § 3º, III",
+          "texto": "considerar a condição de pessoa exposta politicamente, nos termos do art. 27, bem como a condição de representante, familiar ou estreito colaborador da pessoa exposta politicamente, nos termos do art. 19; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 38, § 3º, IV",
+          "texto": "estar descritos em manual específico, aprovado pela diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "39",
+      "rotulo": "art. 39",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção II - Do Monitoramento e da Seleção de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 39, caput",
+          "texto": "As instituições referidas no art. 1º devem implementar procedimentos de monitoramento e seleção que permitam identificar operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo, especialmente:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 39, I",
+          "texto": "as operações realizadas e os produtos e serviços contratados que, considerando as partes envolvidas, os valores, as formas de realização, os instrumentos utilizados ou a falta de fundamento econômico ou legal, possam configurar a existência de indícios de lavagem de dinheiro ou de financiamento do terrorismo, inclusive:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 39, I, a",
+          "texto": "as operações realizadas ou os serviços prestados que, por sua habitualidade, valor ou forma, configurem artifício que objetive burlar os procedimentos de identificação, qualificação, registro, monitoramento e seleção previstos nesta Circular;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 39, I, b",
+          "texto": "as operações de depósito ou aporte em espécie, saque em espécie, ou pedido de provisionamento para saque que apresentem indícios de ocultação ou dissimulação da natureza, da origem, da localização, da disposição, da movimentação ou da propriedade de bens, direitos e valores;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 39, I, c",
+          "texto": "as operações realizadas e os produtos e serviços contratados que, considerando as partes e os valores envolvidos, apresentem incompatibilidade com a capacidade financeira do cliente, incluindo a renda, no caso de pessoa natural, ou o faturamento, no caso de pessoa jurídica, e o patrimônio;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 39, I, d",
+          "texto": "as operações com pessoas expostas politicamente de nacionalidade brasileira e com representantes, familiares ou estreitos colaboradores de pessoas expostas politicamente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 39, I, e",
+          "texto": "as operações com pessoas expostas politicamente estrangeiras;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 39, I, f",
+          "texto": "os clientes e as operações em relação aos quais não seja possível identificar o beneficiário final;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 39, I, g",
+          "texto": "as operações oriundas ou destinadas a países ou territórios com deficiências estratégicas na implementação das recomendações do Grupo de Ação Financeira (Gafi); e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 39, I, h",
+          "texto": "as situações em que não seja possível manter atualizadas as informações cadastrais de seus clientes; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 39, II",
+          "texto": "as operações e situações que possam indicar suspeitas de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 39, parágrafo único",
+          "texto": "O período para a execução dos procedimentos de monitoramento e de seleção das operações e situações suspeitas não pode exceder o prazo de quarenta e cinco dias, contados a partir da data de ocorrência da operação ou da situação.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "40",
+      "rotulo": "art. 40",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção II - Do Monitoramento e da Seleção de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 40, caput",
+          "texto": "As instituições referidas no art. 1º devem assegurar que os sistemas utilizados no monitoramento e na seleção de operações e situações suspeitas contenham informações detalhadas das operações realizadas e das situações ocorridas, inclusive informações sobre a identificação e a qualificação dos envolvidos.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 40, § 1º",
+          "texto": "As instituições devem manter documentação detalhada dos parâmetros, variáveis, regras e cenários utilizados no monitoramento e seleção de operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 40, § 2º",
+          "texto": "Os sistemas e os procedimentos utilizados no monitoramento e na seleção de operações e situações suspeitas devem ser passíveis de verificação quanto à sua adequação e efetividade.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "41",
+      "rotulo": "art. 41",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção II - Do Monitoramento e da Seleção de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 41, caput",
+          "texto": "Devem ser incluídos no manual referido no art. 38, § 3º, inciso IV:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 41, I",
+          "texto": "os critérios de definição da periodicidade de execução dos procedimentos de monitoramento e seleção para os diferentes tipos de operações e situações monitoradas; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 41, II",
+          "texto": "os parâmetros, as variáveis, as regras e os cenários utilizados no monitoramento e seleção para os diferentes tipos de operações e situações.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "42",
+      "rotulo": "art. 42",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção II - Do Monitoramento e da Seleção de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 42, caput",
+          "texto": "Os procedimentos de monitoramento e seleção referidos no art. 39 podem ser realizados de forma centralizada em instituição do conglomerado prudencial e do sistema cooperativo de crédito.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 42, parágrafo único",
+          "texto": "As instituições que optarem por realizar os procedimentos de monitoramento e seleção na forma do caput devem formalizar essa opção em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "43",
+      "rotulo": "art. 43",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção III - Dos Procedimentos de Análise de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 43, caput",
+          "texto": "As instituições referidas no art. 1º devem implementar procedimentos de análise das operações e situações selecionadas por meio dos procedimentos de monitoramento e seleção de que trata o art. 39, com o objetivo de caracterizá-las ou não como suspeitas de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 43, § 1º",
+          "texto": "O período para a execução dos procedimentos de análise das operações e situações selecionadas não pode exceder o prazo de quarenta e cinco dias, contados a partir da data da seleção da operação ou situação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 43, § 2º",
+          "texto": "A análise mencionada no caput deve ser formalizada em dossiê, independentemente da comunicação ao Coaf referida no art. 48.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "44",
+      "rotulo": "art. 44",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção III - Dos Procedimentos de Análise de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 44, caput",
+          "texto": "É vedada:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 44, I",
+          "texto": "a contratação de terceiros para a realização da análise referida no art. 43; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 44, II",
+          "texto": "a realização da análise referida no art. 43 no exterior.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 44, parágrafo único",
+          "texto": "A vedação mencionada no caput não inclui a contratação de terceiros para a prestação de serviços auxiliares à análise referida no art. 43.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "45",
+      "rotulo": "art. 45",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção III - Dos Procedimentos de Análise de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 45, caput",
+          "texto": "As instituições referidas no art. 1º devem dispor, no País, de recursos e competências necessários à análise de operações e situações suspeitas referida no art. 43.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "46",
+      "rotulo": "art. 46",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção III - Dos Procedimentos de Análise de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 46, caput",
+          "texto": "Os procedimentos de análise referidos no art. 43 podem ser realizados de forma centralizada em instituição do conglomerado prudencial e do sistema cooperativo de crédito.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 46, parágrafo único",
+          "texto": "As instituições que optarem por realizar os procedimentos de análise na forma do caput devem formalizar a opção em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "47",
+      "rotulo": "art. 47",
+      "agrupamento": "CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção IV - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 47, caput",
+          "texto": "No caso de contratação de serviços de processamento e armazenamento de dados e de computação em nuvem utilizados para monitoramento e seleção de operações e situações suspeitas, bem como de serviços auxiliares à análise dessas operações e situações, as instituições referidas no art. 1º devem observar:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 47, I",
+          "texto": "o disposto no Capítulo III da Circular nº 3.909, de 16 de agosto de 2018, e, no que couber, nos Capítulos IV e V da referida Circular, no caso de instituições de pagamento; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 47, II",
+          "texto": "o disposto no Capítulo III da Resolução nº 4.658, de 26 de abril de 2018, e, no que couber, nos Capítulos IV e V da referida Resolução, no caso de instituições financeiras e demais instituições autorizadas a funcionar pelo Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "48",
+      "rotulo": "art. 48",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção I - Da Comunicação de Operações e Situações Suspeitas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 48, caput",
+          "texto": "As instituições referidas no art. 1º devem comunicar ao Coaf as operações ou situações suspeitas de lavagem de dinheiro e de financiamento do terrorismo.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 48, § 1º",
+          "texto": "A decisão de comunicação da operação ou situação ao Coaf deve:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 48, § 1º, I",
+          "texto": "ser fundamentada com base nas informações contidas no dossiê mencionado no art. 43, § 2º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 48, § 1º, II",
+          "texto": "ser registrada de forma detalhada no dossiê mencionado no art. 43, § 2º; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 48, § 1º, III",
+          "texto": "ocorrer até o final do prazo de análise referido no art. 43, § 1º.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 48, § 2º",
+          "texto": "A comunicação da operação ou situação suspeita ao Coaf deve ser realizada até o dia útil seguinte ao da decisão de comunicação.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "49",
+      "rotulo": "art. 49",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção II - Da Comunicação de Operações Específicas",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 49, caput",
+          "texto": "As instituições mencionadas no art. 1º devem comunicar ao Coaf:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 49, I",
+          "texto": "as operações de depósito ou aporte em espécie ou saque em espécie de valor igual ou superior a R$50.000,00 (cinquenta mil reais);",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 49, II",
+          "texto": "as operações relativas a pagamentos, recebimentos e transferências de recursos, por meio de qualquer instrumento, contra pagamento em espécie, de valor igual ou superior a R$50.000,00 (cinquenta mil reais);",
+          "notas": [
+            "(Redação dada pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 49, III",
+          "texto": "a solicitação de provisionamento de saques em espécie de valor igual ou superior a R$50.000,00 (cinquenta mil reais) de que trata o art. 36;",
+          "notas": [
+            "(Redação dada pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 49, IV",
+          "texto": "as operações de câmbio com entrega ou recebimento de moeda estrangeira em espécie de valor igual ou superior a US$10.000,00 (dez mil dólares dos Estados Unidos) ou o seu equivalente em outras moedas; e",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 49, V",
+          "texto": "as operações relativas a transferências de ativos virtuais para ou de carteiras autocustodiadas de valor igual ou superior ao equivalente a US$10.000,00 (dez mil dólares dos Estados Unidos).",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 49, § 1º",
+          "texto": "A comunicação mencionada no caput deve ser realizada até o dia útil seguinte ao da ocorrência da operação ou do provisionamento. (Transformado em § 1º pela Resolução BCB nº 591, de 30/9/2026.)",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 49, § 2º",
+          "texto": "A comunicação decorrente de operações relacionadas nos incisos IV e V do caput, contratadas no período compreendido entre 1º de outubro de 2026 e 31 de dezembro de 2026, deve ser efetuada no primeiro dia útil de janeiro de 2027.",
+          "notas": [
+            "(Incluído pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "50",
+      "rotulo": "art. 50",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 50, caput",
+          "texto": "As instituições referidas no art. 1º devem realizar as comunicações mencionadas nos arts. 48 e 49 sem dar ciência aos envolvidos ou a terceiros.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "51",
+      "rotulo": "art. 51",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 51, caput",
+          "texto": "As comunicações alteradas ou canceladas após o quinto dia útil seguinte ao da sua realização devem ser acompanhadas de justificativa da ocorrência.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "52",
+      "rotulo": "art. 52",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 52, caput",
+          "texto": "As comunicações podem ser realizadas de forma centralizada por meio de instituição do conglomerado prudencial e de sistema cooperativo de crédito, em nome da instituição na qual ocorreu a operação ou a situação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 52, parágrafo único",
+          "texto": "As instituições que optarem por realizar as comunicações de forma centralizada, nos termos do caput, devem formalizar a opção em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "53",
+      "rotulo": "art. 53",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 53, caput",
+          "texto": "As comunicações referidas nos arts. 48 e 49 devem especificar, quando for o caso, se a pessoa objeto da comunicação:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 53, I",
+          "texto": "é pessoa exposta politicamente ou representante, familiar ou estreito colaborador dessa pessoa;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 53, II",
+          "texto": "é pessoa que, reconhecidamente, praticou ou tenha intentado praticar atos terroristas ou deles participado ou facilitado o seu cometimento; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 53, III",
+          "texto": "é pessoa que possui ou controla, direta ou indiretamente, recursos na instituição, no caso do inciso II.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "54",
+      "rotulo": "art. 54",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 54, caput",
+          "texto": "As instituições de que trata o art. 1º que não tiverem efetuado comunicações ao Coaf em cada ano civil deverão prestar declaração, até dez dias úteis após o encerramento do referido ano, atestando a não ocorrência de operações ou situações passíveis de comunicação.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "55",
+      "rotulo": "art. 55",
+      "agrupamento": "CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção III - Disposições Gerais",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 55, caput",
+          "texto": "As instituições referidas no art. 1º devem se habilitar para realizar as comunicações no Sistema de Controle de Atividades Financeiras (Siscoaf), do Coaf.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "56",
+      "rotulo": "art. 56",
+      "agrupamento": "CAPÍTULO IX - DOS PROCEDIMENTOS DESTINADOS A CONHECER FUNCIONÁRIOS, PARCEIROS E PRESTADORES DE SERVIÇOS TERCEIRIZADOS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 56, caput",
+          "texto": "As instituições mencionadas no art. 1º devem implementar procedimentos destinados a conhecer seus funcionários, parceiros e prestadores de serviços terceirizados, incluindo procedimentos de identificação e qualificação.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 56, parágrafo único",
+          "texto": "Os procedimentos referidos no caput devem ser compatíveis com a política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo de que trata o art. 2º e com a avaliação interna de risco de que trata o art. 10.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "57",
+      "rotulo": "art. 57",
+      "agrupamento": "CAPÍTULO IX - DOS PROCEDIMENTOS DESTINADOS A CONHECER FUNCIONÁRIOS, PARCEIROS E PRESTADORES DE SERVIÇOS TERCEIRIZADOS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 57, caput",
+          "texto": "Os procedimentos referidos no art. 56 devem ser formalizados em documento específico aprovado pela diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 57, parágrafo único",
+          "texto": "O documento mencionado no caput deve ser mantido atualizado.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "58",
+      "rotulo": "art. 58",
+      "agrupamento": "CAPÍTULO IX - DOS PROCEDIMENTOS DESTINADOS A CONHECER FUNCIONÁRIOS, PARCEIROS E PRESTADORES DE SERVIÇOS TERCEIRIZADOS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 58, caput",
+          "texto": "As instituições referidas no art. 1º devem classificar as atividades exercidas por seus funcionários, parceiros e prestadores de serviços terceirizados nas categorias de risco definidas na avaliação interna de risco, nos termos do art. 10.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 58, § 1º",
+          "texto": "A classificação em categorias de risco mencionada no caput deve ser mantida atualizada.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 58, § 2º",
+          "texto": "Os critérios para a classificação em categorias de risco referida no caput devem estar previstos no documento mencionado no art. 57.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 3º",
+          "caminho": "art. 58, § 3º",
+          "texto": "As informações relativas aos funcionários, parceiros e prestadores de serviços terceirizados devem ser mantidas atualizadas, considerando inclusive eventuais alterações que impliquem mudança de classificação nas categorias de risco.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "59",
+      "rotulo": "art. 59",
+      "agrupamento": "CAPÍTULO IX - DOS PROCEDIMENTOS DESTINADOS A CONHECER FUNCIONÁRIOS, PARCEIROS E PRESTADORES DE SERVIÇOS TERCEIRIZADOS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 59, caput",
+          "texto": "As instituições referidas no art. 1º, na celebração de contratos com instituições financeiras sediadas no exterior, devem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 59, I",
+          "texto": "obter informações sobre o contratado que permitam compreender a natureza de sua atividade e a sua reputação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 59, II",
+          "texto": "verificar se o contratado foi objeto de investigação ou de ação de autoridade supervisora relacionada com lavagem de dinheiro ou com financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 59, III",
+          "texto": "certificar que o contratado tem presença física no país onde está constituído ou licenciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 59, IV",
+          "texto": "conhecer os controles adotados pelo contratado relativos à prevenção à lavagem de dinheiro e ao financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 59, V",
+          "texto": "obter a aprovação do detentor de cargo ou função de nível hierárquico superior ao do responsável pela contratação; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 59, VI",
+          "texto": "dar ciência do contrato de parceria ao diretor mencionado no art. 9º.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 59, parágrafo único",
+          "texto": "O disposto no caput aplica-se inclusive às relações de parceria estabelecidas com bancos correspondentes no exterior.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "60",
+      "rotulo": "art. 60",
+      "agrupamento": "CAPÍTULO IX - DOS PROCEDIMENTOS DESTINADOS A CONHECER FUNCIONÁRIOS, PARCEIROS E PRESTADORES DE SERVIÇOS TERCEIRIZADOS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 60, caput",
+          "texto": "As instituições referidas no art. 1º, na celebração de contratos com terceiros não sujeitos a autorização para funcionar do Banco Central do Brasil, participantes de arranjo de pagamento do qual a instituição também participe, devem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 60, I",
+          "texto": "obter informações sobre o terceiro que permitam compreender a natureza de sua atividade e a sua reputação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 60, II",
+          "texto": "verificar se o terceiro foi objeto de investigação ou de ação de autoridade supervisora relacionada com lavagem de dinheiro ou com financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 60, III",
+          "texto": "certificar que o terceiro tem licença do instituidor do arranjo para operar, quando for o caso;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 60, IV",
+          "texto": "conhecer os controles adotados pelo terceiro relativos à prevenção à lavagem de dinheiro e ao financiamento do terrorismo; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 60, V",
+          "texto": "dar ciência do contrato ao diretor mencionado no art. 9º.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "61",
+      "rotulo": "art. 61",
+      "agrupamento": "CAPÍTULO X - DOS MECANISMOS DE ACOMPANHAMENTO E DE CONTROLE",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 61, caput",
+          "texto": "As instituições mencionadas no art. 1º devem instituir mecanismos de acompanhamento e de controle de modo a assegurar a implementação e a adequação da política, dos procedimentos e dos controles internos de que trata esta Circular, incluindo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 61, I",
+          "texto": "a definição de processos, testes e trilhas de auditoria;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 61, II",
+          "texto": "a definição de métricas e indicadores adequados; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 61, III",
+          "texto": "a identificação e a correção de eventuais deficiências.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 61, parágrafo único",
+          "texto": "Os mecanismos de que trata o caput devem ser submetidos a testes periódicos pela auditoria interna, quando aplicáveis, compatíveis com os controles internos da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "62",
+      "rotulo": "art. 62",
+      "agrupamento": "CAPÍTULO XI - DA AVALIAÇÃO DE EFETIVIDADE",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 62, caput",
+          "texto": "As instituições referidas no art. 1º devem avaliar a efetividade da política, dos procedimentos e dos controles internos de que trata esta Circular.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 62, § 1º",
+          "texto": "A avaliação referida no caput deve ser documentada em relatório específico.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 62, § 2º",
+          "texto": "O relatório de que trata o § 1º deve ser:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 62, § 2º, I",
+          "texto": "elaborado anualmente, com data-base de 31 de dezembro; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 62, § 2º, II",
+          "texto": "encaminhado, para ciência, até 31 de março do ano seguinte ao da data-base:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 62, § 2º, II, a",
+          "texto": "ao comitê de auditoria, quando houver; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 62, § 2º, II, b",
+          "texto": "ao conselho de administração ou, se inexistente, à diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "63",
+      "rotulo": "art. 63",
+      "agrupamento": "CAPÍTULO XI - DA AVALIAÇÃO DE EFETIVIDADE",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 63, caput",
+          "texto": "O relatório referido no art. 62, § 1º, deve:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 63, I",
+          "texto": "conter informações que descrevam:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 63, I, a",
+          "texto": "a metodologia adotada na avaliação de efetividade;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 63, I, b",
+          "texto": "os testes aplicados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 63, I, c",
+          "texto": "a qualificação dos avaliadores; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 63, I, d",
+          "texto": "as deficiências identificadas; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 63, II",
+          "texto": "conter, no mínimo, a avaliação:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 63, II, a",
+          "texto": "dos procedimentos destinados a conhecer clientes, incluindo a verificação e a validação das informações dos clientes e a adequação dos dados cadastrais;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 63, II, b",
+          "texto": "dos procedimentos de monitoramento, seleção, análise e comunicação ao Coaf, incluindo a avaliação de efetividade dos parâmetros de seleção de operações e de situações suspeitas;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 63, II, c",
+          "texto": "da governança da política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 63, II, d",
+          "texto": "das medidas de desenvolvimento da cultura organizacional voltadas à prevenção da lavagem de dinheiro e ao financiamento do terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 63, II, e",
+          "texto": "dos programas de capacitação periódica de pessoal;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 63, II, f",
+          "texto": "dos procedimentos destinados a conhecer os funcionários, parceiros e prestadores de serviços terceirizados; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 63, II, g",
+          "texto": "das ações de regularização dos apontamentos oriundos da auditoria interna e da supervisão do Banco Central do Brasil.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "64",
+      "rotulo": "art. 64",
+      "agrupamento": "CAPÍTULO XI - DA AVALIAÇÃO DE EFETIVIDADE",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 64, caput",
+          "texto": "Admite-se a elaboração de um único relatório de avaliação de efetividade nos termos do art. 62, § 1º, relativo às instituições do conglomerado prudencial e do sistema cooperativo de crédito.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "parágrafo único",
+          "caminho": "art. 64, parágrafo único",
+          "texto": "As instituições que optarem por realizar o relatório de avaliação de efetividade na forma do caput devem formalizar a opção em reunião do conselho de administração ou, se inexistente, da diretoria da instituição.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "65",
+      "rotulo": "art. 65",
+      "agrupamento": "CAPÍTULO XI - DA AVALIAÇÃO DE EFETIVIDADE",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 65, caput",
+          "texto": "As instituições referidas no art. 1º devem elaborar plano de ação destinado a solucionar as deficiências identificadas por meio da avaliação de efetividade de que trata o art. 62.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 65, § 1º",
+          "texto": "O acompanhamento da implementação do plano de ação referido no caput deve ser documentado por meio de relatório de acompanhamento.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 65, § 2º",
+          "texto": "O plano de ação e o respectivo relatório de acompanhamento devem ser encaminhados para ciência e avaliação, até 30 de junho do ano seguinte ao da data-base do relatório de que trata o art. 62, § 1º:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 65, § 2º, I",
+          "texto": "do comitê de auditoria, quando houver;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 65, § 2º, II",
+          "texto": "da diretoria da instituição; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 65, § 2º, III",
+          "texto": "do conselho de administração, quando existente.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "66",
+      "rotulo": "art. 66",
+      "agrupamento": "CAPÍTULO XII - DISPOSIÇÕES FINAIS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 66, caput",
+          "texto": "Devem permanecer à disposição do Banco Central do Brasil:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 66, I",
+          "texto": "o documento de que trata o art. 7º, inciso I, relativo à política de prevenção à lavagem de dinheiro e ao financiamento do terrorismo de que trata o art. 2º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 66, II",
+          "texto": "a ata de reunião do conselho de administração ou, na sua inexistência, da diretoria da instituição, no caso de ser formalizada a opção de que trata o caput do art. 4º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 66, III",
+          "texto": "o relatório de que trata o art. 5º, parágrafo único, se existente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 66, IV",
+          "texto": "o documento relativo à avaliação interna de risco de que trata o art. 12, inciso I, juntamente com a documentação de suporte à sua elaboração;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 66, V",
+          "texto": "o contrato referido no art. 31;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 66, VI",
+          "texto": "a ata de reunião do conselho de administração ou, na sua inexistência, da diretoria da instituição, no caso de serem formalizadas as opções mencionadas nos arts. 11, 42, 46, 52 e 64;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VII",
+          "caminho": "art. 66, VII",
+          "texto": "o relatório de avaliação de efetividade de que trata o art. 62, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VIII",
+          "caminho": "art. 66, VIII",
+          "texto": "as versões anteriores da avaliação interna de risco de que trata o art. 10;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IX",
+          "caminho": "art. 66, IX",
+          "texto": "o manual relativo aos procedimentos destinados a conhecer os clientes referido no art. 13, § 2º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "X",
+          "caminho": "art. 66, X",
+          "texto": "o manual relativo aos procedimentos de monitoramento, seleção e análise de operações e situações suspeitas mencionado no art. 38, § 3º, inciso IV;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XI",
+          "caminho": "art. 66, XI",
+          "texto": "o documento relativo aos procedimentos destinados a conhecer os funcionários, parceiros e prestadores de serviços terceirizados mencionado no art. 57;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XII",
+          "caminho": "art. 66, XII",
+          "texto": "as versões anteriores do relatório de avaliação de efetividade de que trata o art. 62, § 1º;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIII",
+          "caminho": "art. 66, XIII",
+          "texto": "os dados, os registros e as informações relativas aos mecanismos de acompanhamento e de controle de que trata o art. 61; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIV",
+          "caminho": "art. 66, XIV",
+          "texto": "os documentos relativos ao plano de ação e ao respectivo relatório de acompanhamento mencionados no art. 65.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 66, § 1º",
+          "texto": "O contrato referido no inciso V do caput deve permanecer à disposição do Banco Central do Brasil pelo prazo mínimo de cinco anos após o encerramento da relação contratual.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 66, § 2º",
+          "texto": "Os documentos e informações referidos nos incisos VIII a XIV do caput devem permanecer à disposição do Banco Central do Brasil pelo prazo mínimo de cinco anos.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "67",
+      "rotulo": "art. 67",
+      "agrupamento": "CAPÍTULO XII - DISPOSIÇÕES FINAIS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 67, caput",
+          "texto": "As instituições referidas no art. 1º devem manter à disposição do Banco Central do Brasil e conservar pelo período mínimo de dez anos:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 67, I",
+          "texto": "as informações coletadas nos procedimentos destinados a conhecer os clientes de que tratam os arts. 13, 16 e 18, contado o prazo referido no caput a partir do primeiro dia do ano seguinte ao término do relacionamento com o cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 67, II",
+          "texto": "as informações coletadas nos procedimentos destinados a conhecer os funcionários, parceiros e prestadores de serviços terceirizados de que trata o art. 56, contado o prazo referido no caput a partir da data de encerramento da relação contratual;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 67, III",
+          "texto": "as informações e registros de que tratam os arts. 28 a 37, contado o prazo referido no caput a partir do primeiro dia do ano seguinte ao da realização da operação; e",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 67, IV",
+          "texto": "o dossiê referido no art. 43, § 2º.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "68",
+      "rotulo": "art. 68",
+      "agrupamento": "CAPÍTULO XII - DISPOSIÇÕES FINAIS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 68, caput",
+          "texto": "",
+          "notas": [
+            "(Revogado pela Resolução BCB nº 282, de 31/12/2022.)"
+          ],
+          "revogado": true
+        }
+      ]
+    },
+    {
+      "numero": "69",
+      "rotulo": "art. 69",
+      "agrupamento": "CAPÍTULO XII - DISPOSIÇÕES FINAIS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 69, caput",
+          "texto": "Ficam revogados:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 69, I",
+          "texto": "a Circular nº 3.461, de 24 de julho de 2009;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 69, II",
+          "texto": "a Circular nº 3.517, de 7 de dezembro de 2010;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 69, III",
+          "texto": "a Circular nº 3.583, de 12 de março de 2012;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 69, IV",
+          "texto": "a Circular nº 3.654, de 27 de março de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 69, V",
+          "texto": "a Circular nº 3.839, de 28 de junho de 2017;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 69, VI",
+          "texto": "a Circular nº 3.889, de 28 de março de 2018;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VII",
+          "caminho": "art. 69, VII",
+          "texto": "os arts. 6º, 6º-A e 6º-B da Circular nº 3.680, de 4 de novembro de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VIII",
+          "caminho": "art. 69, VIII",
+          "texto": "o § 2º do art. 11 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IX",
+          "caminho": "art. 69, IX",
+          "texto": "o parágrafo único do art. 19 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "X",
+          "caminho": "art. 69, X",
+          "texto": "o art. 32 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XI",
+          "caminho": "art. 69, XI",
+          "texto": "o inciso IV do art. 32-A da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XII",
+          "caminho": "art. 69, XII",
+          "texto": "os incisos I e II do art. 139 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIII",
+          "caminho": "art. 69, XIII",
+          "texto": "o art. 166 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIV",
+          "caminho": "art. 69, XIV",
+          "texto": "o art. 170 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XV",
+          "caminho": "art. 69, XV",
+          "texto": "o art. 213 da Circular nº 3.691, de 2013;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVI",
+          "caminho": "art. 69, XVI",
+          "texto": "o art. 2º da Circular nº 3.727, de 6 de novembro de 2014;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVII",
+          "caminho": "art. 69, XVII",
+          "texto": "o art. 3º da Circular nº 3.780, de 21 de janeiro de 2016; e",
+          "notas": [
+            "(Vide Circular nº 3.942, de 21/5/2019.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVIII",
+          "caminho": "art. 69, XVIII",
+          "texto": "o art. 18 da Circular nº 3.858, de 14 de novembro de 2017.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "70",
+      "rotulo": "art. 70",
+      "agrupamento": "CAPÍTULO XII - DISPOSIÇÕES FINAIS",
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 70, caput",
+          "texto": "Esta Circular entra em vigor em 1º de outubro de 2020.",
+          "notas": [
+            "(Redação dada, a partir de 1º/6/2020, pela Circular nº 4.005, de 16/4/2020.)"
+          ],
+          "revogado": false
+        }
+      ]
+    }
+  ]
+}

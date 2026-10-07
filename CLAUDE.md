@@ -20,7 +20,7 @@ npm install
 npm test                 # Vitest
 npm run typecheck        # tsc --noEmit
 npm run ingest -- <id>   # baixa e normaliza uma fonte de corpus/fontes.json
-npm run ingest -- <id> --arquivo pagina.html   # usa HTML salvo localmente
+npm run ingest -- <id> --arquivo pagina.html   # usa documento salvo (HTML do Planalto ou PDF compilado do BCB)
 docker compose up -d     # Qdrant em localhost:6333
 ```
 
@@ -33,13 +33,18 @@ docker compose up -d
 
 ## Estrutura
 - `corpus/fontes.json`: manifesto das normas (id, sigla, URL oficial, formato do parser, `urlVerificada`)
-- `corpus/normalized/`: texto normalizado por norma, versionado no Git. `corpus/raw/` (HTML bruto) é ignorado. Hoje: `lei-9613`, `lei-7492`, `lei-13810`.
+- `corpus/normalized/`: texto normalizado por norma, versionado no Git, com `documento` (de onde veio) e `sha256`. `corpus/raw/` (HTML, PDF e JSON brutos) é ignorado. Hoje: as seis normas do corpus.
 - `src/corpus/types.ts`: `Fonte`, `Artigo`, `Dispositivo`, `NormaNormalizada`
-- `src/ingest/planalto.ts`: parser das leis do Planalto (texto compilado)
+- `src/ingest/dispositivos.ts`: parser de dispositivos (artigo, parágrafo, inciso, alínea, item), comum ao Planalto e ao BCB, e `verificarArtigos`
+- `src/ingest/html.ts`: linhas de texto visível de um HTML, sem texto riscado
+- `src/ingest/planalto.ts`: ruído do firewall do Planalto e `parsePlanalto`
+- `src/ingest/pdf.ts`: linhas do PDF (pdfjs) e remontagem dos parágrafos pela geometria
+- `src/ingest/bcb.ts`: API do BCB, escolha do PDF compilado, corte da assinatura, `paragrafosSoltos`
 - `src/ingest/encoding.ts`: detecção de charset (Planalto costuma usar windows-1252)
 - `src/ingest/cli.ts`: CLI de ingestão
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
-- `docs/adr/`: decisões de arquitetura (0001 a 0005)
+- `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
+- `docs/adr/`: decisões de arquitetura (0001 a 0006)
 
 ## Decisões (detalhes em docs/adr)
 - **Stack:** TypeScript, Node 22, ESM, `strict`. Sem framework de RAG na v1 (ADR 0001). O autor ainda não confirmou explicitamente este ponto.
@@ -47,17 +52,19 @@ docker compose up -d
 - **Embeddings:** locais primeiro (família e5 via transformers.js), comparados com API pela avaliação; troca só com ganho de pelo menos 5 p.p. em recall@5 (ADR 0003).
 - **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
+- **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Escolhido pelo Claude depois de o autor dizer "segue" sem escolher; falta confirmação.
 
 ## Fontes oficiais: como baixar
 - **Planalto:** o firewall (F5) derruba a conexão se o User-Agent não começar com `Mozilla/5.0`; com `curl` padrão a resposta é vazia, o que parece bloqueio de rede e não é. O F5 também injeta `<script id="f5_cspm">` com token aleatório em cada resposta; `removerRuidoDoFirewall` tira o script antes do hash. As páginas não declaram charset (nem cabeçalho nem `<meta>`) e vêm em windows-1252.
 - **Planalto, HTML:** `<p>` sem fechar e quebras de linha no meio do dispositivo ("I - <quebra> texto"). Às vezes o "Parágrafo único." vem no mesmo `<p>` do caput (lei 13.810). Link "Vigência" sem parênteses é anotação. A lei 7.492 usa título em caixa alta sem "CAPÍTULO".
 - **BCB:** `exibenormativo` é uma SPA. Os dados vêm de `https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=<tipo>&p2=<número>` (JSON). O campo `Texto` é o **texto original**, sem as alterações (Circular 3.978: não tem o art. 23-A e traz o art. 68 revogado com a redação antiga).
-- **BCB, texto compilado:** só em PDF, em `https://normativos.bcb.gov.br/Lists/Normativos/Attachments/<Id>/<arquivo>`. O campo `Documentos` lista `<prefixo>_v<N>_<O|L|P>.pdf`: `O` original, `L` compilado limpo (só o vigente), `P` compilado com a redação anterior junto. Usar o `L` da maior versão. Normas com versões em HTML aparecem em `buscaversoes?p1=<Id>` e `exibeversao?p1=<Id>&p2=<versão>&p3=Vigente`.
+- **BCB, texto compilado:** só em PDF, em `https://normativos.bcb.gov.br/Lists/Normativos/Attachments/<Id>/<arquivo>`. O campo `Documentos` lista `<nome>;<KB>#;<nome>;<KB>#;...`, com nomes `<prefixo>_v<N>_<O|L|P>.pdf`: `O` original, `L` compilado limpo (só o vigente), `P` compilado com a redação anterior junto. O CLI usa o `L` da maior versão; sem PDF, usa o HTML da API só se `Atualizacoes` estiver vazio, e recusa norma revogada ou cancelada. Normas com versões em HTML aparecem em `buscaversoes?p1=<Id>` e `exibeversao?p1=<Id>&p2=<versão>&p3=Vigente`.
+- **BCB, PDF:** margem em x≈85, recuo de parágrafo em x≈156, linhas a ~15 pt e parágrafos a ~21 pt, cabeçalho e rodapé com fonte menor. Depois do último artigo vêm assinatura e "Este texto não substitui o publicado no DOU", cortados por `cortarFecho`. Há itens ("1.") dentro de alínea (Circular 3.978, art. 24) e alíneas de duas letras ("aa)", Carta Circular 4.001, art. 1º, IV).
 
 ## Regras do domínio
 - Nunca escrever texto de norma de memória, nem em teste ou exemplo. Teste usa a norma fictícia; dado real vem da fonte oficial.
 - Sempre o texto compilado. Texto riscado (revogado) é descartado; dispositivo só com "(Revogado)" fica marcado como `revogado`.
-- Citação no formato `<sigla>, <caminho>`, ex.: `Lei 9.613/1998, art. 1º, § 2º, I`. Até o 9 o artigo é ordinal (1º); do 10 em diante, cardinal (10).
+- Citação no formato `<sigla>, <caminho>`, ex.: `Lei 9.613/1998, art. 1º, § 2º, I`; com item, `Circular BCB 3.978/2020, art. 24, § 3º, VI, g, 1`. Até o 9 o artigo é ordinal (1º); do 10 em diante, cardinal (10).
 - O conjunto de avaliação (gabarito) é rascunhado pelo Claude e validado pelo autor, dispositivo por dispositivo. Gabarito gerado por LLM sem revisão não vale.
 
 ## Convenções
@@ -65,28 +72,39 @@ docker compose up -d
 - Imports com extensão `.js` (ESM com `nodenext`).
 - Antes de commitar: `npm run typecheck` e `npm test`.
 
-## Estado atual (2026-10-07, segunda sessão)
+## Estado atual (2026-10-07, fim da segunda sessão)
 - **Branch:** `claude/test-domain-connection-7yur2q`, que contém a `ccr-a02eebd2-6nvng1` e o trabalho desta sessão. Nada foi mesclado na `main`.
 - **Rede (testada com `curl`):** respondem `www.planalto.gov.br` (só com User-Agent `Mozilla/5.0...`), `www.bcb.gov.br`, `normativos.bcb.gov.br`, `huggingface.co` (inclusive os pesos via `us.aws.cdn.hf.co`), `openrouter.ai`, `generativelanguage.googleapis.com`, `registry.npmjs.org`, `mirror.gcr.io`. `cdn-lfs.huggingface.co` é negado pela política, mas o download de modelo não passa por ele hoje. Docker Hub responde 429. Não há `GEMINI_API_KEY` nem `OPENROUTER_API_KEY` no ambiente.
 - **Pronto:**
-  - Leis 9.613, 7.492 e 13.810 ingeridas da página real e com `urlVerificada: true` (título conferido; 9.613 e 7.492 trazem alterações até 2026 e 2022). Hash estável entre capturas.
-  - Parser do Planalto corrigido contra a página real: charset sem declaração, letra colada no número ("Art. 10A."), quebra de linha do código-fonte, parágrafo na mesma linha, inciso "(revogado);", pena depois do último inciso, link "Vigência", hierarquia capítulo > seção, título solto em caixa alta, nota sozinha confundida com nome de capítulo. 24 testes; os testes novos falham no parser antigo.
+  - As seis normas do corpus ingeridas e com `urlVerificada: true` (título do documento baixado bate com o manifesto). Capturas determinísticas: o hash não muda entre downloads.
+
+    | Norma | Fonte do texto | Artigos | Dispositivos |
+    |---|---|---|---|
+    | Lei 9.613/1998 | HTML do Planalto | 29 | 158 |
+    | Lei 7.492/1986 | HTML do Planalto | 35 | 62 |
+    | Lei 13.810/2019 | HTML do Planalto | 36 | 92 |
+    | Circular BCB 3.978/2020 | PDF compilado v6 (inclui Res. BCB 591, de 30/9/2026) | 71 | 379 |
+    | Carta Circular BCB 4.001/2020 | PDF compilado v4 | 2 | 189 |
+    | Resolução Conjunta CMN/BCB 6/2023 | HTML da API (nunca alterada) | 13 | 78 |
+  - Parser do Planalto corrigido contra a página real (charset, "Art. 10A.", quebras de linha, parágrafo na mesma linha, revogados, pena, "Vigência", hierarquia de agrupamento).
+  - Parser do BCB: API, escolha do PDF `L`, remontagem de parágrafos, corte da assinatura, itens e alíneas de duas letras. Avisos no CLI para parágrafo sem rótulo e para descarte excessivo de linhas.
+  - 41 testes, todos com texto fictício. Os testes novos falham quando a correção correspondente é desfeita.
   - Qdrant v1.19.2 subiu pelo `docker-compose.yml` (com a imagem vinda do mirror).
-  - Investigação do BCB (seção "Fontes oficiais").
+- **Como foi validado:**
+  - PDFs do BCB: cada dispositivo foi procurado literalmente no texto do `pdftotext`, outro extrator: 379/379 (3.978) e 187/189 (4.001; as 2 diferenças são espaço antes de ";").
+  - As seis normas: nenhum caminho de citação duplicado; nenhuma lacuna na numeração de artigos.
 - **Não validado:**
+  - Leis do Planalto e Res. Conjunta 6: conferidas por heurística (dispositivo colado, título vazando, assinatura, texto vazio, numeração), não contra um segundo extrator nem dispositivo por dispositivo.
   - Lei 13.810 não tem nenhuma nota de alteração na página do Planalto. Pode nunca ter sido alterada; não foi conferido em outra fonte.
-  - URLs do BCB continuam `urlVerificada: false`: número, título e data batem com a API, mas a ingestão vai usar o PDF, não a URL da página.
-  - Conferência por amostragem do texto normalizado contra a página: feita por heurística (dispositivo colado, título vazando, assinatura, texto vazio), não dispositivo por dispositivo.
 
 ## Próximos passos
-1. Parser `bcb`: buscar `exibenormativo` na API, escolher o `_v<N>_L.pdf` mais recente e extrair o texto. Circular 3.978 (v6, inclui a Res. BCB 591, de 30/9/2026) e Carta Circular 4.001 (v4) só existem compiladas em PDF. A Resolução Conjunta 6 não tem alteração e pode usar o HTML do campo `Texto`. Tirar cabeçalho e rodapé do PDF ("Circular nº 3.978, de 23 de janeiro de 2020 Página N de 26", "Público").
-2. Divisão em trechos, embeddings locais e indexação no Qdrant.
-3. Rascunhar as primeiras perguntas de avaliação para o autor revisar.
+1. Divisão em trechos, embeddings locais e indexação no Qdrant. Decidir antes o que entra no índice (ver pendências sobre 17-F e "(VETADO)").
+2. Rascunhar as primeiras perguntas de avaliação para o autor revisar.
 
 ## Pendências com o autor
 - Confirmar a v1 sem framework de RAG (ADR 0001).
+- Confirmar a extração de PDF com `pdfjs-dist` (ADR 0006), aplicada sem escolha explícita do autor.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Extração de PDF do BCB: `pdftotext` (poppler, dependência de sistema, também no CI) ou biblioteca npm (`pdfjs-dist`/`unpdf`, só Node, layout precisa ser reconstruído). Vale ADR.
 - Art. 17-F da Lei 9.613: incluído pela MP 1.158/2023, com "Vigência encerrada" e texto riscado. Hoje fica sem texto e não marcado como `revogado`, e o CLI avisa. Decidir se vira um estado próprio (ex.: `semEficacia`) ou se sai do índice.
 - Dispositivos "(VETADO)" (lei 7.492) ficam com o texto "(VETADO)." e não são marcados. Decidir se entram no índice.
 - Abrir PR e mesclar a branch na `main`.

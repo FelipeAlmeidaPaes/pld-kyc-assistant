@@ -9,3 +9,4 @@ Cada decisão relevante fica registrada aqui, com contexto, alternativas e conse
 | [0003](0003-embeddings.md) | Embeddings locais primeiro, comparados com API pela avaliação | Aceita |
 | [0004](0004-banco-vetorial.md) | Qdrant local via Docker | Aceita |
 | [0005](0005-corpus-v1.md) | Seis normas no corpus da v1, sempre pelo texto compilado | Aceita |
+| [0006](0006-extracao-pdf.md) | Texto dos PDFs do BCB extraído com pdfjs-dist, sem dependência de sistema | Aceita (a confirmar pelo autor) |

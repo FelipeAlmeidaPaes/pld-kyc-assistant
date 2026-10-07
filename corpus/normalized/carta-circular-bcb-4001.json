@@ -1,0 +1,1578 @@
+{
+  "fonte": {
+    "id": "carta-circular-bcb-4001",
+    "titulo": "Carta Circular nº 4.001, de 29 de janeiro de 2020",
+    "sigla": "Carta Circular BCB 4.001/2020",
+    "orgao": "Banco Central do Brasil",
+    "formato": "bcb",
+    "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Carta%20Circular&numero=4001",
+    "urlVerificada": true
+  },
+  "capturadoEm": "2026-10-07",
+  "documento": "https://normativos.bcb.gov.br/Lists/Normativos/Attachments/50911/C_Circ_4001_v4_L.pdf",
+  "sha256": "be7fd96d50430faf69779b2d29948a74248cb9813524c6c122256124c1d5fdfd",
+  "artigos": [
+    {
+      "numero": "1º",
+      "rotulo": "art. 1º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 1º, caput",
+          "texto": "As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "I",
+          "caminho": "art. 1º, I",
+          "texto": "situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, I, a",
+          "texto": "depósitos, aportes, saques, pedidos de provisionamento para saque ou qualquer outro instrumento de transferência de recursos em espécie, que apresentem atipicidade em relação à atividade econômica do cliente ou incompatibilidade com a sua capacidade financeira;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, I, b",
+          "texto": "movimentações em espécie realizadas por clientes cujas atividades possuam como característica a utilização de outros instrumentos de transferência de recursos, tais como cheques, cartões de débito ou crédito;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, I, c",
+          "texto": "aumentos substanciais no volume de depósitos ou aportes em espécie de qualquer pessoa natural ou jurídica, sem causa aparente, nos casos em que tais depósitos ou aportes forem posteriormente transferidos, dentro de curto período de tempo, a destino não relacionado com o cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, I, d",
+          "texto": "fragmentação de depósitos ou outro instrumento de transferência de recurso em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, I, e",
+          "texto": "fragmentação de saques em espécie, a fim de burlar limites regulatórios de reportes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, I, f",
+          "texto": "depósitos ou aportes de grandes valores em espécie, de forma parcelada, principalmente nos mesmos caixas ou terminais de autoatendimento próximos, destinados a uma única conta ou a várias contas em municípios ou agências distintas;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, I, g",
+          "texto": "depósitos ou aportes em espécie em contas de clientes que exerçam atividade comercial relacionada com negociação de bens de luxo ou de alto valor, tais como obras de arte, imóveis, barcos, joias, automóveis ou aeronaves;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, I, h",
+          "texto": "saques em espécie de conta que receba diversos depósitos por transferência eletrônica de várias origens em curto período de tempo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, I, i",
+          "texto": "depósitos ou aportes em espécie com cédulas úmidas, malcheirosas, mofadas, ou com aspecto de que foram armazenadas em local impróprio ou ainda que apresentem marcas, símbolos ou selos desconhecidos, empacotadas em maços desorganizados e não uniformes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "j",
+          "caminho": "art. 1º, I, j",
+          "texto": "depósitos, aportes ou troca de grandes quantidades de cédulas de pequeno valor, por pessoa natural ou jurídica, cuja atividade ou negócio não tenha como característica recebimentos de grandes quantias de recursos em espécie;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "k",
+          "caminho": "art. 1º, I, k",
+          "texto": "saques no período de cinco dias úteis em valores inferiores aos limites estabelecidos, de forma a dissimular o valor total da operação e evitar comunicações de operações em espécie;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "l",
+          "caminho": "art. 1º, I, l",
+          "texto": "dois ou mais saques em espécie no caixa no mesmo dia, com indícios de tentativa de burla para evitar a identificação do sacador;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "m",
+          "caminho": "art. 1º, I, m",
+          "texto": "dois ou mais depósitos em terminais de autoatendimento em espécie , no período de cinco dias úteis, com indícios de tentativa de burla para evitar a identificação do depositante;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "n",
+          "caminho": "art. 1º, I, n",
+          "texto": "depósitos em espécie relevantes em contas de servidores públicos e de qualquer tipo de Pessoas Expostas Politicamente (PEP), conforme elencados no art. 27 da Circular nº 3.978, de 2020, bem como seu representante, familiar ou estreito colaborador;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "o",
+          "caminho": "art. 1º, I, o",
+          "texto": "tentativa de provisionamento ou de saque em espécie de valores oriundos de emendas parlamentares de contas destinadas ao recebimento desses recursos;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 732, de 4/5/2026.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "II",
+          "caminho": "art. 1º, II",
+          "texto": "situações relacionadas com operações em espécie e cartões pré -pagos em moeda estrangeira e cheques de viagem:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, II, a",
+          "texto": "movimentações de moeda estrangeira em espécie ou de cheques de viagem denominados em moeda estrangeira, que apresentem atipicidade em relação à atividade econômica do cliente ou incompatibilidade com a sua capacidade financeira;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, II, b",
+          "texto": "negociações de moeda estrangeira em espécie ou de cheques de viagem denominados em moeda estrangeira, que não apresentem compatibilidade com a natureza declarada da operação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, II, c",
+          "texto": "negociações de moeda estrangeira em espécie ou de cheques de viagem denominados em moeda estrangeira, realizadas por diferentes pessoas naturais, não relacionadas entre si, que informem o mesmo endereço residencial, telefone de contato ou possuam o mesmo representante legal;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, II, d",
+          "texto": "negociações envolvendo taxas de câmbio com variação significativa em relação às praticadas pelo mercado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, II, e",
+          "texto": "negociações de moeda estrangeira em espécie envolvendo cédulas úmidas, malcheirosas, mofadas, ou com aspecto de terem sido armazenadas em local impróprio, ou ainda que apresentem marcas, símbolos ou selos desconhecidos, empacotadas em maços desorganizados e não uniformes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, II, f",
+          "texto": "negociações de moeda estrangeira em espécie ou troca de grandes quantidades de cédulas de pequeno valor, realizadas por pessoa natural ou jurídica, cuja atividade ou negócio não tenha como característica o recebimento desse tipo de recurso;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, II, g",
+          "texto": "utilização, carga ou recarga de cartão pré-pago em valor não compatível com a capacidade financeira, atividade ou perfil do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, II, h",
+          "texto": "utilização de diversas fontes de recursos para carga e recarga de cartões pré -pagos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, II, i",
+          "texto": "carga e recarga de cartões pré-pagos seguidas imediatamente por saques em caixas eletrônicos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "III",
+          "caminho": "art. 1º, III",
+          "texto": "situações relacionadas com a identificação e qualificação de clientes:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, III, a",
+          "texto": "resistência ao fornecimento de informações necessárias para o início de relacionamento ou para a atualização cadastral;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, III, b",
+          "texto": "oferecimento de informação falsa;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, III, c",
+          "texto": "prestação de informação de difícil ou onerosa verificação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, III, d",
+          "texto": "abertura, movimentação de contas ou realização de operações por detentor de procuração ou de qualquer outro tipo de mandato;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, III, e",
+          "texto": "ocorrência de irregularidades relacionadas aos procedimentos de identificação e registro das operações exigidos pela regulamentação vigente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, III, f",
+          "texto": "cadastramento de várias contas em uma mesma data, ou em curto período, com depósitos de valores idênticos ou aproximados, ou com outros elementos em comum, tais como origem dos recursos, titulares, procuradores, sócios, endereço, número de telefone, et c.;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, III, g",
+          "texto": "operações em que não seja possível identificar o beneficiário final, observados os procedimentos definidos na regulamentação vigente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, III, h",
+          "texto": "representação de diferentes pessoas jurídicas ou organizações pelos mesmos procuradores ou representantes legais, sem justificativa razoável para tal ocorrência;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, III, i",
+          "texto": "informação de mesmo endereço residencial ou comercial por pessoas naturais, sem demonstração da existência de relação familiar ou comercial;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "j",
+          "caminho": "art. 1º, III, j",
+          "texto": "incompatibilidade da atividade econômica ou faturamento informados com o padrão apresentado por clientes com o mesmo perfil;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "k",
+          "caminho": "art. 1º, III, k",
+          "texto": "registro de mesmo endereço de e-mail ou de Internet Protocol (IP) por diferentes pessoas jurídicas ou organizações, sem justificativa razoável para tal ocorrência;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "l",
+          "caminho": "art. 1º, III, l",
+          "texto": "registro de mesmo endereço de e-mail ou Internet Protocol (IP) por pessoas naturais, sem justificativa razoável para tal ocorrência;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "m",
+          "caminho": "art. 1º, III, m",
+          "texto": "informações e documentos apresentados pelo cliente conflitantes com as informações públicas disponíveis;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "n",
+          "caminho": "art. 1º, III, n",
+          "texto": "sócios de empresas sem aparente capacidade financeira para o porte da atividade empresarial declarada;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IV",
+          "caminho": "art. 1º, IV",
+          "texto": "situações relacionadas com a movimentação de contas de depósito e de contas de pagamento em moeda nacional, que digam respeito a:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, IV, a",
+          "texto": "movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, IV, b",
+          "texto": "transferências de valores arredondados na unidade de milhar ou que estejam um pouco abaixo do limite para notificação de operações;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, IV, c",
+          "texto": "movimentação de recursos de alto valor, de forma contumaz, em benefício de terceiros;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, IV, d",
+          "texto": "manutenção de numerosas contas destinadas ao acolhimento de depósitos em nome de um mesmo cliente, cujos valores, somados, resultem em quantia significativa;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, IV, e",
+          "texto": "movimentação de quantia significativa por meio de conta até então pouco movimentada ou de conta que acolha depósito inusitado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, IV, f",
+          "texto": "ausência repentina de movimentação financeira em conta que anteriormente apresentava grande movimentação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, IV, g",
+          "texto": "utilização de cofres de aluguel de forma atípica em relação ao perfil do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, IV, h",
+          "texto": "dispensa da faculdade de utilização de prerrogativas como recebimento de crédito, de juros remuneratórios para grandes saldos ou, ainda, de outros serviços bancários especiais que, em circunstâncias normais, sejam valiosas para qualquer cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, IV, i",
+          "texto": "mudança repentina e injustificada na forma de movimentação de recursos ou nos tipos de transação utilizados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "j",
+          "caminho": "art. 1º, IV, j",
+          "texto": "solicitação de não observância ou atuação no sentido de induzir funcionários da instituição a não seguirem os procedimentos regulamentares ou formais para a realização de uma operação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "k",
+          "caminho": "art. 1º, IV, k",
+          "texto": "recebimento de recursos com imediata compra de instrumentos para a realização de pagamentos ou de transferências a terceiros, sem justificativa;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "l",
+          "caminho": "art. 1º, IV, l",
+          "texto": "operações que, por sua habitualidade, valor e forma, configurem artifício para burla da identificação da origem, do destino, dos responsáveis ou dos destinatários finais;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "m",
+          "caminho": "art. 1º, IV, m",
+          "texto": "existência de contas que apresentem créditos e débitos com a utilização de instrumentos de transferência de recursos não característicos para a ocupação ou o ramo de atividade desenvolvida pelo cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "n",
+          "caminho": "art. 1º, IV, n",
+          "texto": "recebimento de depósitos provenientes de diversas origens, sem fundamentação econômico-financeira, especialmente provenientes de regiões distantes do local de atuação da pessoa jurídica ou distantes do domicílio da pessoa natural;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "o",
+          "caminho": "art. 1º, IV, o",
+          "texto": "pagamentos habituais a fornecedores ou beneficiários que não apresentem ligação com a atividade ou ramo de negócio da pessoa jurídica;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "p",
+          "caminho": "art. 1º, IV, p",
+          "texto": "pagamentos ou transferências por pessoa jurídica para fornecedor distante de seu local de atuação, sem fundamentação econômico-financeira;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "q",
+          "caminho": "art. 1º, IV, q",
+          "texto": "depósitos de cheques endossados totalizando valores significativos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "r",
+          "caminho": "art. 1º, IV, r",
+          "texto": "existência de conta de depósitos à vista ou de conta de pagamento de organizações sem fins lucrativos cujos saldos ou movimentações financeiras não apresentem fundamentação econômica ou legal ou nas quais pareça não haver vinculação entre a atividade declarada da organização e as outras partes envolvidas nas transações;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "s",
+          "caminho": "art. 1º, IV, s",
+          "texto": "movimentação habitual de recursos financeiros de ou para qualquer tipo de PEP, conforme elencados no art. 27 da Circular nº 3.978, de 2020, bem como seu representante, familiar ou estreito colaborador, não justificada por eventos econômicos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "t",
+          "caminho": "art. 1º, IV, t",
+          "texto": "existência de contas em nome de menores ou incapazes, cujos representantes realizem grande número de operações e/ou operações de valores relevantes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "u",
+          "caminho": "art. 1º, IV, u",
+          "texto": "transações significativas e incomuns por meio de contas de depósitos ou de contas de pagamento de investidores não residentes constituídos sob a forma de trust;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "v",
+          "caminho": "art. 1º, IV, v",
+          "texto": "recebimentos de valores relevantes no mesmo terminal de pagamento ( Point of Sale - POS), que apresentem indícios de atipicidade ou de incompatibilidade com a capacidade financeira do estabelecimento comercial credenciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "w",
+          "caminho": "art. 1º, IV, w",
+          "texto": "recebimentos de valores relevantes no mesmo terminal de pagamento ( Point of sale - POS), que apresentem indícios de atipicidade ou de incompatibilidade com o perfil do estabelecimento comercial credenciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "x",
+          "caminho": "art. 1º, IV, x",
+          "texto": "desvios frequentes em padrões adotados por cada administradora de cartões de credenciamento ou de cartões de crédito, verificados no monitoramento das compras de seus titulares;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "y",
+          "caminho": "art. 1º, IV, y",
+          "texto": "transações em horário considerado incompatível com a atividade do estabelecimento comercial credenciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "z",
+          "caminho": "art. 1º, IV, z",
+          "texto": "transações em terminal (Point of sale - POS) realizadas em localização geográfica distante do local de atuação do estabelecimento comercial credenciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "aa",
+          "caminho": "art. 1º, IV, aa",
+          "texto": "operações atípicas em contas de clientes que exerçam atividade comercial relacionada com negociação de bens de luxo ou de alto valor, tais como obras de arte, imóveis, barcos, joias, automóveis ou aeronaves;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "ab",
+          "caminho": "art. 1º, IV, ab",
+          "texto": "utilização de instrumento financeiro de forma a ocultar patrimônio e/ou evitar a realização de bloqueios judiciais, inclusive cheque administrativo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "ac",
+          "caminho": "art. 1º, IV, ac",
+          "texto": "movimentação de valores incompatíveis com o faturamento mensal das pessoas jurídicas;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "ad",
+          "caminho": "art. 1º, IV, ad",
+          "texto": "recebimento de créditos com o imediato débito dos valores;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "ae",
+          "caminho": "art. 1º, IV, ae",
+          "texto": "movimentações de valores com empresas sem atividade regulamentada pelos órgãos competentes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "V",
+          "caminho": "art. 1º, V",
+          "texto": "situações relacionadas com operações de investimento no País:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, V, a",
+          "texto": "operações ou conjunto de operações de compra ou de venda de ativos financeiros a preços incompatíveis com os praticados no mercado ou quando realizadas por pessoa natural ou jurídica cuja atividade declarada e perfil não se coadunem ao tipo de negociação realizada;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, V, b",
+          "texto": "operações atípicas que resultem em elevados ganhos para os agentes intermediários, em desproporção com a natureza dos serviços efetivamente prestados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, V, c",
+          "texto": "investimentos significativos em produtos de baixa rentabilidade e liquidez;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, V, d",
+          "texto": "investimentos significativos não proporcionais à capacidade financeira do cliente, ou cuja origem não seja claramente conhecida;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, V, e",
+          "texto": "resgates de investimentos no curtíssimo prazo, independentemente do resultado auferido;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VI",
+          "caminho": "art. 1º, VI",
+          "texto": "situações relacionadas com operações de crédito no País:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, VI, a",
+          "texto": "operações de crédito no País liquidadas com recursos aparentemente incompatíveis com a situação financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, VI, b",
+          "texto": "solicitação de concessão de crédito no País incompatível com a atividade econômica ou com a capacidade financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, VI, c",
+          "texto": "operação de crédito no País seguida de remessa de recursos ao exterior, sem fundamento econômico ou legal, e sem relacionamento com a operação de crédito;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, VI, d",
+          "texto": "operações de crédito no País, simultâneas ou consecutivas, liquidadas antecipadamente ou em prazo muito curto;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, VI, e",
+          "texto": "liquidação de operações de crédito ou assunção de dívida no País por terceiros, sem justificativa aparente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, VI, f",
+          "texto": "concessão de garantias de operações de crédito no País por terceiros não relacionados ao tomador;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, VI, g",
+          "texto": "operação de crédito no País com oferecimento de garantia no exterior por cliente sem tradição de realização de operações no exterior;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, VI, h",
+          "texto": "aquisição de bens ou serviços incompatíveis com o objeto da pessoa jurídica, especialmente quando os recursos forem originados de crédito no País;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VII",
+          "caminho": "art. 1º, VII",
+          "texto": "situações relacionadas com a movimentação de recursos oriundos de contratos com o setor público:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, VII, a",
+          "texto": "movimentações atípicas de recursos por agentes públicos, conforme definidos no art. 2º da Lei nº 8.429, de 2 de junho de 1992;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, VII, b",
+          "texto": "movimentações atípicas de recursos por pessoa natural ou jurídica relacionadas a patrocínio, propaganda, marketing, consultorias, assessorias e capacitação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, VII, c",
+          "texto": "movimentações atípicas de recursos por organizações sem fins lucrativos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, VII, d",
+          "texto": "movimentações atípicas de recursos por pessoa natural ou jurídica relacionadas a licitações;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "VIII",
+          "caminho": "art. 1º, VIII",
+          "texto": "situações relacionadas a consórcios:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, VIII, a",
+          "texto": "existência de consorciados detentores de elevado número de cotas, incompatível com sua capacidade financeira ou com o objeto da pessoa jurídica;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, VIII, b",
+          "texto": "aumento expressivo do número de cotas pertencentes a um mesmo consorciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, VIII, c",
+          "texto": "oferecimento de lances incompatíveis com a capacidade financeira do consorciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, VIII, d",
+          "texto": "oferecimento de lances muito próximos ao valor do bem;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, VIII, e",
+          "texto": "pagamento antecipado de quantidade expressiva de prestações vincendas, não condizente com a capacidade financeira do consorciado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, VIII, f",
+          "texto": "aquisição de cotas previamente contempladas, seguida de quitação das prestações vincendas;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, VIII, g",
+          "texto": "utilização de documentos falsificados na adesão ou tentativa de adesão a grupo de consórcio;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, VIII, h",
+          "texto": "pagamentos realizados em localidades diferentes ao do endereço do cadastro;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, VIII, i",
+          "texto": "informe de conta de depósito à vista ou de poupança para pagamento de crédito em espécie, em agência/localidade diferente da inicialmente fornecida ou remessa de eventual Ordem de Pagamento (OP) para conta de depósito à vista ou de poupança divergente da inicialmente fornecida;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "IX",
+          "caminho": "art. 1º, IX",
+          "texto": "situações relacionadas a pessoas ou entidades suspeitas de envolvimento com financiamento ao terrorismo e a proliferação de armas de destruição em massa:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, IX, a",
+          "texto": "movimentações financeiras envolvendo pessoas ou entidades relacionadas a atividades terroristas listadas pelo Conselho de Segurança das Nações Unidas (CSNU);",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, IX, b",
+          "texto": "operações ou prestação de serviços, de qualquer valor, a pessoas ou entidades que reconhecidamente tenham cometido ou intentado cometer atos terroristas, ou deles participado ou facilitado o seu cometimento;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, IX, c",
+          "texto": "existência de recursos pertencentes ou controlados, direta ou indiretamente, por pessoas ou entidades que reconhecidamente tenham cometido ou intentado cometer atos terroristas, ou deles participado ou facilitado o seu cometimento;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, IX, d",
+          "texto": "movimentações com indícios de financiamento ao terrorismo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, IX, e",
+          "texto": "movimentações financeiras envolvendo pessoas ou entidades relacionadas à proliferação de armas de destruição em massa listadas pelo CSNU;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, IX, f",
+          "texto": "operações ou prestação de serviços, de qualquer valor, a pessoas ou entidades que reconhecidamente tenham cometido ou intentado cometer crimes de proliferação de armas de destruição em massa, ou deles participado ou facilitado o seu cometimento;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, IX, g",
+          "texto": "existência de recursos pertencentes ou controlados, direta ou indiretamente, por pessoas ou entidades que reconhecidamente tenham cometido ou intentado cometer crimes de proliferação de armas de destruição em massa, ou deles participado ou facilitado o seu cometimento;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, IX, h",
+          "texto": "movimentações com indícios de financiamento da proliferação de armas de destruição em massa;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "X",
+          "caminho": "art. 1º, X",
+          "texto": "situações relacionadas com atividades internacionais:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, X, a",
+          "texto": "operação com pessoas naturais ou jurídicas, inclusive sociedades e instituições financeiras, situadas em países que não apliquem ou apliquem insuficientemente as recomendações do Grupo de Ação contra a Lavagem de Dinheiro e o Financiamento do Terrorismo (Gafi), ou que tenham sede em países ou dependências com tributação favorecida ou regimes fiscais privilegiados, ou em locais onde seja observada a prática contumaz dos crimes previstos na Lei nº 9.613, de 3 de março de 1998, não claramente caracterizadas em sua legalidade e fundamentação econômica;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, X, b",
+          "texto": "operações complexas e com custos mais elevados que visem a dificultar o rastreamento dos recursos ou a identificação da natureza da operação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, X, c",
+          "texto": "pagamentos de importação e recebimentos de exportação, antecipados ou não, por empresa sem tradição ou cuja capacidade financeira seja incompatível com o montante negociado;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, X, d",
+          "texto": "pagamentos a terceiros não relacionados a operações de importação ou de exportação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, X, e",
+          "texto": "transferências unilaterais que, pela habitualidade, valor ou forma, não se justifiquem ou apresentem atipicidade;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, X, f",
+          "texto": "transferências internacionais, inclusive a título de disponibilidade no exterior, nas quais não se justifique a origem dos fundos envolvidos ou que se mostrem incompatíveis com a capacidade financeira ou com o perfil do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, X, g",
+          "texto": "exportações ou importações aparentemente fictícias ou com indícios de superfaturamento ou subfaturamento, ou ainda em situações que não seja possível obter informações sobre o desembaraço aduaneiro das mercadorias;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, X, h",
+          "texto": "existência de informações na carta de crédito com discrepâncias em relação a outros documentos da operação de comércio internacional;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, X, i",
+          "texto": "pagamentos ao exterior após créditos em reais efetuados nas contas de depósitos dos titulares das operações de câmbio por pessoas naturais ou jurídicas que não demonstrem a existência de vínculo comercial ou econômico;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "j",
+          "caminho": "art. 1º, X, j",
+          "texto": "movimentações decorrentes de programa de repatriação de recursos que apresentem inconsistências relacionadas à identificação do titular ou do beneficiário final, bem como ausência de informações confiáveis sobre a origem e a fundamentação econômica ou legal;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "k",
+          "caminho": "art. 1º, X, k",
+          "texto": "pagamentos de frete ou de outros serviços que apresentem indícios de atipicidade ou de incompatibilidade com a atividade ou capacidade econômico-financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "l",
+          "caminho": "art. 1º, X, l",
+          "texto": "transferências internacionais por uma ou mais pessoas naturais ou jurídicas com indícios de fragmentação, como forma de ocultar a real origem ou destino dos recursos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "m",
+          "caminho": "art. 1º, X, m",
+          "texto": "transações em uma mesma data, ou em curto período, de valores idênticos ou aproximados, ou com outros elementos em comum, tais como origem ou destino dos recursos, titulares, procuradores, endereço, número de telefone, que configurem artifício de burla do limite máximo de operação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "n",
+          "caminho": "art. 1º, X, n",
+          "texto": "transferência via facilitadora de pagamentos ou com a utilização do cartão de crédito de uso internacional, que, pela habitualidade, valor ou forma, não se justifiquem ou apresentem atipicidade;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "o",
+          "caminho": "art. 1º, X, o",
+          "texto": "transferências relacionadas a investimentos não convencionais que, pela habitualidade, valor ou forma, não se justifiquem ou apresentem atipicidade;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "p",
+          "caminho": "art. 1º, X, p",
+          "texto": "pagamento de frete internacional sem amparo em documentação que evidencie vínculo com operação comercial;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XI",
+          "caminho": "art. 1º, XI",
+          "texto": "situações relacionadas com operações de crédito contratadas no exterior:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XI, a",
+          "texto": "contratação de operações de crédito no exterior com cláusulas que estabeleçam condições incompatíveis com as praticadas no mercado, como juros destoantes da prática ou prazo muito longo;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XI, b",
+          "texto": "contratação, no exterior, de várias operações de crédito consecutivas, sem que a instituição tome conhecimento da quitação das anteriores;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XI, c",
+          "texto": "contratação, no exterior, de operações de crédito que não sejam quitadas por intermédio de operações na mesma instituição;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XI, d",
+          "texto": "contratação, no exterior, de operações de crédito, quitadas sem explicação aparente para a origem dos recursos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, XI, e",
+          "texto": "contratação de empréstimos ou financiamentos no exterior, oferecendo garantias em valores ou formas incompatíveis com a atividade ou capacidade financeira do cliente ou em valores muito superiores ao valor das operações contratadas ou cuja origem não seja claramente conhecida;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, XI, f",
+          "texto": "contratação de operações de crédito no exterior, cujo credor seja de difícil identificação e sem que exista relação ou fundamentação para a operação entre as partes;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XII",
+          "caminho": "art. 1º, XII",
+          "texto": "situações relacionadas com operações de investimento externo:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XII, a",
+          "texto": "recebimento de investimento externo direto, cujos recursos retornem imediatamente a título de disponibilidade no exterior;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XII, b",
+          "texto": "recebimento de investimento externo direto, com realização quase imediata de remessas de recursos para o exterior a título de lucros e dividendos;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XII, c",
+          "texto": "remessas de lucros e dividendos ao exterior em valores incompatíveis com o valor investido;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XII, d",
+          "texto": "remessas ao exterior a título de investimento em montantes incompatíveis com a capacidade financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, XII, e",
+          "texto": "remessas de recursos de um mesmo investidor situado no exterior para várias empresas no País;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, XII, f",
+          "texto": "remessas de recursos de vários investidores situados no exterior para uma mesma empresa no País;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, XII, g",
+          "texto": "recebimento de aporte de capital desproporcional ao porte ou à natureza empresarial do cliente, ou em valores incompatíveis com a capacidade financeira dos sócios;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, XII, h",
+          "texto": "retorno de investimento feito no exterior sem comprovação da re messa que lhe tenha dado origem;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIII",
+          "caminho": "art. 1º, XIII",
+          "texto": "situações relacionadas com funcionários, parceiros e prestadores de serviços terceirizados:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XIII, a",
+          "texto": "alteração inusitada nos padrões de vida e de comportamento do empregado, do parceiro ou de prestador de serviços terceirizados, sem causa aparente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XIII, b",
+          "texto": "modificação inusitada do resultado operacional da pessoa jurídica do parceiro, incluído correspondente no País, sem causa aparente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XIII, c",
+          "texto": "qualquer negócio realizado de modo diverso ao procedimento formal da instituição por funcionário, parceiro, incluído correspondente no País, ou prestador de serviços terceirizados;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XIII, d",
+          "texto": "fornecimento de auxílio ou informações, remunerados ou não, a cliente em prejuízo do programa de prevenção à lavagem de dinheiro e ao financiamento do terrorismo da instituição, ou de auxílio para estruturar ou fracionar operações, burlar limites regulamentares ou operacionais;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIV",
+          "caminho": "art. 1º, XIV",
+          "texto": "situações relacionadas a campanhas eleitorais:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XIV, a",
+          "texto": "recebimento de doações, em contas (eleitorais ou não) de candidatos, contas de estreito colaborador dessas pessoas ou em contas de partidos políticos, de valores que desrespeitem as vedações ou extrapolem os limites definidos na legislação em vigor;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XIV, b",
+          "texto": "uso incompatível com as exigências regulatórias do fundo de caixa do partido eleitoral;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XIV, c",
+          "texto": "recebimento de doações, em contas de candidatos, de valores que desrespeitem as vedações ou extrapolem os limites definidos na legislação em vigor, inclusive mediante uso de terceiros e/ou de contas de terceiros;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XIV, d",
+          "texto": "transferências, a partir das contas de candidatos, para pessoas naturais ou jurídicas cuja atividade não guarde aparente relação com contas de campanha;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XV",
+          "caminho": "art. 1º, XV",
+          "texto": "situações relacionadas a BNDU e outros ativos não financeiros:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XV, a",
+          "texto": "negociação de BNDU ou outro ativo não financeiro para pessoas naturais ou jurídicas sem capacidade financeira;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XV, b",
+          "texto": "negociação de BNDU ou outro ativo não financeiro mediante pagamento em espécie;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XV, c",
+          "texto": "negociação de BNDU ou outro ativo não financeiro por preço significativamente superior ao de avaliação;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XV, d",
+          "texto": "negociação de outro ativo não financeiro em benefício de terceiros;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVI",
+          "caminho": "art. 1º, XVI",
+          "texto": "situações relacionadas com a movimentação de contas correntes em moeda estrangeira (CCME):",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XVI, a",
+          "texto": "movimentação de recursos incompatível com a atividade econômica e a capacidade financeira do cliente;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XVI, b",
+          "texto": "recebimentos ou pagamentos de/para terceiros cujas movimentações financeiras não apresentem fundamentação econômica ou legal ou nas quais pareça não haver vinculação entre a atividade declarada do titular da CCME e as outras partes envolvidas nas transações;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XVI, c",
+          "texto": "movimentação de recursos, em especial nas contas tituladas por agentes autorizados a operar no mercado de câmbio, que denotem inobservância a limites por operação cambial ou qualquer outra situação em que não se justifiquem ou apresentem atipicidade, p ela habitualidade, valor, forma ou ausência de aderência às normas cambiais;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XVI, d",
+          "texto": "transações atípicas em CCME de movimentação restrita. Exemplos: contas de agências de turismo e contas de administradoras de cartão de crédito;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVII",
+          "caminho": "art. 1º, XVII",
+          "texto": "situações relacionadas com operações realizadas em municípios localizados em regiões de risco:",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XVII, a",
+          "texto": "operação atípica em municípios localizados em regiões de fronteira;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XVII, b",
+          "texto": "operação atípica em municípios localizados em regiões de extração mineral;",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XVII, c",
+          "texto": "operação atípica em municípios localizados em outras regiões de risco.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XVIII",
+          "caminho": "art. 1º, XVIII",
+          "texto": "situações relacionadas com a primeira aquisição de ouro:",
+          "notas": [
+            "(Incluído pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XVIII, a",
+          "texto": "proposta de venda de ouro com pagamento em espécie;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XVIII, b",
+          "texto": "proposta de venda de ouro com pagamento a terceiro;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XVIII, c",
+          "texto": "proposta de venda de ouro sem a indicação do título minerário de origem ou com a indicação de título minerário inativo;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XVIII, d",
+          "texto": "proposta de venda de ouro oriundo de áreas com títulos minerários para extração por meio de Permissão de Lavra Garimpeira (PLG), com indicação de origem sem indícios de extração mineral, ou lavra incompatível com capacidade produtiva declarada;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "e",
+          "caminho": "art. 1º, XVIII, e",
+          "texto": "venda ou proposta de venda de ouro oriundo de áreas caracterizadas por elevados índices de desmatamento ilegal;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "f",
+          "caminho": "art. 1º, XVIII, f",
+          "texto": "proposta de venda de ouro com resistência no fornecimento de informações acerca da origem do produto;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "g",
+          "caminho": "art. 1º, XVIII, g",
+          "texto": "proposta de venda de ouro sem que o vendedor esteja identificado no documento autorizativo para transporte de ouro emitido pelo titular do direito minerário produtor da substância, nos termos do § 1º do art. 38 da Lei nº 12.844, de 19 de julho de 2013;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "h",
+          "caminho": "art. 1º, XVIII, h",
+          "texto": "venda ou proposta de venda de ouro contendo indícios de falsidade documental;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "i",
+          "caminho": "art. 1º, XVIII, i",
+          "texto": "proposta de venda de ouro com informações incompatíveis com os dados do título minerário registrados no Cadastro Mineiro da Agência Nacional de Mineração (ANM);",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "j",
+          "caminho": "art. 1º, XVIII, j",
+          "texto": "proposta de venda de ouro em região aurífera diferente da autorizada para o título minerário produtor da substância, conforme dados do Cadastro Mineiro da ANM;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "inciso",
+          "rotulo": "XIX",
+          "caminho": "art. 1º, XIX",
+          "texto": "situações relacionadas com o mercado de ouro em geral:",
+          "notas": [
+            "(Incluído pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "a",
+          "caminho": "art. 1º, XIX, a",
+          "texto": "venda ou compra de ouro com recursos em espécie, que apresentem atipicidade em relação à atividade econômica do cliente ou incompatibilidade com a sua capacidade financeira;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "b",
+          "caminho": "art. 1º, XIX, b",
+          "texto": "venda ou compra de ouro incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "c",
+          "caminho": "art. 1º, XIX, c",
+          "texto": "fracionamento de operações de venda de ouro visando burlar limites regulamentares ou operacionais;",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "alinea",
+          "rotulo": "d",
+          "caminho": "art. 1º, XIX, d",
+          "texto": "venda ou proposta de venda de ouro contendo informação sobre a qualidade, a constituição, a pureza ou sobre qualquer outra característica da substância comercializada divergente da descrição contida na nota fiscal da operação.",
+          "notas": [
+            "(Incluída pela Instrução Normativa BCB nº 461, de 2/4/2024.)"
+          ],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 1º",
+          "caminho": "art. 1º, § 1º",
+          "texto": "As operações ou as situações referidas no caput devem ser comunicadas, nos termos da referida Circular, somente nos casos em que os indícios forem confirmados ao término da execução dos procedimentos de análise de operações e situações suspeitas.",
+          "notas": [],
+          "revogado": false
+        },
+        {
+          "tipo": "paragrafo",
+          "rotulo": "§ 2º",
+          "caminho": "art. 1º, § 2º",
+          "texto": "Os procedimentos referidos no § 1º devem considerar todas as informações disponíveis, inclusive aquelas obtidas por meio dos procedimentos destinados a conhecer clientes, funcionários, parceiros e prestadores de serviços terceirizados.",
+          "notas": [],
+          "revogado": false
+        }
+      ]
+    },
+    {
+      "numero": "2º",
+      "rotulo": "art. 2º",
+      "agrupamento": null,
+      "dispositivos": [
+        {
+          "tipo": "caput",
+          "rotulo": "caput",
+          "caminho": "art. 2º, caput",
+          "texto": "Esta Carta Circular entra em vigor em 1º de outubro de 2020, quando fica revogada a Carta Circular nº 3.542, de 12 de março de 2012.",
+          "notas": [
+            "(Redação dada, a partir de 1º/6/2020, pela Carta Circular nº 4.037, de 27/4/2020.)"
+          ],
+          "revogado": false
+        }
+      ]
+    }
+  ]
+}
