@@ -22,10 +22,11 @@ O corpus da v1 tem estas normas, registradas em `corpus/fontes.json`:
 - Usa-se sempre o texto compilado, com as alterações incorporadas. O texto riscado (revogado) é descartado na ingestão.
 - A data de referência de cada norma é o dia da captura. O hash SHA-256 do HTML bruto fica registrado para auditar a versão.
 - O texto normalizado (`corpus/normalized/`) é versionado no Git. O HTML bruto não.
+- No BCB, o texto compilado vem do PDF "limpo" (`_v<N>_L.pdf`) da versão mais recente. O texto em HTML da API do BCB é o original, sem as alterações, e não serve para normas alteradas.
 
 ## Pendências
-- Nenhuma URL foi conferida ainda (`urlVerificada: false`). Títulos e datas das normas do BCB também precisam de conferência.
-- Falta o parser das páginas do BCB. Também falta confirmar se o BCB publica o texto da Circular 3.978 com as alterações incorporadas; se não publicar, a consolidação é manual e precisa de revisão.
+- URLs do Planalto conferidas em 2026-10-07. As do BCB não: número, título e data batem com a API do BCB, mas a fonte da ingestão será o PDF.
+- Falta o parser do BCB (PDF). O BCB publica a Circular 3.978 e a Carta Circular 4.001 compiladas, então não é preciso consolidar à mão.
 
 ## Fora da v1, a avaliar
 - Lei 13.260/2016 (terrorismo e seu financiamento). Sem ela, perguntas sobre o tipo penal de financiamento do terrorismo devem ser recusadas.
