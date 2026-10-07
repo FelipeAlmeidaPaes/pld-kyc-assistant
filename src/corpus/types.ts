@@ -32,7 +32,7 @@ export interface Artigo {
   numero: string;
   /** "art. 1º". */
   rotulo: string;
-  /** Capítulo ou seção em que o artigo está, quando houver. */
+  /** Agrupamentos em que o artigo está, do mais amplo ao mais específico, ex.: "CAPÍTULO II - ... > Seção I - ...". */
   agrupamento: string | null;
   dispositivos: Dispositivo[];
 }
