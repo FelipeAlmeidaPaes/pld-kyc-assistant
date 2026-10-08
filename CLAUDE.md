@@ -22,6 +22,8 @@ npm run typecheck        # tsc --noEmit
 npm run ingest -- <id>   # baixa e normaliza uma fonte de corpus/fontes.json
 npm run ingest -- <id> --arquivo pagina.html   # usa documento salvo (HTML do Planalto ou PDF compilado do BCB)
 docker compose up -d     # Qdrant em localhost:6333
+npm run indexar          # cria as coleções das três variantes no Qdrant (~70 s; baixa o e5 na primeira vez)
+npm run servidor         # POST /<variante>/buscar e /<variante>/perguntar em localhost:3000
 ```
 
 Na sessão na nuvem, o Docker não sobe sozinho e o Docker Hub costuma responder 429 (limite de pulls anônimos):
@@ -42,17 +44,25 @@ docker compose up -d
 - `src/ingest/bcb.ts`: API do BCB, escolha do PDF compilado, corte da assinatura, `paragrafosSoltos`
 - `src/ingest/encoding.ts`: detecção de charset (Planalto costuma usar windows-1252)
 - `src/ingest/cli.ts`: CLI de ingestão
+- `src/rag/`: base comum das três variantes (ADR 0007): `trechos.ts` (um trecho por dispositivo, com contexto; texto corrido para o divisor padrão), `embeddings.ts` (e5 com prefixos), `prompt.ts`, `citacoes.ts` e `resposta.ts` (validação de citação e regras de recusa), `config.ts`, `tipos.ts`
+- `src/rag/manual/`: índice e busca com o cliente do Qdrant, cliente de chat sobre `fetch`, pipeline
+- `src/rag/langchain/`: `EmbeddingsE5`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
+- `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts`, `cli-servidor.ts`
+- `test/fixtures/llm-falso.ts`: servidor compatível com a API da OpenAI que grava as requisições; testa os dois clientes de chat sem chave
+- `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0006)
+- `docs/adr/`: decisões de arquitetura (0001 a 0007)
 
 ## Decisões (detalhes em docs/adr)
-- **Stack:** TypeScript, Node 22, ESM, `strict`. Sem framework de RAG na v1 (ADR 0001). O autor ainda não confirmou explicitamente este ponto.
+- **Stack:** TypeScript, Node 22, ESM, `strict` (ADR 0001).
 - **LLM:** Gemini nível gratuito como principal, OpenRouter como fallback, os dois pela API compatível com OpenAI (ADR 0002). Avaliação roda sem fallback. Toda resposta registra provedor e modelo.
+- **Custo zero (exigência do autor, ADR 0002):** `GEMINI_MODEL=gemini-3.5-flash-lite`; no OpenRouter só modelo `:free` (a configuração recusa outro, salvo `OPENROUTER_PERMITIR_PAGO=sim`; a conta tem crédito comprado). Nada de apelido `-latest`. Nunca trocar para modelo pago sem o autor pedir.
 - **Embeddings:** locais primeiro (família e5 via transformers.js), comparados com API pela avaliação; troca só com ganho de pelo menos 5 p.p. em recall@5 (ADR 0003).
 - **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
 - **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
+- **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings e5, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -73,35 +83,27 @@ docker compose up -d
 - Imports com extensão `.js` (ESM com `nodenext`).
 - Antes de commitar: `npm run typecheck` e `npm test`.
 
-## Estado atual (2026-10-07, fim da segunda sessão)
-- **Branch:** o trabalho das duas primeiras sessões (branches `ccr-a02eebd2-6nvng1` e `claude/test-domain-connection-7yur2q`) foi mesclado na `main` por PR em 2026-10-07. A próxima sessão parte da `main`.
-- **Rede (testada com `curl`):** respondem `www.planalto.gov.br` (só com User-Agent `Mozilla/5.0...`), `www.bcb.gov.br`, `normativos.bcb.gov.br`, `huggingface.co` (inclusive os pesos via `us.aws.cdn.hf.co`), `openrouter.ai`, `generativelanguage.googleapis.com`, `registry.npmjs.org`, `mirror.gcr.io`. `cdn-lfs.huggingface.co` é negado pela política, mas o download de modelo não passa por ele hoje. Docker Hub responde 429. Não há `GEMINI_API_KEY` nem `OPENROUTER_API_KEY` no ambiente.
+## Estado atual (2026-10-08, terceira sessão)
+- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #1; o trabalho desta sessão foi mesclado na `main` pelo PR #2. A próxima sessão parte da `main`.
+- **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
+- **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
-  - As seis normas do corpus ingeridas e com `urlVerificada: true` (título do documento baixado bate com o manifesto). Capturas determinísticas: o hash não muda entre downloads.
-
-    | Norma | Fonte do texto | Artigos | Dispositivos |
-    |---|---|---|---|
-    | Lei 9.613/1998 | HTML do Planalto | 29 | 158 |
-    | Lei 7.492/1986 | HTML do Planalto | 35 | 62 |
-    | Lei 13.810/2019 | HTML do Planalto | 36 | 92 |
-    | Circular BCB 3.978/2020 | PDF compilado v6 (inclui Res. BCB 591, de 30/9/2026) | 71 | 379 |
-    | Carta Circular BCB 4.001/2020 | PDF compilado v4 | 2 | 189 |
-    | Resolução Conjunta CMN/BCB 6/2023 | HTML da API (nunca alterada) | 13 | 78 |
-  - Parser do Planalto corrigido contra a página real (charset, "Art. 10A.", quebras de linha, parágrafo na mesma linha, revogados, pena, "Vigência", hierarquia de agrupamento).
-  - Parser do BCB: API, escolha do PDF `L`, remontagem de parágrafos, corte da assinatura, itens e alíneas de duas letras. Avisos no CLI para parágrafo sem rótulo e para descarte excessivo de linhas.
-  - 41 testes, todos com texto fictício. Os testes novos falham quando a correção correspondente é desfeita.
-  - Qdrant v1.19.2 subiu pelo `docker-compose.yml` (com a imagem vinda do mirror).
-- **Como foi validado:**
-  - PDFs do BCB: cada dispositivo foi procurado literalmente no texto do `pdftotext`, outro extrator: 379/379 (3.978) e 187/189 (4.001; as 2 diferenças são espaço antes de ";").
-  - As seis normas: nenhum caminho de citação duplicado; nenhuma lacuna na numeração de artigos.
+  - Corpus da v1 (seis normas) e ingestão.
+  - As três variantes do RAG, com `/buscar` e `/perguntar`, testadas de ponta a ponta com o Gemini real (`gemini-3.5-flash-lite`) e com o reserva do OpenRouter (`nvidia/nemotron-3-super-120b-a12b:free`). Uso do OpenRouter: US$ 0.
+  - Custo zero conferido: projeto do Gemini no nível gratuito, sem faturamento (AI Studio, 2026-10-08); chave do OpenRouter com limite total de US$ 0, e os modelos `:free` funcionam com ela. Trava também na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
+  - 84 testes.
+- **Achados:**
+  - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
+  - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
 - **Não validado:**
-  - Leis do Planalto e Res. Conjunta 6: conferidas por heurística (dispositivo colado, título vazando, assinatura, texto vazio, numeração), não contra um segundo extrator nem dispositivo por dispositivo.
-  - Lei 13.810 não tem nenhuma nota de alteração na página do Planalto. Pode nunca ter sido alterada; não foi conferido em outra fonte.
+  - Uma indexação falhou com "fetch failed" no meio e não se repetiu em quatro rodadas. Causa desconhecida; rodar de novo resolve.
+  - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Divisão em trechos, embeddings locais e indexação no Qdrant, aplicando a regra do índice (ADR 0005).
-2. Rascunhar as primeiras perguntas de avaliação para o autor revisar.
+1. Rascunhar ~30 perguntas de avaliação, com os dispositivos esperados, para o autor validar dispositivo por dispositivo. Incluir perguntas fora do corpus e a do prazo de guarda de registros.
+2. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada e ritmo controlado (cota gratuita), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência.
+3. Com a avaliação de base, comparar as correções da busca (limite por artigo, MMR, híbrida, k).
 
 ## Pendências com o autor
-- Confirmar a v1 sem framework de RAG (ADR 0001). Em 2026-10-07 o autor leu como "v1 sem RAG"; foi explicado que o RAG fica, só que escrito à mão. Aguarda resposta.
+- Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
