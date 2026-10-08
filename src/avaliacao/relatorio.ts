@@ -1,6 +1,7 @@
 import { VARIANTES } from "../rag/tipos.js";
-import type { RegistroDaAvaliacao } from "./executor.js";
-import { calcularMetricas, categoriaDaRecusa, type MetricasDaVariante, primeiraPosicao } from "./metricas.js";
+import { chaveDoPar, type RegistroDaAvaliacao } from "./executor.js";
+import { amostraParaAuditoria, type Julgamento, julgamentosValidos, mensagemDoJulgamento } from "./juiz.js";
+import { calcularAcerto, calcularMetricas, categoriaDaRecusa, type MetricasDaVariante, primeiraPosicao } from "./metricas.js";
 import type { PerguntaDeAvaliacao } from "./perguntas.js";
 
 const pct = (valor: number | null) => (valor === null ? "–" : `${Math.round(valor * 100)}%`);
@@ -10,9 +11,18 @@ const seg = (ms: number | null) => (ms === null ? "–" : `${(ms / 1000).toFixed
 const linha = (celulas: (string | number)[]) => `| ${celulas.join(" | ")} |`;
 const cabecalho = (titulos: string[]) => [linha(titulos), linha(titulos.map(() => "---"))];
 
-/** Relatório em Markdown de uma execução: métricas por variante e o resultado de cada pergunta. */
-export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: PerguntaDeAvaliacao[]): string {
+/**
+ * Relatório em Markdown de uma execução: métricas por variante e o resultado de cada pergunta.
+ * Com julgamentos (`npm run julgar`), também o acerto do conteúdo das respostas.
+ */
+export function montarRelatorio(
+  registros: RegistroDaAvaliacao[],
+  perguntas: PerguntaDeAvaliacao[],
+  todosOsJulgamentos: Julgamento[] = [],
+): string {
   const porId = new Map(perguntas.map((p) => [p.id, p]));
+  const julgamentos = julgamentosValidos(registros, todosOsJulgamentos);
+  const juiz = [...julgamentos.values()][0]?.juiz;
   const variantes = VARIANTES.filter((v) => registros.some((r) => r.variante === v));
   const config = registros[0]?.configuracao;
   const k = config?.k ?? 5;
@@ -29,7 +39,9 @@ export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: Per
     `- k = ${k} trechos ao modelo; busca registrada até a posição ${config?.profundidade ?? "–"}; limiar: ${config?.limiar ?? "desligado"}`,
     `- Embeddings: ${config?.modeloDeEmbeddings ?? "–"}; LLM: ${config?.modeloDeLlm ?? "nenhum (só busca)"}, sem fallback`,
     ...(config?.busca ? [`- Busca do experimento: ${config.busca}`] : []),
-    "- Não medido aqui: se o conteúdo da resposta está certo e se ela afirma algo de `naoDeve`. Isso exige juiz (pessoa ou LLM).",
+    juiz
+      ? `- Conteúdo das respostas julgado por ${juiz.provedor}/${juiz.modelo} (\`npm run julgar\`), comparando com o gabarito`
+      : "- Conteúdo das respostas ainda não julgado (`npm run julgar`).",
     "",
     `## Busca (perguntas cobertas)`,
     "",
@@ -89,6 +101,29 @@ export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: Per
     }
   }
 
+  if (julgamentos.size > 0) {
+    const acertos = variantes.map((v) => ({ variante: v, ...calcularAcerto(v, registros, porId, julgamentos) }));
+    linhas.push(
+      "",
+      `## Conteúdo (juiz: ${juiz!.modelo})`,
+      "",
+      "Acerto fim a fim: nas perguntas cobertas, resposta julgada correta ou recusa onde recusar é aceito.",
+      "",
+      ...cabecalho(["variante", "julgadas", "corretas", "parciais", "incorretas", "acerto fim a fim", "afirmou o que não devia"]),
+      ...acertos.map((a) =>
+        linha([
+          a.variante,
+          a.julgadas < a.aJulgar ? `${a.julgadas} de ${a.aJulgar}` : a.julgadas,
+          a.corretas,
+          a.parciais,
+          a.incorretas,
+          fracao(a.acertoFimAFim),
+          a.afirmaramNaoDeve,
+        ]),
+      ),
+    );
+  }
+
   const doPar = new Map(registros.map((r) => [`${r.perguntaId}|${r.variante}`, r]));
   linhas.push(
     "",
@@ -99,7 +134,7 @@ export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: Per
     ...cabecalho(["id", "tipo", ...variantes]),
   );
   for (const p of perguntas) {
-    const celulas = variantes.map((v) => celula(doPar.get(`${p.id}|${v}`), p));
+    const celulas = variantes.map((v) => celula(doPar.get(`${p.id}|${v}`), p, julgamentos.get(chaveDoPar(p.id, v))));
     if (celulas.every((c) => c === "")) continue;
     linhas.push(linha([p.id, p.tipo === "coberta" ? "coberta" : "fora", ...celulas]));
   }
@@ -112,6 +147,8 @@ export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: Per
       linhas.push("", `### ${p.id}: ${p.pergunta}`, "", `**Gabarito:** ${p.gabarito}`);
       for (const [variante, r] of doPergunta) {
         linhas.push("", `**${variante}:** ${textoDaResposta(r!)}`);
+        const julgamento = julgamentos.get(chaveDoPar(p.id, variante));
+        if (julgamento) linhas.push("", `> juiz: **${julgamento.veredito}**. ${julgamento.justificativa}${naoDeve(julgamento)}`);
       }
     }
   }
@@ -123,7 +160,9 @@ function custo(m: MetricasDaVariante): string {
   return "sem preço configurado";
 }
 
-function celula(registro: RegistroDaAvaliacao | undefined, pergunta: PerguntaDeAvaliacao): string {
+const naoDeve = (j: Julgamento) => (j.naoDeveAfirmados.length > 0 ? ` Afirmou o que não devia: ${j.naoDeveAfirmados.join("; ")}.` : "");
+
+function celula(registro: RegistroDaAvaliacao | undefined, pergunta: PerguntaDeAvaliacao, julgamento?: Julgamento): string {
   if (!registro) return "";
   // Fora do corpus não há dispositivo exigido: só o desfecho.
   const posicao = pergunta.tipo === "coberta" ? `${primeiraPosicao(registro, pergunta) ?? "–"} · ` : "";
@@ -135,7 +174,8 @@ function celula(registro: RegistroDaAvaliacao | undefined, pergunta: PerguntaDeA
   }
   const validas = new Set([...pergunta.dispositivos, ...pergunta.aceitos]);
   const citadas = resposta.citacoes.map((c) => `${c.sigla}, ${c.caminho}`);
-  return `${posicao}respondeu ${citadas.filter((c) => validas.has(c)).length}/${citadas.length}`;
+  const veredito = julgamento ? `, ${julgamento.veredito}${julgamento.naoDeveAfirmados.length > 0 ? ", afirmou o que não devia" : ""}` : "";
+  return `${posicao}respondeu ${citadas.filter((c) => validas.has(c)).length}/${citadas.length}${veredito}`;
 }
 
 function textoDaResposta(registro: RegistroDaAvaliacao): string {
@@ -145,3 +185,39 @@ function textoDaResposta(registro: RegistroDaAvaliacao): string {
   return `${r.resposta} — citações: ${r.citacoes.map((c) => `${c.sigla}, ${c.caminho}`).join("; ")}`;
 }
 
+/**
+ * Amostra para o autor auditar o juiz: cada item com a pergunta, o gabarito, a resposta e o
+ * veredito. O autor responde no chat se concorda; a concordância mede quanto confiar no juiz.
+ */
+export function montarAuditoria(
+  registros: RegistroDaAvaliacao[],
+  perguntas: PerguntaDeAvaliacao[],
+  todosOsJulgamentos: Julgamento[],
+  tamanho: number,
+): string {
+  const porId = new Map(perguntas.map((p) => [p.id, p]));
+  const doPar = new Map(registros.map((r) => [chaveDoPar(r.perguntaId, r.variante), r]));
+  const julgamentos = [...julgamentosValidos(registros, todosOsJulgamentos).values()];
+  const execucao = registros[0]?.execucao ?? "";
+  const amostra = amostraParaAuditoria(julgamentos, tamanho, execucao);
+  const linhas = [
+    `# Auditoria do juiz: ${execucao}`,
+    "",
+    "Gerado por `npm run julgar`. Para cada item, diga no chat se concorda com o veredito (ex.: \"A3 discordo, é parcial\").",
+    `Amostra de ${amostra.length} dos ${julgamentos.length} julgamentos: metade não "correta", metade "correta", sorteio fixo.`,
+  ];
+  amostra.forEach((j, i) => {
+    const pergunta = porId.get(j.perguntaId)!;
+    const resposta = doPar.get(chaveDoPar(j.perguntaId, j.variante))!.resposta!;
+    linhas.push(
+      "",
+      `## A${i + 1} · ${j.perguntaId} · ${j.variante} · juiz: ${j.veredito}`,
+      "",
+      ...mensagemDoJulgamento(pergunta, resposta)
+        .split("\n\n")
+        .flatMap((parte) => [parte.replace(/^([^:]+):/, "**$1:**"), ""]),
+      `**Justificativa do juiz:** ${j.justificativa}${naoDeve(j)}`,
+    );
+  });
+  return `${linhas.join("\n")}\n`;
+}

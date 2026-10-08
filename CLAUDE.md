@@ -27,6 +27,7 @@ npm run servidor         # POST /<variante>/buscar e /<variante>/perguntar em lo
 npm run avaliacao:revisao   # confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
 npm run avaliar -- <rótulo>            # roda a avaliação nas três variantes (Gemini, sem fallback); mesmo rótulo retoma
 npm run avaliar -- <rótulo> --sem-llm  # só a busca; também --variantes, --perguntas, --so-relatorio
+npm run julgar -- <rótulo>             # juiz (OpenRouter :free) julga o conteúdo das respostas; gera <rótulo>.auditoria.md
 npm run avaliacao:experimentos -- --modelo <id> [--experimentos densa,bm25-radical5,hibrida,...]   # busca em memória, sem Qdrant
 ```
 
@@ -53,14 +54,14 @@ docker compose up -d
 - `src/rag/langchain/`: `EmbeddingsDoGerador`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
 - `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts` (repete até 3 vezes a variante que falhar), `cli-servidor.ts`
 - `avaliacao/perguntas.json`: conjunto de avaliação (fonte da verdade). `avaliacao/revisao.md`: gerado dele, com o texto de cada dispositivo esperado, para o autor validar pelo celular; um teste falha se estiver desatualizado
-- `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`; executor com ritmo e retomada (`executor.ts`), dispositivos de cada trecho recuperado, inclusive do divisor padrão, localizado no texto corrido (`cobertura.ts`), `metricas.ts`, `relatorio.ts`, `cli-avaliar.ts`
-- `avaliacao/execucoes/<rótulo>.jsonl` e `.md`: registros de cada execução (só recebem linhas novas; vale a mais recente de cada pergunta e variante) e o relatório
+- `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`; executor com ritmo e retomada (`executor.ts`), dispositivos de cada trecho recuperado, inclusive do divisor padrão, localizado no texto corrido (`cobertura.ts`), `metricas.ts`, `relatorio.ts` (também a auditoria do juiz), `cli-avaliar.ts`; juiz do conteúdo (`juiz.ts`, `cli-julgar.ts`)
+- `avaliacao/execucoes/<rótulo>.jsonl` e `.md`: registros de cada execução (só recebem linhas novas; vale a mais recente de cada pergunta e variante) e o relatório; `<rótulo>.julgamentos.jsonl` e `<rótulo>.auditoria.md`: julgamentos do juiz e a amostra para o autor auditar
 - `avaliacao/experimentos/exp-<modelo>-<busca>.jsonl` e `.md`: experimentos de busca (`cli-experimentos-busca.ts`), no mesmo formato
 - `test/fixtures/llm-falso.ts`: servidor compatível com a API da OpenAI que grava as requisições; testa os dois clientes de chat sem chave
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0009)
+- `docs/adr/`: decisões de arquitetura (0001 a 0010)
 - `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
 ## Decisões (detalhes em docs/adr)
@@ -72,7 +73,8 @@ docker compose up -d
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
 - **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
 - **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings e5, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
-- **Avaliação (ADR 0008):** só perguntas validadas; só o provedor principal, sem fallback; 5 s entre chamadas; busca registrada até a posição 20; recall@5, acerto@5, MRR@20, falsa recusa, recusa correta, citações pertinentes e cobertura, tokens, custo e latência. Acerto do conteúdo e `naoDeve` ainda não são medidos (pedem juiz).
+- **Avaliação (ADR 0008):** só perguntas validadas; só o provedor principal, sem fallback; 5 s entre chamadas; busca registrada até a posição 20; recall@5, acerto@5, MRR@20, falsa recusa, recusa correta, citações pertinentes e cobertura, tokens, custo e latência. Acerto do conteúdo e `naoDeve` pelo juiz (ADR 0010).
+- **Juiz (ADR 0010):** modelo `:free` do OpenRouter (`OPENROUTER_MODEL`), outra família que não a do Gemini; compara com o gabarito e dá correta, parcial ou incorreta, mais os itens de `naoDeve` afirmados. Só julga resposta a pergunta coberta. Amostra de 20 auditada pelo autor no chat; registrar a concordância.
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -111,7 +113,8 @@ docker compose up -d
   - Experimentos de busca (ADR 0009): e5 small, base e large, texto completo ou enxuto, BM25, híbrida, e os dois embeddings do Gemini. `gemini-embedding-2` adotado; `.env` local já aponta para ele.
   - Qdrant: `manual__gemini-embedding-2` e `langchain__gemini-embedding-2` indexadas a partir do cache, sem gastar cota. **Falta `langchain-padrao__gemini-embedding-2`** (196 textos): até lá, o servidor e o `avaliar` falham com o `.env` atual (`montarVariantes` exige as três coleções). As coleções do e5-small continuam lá.
   - A cota de embedding do dia acabou nos experimentos, nos dois modelos do Gemini (renova à meia-noite do Pacífico).
-  - 118 testes.
+  - Juiz do conteúdo (ADR 0010), rodado sobre a `base` (50 respostas, nemotron :free, custo zero). Amostra de 20 em `avaliacao/execucoes/base.auditoria.md`, à espera da auditoria do autor.
+  - 126 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
@@ -122,6 +125,7 @@ docker compose up -d
     | manual | 42% | 60% | 0,40 | 13/30 | 6/6 | 28/31 | 1.008 |
     | langchain | 42% | 60% | 0,40 | 12/30 | 6/6 | 30/33 | 1.008 |
     | langchain-padrao | 59% | 70% | 0,53 | 15/30 | 6/6 | 18/24 | 1.394 |
+  - **Juiz na `base`:** nenhuma resposta incorreta e nenhuma afirmou item de `naoDeve`; das 50, 28 corretas e 22 parciais. Acerto fim a fim: 10/30 (`manual`), 11/30 (`langchain`), 11/30 (`langchain-padrao`). As parciais são omissões: parte por busca incompleta (q27 sem o inciso II, q28 sem o III), parte por pergunta ampla em que o juiz cobra o gabarito inteiro (q16, q17). Se o juiz é rigoroso demais é o que a auditoria vai dizer. Uma justificativa veio só com a palavra "parcial" (q28, `langchain`).
   - **A busca é o gargalo:** em `manual`, 9 das 13 recusas indevidas são de perguntas sem nenhum dispositivo exigido entre os 5 trechos; 2 trouxeram só parte (q12, q13: a definição do art. 2º da Lei 13.810 não veio, e a regra 3 do prompt manda recusar resposta parcial); 2 trouxeram tudo (q08, ver pendências; q10, ruído do modelo). No divisor padrão, 6 recusas com tudo recuperado, quase todas "citação não confere": o modelo erra o caminho ao deduzi-lo do texto.
   - **O modelo não é determinístico:** `manual` e `langchain` mandam o mesmo pedido (749 tokens em q10, mesma busca), e em q10 um recusou e o outro respondeu; em q18 citaram conjuntos diferentes. Diferença de uma pergunta entre variantes é ruído.
   - **Latência não compara variantes:** nas três, cada geração leva ~1 s ou ~10 s, sem padrão por variante. Provável fila ou limite do nível gratuito do Gemini. Nas perguntas da Carta Circular 4.001 (q21 a q25), `manual` e `langchain` não acham o dispositivo exigido entre os 20 primeiros: as alíneas do art. 39, I, da Circular 3.978 tomam as vagas, e o contexto longo repetido (caput e inciso) dilui o texto curto da alínea. Hipótese, não provada.
@@ -136,16 +140,17 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Com a cota renovada: `npm run indexar -- --variantes langchain-padrao` (196 textos) e `npm run avaliar -- gemini2` (36 embeddings de pergunta e 108 chamadas ao LLM); comparar com `base`.
-2. Repetir uma execução para medir o ruído do modelo (a de cima, com o cache, não gasta embedding).
-3. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): os vetores dos trechos já estão no cache; gasta só as 36 perguntas, se ainda não estiverem.
-4. Decidir o juiz do conteúdo da resposta e do `naoDeve` (pessoa ou LLM de outra família, fixo, ADR 0002).
+1. Registrar a auditoria do autor sobre `base.auditoria.md` (concordância do juiz) e, se o juiz se mostrar rigoroso demais nas perguntas amplas, ajustar a regra 1 das instruções e julgar de novo.
+2. Com a cota renovada: `npm run indexar -- --variantes langchain-padrao` (196 textos) e `npm run avaliar -- gemini2` (36 embeddings de pergunta e 108 chamadas ao LLM) e `npm run julgar -- gemini2`; comparar com `base`. Há uma retomada agendada nesta sessão para 2026-10-09 00:15 UTC.
+3. Repetir uma execução para medir o ruído do modelo (a de cima, com o cache, não gasta embedding).
+4. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): os vetores dos trechos já estão no cache; gasta só as 36 perguntas, se ainda não estiverem.
 5. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Correções de gabarito achadas na avaliação de base (erros do rascunho do Claude, a aprovar):
+- Auditar o juiz: dizer, para cada item de `avaliacao/execucoes/base.auditoria.md`, se concorda com o veredito.
+- Correções de gabarito achadas na avaliação de base (aprovadas e aplicadas em 2026-10-08):
   - q22: a Carta Circular 4.001, art. 1º, I, k, l e m, também trata de fracionamento (saques abaixo do limite em cinco dias úteis; dois ou mais saques ou depósitos para evitar a identificação). A observação dizia que a norma não fala em burlar a identificação: errado. Proposta: incluir os três no gabarito e em `aceitos`.
   - q23: a Circular 3.978, art. 39, I, c (operações incompatíveis com a capacidade financeira, renda, faturamento e patrimônio) responde à pergunta. Proposta: incluir em `aceitos`.
   - q07 e q08: a regra 3 do prompt manda recusar quando os trechos respondem só em parte, e a lei não define gestão fraudulenta nem temerária. Proposta: aceitar a recusa como resposta correta nessas duas.

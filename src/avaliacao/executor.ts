@@ -137,7 +137,12 @@ export async function executarAvaliacao(
 }
 
 /** Registros de um arquivo JSONL; vazio se o arquivo ainda não existe. */
-export async function lerRegistros(arquivo: URL): Promise<RegistroDaAvaliacao[]> {
+export function lerRegistros(arquivo: URL): Promise<RegistroDaAvaliacao[]> {
+  return lerLinhas<RegistroDaAvaliacao>(arquivo);
+}
+
+/** Linhas JSON de um arquivo JSONL; vazio se o arquivo ainda não existe. */
+export async function lerLinhas<T>(arquivo: URL): Promise<T[]> {
   let conteudo: string;
   try {
     conteudo = await readFile(arquivo, "utf-8");
@@ -148,7 +153,7 @@ export async function lerRegistros(arquivo: URL): Promise<RegistroDaAvaliacao[]>
   return conteudo
     .split("\n")
     .filter((linha) => linha.trim() !== "")
-    .map((linha) => JSON.parse(linha) as RegistroDaAvaliacao);
+    .map((linha) => JSON.parse(linha) as T);
 }
 
 /** O registro mais recente de cada par: a retomada acrescenta linhas, não reescreve. */

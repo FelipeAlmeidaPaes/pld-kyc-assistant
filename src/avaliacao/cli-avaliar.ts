@@ -6,7 +6,8 @@ import { carregarCorpus } from "../rag/corpus.js";
 import { montarVariantes } from "../rag/montar.js";
 import { VARIANTES, type Variante } from "../rag/tipos.js";
 import { criarLocalizador } from "./cobertura.js";
-import { chaveDoPar, executarAvaliacao, lerRegistros, registrosAtuais } from "./executor.js";
+import { chaveDoPar, executarAvaliacao, lerLinhas, lerRegistros, registrosAtuais } from "./executor.js";
+import type { Julgamento } from "./juiz.js";
 import { carregarPerguntas, conferirPerguntas } from "./perguntas.js";
 import { montarRelatorio } from "./relatorio.js";
 
@@ -94,7 +95,9 @@ async function main() {
 
   const registros = registrosAtuais(await lerRegistros(arquivo));
   if (registros.length === 0) throw new Error(`Nada registrado em avaliacao/execucoes/${rotulo}.jsonl.`);
-  await writeFile(relatorio, montarRelatorio(registros, perguntas));
+  // Julgamentos de `npm run julgar`, se houver: só valem os da resposta atual de cada par.
+  const julgamentos = await lerLinhas<Julgamento>(new URL(`${rotulo}.julgamentos.jsonl`, pasta));
+  await writeFile(relatorio, montarRelatorio(registros, perguntas, julgamentos));
   console.log(`relatório em avaliacao/execucoes/${rotulo}.md`);
 }
 

@@ -13,3 +13,4 @@ Cada decisão relevante fica registrada aqui, com contexto, alternativas e conse
 | [0007](0007-tres-variantes.md) | Três variantes do RAG na v1: manual, LangChain e LangChain com divisor padrão | Aceita |
 | [0008](0008-avaliacao.md) | Como a avaliação mede as variantes: conjunto, execução com retomada e métricas | Aceita |
 | [0009](0009-embeddings-gemini.md) | Embeddings pela API do Gemini (`gemini-embedding-2`), com cache em disco | Aceita |
+| [0010](0010-juiz.md) | Juiz do conteúdo das respostas: LLM gratuito de outra família, auditado pelo autor | Aceita |

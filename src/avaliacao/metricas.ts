@@ -1,5 +1,6 @@
 import type { Variante } from "../rag/tipos.js";
-import type { RegistroDaAvaliacao } from "./executor.js";
+import { chaveDoPar, type RegistroDaAvaliacao } from "./executor.js";
+import { type Julgamento, precisaDeJuiz } from "./juiz.js";
 import type { PerguntaDeAvaliacao } from "./perguntas.js";
 
 /** Posição (a partir de 1) do primeiro trecho que contém a referência; null se não veio. */
@@ -147,5 +148,42 @@ export function calcularMetricas(
         totalP95: quantil(latencias.map((l) => l.total), 0.95),
       },
     },
+  };
+}
+
+export interface AcertoDaVariante {
+  /** Respostas a perguntas cobertas que precisam de juiz, e quantas já têm julgamento. */
+  aJulgar: number;
+  julgadas: number;
+  corretas: number;
+  parciais: number;
+  incorretas: number;
+  /** Nas cobertas: resposta julgada correta, ou recusa onde recusar é aceito. */
+  acertoFimAFim: { quantas: number; de: number };
+  /** Respostas que afirmaram algum item de `naoDeve`. */
+  afirmaramNaoDeve: number;
+}
+
+export function calcularAcerto(
+  variante: Variante,
+  registros: RegistroDaAvaliacao[],
+  perguntas: Map<string, PerguntaDeAvaliacao>,
+  julgamentos: Map<string, Julgamento>,
+): AcertoDaVariante {
+  const cobertas = registros.filter(
+    (r) => r.variante === variante && perguntas.get(r.perguntaId)?.tipo === "coberta" && r.resposta !== null,
+  );
+  const aJulgar = cobertas.filter((r) => precisaDeJuiz(r, perguntas.get(r.perguntaId)));
+  const vereditos = aJulgar.flatMap((r) => julgamentos.get(chaveDoPar(r.perguntaId, r.variante)) ?? []);
+  const contar = (v: Julgamento["veredito"]) => vereditos.filter((j) => j.veredito === v).length;
+  const recusasAceitas = cobertas.filter((r) => r.resposta!.recusa && perguntas.get(r.perguntaId)!.recusaAceita).length;
+  return {
+    aJulgar: aJulgar.length,
+    julgadas: vereditos.length,
+    corretas: contar("correta"),
+    parciais: contar("parcial"),
+    incorretas: contar("incorreta"),
+    acertoFimAFim: { quantas: contar("correta") + recusasAceitas, de: cobertas.length },
+    afirmaramNaoDeve: vereditos.filter((j) => j.naoDeveAfirmados.length > 0).length,
   };
 }
