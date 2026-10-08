@@ -19,6 +19,26 @@ async function contarTruncados(modelo: string, textos: string[]): Promise<{ trun
   return { truncados: tamanhos.filter((n) => n > limite).length, maior: Math.max(...tamanhos), limite };
 }
 
+const TENTATIVAS = 3;
+
+/**
+ * A indexação falhou com "fetch failed" (conexão encerrada pelo Qdrant) em 2 de ~7 execuções,
+ * sempre na primeira depois de um tempo parado; a hipótese é conexão ociosa fechada pelo
+ * servidor e reaproveitada pelo cliente. Cada tentativa recria a coleção, então repetir é seguro.
+ */
+async function comNovasTentativas(variante: string, indexar: () => Promise<unknown>): Promise<void> {
+  for (let tentativa = 1; ; tentativa++) {
+    try {
+      await indexar();
+      return;
+    } catch (erro) {
+      if (tentativa >= TENTATIVAS) throw erro;
+      const causa = (erro as { cause?: { code?: string; message?: string } }).cause;
+      console.warn(`  ${variante}: falhou (${(erro as Error).message}; ${causa?.code ?? causa?.message ?? "sem causa"}), tentativa ${tentativa + 1}`);
+    }
+  }
+}
+
 async function main() {
   const config = lerConfiguracao();
   const cliente = new QdrantClient({ url: config.qdrantUrl });
@@ -36,7 +56,7 @@ async function main() {
   ];
   for (const [variante, esperado, indexar] of etapas) {
     const inicio = performance.now();
-    await indexar();
+    await comNovasTentativas(variante, indexar);
     const { collectionName } = conexao(variante);
     const { count } = await cliente.count(collectionName, { exact: true });
     const segundos = ((performance.now() - inicio) / 1000).toFixed(1);
