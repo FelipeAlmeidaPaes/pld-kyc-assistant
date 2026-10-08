@@ -1,6 +1,6 @@
 # ADR 0001: TypeScript e Node.js, sem framework de RAG na v1
 
-- Status: Aceita
+- Status: Aceita; a parte "sem framework de RAG" foi substituída pela ADR 0007
 - Data: 2026-10-07
 
 ## Contexto
