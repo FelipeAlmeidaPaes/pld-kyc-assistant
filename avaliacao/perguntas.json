@@ -1,0 +1,795 @@
+{
+  "descricao": "Conjunto de avaliação do RAG. Perguntas 1 a 30 do autor, reescritas sem o nome da norma e sem o número do artigo, com o gabarito conferido no texto do corpus; f01 a f06 são perguntas fora do corpus, para medir a recusa. Cada pergunta só conta depois que o autor marcar validado.",
+  "perguntas": [
+    {
+      "id": "q01",
+      "origem": "autor, pergunta 1",
+      "perguntaOriginal": "Qual é a conduta tipificada como crime de lavagem de dinheiro pelo art. 1º da Lei nº 9.613/1998 e qual a pena prevista?",
+      "gabaritoOriginal": "Consiste em ocultar ou dissimular a natureza, origem, localização, disposição, movimentação ou propriedade de bens, direitos ou valores provenientes de infração penal. A pena cominada é de reclusão de 3 a 10 anos e multa.",
+      "situacao": "confere",
+      "pergunta": "Qual conduta configura o crime de lavagem de dinheiro e qual é a pena prevista?",
+      "tipo": "coberta",
+      "gabarito": "Ocultar ou dissimular a natureza, origem, localização, disposição, movimentação ou propriedade de bens, direitos ou valores provenientes, direta ou indiretamente, de infração penal. Pena: reclusão de 3 a 10 anos e multa.",
+      "dispositivos": [
+        "Lei 9.613/1998, art. 1º, caput"
+      ],
+      "aceitos": [
+        "Lei 9.613/1998, art. 1º, § 1º",
+        "Lei 9.613/1998, art. 1º, § 2º"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere com o texto.",
+      "validado": false
+    },
+    {
+      "id": "q02",
+      "origem": "autor, pergunta 2",
+      "perguntaOriginal": "Quais são os principais deveres impostos às pessoas sujeitas ao mecanismo de controle pelos artigos 9º e 10º da Lei nº 9.613/1998?",
+      "gabaritoOriginal": "As pessoas obrigadas devem efetuar a identificação de clientes, manter registro atualizado de operações financeiras e comunicar operações atípicas ou suspeitas às autoridades competentes.",
+      "situacao": "ajustado",
+      "pergunta": "Quais deveres de identificação de clientes, registro e comunicação têm as pessoas sujeitas ao mecanismo de controle da lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "Identificar os clientes e manter cadastro atualizado (art. 10, I); manter registro das transações que ultrapassarem o limite fixado pela autoridade competente (art. 10, II); adotar políticas, procedimentos e controles internos compatíveis com o porte e o volume de operações (art. 10, III); cadastrar-se no órgão regulador ou fiscalizador ou, na falta dele, no Coaf (art. 10, IV); atender às requisições do Coaf (art. 10, V); dispensar especial atenção às operações que possam constituir sérios indícios de lavagem (art. 11, I); comunicar ao Coaf, em 24 horas e sem dar ciência a ninguém, as transações acima do limite e as operações suspeitas (art. 11, II); e comunicar a não ocorrência de operações comunicáveis (art. 11, III).",
+      "dispositivos": [
+        "Lei 9.613/1998, art. 10, I",
+        "Lei 9.613/1998, art. 10, II",
+        "Lei 9.613/1998, art. 11, II"
+      ],
+      "aceitos": [
+        "Lei 9.613/1998, art. 9º, caput",
+        "Lei 9.613/1998, art. 10, caput",
+        "Lei 9.613/1998, art. 10, III",
+        "Lei 9.613/1998, art. 10, IV",
+        "Lei 9.613/1998, art. 10, V",
+        "Lei 9.613/1998, art. 10, § 1º",
+        "Lei 9.613/1998, art. 10, § 2º",
+        "Lei 9.613/1998, art. 11, caput",
+        "Lei 9.613/1998, art. 11, I",
+        "Lei 9.613/1998, art. 11, II, a",
+        "Lei 9.613/1998, art. 11, II, b",
+        "Lei 9.613/1998, art. 11, III"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. O art. 9º só diz quem está sujeito; os deveres estão nos arts. 10 e 11, e o de comunicar é do art. 11. O registro obrigatório é o das transações acima do limite fixado, não o de toda operação. O gabarito original omitia controles internos, cadastro no órgão regulador e atendimento ao Coaf.",
+      "validado": false
+    },
+    {
+      "id": "q03",
+      "origem": "autor, pergunta 3",
+      "perguntaOriginal": "A quem devem ser comunicadas as operações que apresentem indícios de lavagem de dinheiro, segundo o art. 11 da Lei nº 9.613/1998?",
+      "gabaritoOriginal": "Devem ser comunicadas diretamente ao Conselho de Controle de Atividades Financeiras (COAF).",
+      "situacao": "confere",
+      "pergunta": "A quem devem ser comunicadas as operações que apresentem indícios de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "Ao Conselho de Controle de Atividades Financeiras (Coaf), no prazo de 24 horas, sem dar ciência do ato a qualquer pessoa, inclusive àquela a quem a informação se refere (Lei 9.613, art. 11, II). Para as instituições autorizadas pelo Banco Central, a Circular 3.978 repete o dever de comunicar ao Coaf (art. 48).",
+      "dispositivos": [
+        "Lei 9.613/1998, art. 11, II"
+      ],
+      "aceitos": [
+        "Lei 9.613/1998, art. 11, caput",
+        "Lei 9.613/1998, art. 11, I",
+        "Lei 9.613/1998, art. 11, II, b",
+        "Circular BCB 3.978/2020, art. 48, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere. Acrescentados o prazo e a vedação de dar ciência, que estão no mesmo inciso.",
+      "validado": false
+    },
+    {
+      "id": "q04",
+      "origem": "autor, pergunta 4",
+      "perguntaOriginal": "Quais sanções administrativas podem ser aplicadas pelo descumprimento dos deveres previstos na Lei nº 9.613/1998 (art. 12)?",
+      "gabaritoOriginal": "As sanções variam desde advertência e multa pecuniária até inabilitação temporária dos administradores ou cassação da autorização de funcionamento.",
+      "situacao": "confere",
+      "pergunta": "Quais sanções administrativas pode sofrer quem descumpre os deveres de identificação de clientes, registro e comunicação de operações?",
+      "tipo": "coberta",
+      "gabarito": "Cumulativamente ou não: advertência; multa pecuniária de até o dobro do valor da operação, até o dobro do lucro real obtido ou que presumivelmente seria obtido, ou até R$ 20 milhões; inabilitação temporária, por até dez anos, para o cargo de administrador; e cassação ou suspensão da autorização para o exercício de atividade, operação ou funcionamento.",
+      "dispositivos": [
+        "Lei 9.613/1998, art. 12, I",
+        "Lei 9.613/1998, art. 12, II",
+        "Lei 9.613/1998, art. 12, III",
+        "Lei 9.613/1998, art. 12, IV"
+      ],
+      "aceitos": [
+        "Lei 9.613/1998, art. 12, caput",
+        "Lei 9.613/1998, art. 12, II, a",
+        "Lei 9.613/1998, art. 12, II, b",
+        "Lei 9.613/1998, art. 12, II, c",
+        "Lei 9.613/1998, art. 12, § 1º",
+        "Lei 9.613/1998, art. 12, § 2º",
+        "Lei 9.613/1998, art. 12, § 3º",
+        "Lei 9.613/1998, art. 12, § 4º"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere. Acrescentados os limites da multa, o prazo da inabilitação e a suspensão (o original citava só a cassação).",
+      "validado": false
+    },
+    {
+      "id": "q05",
+      "origem": "autor, pergunta 5 (substituída)",
+      "perguntaOriginal": "Qual é o objetivo da manutenção de registros de operações pelas instituições obrigadas na Lei nº 9.613/1998?",
+      "gabaritoOriginal": "Garantir a rastreabilidade das transações financeiras e subsidiar a fiscalização e eventuais investigações relativas a infrações penais e lavagem de dinheiro.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "Por quanto tempo a instituição deve conservar os cadastros de clientes e os registros das operações?",
+      "tipo": "coberta",
+      "gabarito": "A lei fixa o mínimo de cinco anos, contados do encerramento da conta ou da conclusão da transação, prazo que a autoridade competente pode ampliar (Lei 9.613, art. 10, § 2º). Para as instituições autorizadas pelo Banco Central, a Circular 3.978 fixa dez anos: para as informações dos procedimentos de conhecer o cliente, contados do primeiro dia do ano seguinte ao término do relacionamento (art. 67, I), e para os registros de operações dos arts. 28 a 37, contados do primeiro dia do ano seguinte ao da operação (art. 67, III).",
+      "dispositivos": [
+        "Lei 9.613/1998, art. 10, § 2º",
+        "Circular BCB 3.978/2020, art. 67, I",
+        "Circular BCB 3.978/2020, art. 67, III"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 67, caput",
+        "Circular BCB 3.978/2020, art. 67, II",
+        "Circular BCB 3.978/2020, art. 67, IV"
+      ],
+      "naoDeve": [],
+      "observacao": "Substitui a pergunta 5, cujo gabarito (rastreabilidade, subsidiar investigações) é interpretação: nenhuma norma do corpus declara o objetivo do registro. Mesmo tema, agora com resposta no texto. É a pergunta em que a busca falhou na sessão de 2026-10-08 (art. 67, III em 12º; Lei 9.613, art. 10, § 2º fora dos 40 primeiros) e exige juntar duas normas.",
+      "validado": false
+    },
+    {
+      "id": "q06",
+      "origem": "autor, pergunta 6",
+      "perguntaOriginal": "Como a Lei nº 7.492/1986 conceitua e equipara o termo \"instituição financeira\" em seu art. 1º?",
+      "gabaritoOriginal": "Equipara a instituição financeira qualquer pessoa jurídica ou física que capte, intermedeia, custodia ou administra recursos de terceiros ou ativos virtuais.",
+      "situacao": "ajustado",
+      "pergunta": "Para efeito dos crimes contra o sistema financeiro, o que se considera instituição financeira e quem é equiparado a ela?",
+      "tipo": "coberta",
+      "gabarito": "Instituição financeira é a pessoa jurídica de direito público ou privado que tenha como atividade principal ou acessória, cumulativamente ou não, a captação, intermediação ou aplicação de recursos financeiros de terceiros, em moeda nacional ou estrangeira, ou a custódia, emissão, distribuição, negociação, intermediação ou administração de valores mobiliários. Equiparam-se: a pessoa jurídica que capte ou administre seguros, câmbio, consórcio, capitalização ou qualquer tipo de poupança, ou recursos de terceiros (I); a pessoa jurídica que ofereça serviços de operações com ativos virtuais, inclusive intermediação, negociação ou custódia (I-A); e a pessoa natural que exerça qualquer dessas atividades, ainda que de forma eventual (II).",
+      "dispositivos": [
+        "Lei 7.492/1986, art. 1º, caput",
+        "Lei 7.492/1986, art. 1º, parágrafo único, I",
+        "Lei 7.492/1986, art. 1º, parágrafo único, I-A",
+        "Lei 7.492/1986, art. 1º, parágrafo único, II"
+      ],
+      "aceitos": [
+        "Lei 7.492/1986, art. 1º, parágrafo único"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. O original misturava conceito e equiparação: o conceito (caput) é de pessoa jurídica; a pessoa natural só entra por equiparação (parágrafo único, II); os ativos virtuais são o inciso I-A, só para pessoa jurídica.",
+      "validado": false
+    },
+    {
+      "id": "q07",
+      "origem": "autor, pergunta 7",
+      "perguntaOriginal": "Em que consiste o crime de gestão fraudulenta previsto no art. 4º da Lei nº 7.492/1986?",
+      "gabaritoOriginal": "Consiste em gerir instituição financeira mediante engano, artifício doloso ou fraude para ludibriar sócios, investidores ou órgãos de fiscalização.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "O que caracteriza o crime de gestão fraudulenta de instituição financeira e qual é a pena?",
+      "tipo": "coberta",
+      "gabarito": "A lei só tipifica a conduta, \"gerir fraudulentamente instituição financeira\", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta.",
+      "dispositivos": [
+        "Lei 7.492/1986, art. 4º, caput"
+      ],
+      "aceitos": [],
+      "naoDeve": [
+        "apresentar como texto da norma uma definição de gestão fraudulenta (engano, artifício, ardil, fraude contra sócios, investidores ou fiscalização)"
+      ],
+      "observacao": "Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição.",
+      "validado": false
+    },
+    {
+      "id": "q08",
+      "origem": "autor, pergunta 8",
+      "perguntaOriginal": "Como se diferencia o crime de gestão temerária da gestão fraudulenta no art. 4º da Lei nº 7.492/1986?",
+      "gabaritoOriginal": "A gestão temerária decorre do descumprimento de limites de risco e regras de prudência sem o emprego direto de fraude dolosa, caracterizando assunção irresponsável de riscos operacionais.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "Qual é a diferença entre gestão temerária e gestão fraudulenta de instituição financeira?",
+      "tipo": "coberta",
+      "gabarito": "A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa.",
+      "dispositivos": [
+        "Lei 7.492/1986, art. 4º, caput",
+        "Lei 7.492/1986, art. 4º, parágrafo único"
+      ],
+      "aceitos": [],
+      "naoDeve": [
+        "apresentar como texto da norma que gestão temerária é assunção excessiva de risco ou descumprimento de regras de prudência sem fraude"
+      ],
+      "observacao": "Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07.",
+      "validado": false
+    },
+    {
+      "id": "q09",
+      "origem": "autor, pergunta 9",
+      "perguntaOriginal": "Qual conduta é penalizada pelo art. 16 da Lei nº 7.492/1986?",
+      "gabaritoOriginal": "A operação não autorizada de instituição financeira, ou seja, fazer operar instituição sem a devida autorização do Banco Central ou autoridade competente.",
+      "situacao": "ajustado",
+      "pergunta": "É crime fazer operar uma instituição financeira sem autorização? Qual é a pena?",
+      "tipo": "coberta",
+      "gabarito": "Sim. É crime fazer operar, sem a devida autorização, ou com autorização obtida mediante declaração falsa, instituição financeira, inclusive de distribuição de valores mobiliários ou de câmbio. Pena: reclusão de 1 a 4 anos e multa.",
+      "dispositivos": [
+        "Lei 7.492/1986, art. 16, caput"
+      ],
+      "aceitos": [],
+      "naoDeve": [],
+      "observacao": "Ajustado. O artigo não menciona o Banco Central (fala em \"devida autorização\"), inclui a autorização obtida com declaração falsa e fixa a pena, que o original omitia.",
+      "validado": false
+    },
+    {
+      "id": "q10",
+      "origem": "autor, pergunta 10",
+      "perguntaOriginal": "Qual a relevância do art. 6º da Lei nº 7.492/1986 na relação entre instituições e supervisores?",
+      "gabaritoOriginal": "Tipifica como crime a prestação de informação falsa ou a omissão de dados essenciais aos órgãos de fiscalização e investidores.",
+      "situacao": "ajustado",
+      "pergunta": "É crime omitir informação ou prestar informação falsa a investidores ou à fiscalização sobre a situação financeira de uma instituição?",
+      "tipo": "coberta",
+      "gabarito": "Sim. É crime induzir ou manter em erro sócio, investidor ou repartição pública competente, relativamente a operação ou situação financeira, sonegando-lhe informação ou prestando-a falsamente. Pena: reclusão de 2 a 6 anos e multa.",
+      "dispositivos": [
+        "Lei 7.492/1986, art. 6º, caput"
+      ],
+      "aceitos": [],
+      "naoDeve": [],
+      "observacao": "Reescrita. A pergunta original (relevância na relação com supervisores) pede interpretação. O núcleo do tipo é induzir ou manter em erro; sonegar ou falsear a informação é o meio. Acrescentada a pena.",
+      "validado": false
+    },
+    {
+      "id": "q11",
+      "origem": "autor, pergunta 11",
+      "perguntaOriginal": "Qual é o objeto principal da Lei nº 13.810/2019?",
+      "gabaritoOriginal": "Regulamentar o cumprimento imediato de resoluções de sanções aplicadas pelo Conselho de Segurança das Nações Unidas (CSNU) relacionadas ao terrorismo e seu financiamento.",
+      "situacao": "ajustado",
+      "pergunta": "Do que trata a lei sobre o cumprimento das sanções do Conselho de Segurança das Nações Unidas?",
+      "tipo": "coberta",
+      "gabarito": "Do cumprimento de sanções impostas por resoluções do Conselho de Segurança das Nações Unidas, incluída a indisponibilidade de ativos de pessoas naturais e jurídicas e de entidades, e da designação nacional de pessoas investigadas ou acusadas de terrorismo, de seu financiamento ou de atos a ele correlacionados.",
+      "dispositivos": [
+        "Lei 13.810/2019, art. 1º, caput"
+      ],
+      "aceitos": [
+        "Lei 13.810/2019, art. 6º, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. A lei trata do cumprimento das sanções do CSNU em geral, não só das ligadas a terrorismo, e também da designação nacional. O cumprimento imediato é do art. 6º (executoriedade imediata), não do objeto.",
+      "validado": false
+    },
+    {
+      "id": "q12",
+      "origem": "autor, pergunta 12",
+      "perguntaOriginal": "O que significa o requisito de indisponibilidade de ativos \"sem demora\" previsto nos arts. 3º e 6º da Lei nº 13.810/2019?",
+      "gabaritoOriginal": "Determina a execução do bloqueio e proibição de movimentação de bens e recursos de pessoas ou entidades designadas pelo CSNU de forma imediata, em questão de poucas horas.",
+      "situacao": "confere",
+      "pergunta": "O que significa cumprir \"sem demora\" a indisponibilidade de ativos determinada pelo Conselho de Segurança da ONU?",
+      "tipo": "coberta",
+      "gabarito": "\"Sem demora\" é imediatamente ou dentro de algumas horas (art. 2º, V). As pessoas obrigadas devem cumprir as resoluções e designações que determinem a indisponibilidade sem demora e sem prévio aviso aos sancionados (art. 9º).",
+      "dispositivos": [
+        "Lei 13.810/2019, art. 2º, V",
+        "Lei 13.810/2019, art. 9º, caput"
+      ],
+      "aceitos": [
+        "Lei 13.810/2019, art. 2º, II",
+        "Lei 13.810/2019, art. 6º, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere no conteúdo, mas a definição está no art. 2º, V, e não nos arts. 3º e 6º citados na pergunta original. Acrescentado o \"sem prévio aviso\" do art. 9º.",
+      "validado": false
+    },
+    {
+      "id": "q13",
+      "origem": "autor, pergunta 13",
+      "perguntaOriginal": "Quais tipos de recursos ou ativos estão sujeitos à medida de indisponibilidade determinada pela Lei nº 13.810/2019?",
+      "gabaritoOriginal": "Todos os bens, direitos, valores e ativos financeiros pertencentes direta ou indiretamente às pessoas ou entidades sancionadas.",
+      "situacao": "confere",
+      "pergunta": "Que tipos de bens e recursos podem ser alcançados pela indisponibilidade de ativos decorrente de sanção do Conselho de Segurança da ONU?",
+      "tipo": "coberta",
+      "gabarito": "Ativos são bens, direitos, valores, fundos, recursos ou serviços, de qualquer natureza, financeiros ou não (art. 2º, I), de titularidade direta ou indireta das pessoas físicas, jurídicas ou entidades sancionadas (art. 9º).",
+      "dispositivos": [
+        "Lei 13.810/2019, art. 2º, I",
+        "Lei 13.810/2019, art. 9º, caput"
+      ],
+      "aceitos": [
+        "Lei 13.810/2019, art. 2º, II",
+        "Lei 13.810/2019, art. 2º, IV"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere. Acrescentados fundos, serviços e \"financeiros ou não\", que ampliam o conceito.",
+      "validado": false
+    },
+    {
+      "id": "q14",
+      "origem": "autor, pergunta 14",
+      "perguntaOriginal": "Quem deve cumprir as determinações de indisponibilidade de ativos previstas na Lei nº 13.810/2019?",
+      "gabaritoOriginal": "Instituições financeiras, prestadores de serviços e demais pessoas naturais ou jurídicas sob supervisão dos órgãos reguladores do sistema financeiro.",
+      "situacao": "ajustado",
+      "pergunta": "Quem deve cumprir as determinações de indisponibilidade de ativos de pessoas sancionadas pelo Conselho de Segurança da ONU?",
+      "tipo": "coberta",
+      "gabarito": "As pessoas naturais e jurídicas de que trata o art. 9º da Lei 9.613/1998, sem demora e sem prévio aviso aos sancionados, na forma definida por seu órgão regulador ou fiscalizador (Lei 13.810, art. 9º). O Ministério da Justiça e Segurança Pública comunica as sanções aos órgãos reguladores, que as repassam a essas pessoas (art. 10, I), e também às corregedorias de justiça, à Anac, ao Departamento Nacional de Trânsito, às Capitanias dos Portos, à Anatel e a outros órgãos de registro público, para cumprimento sem demora (art. 10, § 1º).",
+      "dispositivos": [
+        "Lei 13.810/2019, art. 9º, caput"
+      ],
+      "aceitos": [
+        "Lei 13.810/2019, art. 10, caput",
+        "Lei 13.810/2019, art. 10, I",
+        "Lei 13.810/2019, art. 10, § 1º",
+        "Lei 9.613/1998, art. 9º, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. O alcance não é só o sistema financeiro: são todas as pessoas do art. 9º da Lei 9.613 (inclui, por exemplo, imobiliárias, comércio de joias e juntas comerciais), além dos órgãos de registro do art. 10, § 1º.",
+      "validado": false
+    },
+    {
+      "id": "q15",
+      "origem": "autor, pergunta 15",
+      "perguntaOriginal": "Qual é o papel da Lei nº 13.810/2019 no combate internacional ao financiamento do terrorismo (FTP)?",
+      "gabaritoOriginal": "Garantir que sanções multilaterais de bloqueio patrimonial sejam aplicadas em jurisdição nacional sem necessidade de prévia homologação judicial demorada.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "A indisponibilidade de ativos determinada pelo Conselho de Segurança da ONU precisa de decisão judicial no Brasil para ser cumprida?",
+      "tipo": "coberta",
+      "gabarito": "Não. As resoluções sancionatórias do CSNU e as designações de seus comitês têm executoriedade imediata no Brasil (art. 6º) e devem ser cumpridas sem demora pelas pessoas obrigadas (art. 9º). Só quando não houver cumprimento por essa via a União ingressa, sem demora, com auxílio direto judicial (arts. 12 e 13).",
+      "dispositivos": [
+        "Lei 13.810/2019, art. 6º, caput",
+        "Lei 13.810/2019, art. 9º, caput"
+      ],
+      "aceitos": [
+        "Lei 13.810/2019, art. 12, caput",
+        "Lei 13.810/2019, art. 13, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Reescrita. A pergunta original (papel no combate internacional ao FT) pede interpretação. A ideia do gabarito original (sem homologação judicial prévia) tem base nos arts. 6º e 9º, com a ressalva do auxílio direto judicial dos arts. 12 e 13.",
+      "validado": false
+    },
+    {
+      "id": "q16",
+      "origem": "autor, pergunta 16",
+      "perguntaOriginal": "O que é a Avaliação Interna de Risco (AIR) exigida pela Circular BCB nº 3.978/2020?",
+      "gabaritoOriginal": "É um processo estruturado no qual a instituição identifica, mensura e estabelece estratégias de mitigação dos riscos de PLD/FTP inerentes a seus produtos, serviços, clientes e novas tecnologias.",
+      "situacao": "ajustado",
+      "pergunta": "O que é e como deve ser feita a avaliação interna de risco de lavagem de dinheiro e financiamento do terrorismo?",
+      "tipo": "coberta",
+      "gabarito": "Avaliação para identificar e mensurar o risco de utilização dos produtos e serviços da instituição na lavagem de dinheiro e no financiamento do terrorismo (art. 10). Deve considerar, no mínimo, os perfis de risco dos clientes; da instituição (modelo de negócio e área geográfica); das operações, transações, produtos e serviços, com todos os canais de distribuição e novas tecnologias; e das atividades de funcionários, parceiros e terceirizados (§ 1º). O risco é avaliado pela probabilidade de ocorrência e pela magnitude dos impactos financeiro, jurídico, reputacional e socioambiental (§ 2º), com categorias de risco que permitam controles reforçados nas situações de maior risco e simplificados nas de menor (§ 3º). Deve ser documentada e aprovada pelo diretor responsável, encaminhada, para ciência, aos comitês de risco e de auditoria, quando houver, e ao conselho de administração ou à diretoria, e revisada a cada dois anos ou quando houver alteração significativa nos perfis de risco (art. 12).",
+      "dispositivos": [
+        "Circular BCB 3.978/2020, art. 10, caput",
+        "Circular BCB 3.978/2020, art. 10, § 1º",
+        "Circular BCB 3.978/2020, art. 10, § 2º"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 10, § 1º, I",
+        "Circular BCB 3.978/2020, art. 10, § 1º, II",
+        "Circular BCB 3.978/2020, art. 10, § 1º, III",
+        "Circular BCB 3.978/2020, art. 10, § 1º, IV",
+        "Circular BCB 3.978/2020, art. 10, § 3º",
+        "Circular BCB 3.978/2020, art. 10, § 4º",
+        "Circular BCB 3.978/2020, art. 11, caput",
+        "Circular BCB 3.978/2020, art. 12, caput",
+        "Circular BCB 3.978/2020, art. 12, I",
+        "Circular BCB 3.978/2020, art. 12, II",
+        "Circular BCB 3.978/2020, art. 12, III"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. A norma não fala em \"estratégias de mitigação\", e sim em categorias de risco para controles reforçados ou simplificados. Faltavam o perfil de funcionários e parceiros, os critérios de probabilidade e impacto e a revisão a cada dois anos. A sigla \"AIR\" não aparece no texto.",
+      "validado": false
+    },
+    {
+      "id": "q17",
+      "origem": "autor, pergunta 17",
+      "perguntaOriginal": "O que contemplam os procedimentos de \"Conheça seu Cliente\" (KYC) conforme a Circular BCB nº 3.978/2020?",
+      "gabaritoOriginal": "Mapeamento de perfis de risco dos clientes, verificação de identidade, qualificação da capacidade financeira e identificação do beneficiário final.",
+      "situacao": "ajustado",
+      "pergunta": "O que devem contemplar os procedimentos destinados a conhecer o cliente?",
+      "tipo": "coberta",
+      "gabarito": "Procedimentos que assegurem a devida diligência na identificação, qualificação e classificação dos clientes, compatíveis com o perfil de risco, com a política de PLD/FT e com a avaliação interna de risco, formalizados em manual aprovado pela diretoria (art. 13). Identificação: verificar e validar a identidade, coletando no mínimo nome completo e CPF, ou firma e CNPJ (art. 16). Qualificação: local de residência ou sede e capacidade financeira, incluindo renda ou faturamento (art. 18, § 1º). Classificação nas categorias de risco da avaliação interna (art. 20). Para pessoa jurídica, análise da cadeia de participação societária até o beneficiário final (art. 24).",
+      "dispositivos": [
+        "Circular BCB 3.978/2020, art. 13, caput",
+        "Circular BCB 3.978/2020, art. 16, caput",
+        "Circular BCB 3.978/2020, art. 18, § 1º",
+        "Circular BCB 3.978/2020, art. 24, caput"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 13, § 1º",
+        "Circular BCB 3.978/2020, art. 13, § 2º",
+        "Circular BCB 3.978/2020, art. 16, § 1º",
+        "Circular BCB 3.978/2020, art. 16, § 2º",
+        "Circular BCB 3.978/2020, art. 18, caput",
+        "Circular BCB 3.978/2020, art. 18, § 1º, III",
+        "Circular BCB 3.978/2020, art. 20, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. A norma organiza o tema em identificação, qualificação e classificação; o \"mapeamento de perfis de risco\" do original corresponde à classificação (art. 20). Faltavam a coleta mínima de dados e o manual.",
+      "validado": false
+    },
+    {
+      "id": "q18",
+      "origem": "autor, pergunta 18",
+      "perguntaOriginal": "Como deve ser conduzido o monitoramento transacional previsto no art. 38 da Circular BCB nº 3.978/2020?",
+      "gabaritoOriginal": "Deve ser um processo contínuo capaz de identificar transações que divirjam do perfil do cliente ou apresentem indícios de atipicidade e atuar com alertas.",
+      "situacao": "ajustado",
+      "pergunta": "Como a instituição deve conduzir o monitoramento de operações para detectar suspeitas de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "A instituição deve implementar procedimentos de monitoramento, seleção e análise de operações e situações para identificar e dispensar especial atenção às suspeitas de lavagem e de financiamento do terrorismo (art. 38), aplicados inclusive às propostas de operações (§ 2º). Os procedimentos devem ser compatíveis com a política de PLD/FT, definidos com base na avaliação interna de risco, considerar a condição de pessoa exposta politicamente e de seu representante, familiar ou estreito colaborador, e estar descritos em manual aprovado pela diretoria (§ 3º). O monitoramento e a seleção não podem passar de 45 dias da data da operação ou situação (art. 39, parágrafo único).",
+      "dispositivos": [
+        "Circular BCB 3.978/2020, art. 38, caput",
+        "Circular BCB 3.978/2020, art. 38, § 3º",
+        "Circular BCB 3.978/2020, art. 39, parágrafo único"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 38, § 1º",
+        "Circular BCB 3.978/2020, art. 38, § 2º",
+        "Circular BCB 3.978/2020, art. 38, § 3º, I",
+        "Circular BCB 3.978/2020, art. 38, § 3º, II",
+        "Circular BCB 3.978/2020, art. 38, § 3º, III",
+        "Circular BCB 3.978/2020, art. 38, § 3º, IV",
+        "Circular BCB 3.978/2020, art. 39, caput",
+        "Circular BCB 3.978/2020, art. 39, I",
+        "Circular BCB 3.978/2020, art. 39, II"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. \"Processo contínuo\", \"divergência do perfil\" e \"alertas\" não estão no texto. Faltavam as propostas de operações, a base na avaliação interna de risco, a atenção a PEP, o manual e o prazo de 45 dias.",
+      "validado": false
+    },
+    {
+      "id": "q19",
+      "origem": "autor, pergunta 19",
+      "perguntaOriginal": "Qual é o prazo limite para a comunicação de operações suspeitas de PLD/FTP ao COAF estipulado pela Circular BCB nº 3.978/2020?",
+      "gabaritoOriginal": "A comunicação deve ocorrer em até 45 dias contados da data de identificação da ocorrência ou atipicidade.",
+      "situacao": "errado",
+      "pergunta": "Qual é o prazo para comunicar ao Coaf uma operação suspeita de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "Até o dia útil seguinte ao da decisão de comunicação (Circular 3.978, art. 48, § 2º). A decisão deve ocorrer até o fim do prazo de análise (art. 48, § 1º, III), que é de até 45 dias contados da seleção da operação (art. 43, § 1º); a seleção, por sua vez, deve ocorrer em até 45 dias da operação (art. 39, parágrafo único). A Lei 9.613 fala em comunicar no prazo de 24 horas (art. 11, II).",
+      "dispositivos": [
+        "Circular BCB 3.978/2020, art. 48, § 2º",
+        "Circular BCB 3.978/2020, art. 48, § 1º, III",
+        "Circular BCB 3.978/2020, art. 43, § 1º",
+        "Lei 9.613/1998, art. 11, II"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 39, parágrafo único",
+        "Circular BCB 3.978/2020, art. 48, caput",
+        "Circular BCB 3.978/2020, art. 48, § 1º"
+      ],
+      "naoDeve": [
+        "dizer que o prazo de comunicação ao Coaf é de 45 dias",
+        "dar como prazo de operação suspeita o do art. 49, § 1º, que é o das comunicações de operações específicas (em espécie, câmbio, ativos virtuais)"
+      ],
+      "observacao": "Errado no original. Os 45 dias são os prazos de monitoramento e seleção (art. 39, parágrafo único) e de análise (art. 43, § 1º), não o de comunicação. A comunicação é até o dia útil seguinte ao da decisão (art. 48, § 2º). A Lei 9.613 fala em 24 horas; a pergunta mede se a resposta traz as duas normas sem inventar como elas se conciliam.",
+      "validado": false
+    },
+    {
+      "id": "q20",
+      "origem": "autor, pergunta 20",
+      "perguntaOriginal": "O que estabelece o art. 62 da Circular BCB nº 3.978/2020 referente à governança de PLD/FTP?",
+      "gabaritoOriginal": "Exige a elaboração anual do Relatório de Avaliação de Efetividade da política e dos mecanismos de controle interno adotados pela instituição.",
+      "situacao": "confere",
+      "pergunta": "Com que periodicidade a instituição deve avaliar a efetividade da sua política e dos seus controles de PLD/FT, e a quem o relatório deve ser enviado?",
+      "tipo": "coberta",
+      "gabarito": "A instituição deve avaliar a efetividade da política, dos procedimentos e dos controles internos (art. 62), em relatório específico (§ 1º) elaborado anualmente, com data-base de 31 de dezembro, e encaminhado, para ciência, até 31 de março do ano seguinte ao comitê de auditoria, quando houver, e ao conselho de administração ou, se inexistente, à diretoria (§ 2º).",
+      "dispositivos": [
+        "Circular BCB 3.978/2020, art. 62, caput",
+        "Circular BCB 3.978/2020, art. 62, § 2º, I",
+        "Circular BCB 3.978/2020, art. 62, § 2º, II"
+      ],
+      "aceitos": [
+        "Circular BCB 3.978/2020, art. 62, § 1º",
+        "Circular BCB 3.978/2020, art. 62, § 2º",
+        "Circular BCB 3.978/2020, art. 62, § 2º, II, a",
+        "Circular BCB 3.978/2020, art. 62, § 2º, II, b"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere no essencial. O art. 62 está no capítulo \"Da Avaliação de Efetividade\", não num de governança. Acrescentados data-base, prazo de envio e destinatários.",
+      "validado": false
+    },
+    {
+      "id": "q21",
+      "origem": "autor, pergunta 21",
+      "perguntaOriginal": "Qual é o propósito da Carta Circular BCB nº 4.001/2020 no arcabouço de conformidade bancária?",
+      "gabaritoOriginal": "Fornecer um rol exemplificativo de situações e operações que podem configurar indícios de lavagem de dinheiro ou financiamento do terrorismo passíveis de análise e comunicação ao COAF.",
+      "situacao": "ajustado",
+      "pergunta": "Para que serve a relação de operações e situações que exemplificam indícios de suspeita de lavagem de dinheiro? Toda operação da relação deve ser comunicada ao Coaf?",
+      "tipo": "coberta",
+      "gabarito": "As operações e situações relacionadas exemplificam indícios de suspeita para fins dos procedimentos de monitoramento e seleção da Circular 3.978 (art. 1º, caput). Não são comunicadas automaticamente: só quando os indícios forem confirmados ao término da análise (§ 1º), que deve considerar todas as informações disponíveis, inclusive as dos procedimentos de conhecer clientes, funcionários, parceiros e terceirizados (§ 2º).",
+      "dispositivos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, caput",
+        "Carta Circular BCB 4.001/2020, art. 1º, § 1º"
+      ],
+      "aceitos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, § 2º"
+      ],
+      "naoDeve": [
+        "dizer que toda operação da relação deve ser comunicada ao Coaf"
+      ],
+      "observacao": "Ajustado. O rol é exemplificativo, como dizia o original, mas serve ao monitoramento e à seleção; a comunicação ao Coaf depende da confirmação dos indícios na análise (§ 1º), ponto que o original omitia.",
+      "validado": false
+    },
+    {
+      "id": "q22",
+      "origem": "autor, pergunta 22",
+      "perguntaOriginal": "De que forma o fracionamento transacional é caracterizado na Carta Circular BCB nº 4.001/2020?",
+      "gabaritoOriginal": "Pela realização de depósitos ou saques consecutivos em valores ajustados para burlar limites de identificação obrigatória ou comunicação automática.",
+      "situacao": "ajustado",
+      "pergunta": "Quando o fracionamento de depósitos ou saques em espécie é indício de suspeita de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d), e a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (art. 1º, I, e).",
+      "dispositivos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, I, d",
+        "Carta Circular BCB 4.001/2020, art. 1º, I, e"
+      ],
+      "aceitos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, I",
+        "Carta Circular BCB 4.001/2020, art. 1º, X, l",
+        "Carta Circular BCB 4.001/2020, art. 1º, X, m",
+        "Carta Circular BCB 4.001/2020, art. 1º, XIX, c"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. A norma não fala em operações \"consecutivas\" nem em limite de \"identificação obrigatória\": nos depósitos, o fim é dissimular o valor total; nos saques, burlar limites de reporte.",
+      "validado": false
+    },
+    {
+      "id": "q23",
+      "origem": "autor, pergunta 23",
+      "perguntaOriginal": "Qual o sinal de alerta associado à movimentação financeira de clientes frente à sua capacidade econômica?",
+      "gabaritoOriginal": "A realização de operações em montantes totalmente incompatíveis com o patrimônio, faturamento ou renda declarados.",
+      "situacao": "confere",
+      "pergunta": "Qual sinal de alerta envolve a movimentação financeira do cliente em relação à sua capacidade econômica?",
+      "tipo": "coberta",
+      "gabarito": "Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac).",
+      "dispositivos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, IV, a"
+      ],
+      "aceitos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, I, a",
+        "Carta Circular BCB 4.001/2020, art. 1º, II, a",
+        "Carta Circular BCB 4.001/2020, art. 1º, IV, ac",
+        "Carta Circular BCB 4.001/2020, art. 1º, VI, a",
+        "Carta Circular BCB 4.001/2020, art. 1º, VI, b",
+        "Carta Circular BCB 4.001/2020, art. 1º, X, f",
+        "Carta Circular BCB 4.001/2020, art. 1º, XII, d"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere no essencial. A norma não diz \"totalmente incompatíveis\" nem \"declarados\": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira.",
+      "validado": false
+    },
+    {
+      "id": "q24",
+      "origem": "autor, pergunta 24",
+      "perguntaOriginal": "Por que a movimentação intensa de recursos em contas recém-abertas é considerada atípica?",
+      "gabaritoOriginal": "Porque a movimentação imediata e atípica de expressivos volumes sem histórico prévio sugere a criação de contas de passagem.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "Uma conta até então pouco movimentada que passa a movimentar quantia significativa é indício de suspeita de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "Sim. A movimentação de quantia significativa por meio de conta até então pouco movimentada, ou de conta que acolha depósito inusitado, é exemplo de indício de suspeita (art. 1º, IV, e). Relacionado: aumento substancial de depósitos em espécie sem causa aparente, transferidos em curto período a destino não relacionado com o cliente (I, c).",
+      "dispositivos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, IV, e"
+      ],
+      "aceitos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, I, c",
+        "Carta Circular BCB 4.001/2020, art. 1º, I, h"
+      ],
+      "naoDeve": [
+        "dizer que a norma trata de contas recém-abertas ou de \"contas de passagem\""
+      ],
+      "observacao": "Reescrita. A norma não fala em conta \"recém-aberta\" nem em \"conta de passagem\", e não explica por que a situação é atípica (o \"por quê\" do original é interpretação). O mais próximo é a conta até então pouco movimentada (IV, e) e o repasse rápido (I, c).",
+      "validado": false
+    },
+    {
+      "id": "q25",
+      "origem": "autor, pergunta 25",
+      "perguntaOriginal": "O que significa a utilização de interpostas pessoas (\"laranjas\") conforme descrito nas tipologias da norma?",
+      "gabaritoOriginal": "O uso não justificável do nome ou conta de terceiros para ocultar o verdadeiro titular ou beneficiário final dos recursos transacionados.",
+      "situacao": "sem-base-no-texto",
+      "pergunta": "Que situações envolvendo procuradores, representantes ou o beneficiário final são indícios de suspeita de lavagem de dinheiro?",
+      "tipo": "coberta",
+      "gabarito": "Abertura, movimentação de contas ou realização de operações por detentor de procuração ou de outro tipo de mandato (art. 1º, III, d); operações em que não seja possível identificar o beneficiário final (III, g); representação de diferentes pessoas jurídicas ou organizações pelos mesmos procuradores ou representantes legais, sem justificativa razoável (III, h); e contas em nome de menores ou incapazes cujos representantes realizem grande número de operações ou operações de valores relevantes (IV, t).",
+      "dispositivos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, III, d",
+        "Carta Circular BCB 4.001/2020, art. 1º, III, g",
+        "Carta Circular BCB 4.001/2020, art. 1º, III, h"
+      ],
+      "aceitos": [
+        "Carta Circular BCB 4.001/2020, art. 1º, III",
+        "Carta Circular BCB 4.001/2020, art. 1º, III, f",
+        "Carta Circular BCB 4.001/2020, art. 1º, IV, t"
+      ],
+      "naoDeve": [
+        "atribuir à norma os termos \"laranja\" ou \"interposta pessoa\""
+      ],
+      "observacao": "Reescrita. A norma não usa \"laranjas\" nem \"interpostas pessoas\" e não define o conceito. As situações mais próximas são as de procuração, representação e beneficiário final.",
+      "validado": false
+    },
+    {
+      "id": "q26",
+      "origem": "autor, pergunta 26",
+      "perguntaOriginal": "Quais entidades estão obrigadas ao compartilhamento de indícios de fraude e qual instituição é expressamente excetuada pelo art. 1º, § 1º?",
+      "gabaritoOriginal": "Estão obrigadas as instituições financeiras, instituições de pagamento e autorizadas pelo BCB. As administradoras de consórcio são expressamente excetuadas do cumprimento desta norma.",
+      "situacao": "confere",
+      "pergunta": "Quais instituições estão obrigadas a compartilhar dados sobre indícios de fraude, e qual está excluída dessa obrigação?",
+      "tipo": "coberta",
+      "gabarito": "As instituições financeiras, as instituições de pagamento e as demais instituições autorizadas a funcionar pelo Banco Central do Brasil (art. 1º). A norma não se aplica às administradoras de consórcio (art. 1º, § 1º).",
+      "dispositivos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 1º, caput",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 1º, § 1º"
+      ],
+      "aceitos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere.",
+      "validado": false
+    },
+    {
+      "id": "q27",
+      "origem": "autor, pergunta 27",
+      "perguntaOriginal": "Quais são as três funcionalidades mínimas exigidas do sistema eletrônico de compartilhamento (art. 2º, § 1º)?",
+      "gabaritoOriginal": "O registro dos dados de fraudes/tentativas, a alteração/exclusão dos registros e a consulta a essas informações pelas demais instituições.",
+      "situacao": "confere",
+      "pergunta": "Quais funcionalidades mínimas deve ter o sistema eletrônico de compartilhamento de indícios de fraude?",
+      "tipo": "coberta",
+      "gabarito": "O registro de dados e informações sobre indícios de ocorrências ou de tentativas de fraude identificadas pelas instituições (I); a alteração e a exclusão desses registros (II); e a consulta aos dados registrados (III).",
+      "dispositivos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, I",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, II",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, III"
+      ],
+      "aceitos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere.",
+      "validado": false
+    },
+    {
+      "id": "q28",
+      "origem": "autor, pergunta 28",
+      "perguntaOriginal": "Quais informações essenciais devem constar obrigatoriamente do registro de indício de fraude (art. 2º, § 2º)?",
+      "gabaritoOriginal": "Identificação do executor da fraude, descrição dos indícios, identificação da instituição responsável pelo registro e dados da conta destinatária e titular em transferências/pagamentos.",
+      "situacao": "confere",
+      "pergunta": "Que informações o registro de um indício de fraude deve conter, no mínimo?",
+      "tipo": "coberta",
+      "gabarito": "A identificação de quem, segundo os indícios disponíveis, teria executado ou tentado executar a fraude, quando aplicável (I); a descrição dos indícios da ocorrência ou da tentativa de fraude (II); a identificação da instituição responsável pelo registro (III); e a identificação dos dados da conta destinatária e de seu titular, em caso de transferência ou pagamento (IV).",
+      "dispositivos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, I",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, II",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, III",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, IV"
+      ],
+      "aceitos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere. Acrescentados o \"quando aplicável\" do inciso I e a tentativa de fraude.",
+      "validado": false
+    },
+    {
+      "id": "q29",
+      "origem": "autor, pergunta 29",
+      "perguntaOriginal": "Quais são os requisitos para a obtenção do consentimento prévio do cliente segundo os §§ 3º e 4º do art. 2º?",
+      "gabaritoOriginal": "Deve ser um consentimento prévio e geral para finalidade de prevenção de fraudes, devendo constar de cláusula em destaque no contrato.",
+      "situacao": "ajustado",
+      "pergunta": "Que requisitos deve ter o consentimento do cliente para o registro dos seus dados no compartilhamento de indícios de fraude?",
+      "tipo": "coberta",
+      "gabarito": "Consentimento prévio e geral do cliente com quem a instituição tenha relacionamento (§ 3º), com a finalidade de tratamento e compartilhamento de dados e informações sobre indícios de fraude no âmbito da Resolução (§ 4º, I), constante de contrato, mediante cláusula em destaque no corpo do instrumento, ou de outro instrumento jurídico válido (§ 4º, II). Essa documentação fica à disposição do Banco Central (§ 5º).",
+      "dispositivos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 3º",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 4º, I",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 4º, II"
+      ],
+      "aceitos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 4º",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 5º"
+      ],
+      "naoDeve": [],
+      "observacao": "Ajustado. A finalidade é o tratamento e o compartilhamento de dados sobre indícios de fraude, não a prevenção de fraudes em geral, e a cláusula em destaque não é a única forma: vale outro instrumento jurídico válido.",
+      "validado": false
+    },
+    {
+      "id": "q30",
+      "origem": "autor, pergunta 30",
+      "perguntaOriginal": "Quais são os prazos fixados pelo art. 8º para a guarda de dados e documentação à disposição do Banco Central?",
+      "gabaritoOriginal": "Guarda por 10 anos para dados compartilhados e critérios/procedimentos; e por 5 anos para registros dos mecanismos de acompanhamento e testes de controle.",
+      "situacao": "confere",
+      "pergunta": "Por quanto tempo as instituições devem manter à disposição do Banco Central os dados sobre indícios de fraude compartilhados e a documentação relacionada?",
+      "tipo": "coberta",
+      "gabarito": "Dez anos para os dados e informações compartilhados e para a documentação com os critérios e procedimentos de identificação do art. 2º, § 8º (art. 8º, II); cinco anos para os dados, registros e informações relativos à aplicação dos mecanismos de acompanhamento e de controle do art. 7º, contados de cada aplicação (art. 8º, III). A documentação sobre o sistema eletrônico também fica à disposição, sem prazo fixado (art. 8º, I).",
+      "dispositivos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 8º, II",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 8º, III"
+      ],
+      "aceitos": [
+        "Resolução Conjunta CMN/BCB 6/2023, art. 8º, caput",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 8º, I",
+        "Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput"
+      ],
+      "naoDeve": [],
+      "observacao": "Confere no essencial. \"Testes de controle\" não está no inciso III, que fala em mecanismos de acompanhamento e de controle (os testes aparecem no art. 7º). O inciso II remete ao \"art. 2º, § 6º, inciso II\", mas o § 6º não tem incisos no texto publicado pelo BCB.",
+      "validado": false
+    },
+    {
+      "id": "f01",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Qual é a pena para quem pratica atos de terrorismo?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. A tipificação e a pena do terrorismo estão na Lei 13.260/2016, que não está no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "informar uma pena para o crime de terrorismo"
+      ],
+      "observacao": "Recusa difícil: a Lei 13.810 e a Circular 3.978 mencionam terrorismo e a Lei 13.260 (Lei 13.810, art. 2º, III), então a busca traz trechos com pontuação alta. Se o autor decidir incluir a Lei 13.260 no corpus, esta pergunta muda de tipo.",
+      "validado": false
+    },
+    {
+      "id": "f02",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Qual é a pena do crime de estelionato?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. O estelionato está no Código Penal, que não está no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "informar uma pena para o estelionato"
+      ],
+      "observacao": "Tema vizinho (fraude), com crimes e penas parecidos na Lei 7.492, o que pode induzir o modelo a responder.",
+      "validado": false
+    },
+    {
+      "id": "f03",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Qual é a alíquota do IOF nas operações de câmbio?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. Tributação não está no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "informar uma alíquota"
+      ],
+      "observacao": "Câmbio aparece em várias normas do corpus, mas nenhuma trata de imposto.",
+      "validado": false
+    },
+    {
+      "id": "f04",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Quais são as bases legais que autorizam o tratamento de dados pessoais?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. As bases legais estão na LGPD (Lei 13.709/2018), que não está no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "listar bases legais de tratamento de dados como se estivessem no corpus"
+      ],
+      "observacao": "A Resolução Conjunta 6 fala em proteção de dados pessoais e em consentimento (art. 2º, §§ 3º, 4º e 6º); a resposta não pode tratar o consentimento dela como base legal geral.",
+      "validado": false
+    },
+    {
+      "id": "f05",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Em quanto tempo o banco deve devolver o dinheiro de uma vítima de golpe pelo Pix?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. As regras do Pix e do mecanismo de devolução não estão no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "informar um prazo de devolução"
+      ],
+      "observacao": "Tema de fraude, próximo da Resolução Conjunta 6, mas sem resposta no corpus.",
+      "validado": false
+    },
+    {
+      "id": "f06",
+      "origem": "Claude",
+      "perguntaOriginal": null,
+      "gabaritoOriginal": null,
+      "situacao": "nova",
+      "pergunta": "Qual é o capital mínimo exigido para constituir uma instituição de pagamento?",
+      "tipo": "fora-do-corpus",
+      "gabarito": "Recusa. Requisitos de constituição e capital não estão no corpus.",
+      "dispositivos": [],
+      "aceitos": [],
+      "naoDeve": [
+        "informar um valor de capital mínimo"
+      ],
+      "observacao": "\"Instituição de pagamento\" aparece na Resolução Conjunta 6 e na Circular 3.978, o que puxa trechos para a busca.",
+      "validado": false
+    }
+  ]
+}

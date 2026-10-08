@@ -2,7 +2,7 @@
 
 Assistente de perguntas e respostas sobre normas brasileiras de prevenção à lavagem de dinheiro (PLD), financiamento do terrorismo e antifraude. Toda resposta se baseia no texto da norma e cita o dispositivo de origem.
 
-> Status: em desenvolvimento (v1). Pronto: estrutura do projeto, decisões de arquitetura e ingestão das seis normas do corpus (Planalto e BCB). Em andamento: indexação, busca e avaliação.
+> Status: em desenvolvimento (v1). Pronto: ingestão das seis normas do corpus, as três variantes do RAG com busca e resposta, e o rascunho do conjunto de avaliação (36 perguntas, em validação pelo autor). Em andamento: executor da avaliação.
 
 ## Por que este projeto
 Normas de PLD/KYC são longas, remetem umas às outras e mudam com frequência. Um assistente que responde com confiança e sem fonte é pior do que nenhum assistente, ainda mais em compliance. Aqui, citação, recusa e custo são requisitos, e cada um é medido.
@@ -78,6 +78,9 @@ npm run servidor
 curl -X POST localhost:3000/manual/perguntar -H 'content-type: application/json' -d '{"pergunta": "..."}'
 # Só a busca, sem LLM (funciona sem chave):
 curl -X POST localhost:3000/langchain-padrao/buscar -H 'content-type: application/json' -d '{"pergunta": "..."}'
+
+# Confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
+npm run avaliacao:revisao
 
 # Baixa a norma e grava o texto normalizado em corpus/normalized/
 npm run ingest -- lei-9613             # Planalto: página do texto compilado

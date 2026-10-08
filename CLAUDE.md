@@ -24,6 +24,7 @@ npm run ingest -- <id> --arquivo pagina.html   # usa documento salvo (HTML do Pl
 docker compose up -d     # Qdrant em localhost:6333
 npm run indexar          # cria as coleções das três variantes no Qdrant (~70 s; baixa o e5 na primeira vez)
 npm run servidor         # POST /<variante>/buscar e /<variante>/perguntar em localhost:3000
+npm run avaliacao:revisao   # confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
 ```
 
 Na sessão na nuvem, o Docker não sobe sozinho e o Docker Hub costuma responder 429 (limite de pulls anônimos):
@@ -42,12 +43,14 @@ docker compose up -d
 - `src/ingest/planalto.ts`: ruído do firewall do Planalto e `parsePlanalto`
 - `src/ingest/pdf.ts`: linhas do PDF (pdfjs) e remontagem dos parágrafos pela geometria
 - `src/ingest/bcb.ts`: API do BCB, escolha do PDF compilado, corte da assinatura, `paragrafosSoltos`
-- `src/ingest/encoding.ts`: detecção de charset (Planalto costuma usar windows-1252)
+- `src/ingest/encoding.ts`: detecção de charset (Planalto costuma usar windows-1252) e decodificação manual da faixa 0x80-0x9F, que o `TextDecoder` do Node 22.22 entrega como controle C1
 - `src/ingest/cli.ts`: CLI de ingestão
 - `src/rag/`: base comum das três variantes (ADR 0007): `trechos.ts` (um trecho por dispositivo, com contexto; texto corrido para o divisor padrão), `embeddings.ts` (e5 com prefixos), `prompt.ts`, `citacoes.ts` e `resposta.ts` (validação de citação e regras de recusa), `config.ts`, `tipos.ts`
 - `src/rag/manual/`: índice e busca com o cliente do Qdrant, cliente de chat sobre `fetch`, pipeline
 - `src/rag/langchain/`: `EmbeddingsE5`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
-- `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts`, `cli-servidor.ts`
+- `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts` (repete até 3 vezes a variante que falhar), `cli-servidor.ts`
+- `avaliacao/perguntas.json`: conjunto de avaliação (fonte da verdade). `avaliacao/revisao.md`: gerado dele, com o texto de cada dispositivo esperado, para o autor validar pelo celular; um teste falha se estiver desatualizado
+- `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`
 - `test/fixtures/llm-falso.ts`: servidor compatível com a API da OpenAI que grava as requisições; testa os dois clientes de chat sem chave
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
@@ -77,6 +80,7 @@ docker compose up -d
 - Sempre o texto compilado. Texto riscado (revogado) é descartado; dispositivo só com "(Revogado)" fica marcado como `revogado`.
 - Citação no formato `<sigla>, <caminho>`, ex.: `Lei 9.613/1998, art. 1º, § 2º, I`; com item, `Circular BCB 3.978/2020, art. 24, § 3º, VI, g, 1`. Até o 9 o artigo é ordinal (1º); do 10 em diante, cardinal (10).
 - O conjunto de avaliação (gabarito) é rascunhado pelo Claude e validado pelo autor, dispositivo por dispositivo. Gabarito gerado por LLM sem revisão não vale.
+- No conjunto: `dispositivos` são os exigidos (base do recall e do MRR), `aceitos` são relevantes que podem ser citados sem erro, `naoDeve` é o que a resposta não pode afirmar. Pergunta sem o nome da norma nem o número do artigo; o original fica em `perguntaOriginal`. Só o autor marca `validado`.
 
 ## Convenções
 - Código, comentários, mensagens e documentação em português. Mensagens de commit em inglês, seguindo o histórico.
@@ -84,26 +88,30 @@ docker compose up -d
 - Antes de commitar: `npm run typecheck` e `npm test`.
 
 ## Estado atual (2026-10-08, terceira sessão)
-- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #1; o trabalho desta sessão foi mesclado na `main` pelo PR #2. A próxima sessão parte da `main`.
+- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #2. Os commits desta parte da sessão (correções do corpus, retentativa da indexação, conjunto de avaliação) estão na branch, sem PR: o autor não pediu.
 - **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
-  - Corpus da v1 (seis normas) e ingestão.
+  - Corpus da v1 (seis normas) e ingestão. Corrigidos nesta sessão: travessão em windows-1252 perdido pelo Node (a Lei 9.613, art. 9º, parágrafo único, I, estava colado no parágrafo) e nota "(Transformado em § 1º ...)" no texto da Circular 3.978, art. 49, § 1º. Índice refeito: 939 pontos em `manual` e `langchain`, 196 no padrão, nenhum truncado.
   - As três variantes do RAG, com `/buscar` e `/perguntar`, testadas de ponta a ponta com o Gemini real (`gemini-3.5-flash-lite`) e com o reserva do OpenRouter (`nvidia/nemotron-3-super-120b-a12b:free`). Uso do OpenRouter: US$ 0.
   - Custo zero conferido: projeto do Gemini no nível gratuito, sem faturamento (AI Studio, 2026-10-08); chave do OpenRouter com limite total de US$ 0, e os modelos `:free` funcionam com ela. Trava também na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
-  - 84 testes.
+  - Rascunho do conjunto de avaliação: as 30 perguntas do autor, reescritas sem o nome da norma, mais 6 fora do corpus (f01 a f06). Gabaritos conferidos no texto: 11 conferem, 12 ajustados, 1 errado (q19: os 45 dias são de monitoramento e de análise, não de comunicação ao Coaf), 6 sem base no texto (doutrina ou termo que a norma não usa; reescritos para o que a norma diz, e q05 trocada pela do prazo de guarda). Nenhum validado ainda.
+  - 94 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
-  - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
+  - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
+  - Res. Conjunta 6, art. 8º, II, remete ao "art. 2º, § 6º, inciso II", mas o § 6º não tem incisos no texto do BCB (conferido no JSON bruto da API). É da norma, não do parser.
+  - Carta Circular 4.001, art. 1º, III, f, termina em "et c." (espaço do PDF dentro de "etc."). Cosmético; não corrigido.
 - **Não validado:**
-  - Uma indexação falhou com "fetch failed" no meio e não se repetiu em quatro rodadas. Causa desconhecida; rodar de novo resolve.
+  - A falha "fetch failed" da indexação apareceu em 2 de ~7 rodadas, sempre a primeira depois de tempo parado. Hipótese: conexão ociosa fechada pelo Qdrant. Há retentativa no CLI; a causa não foi provada.
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Rascunhar ~30 perguntas de avaliação, com os dispositivos esperados, para o autor validar dispositivo por dispositivo. Incluir perguntas fora do corpus e a do prazo de guarda de registros.
-2. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada e ritmo controlado (cota gratuita), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência.
+1. Autor valida `avaliacao/revisao.md` pergunta por pergunta; marcar `validado: true` em `avaliacao/perguntas.json` e rodar `npm run avaliacao:revisao`.
+2. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada e ritmo controlado (cota gratuita), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência. Decidir como casar os pedaços do divisor padrão (sem caminho) com os dispositivos esperados.
 3. Com a avaliação de base, comparar as correções da busca (limite por artigo, MMR, híbrida, k).
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
+- Validar o conjunto de avaliação (`avaliacao/revisao.md`). Em especial: q07 e q08 viraram teste de alucinação (a lei não define gestão fraudulenta nem temerária), q05 foi trocada, e q19 tinha o gabarito errado.
