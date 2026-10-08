@@ -150,3 +150,6 @@ vite.config.ts.timestamp-*
 
 # HTML bruto baixado das fontes oficiais; o texto normalizado fica em corpus/normalized
 corpus/raw/
+
+# Modelos de embeddings baixados do Hugging Face
+.cache/
