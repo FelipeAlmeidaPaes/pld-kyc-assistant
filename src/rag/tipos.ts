@@ -75,6 +75,7 @@ export type Pipeline = (pergunta: string) => Promise<Resposta>;
 
 /** As duas metades de uma variante: só a busca, sem LLM, e o fluxo completo. */
 export interface VarianteMontada {
-  buscar: (pergunta: string) => Promise<TrechoRecuperado[]>;
+  /** Sem `k`, devolve o número de trechos da configuração, o mesmo que vai ao modelo. */
+  buscar: (pergunta: string, k?: number) => Promise<TrechoRecuperado[]>;
   perguntar: Pipeline;
 }

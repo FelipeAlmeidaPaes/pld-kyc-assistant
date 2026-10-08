@@ -37,7 +37,7 @@ export async function montarVariantes(config: Configuracao): Promise<Record<Vari
   const buscarManual = criarBuscaManual(cliente, colecao("manual"), gerador);
   const chat = comLlm ? criarClienteDeChat(config.provedores, { usarFallback: config.usarFallback }) : null;
   const manual: VarianteMontada = {
-    buscar: (pergunta) => buscarManual(pergunta, config.k),
+    buscar: (pergunta, k = config.k) => buscarManual(pergunta, k),
     perguntar: chat
       ? criarPipelineManual({ ...comuns, buscar: buscarManual, gerar: (instrucoes, mensagem) => chat.gerar(instrucoes, mensagem) })
       : semLlm,
@@ -52,7 +52,8 @@ export async function montarVariantes(config: Configuracao): Promise<Record<Vari
     });
     const buscar = (pergunta: string, k: number) => loja.similaritySearchWithScore(pergunta, k);
     return {
-      buscar: async (pergunta) => (await buscar(pergunta, config.k)).map(([doc, pontuacao]) => trechoDoDocumento(doc, pontuacao)),
+      buscar: async (pergunta, k = config.k) =>
+        (await buscar(pergunta, k)).map(([doc, pontuacao]) => trechoDoDocumento(doc, pontuacao)),
       perguntar: modelo ? criarPipelineLangchain({ ...comuns, variante, buscar, modelo }) : semLlm,
     };
   };

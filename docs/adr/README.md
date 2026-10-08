@@ -11,3 +11,4 @@ Cada decisão relevante fica registrada aqui, com contexto, alternativas e conse
 | [0005](0005-corpus-v1.md) | Seis normas no corpus da v1, sempre pelo texto compilado | Aceita |
 | [0006](0006-extracao-pdf.md) | Texto dos PDFs do BCB extraído com pdfjs-dist, sem dependência de sistema | Aceita |
 | [0007](0007-tres-variantes.md) | Três variantes do RAG na v1: manual, LangChain e LangChain com divisor padrão | Aceita |
+| [0008](0008-avaliacao.md) | Como a avaliação mede as variantes: conjunto, execução com retomada e métricas | Aceita |

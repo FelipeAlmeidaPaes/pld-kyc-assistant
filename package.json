@@ -12,6 +12,7 @@
     "ingest": "tsx src/ingest/cli.ts",
     "indexar": "tsx src/rag/cli-indexar.ts",
     "servidor": "tsx src/rag/cli-servidor.ts",
+    "avaliar": "tsx src/avaliacao/cli-avaliar.ts",
     "avaliacao:revisao": "tsx src/avaliacao/cli-revisao.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

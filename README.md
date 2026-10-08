@@ -81,6 +81,9 @@ curl -X POST localhost:3000/langchain-padrao/buscar -H 'content-type: applicatio
 
 # Confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
 npm run avaliacao:revisao
+# Roda a avaliação nas três variantes (rótulo novo começa; o mesmo rótulo retoma) e gera o relatório
+npm run avaliar -- base
+npm run avaliar -- busca --sem-llm   # só a busca, sem chave e sem cota
 
 # Baixa a norma e grava o texto normalizado em corpus/normalized/
 npm run ingest -- lei-9613             # Planalto: página do texto compilado

@@ -70,12 +70,19 @@ export function montarTrechos(norma: NormaNormalizada): Trecho[] {
  * o modelo tem de deduzir o dispositivo pelo texto, como faria com a norma impressa.
  */
 export function textoCorrido(norma: NormaNormalizada): string {
-  const linhas = [norma.fonte.titulo];
+  return linhasDoTextoCorrido(norma)
+    .map((linha) => linha.texto)
+    .join("\n");
+}
+
+/** Linhas do texto corrido, com o caminho do dispositivo de cada uma (null no título e nos agrupamentos). */
+export function linhasDoTextoCorrido(norma: NormaNormalizada): { texto: string; caminho: string | null }[] {
+  const linhas: { texto: string; caminho: string | null }[] = [{ texto: norma.fonte.titulo, caminho: null }];
   let agrupamento: string | null = null;
   for (const artigo of norma.artigos) {
-    if (artigo.agrupamento && artigo.agrupamento !== agrupamento) linhas.push(artigo.agrupamento);
+    if (artigo.agrupamento && artigo.agrupamento !== agrupamento) linhas.push({ texto: artigo.agrupamento, caminho: null });
     agrupamento = artigo.agrupamento;
-    linhas.push(...artigo.dispositivos.filter(temTextoProprio).map((d) => comRotulo(artigo, d)));
+    for (const d of artigo.dispositivos.filter(temTextoProprio)) linhas.push({ texto: comRotulo(artigo, d), caminho: d.caminho });
   }
-  return linhas.join("\n");
+  return linhas;
 }
