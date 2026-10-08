@@ -27,7 +27,7 @@ const PENA = /^Pena\b/;
 const PARAGRAFO_NA_LINHA = /(?<=[.;:)]\s+)(?=Parágrafo\s+único\b|§\s*\d+\s*[º°o]?\.?\s+[A-ZÀ-Ú(])/;
 const ASSINATURA = /^Brasília,\s/;
 const NOTA =
-  /\((?:Redação dada|Incluíd[oa]|Acrescid[oa]|Revogad[oa]|Renumerad[oa]|Denominação alterada|Vide|Vigência|Regulamento|Promulgação)[^)]*\)/gi;
+  /\((?:Redação dada|Incluíd[oa]|Acrescid[oa]|Revogad[oa]|Renumerad[oa]|Transformad[oa]|Denominação alterada|Vide|Vigência|Regulamento|Promulgação)[^)]*\)/gi;
 
 const semNotas = (linha: string) => linha.replace(NOTA, " ").replace(/\s+/g, " ").trim();
 

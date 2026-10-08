@@ -30,6 +30,13 @@ describe("decodificar", () => {
     expect(decodificar(comMeta("windows-1252"))).toContain("Ação nº");
   });
 
+  it("decodifica a faixa 0x80-0x9F do windows-1252 (travessão, aspas curvas, reticências)", () => {
+    // “I – a” … em windows-1252
+    const bytes = new Uint8Array([0x93, 0x49, 0x20, 0x96, 0x20, 0x61, 0x94, 0x20, 0x85, 0x20, 0x97, 0x20, 0x80]);
+    expect(decodificar(bytes, "text/html")).toBe("\u201cI \u2013 a\u201d \u2026 \u2014 \u20ac");
+    expect(decodificar(bytes, "text/html; charset=iso-8859-1")).toBe("\u201cI \u2013 a\u201d \u2026 \u2014 \u20ac");
+  });
+
   it("cai para UTF-8 quando o charset é desconhecido", () => {
     expect(() => decodificar(comMeta("charset-inexistente"))).not.toThrow();
   });

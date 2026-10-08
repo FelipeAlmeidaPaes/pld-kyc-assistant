@@ -115,6 +115,14 @@ describe("parseBcb", () => {
     expect(artigo!.agrupamento).toBe("CAPÍTULO I - DAS REGRAS FICTÍCIAS > Seção II - Da Parte Fictícia");
   });
 
+  it("separa a nota de transformação em parágrafo", () => {
+    const [artigo] = parseBcb(["Art. 1º Regra fictícia.", "§ 1º Prazo fictício. (Transformado em § 1º pela Resolução BCB nº 9.999, de 1º/1/2099.)"]);
+    expect(artigo!.dispositivos[1]).toMatchObject({
+      texto: "Prazo fictício.",
+      notas: ["(Transformado em § 1º pela Resolução BCB nº 9.999, de 1º/1/2099.)"],
+    });
+  });
+
   it("reconhece item dentro de alínea e alínea de duas letras", () => {
     const caminhos = parseBcb([
       "Art. 1º Regra fictícia:",
