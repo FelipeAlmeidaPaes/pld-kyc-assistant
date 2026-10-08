@@ -52,11 +52,12 @@ docker compose up -d
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0006)
+- `docs/adr/`: decisões de arquitetura (0001 a 0007)
 
 ## Decisões (detalhes em docs/adr)
 - **Stack:** TypeScript, Node 22, ESM, `strict` (ADR 0001).
 - **LLM:** Gemini nível gratuito como principal, OpenRouter como fallback, os dois pela API compatível com OpenAI (ADR 0002). Avaliação roda sem fallback. Toda resposta registra provedor e modelo.
+- **Custo zero (exigência do autor, ADR 0002):** `GEMINI_MODEL=gemini-3.5-flash-lite`; no OpenRouter só modelo `:free` (a configuração recusa outro, salvo `OPENROUTER_PERMITIR_PAGO=sim`; a conta tem crédito comprado). Nada de apelido `-latest`. Nunca trocar para modelo pago sem o autor pedir.
 - **Embeddings:** locais primeiro (família e5 via transformers.js), comparados com API pela avaliação; troca só com ganho de pelo menos 5 p.p. em recall@5 (ADR 0003).
 - **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
@@ -84,23 +85,28 @@ docker compose up -d
 
 ## Estado atual (2026-10-08, terceira sessão)
 - **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #1. Trabalho desta sessão ainda não mesclado.
-- **Rede e ambiente:** como na sessão anterior. O `onnxruntime-node` tenta baixar binários de CUDA na instalação e falha com ECONNRESET; o `.npmrc` desliga isso. Não há `GEMINI_API_KEY` nem `OPENROUTER_API_KEY` no ambiente.
+- **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
+- **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
-  - Corpus da v1 (seis normas) e ingestão, como antes.
-  - As três variantes do RAG, cada uma com `/buscar` e `/perguntar`, sobre a mesma base. Indexadas no Qdrant: 938 trechos por dispositivo (manual e langchain) e 196 pedaços do divisor padrão. Nenhum texto passa de 512 tokens (maior: 292).
-  - Servidor testado de ponta a ponta: sobe, busca nas três variantes (~60 ms) e responde 503 em `/perguntar` sem chave.
-  - 82 testes. O teste de paridade garante que manual e LangChain mandam o mesmo pedido ao modelo.
-- **Achados (detalhes na ADR 0007):** o LangChain altera o esquema zod que manda ao modelo e não repete 429 sem `Retry-After`; `manual` e `langchain` recuperaram os mesmos trechos em 12/12 perguntas de diagnóstico; o divisor padrão contém inteiros só 72% dos dispositivos que a variante manual achou; com o e5, a pontuação de pergunta fora do corpus (0,858) fica colada nas do tema (0,873 a 0,903).
+  - Corpus da v1 (seis normas) e ingestão.
+  - As três variantes do RAG, com `/buscar` e `/perguntar`, testadas de ponta a ponta com o Gemini real (`gemini-3.5-flash-lite`) e com o reserva do OpenRouter (`nvidia/nemotron-3-super-120b-a12b:free`). Uso do OpenRouter: US$ 0.
+  - Trava de custo na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
+  - 84 testes.
+- **Achados:**
+  - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
+  - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
 - **Não validado:**
-  - A geração real: os dois clientes de chat só rodaram contra o LLM falso. Falta confirmar que o Gemini aceita `response_format` com `json_schema` e `strict: true` pela API compatível com a da OpenAI.
-  - Uma indexação falhou com "fetch failed" no meio (256 de 938 pontos) e não se repetiu em quatro rodadas seguintes. Causa desconhecida; a indexação recria as coleções, então rodar de novo resolve.
+  - Se o projeto do Gemini está sem faturamento. É o que garante custo zero; só o autor confere, no AI Studio.
+  - Uma indexação falhou com "fetch failed" no meio e não se repetiu em quatro rodadas. Causa desconhecida; rodar de novo resolve.
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Configurar `GEMINI_API_KEY` e `GEMINI_MODEL` (`.env`) e testar `/perguntar` nas três variantes com o provedor real.
-2. Rascunhar ~30 perguntas de avaliação, com os dispositivos esperados, para o autor validar dispositivo por dispositivo. Incluir perguntas fora do corpus para medir a recusa.
-3. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada (ADR 0002), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência.
+1. Rascunhar ~30 perguntas de avaliação, com os dispositivos esperados, para o autor validar dispositivo por dispositivo. Incluir perguntas fora do corpus e a do prazo de guarda de registros.
+2. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada e ritmo controlado (cota gratuita), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência.
+3. Com a avaliação de base, comparar as correções da busca (limite por artigo, MMR, híbrida, k).
 
 ## Pendências com o autor
+- Confirmar no AI Studio que o projeto da chave do Gemini está sem faturamento.
+- Gerar chaves novas (as atuais passaram pelo chat) e, se quiser, baixar o limite da chave do OpenRouter para US$ 0.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Escolher o modelo do Gemini para `GEMINI_MODEL` e fornecer a chave.
+- Abrir PR e mesclar o trabalho da terceira sessão.

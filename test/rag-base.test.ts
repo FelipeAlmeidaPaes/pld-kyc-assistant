@@ -183,19 +183,31 @@ describe("configuração", () => {
   it("usa só provedores com chave e modelo, na ordem Gemini e OpenRouter", () => {
     const config = lerConfiguracao({
       OPENROUTER_API_KEY: "k2",
-      OPENROUTER_MODEL: "m2",
+      OPENROUTER_MODEL: "m2:free",
       GEMINI_API_KEY: "k1",
       GEMINI_MODEL: "m1",
       GEMINI_PRECO_ENTRADA_USD_MILHAO: "0.1",
       GEMINI_PRECO_SAIDA_USD_MILHAO: "0.4",
       RAG_FALLBACK: "nao",
     });
-    expect(config.provedores.map((p) => [p.nome, p.modelo])).toEqual([["gemini", "m1"], ["openrouter", "m2"]]);
+    expect(config.provedores.map((p) => [p.nome, p.modelo])).toEqual([["gemini", "m1"], ["openrouter", "m2:free"]]);
     expect(config.usarFallback).toBe(false);
     expect(config.k).toBe(5);
     expect(custoTabela(config.provedores[0]!, 1_000_000, 500_000)).toBeCloseTo(0.3);
     expect(custoTabela(config.provedores[1]!, 1_000_000, 500_000)).toBeNull();
     expect(lerConfiguracao({ GEMINI_API_KEY: "k1" }).provedores).toEqual([]);
+  });
+
+  it("recusa modelo do OpenRouter que não seja :free, salvo liberação explícita", () => {
+    const env = { OPENROUTER_API_KEY: "k", OPENROUTER_MODEL: "fornecedor/modelo-pago" };
+    expect(() => lerConfiguracao(env)).toThrow('não é gratuito (falta ":free")');
+    expect(lerConfiguracao({ ...env, OPENROUTER_PERMITIR_PAGO: "sim" }).provedores).toHaveLength(1);
+    expect(lerConfiguracao({ ...env, OPENROUTER_MODEL: "fornecedor/modelo:free" }).provedores).toHaveLength(1);
+  });
+
+  it("recusa apelido -latest do Gemini", () => {
+    expect(() => lerConfiguracao({ GEMINI_API_KEY: "k", GEMINI_MODEL: "gemini-flash-latest" })).toThrow("apelido");
+    expect(lerConfiguracao({ GEMINI_API_KEY: "k", GEMINI_MODEL: "gemini-3.5-flash-lite" }).provedores).toHaveLength(1);
   });
 
   it("dá à coleção o nome da variante e do modelo de embeddings", () => {
