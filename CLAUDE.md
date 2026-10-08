@@ -100,12 +100,22 @@ docker compose up -d
   - Corpus da v1 (seis normas) e ingestão. Corrigidos nesta sessão: travessão em windows-1252 perdido pelo Node (a Lei 9.613, art. 9º, parágrafo único, I, estava colado no parágrafo) e nota "(Transformado em § 1º ...)" no texto da Circular 3.978, art. 49, § 1º. Índice refeito: 939 pontos em `manual` e `langchain`, 196 no padrão, nenhum truncado.
   - As três variantes do RAG, com `/buscar` e `/perguntar`, testadas de ponta a ponta com o Gemini real (`gemini-3.5-flash-lite`) e com o reserva do OpenRouter (`nvidia/nemotron-3-super-120b-a12b:free`). Uso do OpenRouter: US$ 0.
   - Custo zero conferido: projeto do Gemini no nível gratuito, sem faturamento (AI Studio, 2026-10-08); chave do OpenRouter com limite total de US$ 0, e os modelos `:free` funcionam com ela. Trava também na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
-  - Rascunho do conjunto de avaliação: as 30 perguntas do autor, reescritas sem o nome da norma, mais 6 fora do corpus (f01 a f06). Gabaritos conferidos no texto: 11 conferem, 12 ajustados, 1 errado (q19: os 45 dias são de monitoramento e de análise, não de comunicação ao Coaf), 6 sem base no texto (doutrina ou termo que a norma não usa; reescritos para o que a norma diz, e q05 trocada pela do prazo de guarda). Nenhum validado ainda.
-  - 94 testes.
+  - Conjunto de avaliação: as 30 perguntas do autor, reescritas sem o nome da norma, mais 6 fora do corpus (f01 a f06). Gabaritos conferidos no texto: 11 conferem, 12 ajustados, 1 errado (q19), 6 sem base no texto. Validado pelo autor em bloco ("Tudo ok").
+  - Executor e relatório (ADR 0008). Execuções gravadas: `busca-base` (só busca) e `base` (Gemini, 108 chamadas, 16 min, nenhum erro; um 503 absorvido pela nova tentativa).
+  - 107 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
-  - **Busca de base** (`avaliacao/execucoes/base.md`): em `manual` e `langchain`, recall@5 42%, acerto@5 60%, MRR 0,40; no divisor padrão, 59%, 70% e 0,53, com contexto maior (mediana de 5 dispositivos por pedaço). Nas perguntas da Carta Circular 4.001 (q21 a q25), `manual` e `langchain` não acham o dispositivo exigido entre os 20 primeiros: as alíneas do art. 39, I, da Circular 3.978 tomam as vagas, e o contexto longo repetido (caput e inciso) dilui o texto curto da alínea. Hipótese, não provada.
+  - **Avaliação de base** (`avaliacao/execucoes/base.md`):
+
+    | variante | recall@5 | acerto@5 | MRR@20 | falsa recusa | recusa correta | citações pertinentes | tokens de entrada |
+    |---|---|---|---|---|---|---|---|
+    | manual | 42% | 60% | 0,40 | 13/30 | 6/6 | 28/31 | 1.008 |
+    | langchain | 42% | 60% | 0,40 | 12/30 | 6/6 | 30/33 | 1.008 |
+    | langchain-padrao | 59% | 70% | 0,53 | 15/30 | 6/6 | 18/24 | 1.394 |
+  - **A busca é o gargalo:** em `manual`, 9 das 13 recusas indevidas são de perguntas sem nenhum dispositivo exigido entre os 5 trechos; 2 trouxeram só parte (q12, q13: a definição do art. 2º da Lei 13.810 não veio, e a regra 3 do prompt manda recusar resposta parcial); 2 trouxeram tudo (q08, ver pendências; q10, ruído do modelo). No divisor padrão, 6 recusas com tudo recuperado, quase todas "citação não confere": o modelo erra o caminho ao deduzi-lo do texto.
+  - **O modelo não é determinístico:** `manual` e `langchain` mandam o mesmo pedido (749 tokens em q10, mesma busca), e em q10 um recusou e o outro respondeu; em q18 citaram conjuntos diferentes. Diferença de uma pergunta entre variantes é ruído.
+  - **Latência não compara variantes:** nas três, cada geração leva ~1 s ou ~10 s, sem padrão por variante. Provável fila ou limite do nível gratuito do Gemini. Nas perguntas da Carta Circular 4.001 (q21 a q25), `manual` e `langchain` não acham o dispositivo exigido entre os 20 primeiros: as alíneas do art. 39, I, da Circular 3.978 tomam as vagas, e o contexto longo repetido (caput e inciso) dilui o texto curto da alínea. Hipótese, não provada.
   - **Limitar trechos por artigo piora:** simulado sobre os 20 primeiros gravados, recall@5 cai de 42% para 32% (limite 1) e 39% (limite 2). Várias perguntas exigem incisos do mesmo artigo, e o que falta nem está entre os 20. Candidatos que sobram: busca híbrida (termos como "fragmentação" casariam), texto indexado com menos contexto, embedding maior ou por API (ADR 0003).
   - Pontuação do melhor trecho em `manual`: cobertas de 0,872 a 0,913, fora do corpus de 0,838 a 0,864. Um limiar perto de 0,868 separaria estas 36, mas com 6 perguntas fora do corpus ficaria ajustado a elas.
   - No divisor padrão o modelo deduz o caminho do dispositivo pelo texto e às vezes erra (ex.: "parágrafo único, I, I-A", ou a Lei 9.613 citada com o artigo errado); a validação recusa a resposta inteira.
@@ -116,11 +126,16 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Autor valida `avaliacao/revisao.md` pergunta por pergunta; marcar `validado: true` em `avaliacao/perguntas.json` e rodar `npm run avaliacao:revisao`.
-2. Executor da avaliação: roda as perguntas nas três variantes, sem fallback, com retomada e ritmo controlado (cota gratuita), e mede recall@5, MRR, acerto, citação correta, recusa, tokens, custo e latência. Decidir como casar os pedaços do divisor padrão (sem caminho) com os dispositivos esperados.
-3. Com a avaliação de base, comparar as correções da busca (limite por artigo, MMR, híbrida, k).
+1. Aplicar as correções de gabarito que o autor aprovar (ver pendências) e refazer o relatório (`npm run avaliar -- base --so-relatorio`).
+2. Corrigir a busca, medindo com `--sem-llm` contra `busca-base` (recall@5 de 42% em `manual`): busca híbrida, texto indexado com menos contexto, embedding maior. Limite por artigo já foi descartado.
+3. Com a busca melhor, nova execução com LLM e comparação com `base`. Repetir uma execução para medir o ruído do modelo.
+4. Decidir o juiz do conteúdo da resposta e do `naoDeve` (pessoa ou LLM de outra família, fixo, ADR 0002).
+5. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Validar o conjunto de avaliação (`avaliacao/revisao.md`). Em especial: q07 e q08 viraram teste de alucinação (a lei não define gestão fraudulenta nem temerária), q05 foi trocada, e q19 tinha o gabarito errado.
+- Correções de gabarito achadas na avaliação de base (erros do rascunho do Claude, a aprovar):
+  - q22: a Carta Circular 4.001, art. 1º, I, k, l e m, também trata de fracionamento (saques abaixo do limite em cinco dias úteis; dois ou mais saques ou depósitos para evitar a identificação). A observação dizia que a norma não fala em burlar a identificação: errado. Proposta: incluir os três no gabarito e em `aceitos`.
+  - q23: a Circular 3.978, art. 39, I, c (operações incompatíveis com a capacidade financeira, renda, faturamento e patrimônio) responde à pergunta. Proposta: incluir em `aceitos`.
+  - q07 e q08: a regra 3 do prompt manda recusar quando os trechos respondem só em parte, e a lei não define gestão fraudulenta nem temerária. Proposta: aceitar a recusa como resposta correta nessas duas.
