@@ -25,6 +25,8 @@ docker compose up -d     # Qdrant em localhost:6333
 npm run indexar          # cria as coleções das três variantes no Qdrant (~70 s; baixa o e5 na primeira vez)
 npm run servidor         # POST /<variante>/buscar e /<variante>/perguntar em localhost:3000
 npm run avaliacao:revisao   # confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
+npm run avaliar -- <rótulo>            # roda a avaliação nas três variantes (Gemini, sem fallback); mesmo rótulo retoma
+npm run avaliar -- <rótulo> --sem-llm  # só a busca, sem cota (~10 s); também --variantes, --perguntas, --so-relatorio
 ```
 
 Na sessão na nuvem, o Docker não sobe sozinho e o Docker Hub costuma responder 429 (limite de pulls anônimos):
@@ -50,7 +52,8 @@ docker compose up -d
 - `src/rag/langchain/`: `EmbeddingsE5`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
 - `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts` (repete até 3 vezes a variante que falhar), `cli-servidor.ts`
 - `avaliacao/perguntas.json`: conjunto de avaliação (fonte da verdade). `avaliacao/revisao.md`: gerado dele, com o texto de cada dispositivo esperado, para o autor validar pelo celular; um teste falha se estiver desatualizado
-- `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`
+- `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`; executor com ritmo e retomada (`executor.ts`), dispositivos de cada trecho recuperado, inclusive do divisor padrão, localizado no texto corrido (`cobertura.ts`), `metricas.ts`, `relatorio.ts`, `cli-avaliar.ts`
+- `avaliacao/execucoes/<rótulo>.jsonl` e `.md`: registros de cada execução (só recebem linhas novas; vale a mais recente de cada pergunta e variante) e o relatório
 - `test/fixtures/llm-falso.ts`: servidor compatível com a API da OpenAI que grava as requisições; testa os dois clientes de chat sem chave
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
@@ -66,6 +69,7 @@ docker compose up -d
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
 - **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
 - **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings e5, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
+- **Avaliação (ADR 0008):** só perguntas validadas; só o provedor principal, sem fallback; 5 s entre chamadas; busca registrada até a posição 20; recall@5, acerto@5, MRR@20, falsa recusa, recusa correta, citações pertinentes e cobertura, tokens, custo e latência. Acerto do conteúdo e `naoDeve` ainda não são medidos (pedem juiz).
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -86,9 +90,10 @@ docker compose up -d
 - Código, comentários, mensagens e documentação em português. Mensagens de commit em inglês, seguindo o histórico.
 - Imports com extensão `.js` (ESM com `nodenext`).
 - Antes de commitar: `npm run typecheck` e `npm test`.
+- Branch com nome legível, que diga o que ela faz, sem "claude" e sem sufixo aleatório (pedido do autor). A plataforma cria a sessão numa branch `claude/...-<sufixo>`: trabalhar numa branch nova com nome descritivo.
 
 ## Estado atual (2026-10-08, terceira sessão)
-- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #2. Os commits desta parte da sessão (correções do corpus, retentativa da indexação, conjunto de avaliação) estão na branch, sem PR: o autor não pediu.
+- **Branch:** `avaliacao-v1`, a partir da `main` depois do PR #2: correções do corpus, retentativa da indexação, conjunto de avaliação, executor e avaliação de base. Sem PR: o autor não pediu. A branch remota antiga `claude/test-domain-connection-7yur2q` aponta para um commit já contido nesta; apagá-la foi bloqueado pela permissão da sessão.
 - **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
@@ -100,6 +105,10 @@ docker compose up -d
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
+  - **Busca de base** (`avaliacao/execucoes/base.md`): em `manual` e `langchain`, recall@5 42%, acerto@5 60%, MRR 0,40; no divisor padrão, 59%, 70% e 0,53, com contexto maior (mediana de 5 dispositivos por pedaço). Nas perguntas da Carta Circular 4.001 (q21 a q25), `manual` e `langchain` não acham o dispositivo exigido entre os 20 primeiros: as alíneas do art. 39, I, da Circular 3.978 tomam as vagas, e o contexto longo repetido (caput e inciso) dilui o texto curto da alínea. Hipótese, não provada.
+  - **Limitar trechos por artigo piora:** simulado sobre os 20 primeiros gravados, recall@5 cai de 42% para 32% (limite 1) e 39% (limite 2). Várias perguntas exigem incisos do mesmo artigo, e o que falta nem está entre os 20. Candidatos que sobram: busca híbrida (termos como "fragmentação" casariam), texto indexado com menos contexto, embedding maior ou por API (ADR 0003).
+  - Pontuação do melhor trecho em `manual`: cobertas de 0,872 a 0,913, fora do corpus de 0,838 a 0,864. Um limiar perto de 0,868 separaria estas 36, mas com 6 perguntas fora do corpus ficaria ajustado a elas.
+  - No divisor padrão o modelo deduz o caminho do dispositivo pelo texto e às vezes erra (ex.: "parágrafo único, I, I-A", ou a Lei 9.613 citada com o artigo errado); a validação recusa a resposta inteira.
   - Res. Conjunta 6, art. 8º, II, remete ao "art. 2º, § 6º, inciso II", mas o § 6º não tem incisos no texto do BCB (conferido no JSON bruto da API). É da norma, não do parser.
   - Carta Circular 4.001, art. 1º, III, f, termina em "et c." (espaço do PDF dentro de "etc."). Cosmético; não corrigido.
 - **Não validado:**
