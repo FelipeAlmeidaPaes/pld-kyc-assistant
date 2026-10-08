@@ -92,6 +92,7 @@ docker compose up -d
 - Código, comentários, mensagens e documentação em português. Mensagens de commit em inglês, seguindo o histórico.
 - Imports com extensão `.js` (ESM com `nodenext`).
 - Antes de commitar: `npm run typecheck` e `npm test`.
+- Autor dos commits é o autor do projeto, com a coautoria do Claude na linha `Co-Authored-By` (pedido do autor). A sessão na nuvem começa com `git config user.name` "Claude": antes do primeiro commit, rodar `git config user.name "Felipe de Almeida Paes"` e `git config user.email "41527579+FelipeAlmeidaPaes@users.noreply.github.com"` (o e-mail privado do GitHub, o mesmo dos commits dele na `main`).
 - Branch com nome legível, que diga o que ela faz, sem "claude" e sem sufixo aleatório (pedido do autor). A plataforma cria a sessão numa branch `claude/...-<sufixo>`: trabalhar numa branch nova com nome descritivo.
 
 ## Estado atual (2026-10-08, terceira sessão)
