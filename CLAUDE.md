@@ -98,6 +98,7 @@ docker compose up -d
 
 ## Estado atual (2026-10-08, terceira sessão)
 - **Branch:** `avaliacao-v1`, a partir da `main` depois do PR #2: correções do corpus, retentativa da indexação, conjunto de avaliação, executor e avaliação de base. Sem PR: o autor não pediu. A branch remota antiga `claude/test-domain-connection-7yur2q` aponta para um commit já contido nesta; apagá-la foi bloqueado pela permissão da sessão.
+- **Histórico reescrito (2026-10-08, a pedido do autor):** `main` e `avaliacao-v1` passaram por `git filter-branch` para trocar autor e committer "Claude" pelo autor; conteúdo, datas e mensagens iguais. Os PRs #1 e #2 no GitHub ainda mostram os commits antigos, e a branch remota `claude/test-domain-connection-7yur2q` aponta para o histórico antigo.
 - **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
