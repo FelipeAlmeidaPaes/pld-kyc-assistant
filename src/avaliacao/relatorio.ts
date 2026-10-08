@@ -28,6 +28,7 @@ export function montarRelatorio(registros: RegistroDaAvaliacao[], perguntas: Per
     `- Registros: ${registros.length}, de ${datas[0] ?? "–"} a ${datas.at(-1) ?? "–"}`,
     `- k = ${k} trechos ao modelo; busca registrada até a posição ${config?.profundidade ?? "–"}; limiar: ${config?.limiar ?? "desligado"}`,
     `- Embeddings: ${config?.modeloDeEmbeddings ?? "–"}; LLM: ${config?.modeloDeLlm ?? "nenhum (só busca)"}, sem fallback`,
+    ...(config?.busca ? [`- Busca do experimento: ${config.busca}`] : []),
     "- Não medido aqui: se o conteúdo da resposta está certo e se ela afirma algo de `naoDeve`. Isso exige juiz (pessoa ou LLM).",
     "",
     `## Busca (perguntas cobertas)`,

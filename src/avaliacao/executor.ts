@@ -12,6 +12,8 @@ export interface ConfiguracaoDaExecucao {
   modeloDeEmbeddings: string;
   /** Modelo pedido ao provedor; null quando a execução é só de busca. */
   modeloDeLlm: string | null;
+  /** Como a busca foi feita, quando não é a das variantes (experimentos de busca). */
+  busca?: string;
 }
 
 /** Uma linha do arquivo da execução: uma pergunta numa variante. */

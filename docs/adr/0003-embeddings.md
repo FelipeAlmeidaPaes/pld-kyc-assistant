@@ -1,6 +1,6 @@
 # ADR 0003: Embeddings locais primeiro, comparados com API pela avaliação
 
-- Status: Aceita
+- Status: Substituída em parte pela ADR 0009 (o Gemini ganhou por 38 p.p. em recall@5)
 - Data: 2026-10-07
 
 ## Contexto

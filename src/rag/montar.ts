@@ -2,8 +2,8 @@ import { QdrantVectorStore } from "@langchain/qdrant";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { type Configuracao, nomeDaColecao, SemProvedorDeLlm } from "./config.js";
 import { carregarCorpus, IndiceDoCorpus } from "./corpus.js";
-import { criarGeradorE5 } from "./embeddings.js";
-import { EmbeddingsE5 } from "./langchain/embeddings.js";
+import { criarGerador } from "./embeddings.js";
+import { EmbeddingsDoGerador } from "./langchain/embeddings.js";
 import { trechoDoDocumento } from "./langchain/indice.js";
 import { criarModeloDeChat, criarPipelineLangchain } from "./langchain/pipeline.js";
 import { criarClienteDeChat } from "./manual/llm.js";
@@ -30,7 +30,7 @@ export async function montarVariantes(config: Configuracao): Promise<Record<Vari
   }
 
   const indice = new IndiceDoCorpus(await carregarCorpus());
-  const gerador = await criarGeradorE5(config.modeloDeEmbeddings);
+  const gerador = await criarGerador(config.modeloDeEmbeddings, config.chaveGemini);
   const comLlm = config.provedores.length > 0;
   const comuns = { indice, k: config.k, limiar: config.limiar };
 
@@ -43,7 +43,7 @@ export async function montarVariantes(config: Configuracao): Promise<Record<Vari
       : semLlm,
   };
 
-  const embeddings = new EmbeddingsE5(gerador);
+  const embeddings = new EmbeddingsDoGerador(gerador);
   const modelo = comLlm ? criarModeloDeChat(config.provedores, config.usarFallback) : null;
   const langchain = async (variante: "langchain" | "langchain-padrao"): Promise<VarianteMontada> => {
     const loja = await QdrantVectorStore.fromExistingCollection(embeddings, {

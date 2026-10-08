@@ -1,10 +1,11 @@
 import { existsSync } from "node:fs";
+import { parseArgs } from "node:util";
 import { AutoTokenizer } from "@huggingface/transformers";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { lerConfiguracao, nomeDaColecao } from "./config.js";
 import { carregarCorpus } from "./corpus.js";
-import { criarGeradorE5 } from "./embeddings.js";
-import { EmbeddingsE5 } from "./langchain/embeddings.js";
+import { criarGerador } from "./embeddings.js";
+import { EmbeddingsDoGerador } from "./langchain/embeddings.js";
 import { documentosDoDivisorPadrao, documentosDosTrechos, indexarLangchain } from "./langchain/indice.js";
 import { indexarManual } from "./manual/qdrant.js";
 import { montarTrechos } from "./trechos.js";
@@ -40,13 +41,16 @@ async function comNovasTentativas(variante: string, indexar: () => Promise<unkno
 }
 
 async function main() {
+  // --variantes manual,langchain: indexa só essas (com embedding por API, a cota do dia pode não dar para todas).
+  const { values } = parseArgs({ options: { variantes: { type: "string" } } });
+  const escolhidas = values.variantes?.split(",") ?? null;
   const config = lerConfiguracao();
   const cliente = new QdrantClient({ url: config.qdrantUrl });
   const normas = await carregarCorpus();
   const trechos = normas.flatMap(montarTrechos);
   const padrao = await documentosDoDivisorPadrao(normas);
-  const gerador = await criarGeradorE5(config.modeloDeEmbeddings);
-  const embeddings = new EmbeddingsE5(gerador);
+  const gerador = await criarGerador(config.modeloDeEmbeddings, config.chaveGemini);
+  const embeddings = new EmbeddingsDoGerador(gerador);
   const conexao = (variante: string) => ({ url: config.qdrantUrl, collectionName: nomeDaColecao(variante, config.modeloDeEmbeddings) });
 
   const etapas: [string, number, () => Promise<unknown>][] = [
@@ -54,7 +58,9 @@ async function main() {
     ["langchain", trechos.length, () => indexarLangchain(documentosDosTrechos(trechos), embeddings, conexao("langchain"))],
     ["langchain-padrao", padrao.length, () => indexarLangchain(padrao, embeddings, conexao("langchain-padrao"))],
   ];
-  for (const [variante, esperado, indexar] of etapas) {
+  const desconhecidas = escolhidas?.filter((v) => !etapas.some(([nome]) => nome === v)) ?? [];
+  if (desconhecidas.length > 0) throw new Error(`Variante desconhecida: ${desconhecidas.join(", ")}`);
+  for (const [variante, esperado, indexar] of etapas.filter(([nome]) => !escolhidas || escolhidas.includes(nome))) {
     const inicio = performance.now();
     await comNovasTentativas(variante, indexar);
     const { collectionName } = conexao(variante);
@@ -64,6 +70,8 @@ async function main() {
     if (count !== esperado) console.warn(`  aviso: esperados ${esperado} pontos`);
   }
 
+  // O limite de 512 tokens é do e5; os embeddings do Gemini aceitam 2.048 ou mais.
+  if (config.modeloDeEmbeddings.startsWith("gemini-")) return;
   for (const [nome, textos] of [
     ["trechos por dispositivo", trechos.map((t) => t.texto)],
     ["divisor padrão", padrao.map((d) => d.pageContent)],

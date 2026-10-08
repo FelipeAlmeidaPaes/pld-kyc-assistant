@@ -14,6 +14,7 @@
     "servidor": "tsx src/rag/cli-servidor.ts",
     "avaliar": "tsx src/avaliacao/cli-avaliar.ts",
     "avaliacao:revisao": "tsx src/avaliacao/cli-revisao.ts",
+    "avaliacao:experimentos": "tsx src/avaliacao/cli-experimentos-busca.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"

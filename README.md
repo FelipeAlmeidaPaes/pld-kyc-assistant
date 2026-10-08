@@ -54,7 +54,7 @@ O projeto evolui junto com os módulos da pós-graduação.
 |---|---|---|
 | Stack | TypeScript e Node.js | [0001](docs/adr/0001-stack.md) |
 | LLM | Gemini (nível gratuito) principal, OpenRouter como fallback | [0002](docs/adr/0002-provedor-llm.md) |
-| Embeddings | Locais primeiro, comparados com API pela avaliação | [0003](docs/adr/0003-embeddings.md) |
+| Embeddings | Locais primeiro, comparados com API pela avaliação; trocados pelo Gemini, que ganhou por 38 p.p. em recall@5 | [0003](docs/adr/0003-embeddings.md), [0009](docs/adr/0009-embeddings-gemini.md) |
 | Banco vetorial | Qdrant local via Docker | [0004](docs/adr/0004-banco-vetorial.md) |
 | Corpus | Seis normas, sempre pelo texto compilado | [0005](docs/adr/0005-corpus-v1.md) |
 | PDF do BCB | Extraído com pdfjs-dist | [0006](docs/adr/0006-extracao-pdf.md) |
@@ -76,14 +76,16 @@ npm run indexar
 # Sobe o servidor com as três variantes em localhost:3000
 npm run servidor
 curl -X POST localhost:3000/manual/perguntar -H 'content-type: application/json' -d '{"pergunta": "..."}'
-# Só a busca, sem LLM (funciona sem chave):
+# Só a busca, sem LLM (sem chave só com EMBEDDINGS_MODELO=Xenova/multilingual-e5-small):
 curl -X POST localhost:3000/langchain-padrao/buscar -H 'content-type: application/json' -d '{"pergunta": "..."}'
 
 # Confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
 npm run avaliacao:revisao
 # Roda a avaliação nas três variantes (rótulo novo começa; o mesmo rótulo retoma) e gera o relatório
 npm run avaliar -- base
-npm run avaliar -- busca --sem-llm   # só a busca, sem chave e sem cota
+npm run avaliar -- busca --sem-llm   # só a busca, sem LLM
+# Experimentos de busca em memória (modelos de embedding, BM25, híbrida), sem mexer no Qdrant
+npm run avaliacao:experimentos -- --modelo Xenova/multilingual-e5-base
 
 # Baixa a norma e grava o texto normalizado em corpus/normalized/
 npm run ingest -- lei-9613             # Planalto: página do texto compilado

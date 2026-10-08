@@ -45,23 +45,40 @@ function ascendentes(artigo: Artigo, dispositivo: Dispositivo): Dispositivo[] {
   return caminhos.flatMap((caminho) => artigo.dispositivos.filter((d) => d.caminho === caminho && temTextoProprio(d)));
 }
 
-/** Um trecho por dispositivo com texto próprio, com o contexto que o torna legível sozinho. */
-export function montarTrechos(norma: NormaNormalizada): Trecho[] {
+/** As partes de que o trecho de um dispositivo é feito, cada uma já escrita como na norma. */
+export interface PartesDoTrecho {
+  normaId: string;
+  sigla: string;
+  caminho: string;
+  agrupamento: string | null;
+  /** Caput e, se houver, parágrafo, inciso e alínea que abrem o dispositivo. */
+  ascendentes: string[];
+  dispositivo: string;
+}
+
+export function partesDosTrechos(norma: NormaNormalizada): PartesDoTrecho[] {
   const { id: normaId, sigla } = norma.fonte;
   return norma.artigos.flatMap((artigo) =>
     artigo.dispositivos.filter(temTextoProprio).map((dispositivo) => ({
-      id: idDeterministico(`${normaId}|${dispositivo.caminho}`),
       normaId,
       sigla,
       caminho: dispositivo.caminho,
-      texto: [
-        `${sigla}, ${dispositivo.caminho}`,
-        ...(artigo.agrupamento ? [artigo.agrupamento] : []),
-        ...ascendentes(artigo, dispositivo).map((d) => comRotulo(artigo, d)),
-        comRotulo(artigo, dispositivo),
-      ].join("\n"),
+      agrupamento: artigo.agrupamento,
+      ascendentes: ascendentes(artigo, dispositivo).map((d) => comRotulo(artigo, d)),
+      dispositivo: comRotulo(artigo, dispositivo),
     })),
   );
+}
+
+/** Um trecho por dispositivo com texto próprio, com o contexto que o torna legível sozinho. */
+export function montarTrechos(norma: NormaNormalizada): Trecho[] {
+  return partesDosTrechos(norma).map((p) => ({
+    id: idDeterministico(`${p.normaId}|${p.caminho}`),
+    normaId: p.normaId,
+    sigla: p.sigla,
+    caminho: p.caminho,
+    texto: [`${p.sigla}, ${p.caminho}`, ...(p.agrupamento ? [p.agrupamento] : []), ...p.ascendentes, p.dispositivo].join("\n"),
+  }));
 }
 
 /**

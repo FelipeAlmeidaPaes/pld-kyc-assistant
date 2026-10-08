@@ -1,5 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { env, pipeline } from "@huggingface/transformers";
+import { arquivoDoCache, comCacheDeVetores } from "./cache-de-vetores.js";
+import { criarGeradorGemini } from "./embeddings-gemini.js";
 
 /** Gerador de embeddings usado pelas três variantes (ADR 0003 e 0007). */
 export interface GeradorDeEmbeddings {
@@ -37,4 +39,14 @@ export async function criarGeradorE5(modelo: string): Promise<GeradorDeEmbedding
     consultas: (textos) => embutir(textos.map((t) => `query: ${t}`)),
     trechos: (textos) => embutir(textos.map((t) => `passage: ${t}`)),
   };
+}
+
+/**
+ * Gerador pelo nome do modelo: "gemini-..." pela API do Gemini, com cache em disco por causa da
+ * cota diária do nível gratuito (ADR 0009); qualquer outro, e5 local.
+ */
+export async function criarGerador(modelo: string, chaveGemini: string | null): Promise<GeradorDeEmbeddings> {
+  if (!modelo.startsWith("gemini-")) return criarGeradorE5(modelo);
+  if (!chaveGemini) throw new Error(`EMBEDDINGS_MODELO=${modelo} exige GEMINI_API_KEY.`);
+  return comCacheDeVetores(criarGeradorGemini(modelo, { chave: chaveGemini }), arquivoDoCache(modelo));
 }
