@@ -13,6 +13,7 @@ const pergunta = (extra: Partial<PerguntaDeAvaliacao> = {}): PerguntaDeAvaliacao
   situacao: "ajustado",
   pergunta: "Pergunta fictícia?",
   tipo: "coberta",
+  recusaAceita: false,
   gabarito: "Com nome completo.",
   dispositivos: ["Lei 99.999/2099, art. 1º, I"],
   aceitos: ["Lei 99.999/2099, art. 1º, caput"],

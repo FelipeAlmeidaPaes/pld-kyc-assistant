@@ -157,7 +157,8 @@
       "situacao": "sem-base-no-texto",
       "pergunta": "O que caracteriza o crime de gestão fraudulenta de instituição financeira e qual é a pena?",
       "tipo": "coberta",
-      "gabarito": "A lei só tipifica a conduta, \"gerir fraudulentamente instituição financeira\", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta.",
+      "recusaAceita": true,
+      "gabarito": "A lei só tipifica a conduta, \"gerir fraudulentamente instituição financeira\", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta. Recusar também é aceito: a lei não define gestão fraudulenta, e a regra do prompt manda recusar quando os trechos respondem só em parte.",
       "dispositivos": [
         "Lei 7.492/1986, art. 4º, caput"
       ],
@@ -165,7 +166,7 @@
       "naoDeve": [
         "apresentar como texto da norma uma definição de gestão fraudulenta (engano, artifício, ardil, fraude contra sócios, investidores ou fiscalização)"
       ],
-      "observacao": "Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição.",
+      "observacao": "Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição. Recusa aceita desde 2026-10-08, por decisão do autor.",
       "validado": true
     },
     {
@@ -176,7 +177,8 @@
       "situacao": "sem-base-no-texto",
       "pergunta": "Qual é a diferença entre gestão temerária e gestão fraudulenta de instituição financeira?",
       "tipo": "coberta",
-      "gabarito": "A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa.",
+      "recusaAceita": true,
+      "gabarito": "A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa. Recusar também é aceito: a lei não define nenhuma das duas, e a regra do prompt manda recusar quando os trechos respondem só em parte.",
       "dispositivos": [
         "Lei 7.492/1986, art. 4º, caput",
         "Lei 7.492/1986, art. 4º, parágrafo único"
@@ -185,7 +187,7 @@
       "naoDeve": [
         "apresentar como texto da norma que gestão temerária é assunção excessiva de risco ou descumprimento de regras de prudência sem fraude"
       ],
-      "observacao": "Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07.",
+      "observacao": "Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07. Recusa aceita desde 2026-10-08, por decisão do autor.",
       "validado": true
     },
     {
@@ -492,22 +494,25 @@
       "origem": "autor, pergunta 22",
       "perguntaOriginal": "De que forma o fracionamento transacional é caracterizado na Carta Circular BCB nº 4.001/2020?",
       "gabaritoOriginal": "Pela realização de depósitos ou saques consecutivos em valores ajustados para burlar limites de identificação obrigatória ou comunicação automática.",
-      "situacao": "ajustado",
+      "situacao": "confere",
       "pergunta": "Quando o fracionamento de depósitos ou saques em espécie é indício de suspeita de lavagem de dinheiro?",
       "tipo": "coberta",
-      "gabarito": "A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d), e a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (art. 1º, I, e).",
+      "gabarito": "A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d); a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (I, e); saques em cinco dias úteis em valores inferiores aos limites, de forma a dissimular o valor total e evitar comunicações de operações em espécie (I, k); e dois ou mais saques em espécie no caixa no mesmo dia, ou dois ou mais depósitos em espécie em terminais de autoatendimento em cinco dias úteis, com indícios de burla para evitar a identificação (I, l e I, m).",
       "dispositivos": [
         "Carta Circular BCB 4.001/2020, art. 1º, I, d",
         "Carta Circular BCB 4.001/2020, art. 1º, I, e"
       ],
       "aceitos": [
         "Carta Circular BCB 4.001/2020, art. 1º, I",
+        "Carta Circular BCB 4.001/2020, art. 1º, I, k",
+        "Carta Circular BCB 4.001/2020, art. 1º, I, l",
+        "Carta Circular BCB 4.001/2020, art. 1º, I, m",
         "Carta Circular BCB 4.001/2020, art. 1º, X, l",
         "Carta Circular BCB 4.001/2020, art. 1º, X, m",
         "Carta Circular BCB 4.001/2020, art. 1º, XIX, c"
       ],
       "naoDeve": [],
-      "observacao": "Ajustado. A norma não fala em operações \"consecutivas\" nem em limite de \"identificação obrigatória\": nos depósitos, o fim é dissimular o valor total; nos saques, burlar limites de reporte.",
+      "observacao": "Confere. Na primeira conferência, o Claude disse que a norma não fala em burlar a identificação, e estava errado: as alíneas k, l e m do inciso I tratam de saques e depósitos repetidos para evitar a identificação e as comunicações, que é o que o gabarito original dizia. Corrigido em 2026-10-08, depois que a avaliação de base mostrou respostas citando essas alíneas.",
       "validado": true
     },
     {
@@ -518,7 +523,7 @@
       "situacao": "confere",
       "pergunta": "Qual sinal de alerta envolve a movimentação financeira do cliente em relação à sua capacidade econômica?",
       "tipo": "coberta",
-      "gabarito": "Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac).",
+      "gabarito": "Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac). A Circular 3.978 traz o mesmo sinal para o monitoramento: operações incompatíveis com a capacidade financeira do cliente, incluindo renda, faturamento e patrimônio (art. 39, I, c).",
       "dispositivos": [
         "Carta Circular BCB 4.001/2020, art. 1º, IV, a"
       ],
@@ -529,10 +534,11 @@
         "Carta Circular BCB 4.001/2020, art. 1º, VI, a",
         "Carta Circular BCB 4.001/2020, art. 1º, VI, b",
         "Carta Circular BCB 4.001/2020, art. 1º, X, f",
-        "Carta Circular BCB 4.001/2020, art. 1º, XII, d"
+        "Carta Circular BCB 4.001/2020, art. 1º, XII, d",
+        "Circular BCB 3.978/2020, art. 39, I, c"
       ],
       "naoDeve": [],
-      "observacao": "Confere no essencial. A norma não diz \"totalmente incompatíveis\" nem \"declarados\": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira.",
+      "observacao": "Confere no essencial. A norma não diz \"totalmente incompatíveis\" nem \"declarados\": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira. A Circular 3.978, art. 39, I, c, entrou em aceitos em 2026-10-08: a pergunta não nomeia a norma, e esse dispositivo também responde.",
       "validado": true
     },
     {

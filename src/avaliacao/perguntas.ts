@@ -22,6 +22,8 @@ const esquemaDaPergunta = z
     /** Como vai para o RAG: sem o nome da norma nem o número do artigo. */
     pergunta: z.string().min(1),
     tipo: z.enum(["coberta", "fora-do-corpus"]),
+    /** Pergunta coberta em que recusar também está certo (a norma responde só em parte). */
+    recusaAceita: z.boolean().default(false),
     gabarito: z.string().min(1),
     /** Dispositivos de que a resposta depende; base do recall e do MRR. */
     dispositivos: z.array(referencia),

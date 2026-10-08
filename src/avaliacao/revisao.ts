@@ -46,6 +46,7 @@ export function montarRevisao(perguntas: PerguntaDeAvaliacao[], normas: NormaNor
     if (p.perguntaOriginal) linhas.push(`**Original (${p.origem}):** ${p.perguntaOriginal}`, "");
     if (p.gabaritoOriginal) linhas.push(`**Gabarito original:** ${p.gabaritoOriginal}`, "");
     linhas.push(`**Gabarito:** ${p.gabarito}`, "");
+    if (p.recusaAceita) linhas.push("**Recusa aceita:** sim", "");
     for (const item of p.naoDeve) linhas.push(`**Não deve:** ${item}`, "");
     linhas.push(`**Observação:** ${p.observacao}`);
     if (p.dispositivos.length > 0) {

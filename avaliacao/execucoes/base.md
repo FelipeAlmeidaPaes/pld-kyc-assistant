@@ -29,9 +29,9 @@ Pontuação do melhor trecho (mín. / mediana / máx.): se as faixas não se sob
 
 | variante | falsa recusa | recusa correta (fora) | citações pertinentes | cobertura das citações | erros |
 | --- | --- | --- | --- | --- | --- |
-| manual | 13/30 (43%) | 6/6 (100%) | 28/31 (90%) | 57% | 0 |
-| langchain | 12/30 (40%) | 6/6 (100%) | 30/33 (91%) | 62% | 0 |
-| langchain-padrao | 15/30 (50%) | 6/6 (100%) | 18/24 (75%) | 53% | 0 |
+| manual | 12/30 (40%) | 6/6 (100%) | 29/31 (94%) | 57% | 0 |
+| langchain | 11/30 (37%) | 6/6 (100%) | 31/33 (94%) | 62% | 0 |
+| langchain-padrao | 13/30 (43%) | 6/6 (100%) | 21/24 (88%) | 53% | 0 |
 
 | variante | tokens de entrada (média) | tokens de saída (média) | custo de tabela | geração p50 / p95 | total p50 / p95 |
 | --- | --- | --- | --- | --- | --- |
@@ -59,8 +59,8 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 | q04 | coberta | 13 · recusou (modelo: não cobre) | 13 · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) |
 | q05 | coberta | 10 · recusou (modelo: não cobre) | 10 · recusou (modelo: não cobre) | 1 · recusou (citação não confere) |
 | q06 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 1 · recusou (citação não confere) |
-| q07 | coberta | 3 · respondeu 1/1 | 3 · respondeu 1/1 | 5 · recusou (modelo: não cobre) |
-| q08 | coberta | 1 · recusou (modelo: não cobre) | 1 · recusou (modelo: não cobre) | 10 · recusou (modelo: não cobre) |
+| q07 | coberta | 3 · respondeu 1/1 | 3 · respondeu 1/1 | 5 · recusou (modelo: não cobre; aceita) |
+| q08 | coberta | 1 · recusou (modelo: não cobre; aceita) | 1 · recusou (modelo: não cobre; aceita) | 10 · recusou (modelo: não cobre; aceita) |
 | q09 | coberta | 1 · respondeu 1/1 | 1 · respondeu 1/1 | 4 · respondeu 1/1 |
 | q10 | coberta | 5 · recusou (modelo: não cobre) | 5 · respondeu 1/1 | – · respondeu 0/2 |
 | q11 | coberta | 1 · respondeu 1/1 | 1 · respondeu 1/1 | 1 · respondeu 1/1 |
@@ -74,8 +74,8 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 | q19 | coberta | 1 · respondeu 1/1 | 1 · respondeu 1/1 | 1 · respondeu 1/1 |
 | q20 | coberta | 4 · respondeu 3/3 | 4 · respondeu 3/3 | 1 · recusou (citação não confere) |
 | q21 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 18 · recusou (modelo: não cobre) |
-| q22 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 6 · respondeu 0/3 |
-| q23 | coberta | – · respondeu 0/1 | – · respondeu 0/1 | 2 · recusou (citação não confere) |
+| q22 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 6 · respondeu 3/3 |
+| q23 | coberta | – · respondeu 1/1 | – · respondeu 1/1 | 2 · recusou (citação não confere) |
 | q24 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 1 · recusou (citação não confere) |
 | q25 | coberta | – · recusou (modelo: não cobre) | – · recusou (modelo: não cobre) | 3 · recusou (citação não confere) |
 | q26 | coberta | 4 · respondeu 2/2 | 4 · respondeu 2/2 | – · recusou (modelo: não cobre) |
@@ -154,7 +154,7 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 
 ### q07: O que caracteriza o crime de gestão fraudulenta de instituição financeira e qual é a pena?
 
-**Gabarito:** A lei só tipifica a conduta, "gerir fraudulentamente instituição financeira", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta.
+**Gabarito:** A lei só tipifica a conduta, "gerir fraudulentamente instituição financeira", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta. Recusar também é aceito: a lei não define gestão fraudulenta, e a regra do prompt manda recusar quando os trechos respondem só em parte.
 
 **manual:** O crime consiste em gerir fraudulentamente instituição financeira, tendo como pena reclusão de 3 (três) a 12 (doze) anos, e multa. — citações: Lei 7.492/1986, art. 4º, caput
 
@@ -164,7 +164,7 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 
 ### q08: Qual é a diferença entre gestão temerária e gestão fraudulenta de instituição financeira?
 
-**Gabarito:** A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa.
+**Gabarito:** A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa. Recusar também é aceito: a lei não define nenhuma das duas, e a regra do prompt manda recusar quando os trechos respondem só em parte.
 
 **manual:** recusou (o modelo indicou que os trechos recuperados não cobrem a pergunta)
 
@@ -304,7 +304,7 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 
 ### q22: Quando o fracionamento de depósitos ou saques em espécie é indício de suspeita de lavagem de dinheiro?
 
-**Gabarito:** A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d), e a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (art. 1º, I, e).
+**Gabarito:** A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d); a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (I, e); saques em cinco dias úteis em valores inferiores aos limites, de forma a dissimular o valor total e evitar comunicações de operações em espécie (I, k); e dois ou mais saques em espécie no caixa no mesmo dia, ou dois ou mais depósitos em espécie em terminais de autoatendimento em cinco dias úteis, com indícios de burla para evitar a identificação (I, l e I, m).
 
 **manual:** recusou (o modelo indicou que os trechos recuperados não cobrem a pergunta)
 
@@ -314,7 +314,7 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 
 ### q23: Qual sinal de alerta envolve a movimentação financeira do cliente em relação à sua capacidade econômica?
 
-**Gabarito:** Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac).
+**Gabarito:** Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac). A Circular 3.978 traz o mesmo sinal para o monitoramento: operações incompatíveis com a capacidade financeira do cliente, incluindo renda, faturamento e patrimônio (art. 39, I, c).
 
 **manual:** As operações realizadas e os produtos e serviços contratados que, considerando as partes e os valores envolvidos, apresentem incompatibilidade com a capacidade financeira do cliente, incluindo a renda (no caso de pessoa natural) ou o faturamento (no caso de pessoa jurídica), e o patrimônio. — citações: Circular BCB 3.978/2020, art. 39, I, c
 

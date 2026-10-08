@@ -24,6 +24,7 @@ const pergunta = (id: string, extra: Partial<PerguntaDeAvaliacao> = {}): Pergunt
   situacao: "confere",
   pergunta: `Pergunta ${id}?`,
   tipo: "coberta",
+  recusaAceita: false,
   gabarito: "Gabarito fictício.",
   dispositivos: [ref("art. 1º, I")],
   aceitos: [ref("art. 1º, caput")],
@@ -212,6 +213,12 @@ describe("métricas", () => {
     expect(m.resposta.citacoesPertinentes).toEqual({ quantas: 2, de: 3 });
     expect(m.resposta.coberturaDasCitacoes).toBeCloseTo((1 + 0.5) / 2);
     expect(m.resposta.custoTabelaUsd).toBeNull();
+  });
+
+  it("não conta como falsa a recusa de pergunta em que recusar é aceito", () => {
+    const comRecusaAceita = new Map([["q09", pergunta("q09", { recusaAceita: true })]]);
+    const m = calcularMetricas("manual", [registro("q09", [], { resposta: recusa("resposta sem citação") })], comRecusaAceita, 2);
+    expect(m.resposta.falsaRecusa).toEqual({ quantas: 0, de: 1 });
   });
 
   it("separa a pontuação do melhor trecho de cobertas e de fora do corpus", () => {

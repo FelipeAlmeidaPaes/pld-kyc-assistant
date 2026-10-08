@@ -2,7 +2,7 @@
 
 Gerado de `avaliacao/perguntas.json` por `npm run avaliacao:revisao`. Não editar à mão.
 
-36 perguntas · validadas: 36 · confere: 11 · ajustado: 12 · errado: 1 · sem base no texto: 6 · nova: 6
+36 perguntas · validadas: 36 · confere: 12 · ajustado: 11 · errado: 1 · sem base no texto: 6 · nova: 6
 
 | id | situação | validada |
 |---|---|---|
@@ -27,7 +27,7 @@ Gerado de `avaliacao/perguntas.json` por `npm run avaliacao:revisao`. Não edita
 | q19 | errado | sim |
 | q20 | confere | sim |
 | q21 | ajustado | sim |
-| q22 | ajustado | sim |
+| q22 | confere | sim |
 | q23 | confere | sim |
 | q24 | sem base no texto | sim |
 | q25 | sem base no texto | sim |
@@ -372,11 +372,13 @@ Lei 7.492/1986, art. 1º, parágrafo único
 
 **Gabarito original:** Consiste em gerir instituição financeira mediante engano, artifício doloso ou fraude para ludibriar sócios, investidores ou órgãos de fiscalização.
 
-**Gabarito:** A lei só tipifica a conduta, "gerir fraudulentamente instituição financeira", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta.
+**Gabarito:** A lei só tipifica a conduta, "gerir fraudulentamente instituição financeira", e fixa a pena de reclusão de 3 a 12 anos e multa. Não define o que é gestão fraudulenta. Recusar também é aceito: a lei não define gestão fraudulenta, e a regra do prompt manda recusar quando os trechos respondem só em parte.
+
+**Recusa aceita:** sim
 
 **Não deve:** apresentar como texto da norma uma definição de gestão fraudulenta (engano, artifício, ardil, fraude contra sócios, investidores ou fiscalização)
 
-**Observação:** Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição.
+**Observação:** Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição. Recusa aceita desde 2026-10-08, por decisão do autor.
 
 **Dispositivos exigidos**
 
@@ -392,11 +394,13 @@ Lei 7.492/1986, art. 1º, parágrafo único
 
 **Gabarito original:** A gestão temerária decorre do descumprimento de limites de risco e regras de prudência sem o emprego direto de fraude dolosa, caracterizando assunção irresponsável de riscos operacionais.
 
-**Gabarito:** A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa.
+**Gabarito:** A lei não define nenhuma das duas. Diferencia apenas a pena: gestão fraudulenta, reclusão de 3 a 12 anos e multa; gestão temerária, reclusão de 2 a 8 anos e multa. Recusar também é aceito: a lei não define nenhuma das duas, e a regra do prompt manda recusar quando os trechos respondem só em parte.
+
+**Recusa aceita:** sim
 
 **Não deve:** apresentar como texto da norma que gestão temerária é assunção excessiva de risco ou descumprimento de regras de prudência sem fraude
 
-**Observação:** Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07.
+**Observação:** Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07. Recusa aceita desde 2026-10-08, por decisão do autor.
 
 **Dispositivos exigidos**
 
@@ -980,7 +984,7 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
 > § 2º Os procedimentos referidos no § 1º devem considerar todas as informações disponíveis, inclusive aquelas obtidas por meio dos procedimentos destinados a conhecer clientes, funcionários, parceiros e prestadores de serviços terceirizados.
 
-## q22 · ajustado · validada
+## q22 · confere · validada
 
 **Pergunta:** Quando o fracionamento de depósitos ou saques em espécie é indício de suspeita de lavagem de dinheiro?
 
@@ -988,9 +992,9 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 
 **Gabarito original:** Pela realização de depósitos ou saques consecutivos em valores ajustados para burlar limites de identificação obrigatória ou comunicação automática.
 
-**Gabarito:** A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d), e a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (art. 1º, I, e).
+**Gabarito:** A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d); a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (I, e); saques em cinco dias úteis em valores inferiores aos limites, de forma a dissimular o valor total e evitar comunicações de operações em espécie (I, k); e dois ou mais saques em espécie no caixa no mesmo dia, ou dois ou mais depósitos em espécie em terminais de autoatendimento em cinco dias úteis, com indícios de burla para evitar a identificação (I, l e I, m).
 
-**Observação:** Ajustado. A norma não fala em operações "consecutivas" nem em limite de "identificação obrigatória": nos depósitos, o fim é dissimular o valor total; nos saques, burlar limites de reporte.
+**Observação:** Confere. Na primeira conferência, o Claude disse que a norma não fala em burlar a identificação, e estava errado: as alíneas k, l e m do inciso I tratam de saques e depósitos repetidos para evitar a identificação e as comunicações, que é o que o gabarito original dizia. Corrigido em 2026-10-08, depois que a avaliação de base mostrou respostas citando essas alíneas.
 
 **Dispositivos exigidos**
 
@@ -1009,6 +1013,21 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 Carta Circular BCB 4.001/2020, art. 1º, I
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
 > I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+
+Carta Circular BCB 4.001/2020, art. 1º, I, k
+> Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
+> I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+> k) saques no período de cinco dias úteis em valores inferiores aos limites estabelecidos, de forma a dissimular o valor total da operação e evitar comunicações de operações em espécie;
+
+Carta Circular BCB 4.001/2020, art. 1º, I, l
+> Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
+> I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+> l) dois ou mais saques em espécie no caixa no mesmo dia, com indícios de tentativa de burla para evitar a identificação do sacador;
+
+Carta Circular BCB 4.001/2020, art. 1º, I, m
+> Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
+> I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+> m) dois ou mais depósitos em terminais de autoatendimento em espécie , no período de cinco dias úteis, com indícios de tentativa de burla para evitar a identificação do depositante;
 
 Carta Circular BCB 4.001/2020, art. 1º, X, l
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
@@ -1033,9 +1052,9 @@ Carta Circular BCB 4.001/2020, art. 1º, XIX, c
 
 **Gabarito original:** A realização de operações em montantes totalmente incompatíveis com o patrimônio, faturamento ou renda declarados.
 
-**Gabarito:** Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac).
+**Gabarito:** Movimentação de recursos incompatível com o patrimônio, a atividade econômica ou a ocupação profissional e a capacidade financeira do cliente (art. 1º, IV, a). A norma traz variações em outros contextos, como operações em espécie incompatíveis com a capacidade financeira (I, a) e movimentação incompatível com o faturamento mensal de pessoa jurídica (IV, ac). A Circular 3.978 traz o mesmo sinal para o monitoramento: operações incompatíveis com a capacidade financeira do cliente, incluindo renda, faturamento e patrimônio (art. 39, I, c).
 
-**Observação:** Confere no essencial. A norma não diz "totalmente incompatíveis" nem "declarados": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira.
+**Observação:** Confere no essencial. A norma não diz "totalmente incompatíveis" nem "declarados": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira. A Circular 3.978, art. 39, I, c, entrou em aceitos em 2026-10-08: a pergunta não nomeia a norma, e esse dispositivo também responde.
 
 **Dispositivos exigidos**
 
@@ -1080,6 +1099,12 @@ Carta Circular BCB 4.001/2020, art. 1º, XII, d
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
 > XII - situações relacionadas com operações de investimento externo:
 > d) remessas ao exterior a título de investimento em montantes incompatíveis com a capacidade financeira do cliente;
+
+Circular BCB 3.978/2020, art. 39, I, c
+> CAPÍTULO VII - DO MONITORAMENTO, DA SELEÇÃO E DA ANÁLISE DE OPERAÇÕES E SITUAÇÕES SUSPEITAS > Seção II - Do Monitoramento e da Seleção de Operações e Situações Suspeitas
+> Art. 39 As instituições referidas no art. 1º devem implementar procedimentos de monitoramento e seleção que permitam identificar operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo, especialmente:
+> I - as operações realizadas e os produtos e serviços contratados que, considerando as partes envolvidas, os valores, as formas de realização, os instrumentos utilizados ou a falta de fundamento econômico ou legal, possam configurar a existência de indícios de lavagem de dinheiro ou de financiamento do terrorismo, inclusive:
+> c) as operações realizadas e os produtos e serviços contratados que, considerando as partes e os valores envolvidos, apresentem incompatibilidade com a capacidade financeira do cliente, incluindo a renda, no caso de pessoa natural, ou o faturamento, no caso de pessoa jurídica, e o patrimônio;
 
 ## q24 · sem base no texto · validada
 

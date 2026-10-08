@@ -129,7 +129,9 @@ function celula(registro: RegistroDaAvaliacao | undefined, pergunta: PerguntaDeA
   const resposta = registro.resposta;
   if (registro.erro) return `${posicao}erro`;
   if (!resposta) return posicao.replace(/ · $/, "") || "·";
-  if (resposta.recusa) return `${posicao}recusou (${categoriaDaRecusa(resposta.motivoDaRecusa)})`;
+  if (resposta.recusa) {
+    return `${posicao}recusou (${categoriaDaRecusa(resposta.motivoDaRecusa)}${pergunta.recusaAceita ? "; aceita" : ""})`;
+  }
   const validas = new Set([...pergunta.dispositivos, ...pergunta.aceitos]);
   const citadas = resposta.citacoes.map((c) => `${c.sigla}, ${c.caminho}`);
   return `${posicao}respondeu ${citadas.filter((c) => validas.has(c)).length}/${citadas.length}`;

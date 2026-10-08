@@ -50,7 +50,7 @@ export interface MetricasDaVariante {
   };
   resposta: {
     avaliadas: number;
-    /** Perguntas cobertas que o sistema recusou. */
+    /** Perguntas cobertas que o sistema recusou, fora as de recusa aceita. */
     falsaRecusa: { quantas: number; de: number };
     /** Perguntas fora do corpus que o sistema recusou, como devia. */
     recusaCorreta: { quantas: number; de: number };
@@ -122,7 +122,7 @@ export function calcularMetricas(
     resposta: {
       avaliadas: comResposta.length,
       falsaRecusa: {
-        quantas: comResposta.filter((r) => pergunta(r).tipo === "coberta" && respostaDe(r).recusa).length,
+        quantas: comResposta.filter((r) => pergunta(r).tipo === "coberta" && !pergunta(r).recusaAceita && respostaDe(r).recusa).length,
         de: comResposta.filter((r) => pergunta(r).tipo === "coberta").length,
       },
       recusaCorreta: { quantas: fora.filter((r) => respostaDe(r).recusa).length, de: fora.length },
