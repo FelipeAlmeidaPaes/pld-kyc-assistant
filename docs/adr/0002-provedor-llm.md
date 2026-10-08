@@ -25,6 +25,7 @@ O autor exigiu que não haja pagamento além do que é gratuito.
 - **OpenRouter:** só modelos `:free`, que não consomem crédito (cota de 1.000 requisições por dia). Reserva atual: `nvidia/nemotron-3-super-120b-a12b:free`, um dos que aceitam saída estruturada. A conta tem crédito comprado, e um modelo pago o consumiria; por isso a configuração recusa modelo sem `:free`, salvo `OPENROUTER_PERMITIR_PAGO=sim`.
 - Apelidos `-latest` do Gemini são recusados: podem passar a apontar para outro modelo, de outro preço, e quebram a repetibilidade da avaliação.
 - O conteúdo enviado ao nível gratuito pode ser usado pelos provedores para melhorar produtos. Hoje só vão normas públicas e perguntas de teste (regra 4).
+- Conferido em 2026-10-08: o projeto da chave do Gemini está no nível gratuito, sem faturamento configurado (AI Studio); a chave do OpenRouter tem limite total de US$ 0, e os modelos `:free` continuam respondendo com ela. São duas travas independentes: a configuração recusa modelo pago e a chave não tem saldo para gastar.
 
 ## Alternativas consideradas
 - **OpenRouter como principal**: resultados mais estáveis, mas com custo por chamada desde o início.

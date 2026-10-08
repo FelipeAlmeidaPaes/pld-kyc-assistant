@@ -84,19 +84,18 @@ docker compose up -d
 - Antes de commitar: `npm run typecheck` e `npm test`.
 
 ## Estado atual (2026-10-08, terceira sessão)
-- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #1. Trabalho desta sessão ainda não mesclado.
+- **Branch:** `claude/test-domain-connection-7yur2q`, recomeçada da `main` depois do PR #1; o trabalho desta sessão foi mesclado na `main` pelo PR #2. A próxima sessão parte da `main`.
 - **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
   - Corpus da v1 (seis normas) e ingestão.
   - As três variantes do RAG, com `/buscar` e `/perguntar`, testadas de ponta a ponta com o Gemini real (`gemini-3.5-flash-lite`) e com o reserva do OpenRouter (`nvidia/nemotron-3-super-120b-a12b:free`). Uso do OpenRouter: US$ 0.
-  - Trava de custo na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
+  - Custo zero conferido: projeto do Gemini no nível gratuito, sem faturamento (AI Studio, 2026-10-08); chave do OpenRouter com limite total de US$ 0, e os modelos `:free` funcionam com ela. Trava também na configuração (só `:free` no OpenRouter, sem `-latest` no Gemini).
   - 84 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
 - **Não validado:**
-  - Se o projeto do Gemini está sem faturamento. É o que garante custo zero; só o autor confere, no AI Studio.
   - Uma indexação falhou com "fetch failed" no meio e não se repetiu em quatro rodadas. Causa desconhecida; rodar de novo resolve.
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
@@ -106,7 +105,5 @@ docker compose up -d
 3. Com a avaliação de base, comparar as correções da busca (limite por artigo, MMR, híbrida, k).
 
 ## Pendências com o autor
-- Confirmar no AI Studio que o projeto da chave do Gemini está sem faturamento.
-- Gerar chaves novas (as atuais passaram pelo chat) e, se quiser, baixar o limite da chave do OpenRouter para US$ 0.
+- Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Abrir PR e mesclar o trabalho da terceira sessão.
