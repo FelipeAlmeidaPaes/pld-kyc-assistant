@@ -60,7 +60,8 @@ docker compose up -d
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0007)
+- `docs/adr/`: decisões de arquitetura (0001 a 0009)
+- `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
 ## Decisões (detalhes em docs/adr)
 - **Stack:** TypeScript, Node 22, ESM, `strict` (ADR 0001).
@@ -92,7 +93,7 @@ docker compose up -d
 - Código, comentários, mensagens e documentação em português. Mensagens de commit em inglês, seguindo o histórico.
 - Imports com extensão `.js` (ESM com `nodenext`).
 - Antes de commitar: `npm run typecheck` e `npm test`.
-- Autor dos commits é o autor do projeto, com a coautoria do Claude na linha `Co-Authored-By` (pedido do autor). A sessão na nuvem começa com `git config user.name` "Claude": antes do primeiro commit, rodar `git config user.name "Felipe de Almeida Paes"` e `git config user.email "41527579+FelipeAlmeidaPaes@users.noreply.github.com"` (o e-mail privado do GitHub, o mesmo dos commits dele na `main`).
+- Autor dos commits é o autor do projeto, com a coautoria do Claude na linha `Co-Authored-By` (pedido do autor). A sessão na nuvem começa com `git config user.name` "Claude"; o gancho `.claude/hooks/session-start.sh` troca para `Felipe de Almeida Paes <41527579+FelipeAlmeidaPaes@users.noreply.github.com>` (o e-mail privado do GitHub, o mesmo dos commits dele na `main`) e roda `npm install`. Só vale para sessões abertas numa branch que tenha o gancho; até ele chegar à `main`, conferir `git config user.name` antes do primeiro commit.
 - Branch com nome legível, que diga o que ela faz, sem "claude" e sem sufixo aleatório (pedido do autor). A plataforma cria a sessão numa branch `claude/...-<sufixo>`: trabalhar numa branch nova com nome descritivo.
 
 ## Estado atual (2026-10-08, terceira sessão)
