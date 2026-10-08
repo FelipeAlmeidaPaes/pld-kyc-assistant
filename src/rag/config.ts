@@ -41,6 +41,23 @@ function numero(valor: string | undefined): number | null {
   return n;
 }
 
+/**
+ * Trava de custo: o projeto só usa modelo gratuito, salvo liberação explícita. No OpenRouter,
+ * gratuito é o modelo com sufixo ":free"; os demais consomem crédito. No Gemini, quem garante
+ * o custo zero é o projeto do Google sem faturamento ativo; aqui só se proíbe o apelido
+ * "-latest", que pode passar a apontar para outro modelo, de outro preço, sem aviso.
+ */
+function verificarCusto(env: NodeJS.ProcessEnv, nome: Provedor["nome"], modelo: string): void {
+  if (nome === "openrouter" && !modelo.endsWith(":free") && env.OPENROUTER_PERMITIR_PAGO !== "sim") {
+    throw new Error(
+      `OPENROUTER_MODEL=${modelo} não é gratuito (falta ":free"). Use um modelo :free ou defina OPENROUTER_PERMITIR_PAGO=sim.`,
+    );
+  }
+  if (nome === "gemini" && modelo.endsWith("-latest")) {
+    throw new Error(`GEMINI_MODEL=${modelo} é um apelido que muda de modelo sem aviso. Use o nome fixo, ex.: gemini-3.5-flash-lite.`);
+  }
+}
+
 function provedor(
   env: NodeJS.ProcessEnv,
   nome: Provedor["nome"],
@@ -50,6 +67,7 @@ function provedor(
   const chave = env[`${prefixo}_API_KEY`];
   const modelo = env[`${prefixo}_MODEL`];
   if (!chave || !modelo) return [];
+  verificarCusto(env, nome, modelo);
   return [
     {
       nome,

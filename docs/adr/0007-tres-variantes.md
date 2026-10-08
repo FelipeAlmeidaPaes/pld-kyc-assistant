@@ -50,6 +50,8 @@ Testes com um servidor de LLM falso, que grava as requisições, mostraram onde 
 | Fallback | Laço sobre os provedores | `withFallbacks` |
 | Tokens e modelo servido | Lidos do JSON da resposta | Lidos de `usage_metadata` e `response_metadata` da mensagem bruta (`includeRaw`) |
 
+Com o Gemini real (`gemini-3.5-flash-lite`), a mesma pergunta nas três variantes deu a mesma resposta e a mesma citação. `manual` e `langchain` gastaram exatamente os mesmos tokens (1.015 de entrada, 106 de saída), o que confirma fora do teste que o pedido é idêntico; `langchain-padrao` gastou 1.357 de entrada. O Gemini aceita `response_format` com `json_schema` e `strict: true` pela API compatível com a da OpenAI.
+
 Comparação da busca com 12 perguntas de diagnóstico (não é a avaliação):
 - `manual` e `langchain` recuperaram os mesmos 5 trechos, com as mesmas pontuações, nas 12. Com os mesmos componentes, o framework não muda a busca.
 - Dos 60 dispositivos que a `manual` recuperou, 43 (72%) aparecem inteiros em algum pedaço recuperado pela `langchain-padrao`. Nos outros, a citação não teria como ser conferida.
