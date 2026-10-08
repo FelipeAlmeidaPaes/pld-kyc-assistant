@@ -19,7 +19,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere com o texto.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q02",
@@ -51,7 +51,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. O art. 9º só diz quem está sujeito; os deveres estão nos arts. 10 e 11, e o de comunicar é do art. 11. O registro obrigatório é o das transações acima do limite fixado, não o de toda operação. O gabarito original omitia controles internos, cadastro no órgão regulador e atendimento ao Coaf.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q03",
@@ -73,7 +73,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere. Acrescentados o prazo e a vedação de dar ciência, que estão no mesmo inciso.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q04",
@@ -102,7 +102,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere. Acrescentados os limites da multa, o prazo da inabilitação e a suspensão (o original citava só a cassação).",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q05",
@@ -125,7 +125,7 @@
       ],
       "naoDeve": [],
       "observacao": "Substitui a pergunta 5, cujo gabarito (rastreabilidade, subsidiar investigações) é interpretação: nenhuma norma do corpus declara o objetivo do registro. Mesmo tema, agora com resposta no texto. É a pergunta em que a busca falhou na sessão de 2026-10-08 (art. 67, III em 12º; Lei 9.613, art. 10, § 2º fora dos 40 primeiros) e exige juntar duas normas.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q06",
@@ -147,7 +147,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. O original misturava conceito e equiparação: o conceito (caput) é de pessoa jurídica; a pessoa natural só entra por equiparação (parágrafo único, II); os ativos virtuais são o inciso I-A, só para pessoa jurídica.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q07",
@@ -166,7 +166,7 @@
         "apresentar como texto da norma uma definição de gestão fraudulenta (engano, artifício, ardil, fraude contra sócios, investidores ou fiscalização)"
       ],
       "observacao": "Ajustado. A definição do original (engano ou artifício doloso para ludibriar sócios, investidores ou fiscalização) é doutrina, não está na norma. A pergunta fica como teste de alucinação: a resposta certa diz o que a lei diz e não inventa a definição.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q08",
@@ -186,7 +186,7 @@
         "apresentar como texto da norma que gestão temerária é assunção excessiva de risco ou descumprimento de regras de prudência sem fraude"
       ],
       "observacao": "Ajustado. A distinção do original (risco sem fraude) é doutrina. Mesmo papel da q07.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q09",
@@ -203,7 +203,7 @@
       "aceitos": [],
       "naoDeve": [],
       "observacao": "Ajustado. O artigo não menciona o Banco Central (fala em \"devida autorização\"), inclui a autorização obtida com declaração falsa e fixa a pena, que o original omitia.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q10",
@@ -220,7 +220,7 @@
       "aceitos": [],
       "naoDeve": [],
       "observacao": "Reescrita. A pergunta original (relevância na relação com supervisores) pede interpretação. O núcleo do tipo é induzir ou manter em erro; sonegar ou falsear a informação é o meio. Acrescentada a pena.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q11",
@@ -239,7 +239,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. A lei trata do cumprimento das sanções do CSNU em geral, não só das ligadas a terrorismo, e também da designação nacional. O cumprimento imediato é do art. 6º (executoriedade imediata), não do objeto.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q12",
@@ -260,7 +260,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere no conteúdo, mas a definição está no art. 2º, V, e não nos arts. 3º e 6º citados na pergunta original. Acrescentado o \"sem prévio aviso\" do art. 9º.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q13",
@@ -281,7 +281,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere. Acrescentados fundos, serviços e \"financeiros ou não\", que ampliam o conceito.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q14",
@@ -303,7 +303,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. O alcance não é só o sistema financeiro: são todas as pessoas do art. 9º da Lei 9.613 (inclui, por exemplo, imobiliárias, comércio de joias e juntas comerciais), além dos órgãos de registro do art. 10, § 1º.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q15",
@@ -324,7 +324,7 @@
       ],
       "naoDeve": [],
       "observacao": "Reescrita. A pergunta original (papel no combate internacional ao FT) pede interpretação. A ideia do gabarito original (sem homologação judicial prévia) tem base nos arts. 6º e 9º, com a ressalva do auxílio direto judicial dos arts. 12 e 13.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q16",
@@ -355,7 +355,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. A norma não fala em \"estratégias de mitigação\", e sim em categorias de risco para controles reforçados ou simplificados. Faltavam o perfil de funcionários e parceiros, os critérios de probabilidade e impacto e a revisão a cada dois anos. A sigla \"AIR\" não aparece no texto.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q17",
@@ -383,7 +383,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. A norma organiza o tema em identificação, qualificação e classificação; o \"mapeamento de perfis de risco\" do original corresponde à classificação (art. 20). Faltavam a coleta mínima de dados e o manual.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q18",
@@ -412,7 +412,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. \"Processo contínuo\", \"divergência do perfil\" e \"alertas\" não estão no texto. Faltavam as propostas de operações, a base na avaliação interna de risco, a atenção a PEP, o manual e o prazo de 45 dias.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q19",
@@ -439,7 +439,7 @@
         "dar como prazo de operação suspeita o do art. 49, § 1º, que é o das comunicações de operações específicas (em espécie, câmbio, ativos virtuais)"
       ],
       "observacao": "Errado no original. Os 45 dias são os prazos de monitoramento e seleção (art. 39, parágrafo único) e de análise (art. 43, § 1º), não o de comunicação. A comunicação é até o dia útil seguinte ao da decisão (art. 48, § 2º). A Lei 9.613 fala em 24 horas; a pergunta mede se a resposta traz as duas normas sem inventar como elas se conciliam.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q20",
@@ -463,7 +463,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere no essencial. O art. 62 está no capítulo \"Da Avaliação de Efetividade\", não num de governança. Acrescentados data-base, prazo de envio e destinatários.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q21",
@@ -485,7 +485,7 @@
         "dizer que toda operação da relação deve ser comunicada ao Coaf"
       ],
       "observacao": "Ajustado. O rol é exemplificativo, como dizia o original, mas serve ao monitoramento e à seleção; a comunicação ao Coaf depende da confirmação dos indícios na análise (§ 1º), ponto que o original omitia.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q22",
@@ -508,7 +508,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. A norma não fala em operações \"consecutivas\" nem em limite de \"identificação obrigatória\": nos depósitos, o fim é dissimular o valor total; nos saques, burlar limites de reporte.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q23",
@@ -533,7 +533,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere no essencial. A norma não diz \"totalmente incompatíveis\" nem \"declarados\": diz incompatível com patrimônio, atividade, ocupação e capacidade financeira.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q24",
@@ -555,7 +555,7 @@
         "dizer que a norma trata de contas recém-abertas ou de \"contas de passagem\""
       ],
       "observacao": "Reescrita. A norma não fala em conta \"recém-aberta\" nem em \"conta de passagem\", e não explica por que a situação é atípica (o \"por quê\" do original é interpretação). O mais próximo é a conta até então pouco movimentada (IV, e) e o repasse rápido (I, c).",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q25",
@@ -580,7 +580,7 @@
         "atribuir à norma os termos \"laranja\" ou \"interposta pessoa\""
       ],
       "observacao": "Reescrita. A norma não usa \"laranjas\" nem \"interpostas pessoas\" e não define o conceito. As situações mais próximas são as de procuração, representação e beneficiário final.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q26",
@@ -600,7 +600,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q27",
@@ -621,7 +621,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q28",
@@ -643,7 +643,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere. Acrescentados o \"quando aplicável\" do inciso I e a tentativa de fraude.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q29",
@@ -665,7 +665,7 @@
       ],
       "naoDeve": [],
       "observacao": "Ajustado. A finalidade é o tratamento e o compartilhamento de dados sobre indícios de fraude, não a prevenção de fraudes em geral, e a cláusula em destaque não é a única forma: vale outro instrumento jurídico válido.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "q30",
@@ -687,7 +687,7 @@
       ],
       "naoDeve": [],
       "observacao": "Confere no essencial. \"Testes de controle\" não está no inciso III, que fala em mecanismos de acompanhamento e de controle (os testes aparecem no art. 7º). O inciso II remete ao \"art. 2º, § 6º, inciso II\", mas o § 6º não tem incisos no texto publicado pelo BCB.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f01",
@@ -704,7 +704,7 @@
         "informar uma pena para o crime de terrorismo"
       ],
       "observacao": "Recusa difícil: a Lei 13.810 e a Circular 3.978 mencionam terrorismo e a Lei 13.260 (Lei 13.810, art. 2º, III), então a busca traz trechos com pontuação alta. Se o autor decidir incluir a Lei 13.260 no corpus, esta pergunta muda de tipo.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f02",
@@ -721,7 +721,7 @@
         "informar uma pena para o estelionato"
       ],
       "observacao": "Tema vizinho (fraude), com crimes e penas parecidos na Lei 7.492, o que pode induzir o modelo a responder.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f03",
@@ -738,7 +738,7 @@
         "informar uma alíquota"
       ],
       "observacao": "Câmbio aparece em várias normas do corpus, mas nenhuma trata de imposto.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f04",
@@ -755,7 +755,7 @@
         "listar bases legais de tratamento de dados como se estivessem no corpus"
       ],
       "observacao": "A Resolução Conjunta 6 fala em proteção de dados pessoais e em consentimento (art. 2º, §§ 3º, 4º e 6º); a resposta não pode tratar o consentimento dela como base legal geral.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f05",
@@ -772,7 +772,7 @@
         "informar um prazo de devolução"
       ],
       "observacao": "Tema de fraude, próximo da Resolução Conjunta 6, mas sem resposta no corpus.",
-      "validado": false
+      "validado": true
     },
     {
       "id": "f06",
@@ -789,7 +789,7 @@
         "informar um valor de capital mínimo"
       ],
       "observacao": "\"Instituição de pagamento\" aparece na Resolução Conjunta 6 e na Circular 3.978, o que puxa trechos para a busca.",
-      "validado": false
+      "validado": true
     }
   ]
 }

@@ -2,48 +2,48 @@
 
 Gerado de `avaliacao/perguntas.json` por `npm run avaliacao:revisao`. Não editar à mão.
 
-36 perguntas · validadas: 0 · confere: 11 · ajustado: 12 · errado: 1 · sem base no texto: 6 · nova: 6
+36 perguntas · validadas: 36 · confere: 11 · ajustado: 12 · errado: 1 · sem base no texto: 6 · nova: 6
 
 | id | situação | validada |
 |---|---|---|
-| q01 | confere | não |
-| q02 | ajustado | não |
-| q03 | confere | não |
-| q04 | confere | não |
-| q05 | sem base no texto | não |
-| q06 | ajustado | não |
-| q07 | sem base no texto | não |
-| q08 | sem base no texto | não |
-| q09 | ajustado | não |
-| q10 | ajustado | não |
-| q11 | ajustado | não |
-| q12 | confere | não |
-| q13 | confere | não |
-| q14 | ajustado | não |
-| q15 | sem base no texto | não |
-| q16 | ajustado | não |
-| q17 | ajustado | não |
-| q18 | ajustado | não |
-| q19 | errado | não |
-| q20 | confere | não |
-| q21 | ajustado | não |
-| q22 | ajustado | não |
-| q23 | confere | não |
-| q24 | sem base no texto | não |
-| q25 | sem base no texto | não |
-| q26 | confere | não |
-| q27 | confere | não |
-| q28 | confere | não |
-| q29 | ajustado | não |
-| q30 | confere | não |
-| f01 | nova | não |
-| f02 | nova | não |
-| f03 | nova | não |
-| f04 | nova | não |
-| f05 | nova | não |
-| f06 | nova | não |
+| q01 | confere | sim |
+| q02 | ajustado | sim |
+| q03 | confere | sim |
+| q04 | confere | sim |
+| q05 | sem base no texto | sim |
+| q06 | ajustado | sim |
+| q07 | sem base no texto | sim |
+| q08 | sem base no texto | sim |
+| q09 | ajustado | sim |
+| q10 | ajustado | sim |
+| q11 | ajustado | sim |
+| q12 | confere | sim |
+| q13 | confere | sim |
+| q14 | ajustado | sim |
+| q15 | sem base no texto | sim |
+| q16 | ajustado | sim |
+| q17 | ajustado | sim |
+| q18 | ajustado | sim |
+| q19 | errado | sim |
+| q20 | confere | sim |
+| q21 | ajustado | sim |
+| q22 | ajustado | sim |
+| q23 | confere | sim |
+| q24 | sem base no texto | sim |
+| q25 | sem base no texto | sim |
+| q26 | confere | sim |
+| q27 | confere | sim |
+| q28 | confere | sim |
+| q29 | ajustado | sim |
+| q30 | confere | sim |
+| f01 | nova | sim |
+| f02 | nova | sim |
+| f03 | nova | sim |
+| f04 | nova | sim |
+| f05 | nova | sim |
+| f06 | nova | sim |
 
-## q01 · confere
+## q01 · confere · validada
 
 **Pergunta:** Qual conduta configura o crime de lavagem de dinheiro e qual é a pena prevista?
 
@@ -73,7 +73,7 @@ Lei 9.613/1998, art. 1º, § 2º
 > Art. 1º Ocultar ou dissimular a natureza, origem, localização, disposição, movimentação ou propriedade de bens, direitos ou valores provenientes, direta ou indiretamente, de infração penal. Pena: reclusão, de 3 (três) a 10 (dez) anos, e multa.
 > § 2º Incorre, ainda, na mesma pena quem:
 
-## q02 · ajustado
+## q02 · ajustado · validada
 
 **Pergunta:** Quais deveres de identificação de clientes, registro e comunicação têm as pessoas sujeitas ao mecanismo de controle da lavagem de dinheiro?
 
@@ -163,7 +163,7 @@ Lei 9.613/1998, art. 11, III
 > Art. 11 As pessoas referidas no art. 9º:
 > III - deverão comunicar ao órgão regulador ou fiscalizador da sua atividade ou, na sua falta, ao Coaf, na periodicidade, forma e condições por eles estabelecidas, a não ocorrência de propostas, transações ou operações passíveis de serem comunicadas nos termos do inciso II.
 
-## q03 · confere
+## q03 · confere · validada
 
 **Pergunta:** A quem devem ser comunicadas as operações que apresentem indícios de lavagem de dinheiro?
 
@@ -203,7 +203,7 @@ Circular BCB 3.978/2020, art. 48, caput
 > CAPÍTULO VIII - DOS PROCEDIMENTOS DE COMUNICAÇÃO AO COAF > Seção I - Da Comunicação de Operações e Situações Suspeitas
 > Art. 48 As instituições referidas no art. 1º devem comunicar ao Coaf as operações ou situações suspeitas de lavagem de dinheiro e de financiamento do terrorismo.
 
-## q04 · confere
+## q04 · confere · validada
 
 **Pergunta:** Quais sanções administrativas pode sofrer quem descumpre os deveres de identificação de clientes, registro e comunicação de operações?
 
@@ -281,7 +281,7 @@ Lei 9.613/1998, art. 12, § 4º
 > Art. 12 Às pessoas referidas no art. 9º, bem como aos administradores das pessoas jurídicas, que deixem de cumprir as obrigações previstas nos arts. 10 e 11 serão aplicadas, cumulativamente ou não, pelas autoridades competentes, as seguintes sanções:
 > § 4º A cassação da autorização será aplicada nos casos de reincidência específica de infrações anteriormente punidas com a pena prevista no inciso III do caput deste artigo.
 
-## q05 · sem base no texto
+## q05 · sem base no texto · validada
 
 **Pergunta:** Por quanto tempo a instituição deve conservar os cadastros de clientes e os registros das operações?
 
@@ -326,7 +326,7 @@ Circular BCB 3.978/2020, art. 67, IV
 > Art. 67 As instituições referidas no art. 1º devem manter à disposição do Banco Central do Brasil e conservar pelo período mínimo de dez anos:
 > IV - o dossiê referido no art. 43, § 2º.
 
-## q06 · ajustado
+## q06 · ajustado · validada
 
 **Pergunta:** Para efeito dos crimes contra o sistema financeiro, o que se considera instituição financeira e quem é equiparado a ela?
 
@@ -364,7 +364,7 @@ Lei 7.492/1986, art. 1º, parágrafo único
 > Art. 1º Considera-se instituição financeira, para efeito desta lei, a pessoa jurídica de direito público ou privado, que tenha como atividade principal ou acessória, cumulativamente ou não, a captação, intermediação ou aplicação de recursos financeiros (Vetado) de terceiros, em moeda nacional ou estrangeira, ou a custódia, emissão, distribuição, negociação, intermediação ou administração de valores mobiliários.
 > Parágrafo único. Equipara-se à instituição financeira:
 
-## q07 · sem base no texto
+## q07 · sem base no texto · validada
 
 **Pergunta:** O que caracteriza o crime de gestão fraudulenta de instituição financeira e qual é a pena?
 
@@ -384,7 +384,7 @@ Lei 7.492/1986, art. 1º, parágrafo único
 > DOS CRIMES CONTRA O SISTEMA FINANCEIRO NACIONAL
 > Art. 4º Gerir fraudulentamente instituição financeira: Pena - Reclusão, de 3 (três) a 12 (doze) anos, e multa.
 
-## q08 · sem base no texto
+## q08 · sem base no texto · validada
 
 **Pergunta:** Qual é a diferença entre gestão temerária e gestão fraudulenta de instituição financeira?
 
@@ -409,7 +409,7 @@ Lei 7.492/1986, art. 1º, parágrafo único
 > Art. 4º Gerir fraudulentamente instituição financeira: Pena - Reclusão, de 3 (três) a 12 (doze) anos, e multa.
 > Parágrafo único. Se a gestão é temerária: Pena - Reclusão, de 2 (dois) a 8 (oito) anos, e multa.
 
-## q09 · ajustado
+## q09 · ajustado · validada
 
 **Pergunta:** É crime fazer operar uma instituição financeira sem autorização? Qual é a pena?
 
@@ -427,7 +427,7 @@ Lei 7.492/1986, art. 1º, parágrafo único
 > DOS CRIMES CONTRA O SISTEMA FINANCEIRO NACIONAL
 > Art. 16 Fazer operar, sem a devida autorização, ou com autorização obtida mediante declaração (Vetado) falsa, instituição financeira, inclusive de distribuição de valores mobiliários ou de câmbio: Pena - Reclusão, de 1 (um) a 4 (quatro) anos, e multa.
 
-## q10 · ajustado
+## q10 · ajustado · validada
 
 **Pergunta:** É crime omitir informação ou prestar informação falsa a investidores ou à fiscalização sobre a situação financeira de uma instituição?
 
@@ -445,7 +445,7 @@ Lei 7.492/1986, art. 1º, parágrafo único
 > DOS CRIMES CONTRA O SISTEMA FINANCEIRO NACIONAL
 > Art. 6º Induzir ou manter em erro, sócio, investidor ou repartição pública competente, relativamente a operação ou situação financeira, sonegando-lhe informação ou prestando-a falsamente: Pena - Reclusão, de 2 (dois) a 6 (seis) anos, e multa.
 
-## q11 · ajustado
+## q11 · ajustado · validada
 
 **Pergunta:** Do que trata a lei sobre o cumprimento das sanções do Conselho de Segurança das Nações Unidas?
 
@@ -469,7 +469,7 @@ Lei 13.810/2019, art. 6º, caput
 > CAPÍTULO II - DA EXECUÇÃO DE RESOLUÇÕES DO CONSELHO DE SEGURANÇA DAS NAÇÕES UNIDAS OU DE DESIGNAÇÕES DE SEUS COMITÊS DE SANÇÕES > Seção I - Do Cumprimento Imediato
 > Art. 6º As resoluções sancionatórias do Conselho de Segurança das Nações Unidas e as designações de seus comitês de sanções são dotadas de executoriedade imediata na República Federativa do Brasil.
 
-## q12 · confere
+## q12 · confere · validada
 
 **Pergunta:** O que significa cumprir "sem demora" a indisponibilidade de ativos determinada pelo Conselho de Segurança da ONU?
 
@@ -503,7 +503,7 @@ Lei 13.810/2019, art. 6º, caput
 > CAPÍTULO II - DA EXECUÇÃO DE RESOLUÇÕES DO CONSELHO DE SEGURANÇA DAS NAÇÕES UNIDAS OU DE DESIGNAÇÕES DE SEUS COMITÊS DE SANÇÕES > Seção I - Do Cumprimento Imediato
 > Art. 6º As resoluções sancionatórias do Conselho de Segurança das Nações Unidas e as designações de seus comitês de sanções são dotadas de executoriedade imediata na República Federativa do Brasil.
 
-## q13 · confere
+## q13 · confere · validada
 
 **Pergunta:** Que tipos de bens e recursos podem ser alcançados pela indisponibilidade de ativos decorrente de sanção do Conselho de Segurança da ONU?
 
@@ -538,7 +538,7 @@ Lei 13.810/2019, art. 2º, IV
 > Art. 2º Para fins do disposto nesta Lei, considera-se:
 > IV - entidades: arranjos ou estruturas legais que não possuem personalidade jurídica, tais como fundos ou clubes de investimento; e
 
-## q14 · ajustado
+## q14 · ajustado · validada
 
 **Pergunta:** Quem deve cumprir as determinações de indisponibilidade de ativos de pessoas sancionadas pelo Conselho de Segurança da ONU?
 
@@ -576,7 +576,7 @@ Lei 9.613/1998, art. 9º, caput
 > CAPÍTULO V - DAS PESSOAS SUJEITAS AO MECANISMO DE CONTROLE
 > Art. 9º Sujeitam-se às obrigações referidas nos arts. 10 e 11 as pessoas físicas e jurídicas que tenham, em caráter permanente ou eventual, como atividade principal ou acessória, cumulativamente ou não:
 
-## q15 · sem base no texto
+## q15 · sem base no texto · validada
 
 **Pergunta:** A indisponibilidade de ativos determinada pelo Conselho de Segurança da ONU precisa de decisão judicial no Brasil para ser cumprida?
 
@@ -608,7 +608,7 @@ Lei 13.810/2019, art. 13, caput
 > CAPÍTULO II - DA EXECUÇÃO DE RESOLUÇÕES DO CONSELHO DE SEGURANÇA DAS NAÇÕES UNIDAS OU DE DESIGNAÇÕES DE SEUS COMITÊS DE SANÇÕES > Seção II - Do Auxílio Direto Judicial
 > Art. 13 O Ministério da Justiça e Segurança Pública comunicará, sem demora, a existência de ativos sujeitos à indisponibilidade ou de pessoas e bens sujeitos a outra espécie de sanção à Advocacia-Geral da União, para que promova, sem demora, o auxílio direto judicial.
 
-## q16 · ajustado
+## q16 · ajustado · validada
 
 **Pergunta:** O que é e como deve ser feita a avaliação interna de risco de lavagem de dinheiro e financiamento do terrorismo?
 
@@ -695,7 +695,7 @@ Circular BCB 3.978/2020, art. 12, III
 > Art. 12 A avaliação interna de risco deve ser:
 > III - revisada a cada dois anos, bem como quando ocorrerem alterações significativas nos perfis de risco mencionados no art. 10, § 1º.
 
-## q17 · ajustado
+## q17 · ajustado · validada
 
 **Pergunta:** O que devem contemplar os procedimentos destinados a conhecer o cliente?
 
@@ -762,7 +762,7 @@ Circular BCB 3.978/2020, art. 20, caput
 > CAPÍTULO V - DOS PROCEDIMENTOS DESTINADOS A CONHECER OS CLIENTES > Seção IV - Da Classificação dos Clientes
 > Art. 20 As instituições mencionadas no art. 1º devem classificar seus clientes nas categorias de risco definidas na avaliação interna de risco mencionada no art. 10, com base nas informações obtidas nos procedimentos de qualificação do cliente referidos no art. 18.
 
-## q18 · ajustado
+## q18 · ajustado · validada
 
 **Pergunta:** Como a instituição deve conduzir o monitoramento de operações para detectar suspeitas de lavagem de dinheiro?
 
@@ -840,7 +840,7 @@ Circular BCB 3.978/2020, art. 39, II
 > Art. 39 As instituições referidas no art. 1º devem implementar procedimentos de monitoramento e seleção que permitam identificar operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo, especialmente:
 > II - as operações e situações que possam indicar suspeitas de financiamento do terrorismo.
 
-## q19 · errado
+## q19 · errado · validada
 
 **Pergunta:** Qual é o prazo para comunicar ao Coaf uma operação suspeita de lavagem de dinheiro?
 
@@ -895,7 +895,7 @@ Circular BCB 3.978/2020, art. 48, § 1º
 > Art. 48 As instituições referidas no art. 1º devem comunicar ao Coaf as operações ou situações suspeitas de lavagem de dinheiro e de financiamento do terrorismo.
 > § 1º A decisão de comunicação da operação ou situação ao Coaf deve:
 
-## q20 · confere
+## q20 · confere · validada
 
 **Pergunta:** Com que periodicidade a instituição deve avaliar a efetividade da sua política e dos seus controles de PLD/FT, e a quem o relatório deve ser enviado?
 
@@ -951,7 +951,7 @@ Circular BCB 3.978/2020, art. 62, § 2º, II, b
 > II - encaminhado, para ciência, até 31 de março do ano seguinte ao da data-base:
 > b) ao conselho de administração ou, se inexistente, à diretoria da instituição.
 
-## q21 · ajustado
+## q21 · ajustado · validada
 
 **Pergunta:** Para que serve a relação de operações e situações que exemplificam indícios de suspeita de lavagem de dinheiro? Toda operação da relação deve ser comunicada ao Coaf?
 
@@ -980,7 +980,7 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
 > § 2º Os procedimentos referidos no § 1º devem considerar todas as informações disponíveis, inclusive aquelas obtidas por meio dos procedimentos destinados a conhecer clientes, funcionários, parceiros e prestadores de serviços terceirizados.
 
-## q22 · ajustado
+## q22 · ajustado · validada
 
 **Pergunta:** Quando o fracionamento de depósitos ou saques em espécie é indício de suspeita de lavagem de dinheiro?
 
@@ -1025,7 +1025,7 @@ Carta Circular BCB 4.001/2020, art. 1º, XIX, c
 > XIX - situações relacionadas com o mercado de ouro em geral:
 > c) fracionamento de operações de venda de ouro visando burlar limites regulamentares ou operacionais;
 
-## q23 · confere
+## q23 · confere · validada
 
 **Pergunta:** Qual sinal de alerta envolve a movimentação financeira do cliente em relação à sua capacidade econômica?
 
@@ -1081,7 +1081,7 @@ Carta Circular BCB 4.001/2020, art. 1º, XII, d
 > XII - situações relacionadas com operações de investimento externo:
 > d) remessas ao exterior a título de investimento em montantes incompatíveis com a capacidade financeira do cliente;
 
-## q24 · sem base no texto
+## q24 · sem base no texto · validada
 
 **Pergunta:** Uma conta até então pouco movimentada que passa a movimentar quantia significativa é indício de suspeita de lavagem de dinheiro?
 
@@ -1114,7 +1114,7 @@ Carta Circular BCB 4.001/2020, art. 1º, I, h
 > I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
 > h) saques em espécie de conta que receba diversos depósitos por transferência eletrônica de várias origens em curto período de tempo;
 
-## q25 · sem base no texto
+## q25 · sem base no texto · validada
 
 **Pergunta:** Que situações envolvendo procuradores, representantes ou o beneficiário final são indícios de suspeita de lavagem de dinheiro?
 
@@ -1161,7 +1161,7 @@ Carta Circular BCB 4.001/2020, art. 1º, IV, t
 > IV - situações relacionadas com a movimentação de contas de depósito e de contas de pagamento em moeda nacional, que digam respeito a:
 > t) existência de contas em nome de menores ou incapazes, cujos representantes realizem grande número de operações e/ou operações de valores relevantes;
 
-## q26 · confere
+## q26 · confere · validada
 
 **Pergunta:** Quais instituições estão obrigadas a compartilhar dados sobre indícios de fraude, e qual está excluída dessa obrigação?
 
@@ -1187,7 +1187,7 @@ Carta Circular BCB 4.001/2020, art. 1º, IV, t
 Resolução Conjunta CMN/BCB 6/2023, art. 2º, caput
 > Art. 2º As instituições devem compartilhar dados e informações com as demais instituições referidas no art. 1º com a finalidade de subsidiar seus procedimentos e controles para prevenção de fraudes.
 
-## q27 · confere
+## q27 · confere · validada
 
 **Pergunta:** Quais funcionalidades mínimas deve ter o sistema eletrônico de compartilhamento de indícios de fraude?
 
@@ -1222,7 +1222,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º
 > Art. 2º As instituições devem compartilhar dados e informações com as demais instituições referidas no art. 1º com a finalidade de subsidiar seus procedimentos e controles para prevenção de fraudes.
 > § 1º O compartilhamento de que trata o caput deve ser realizado por meio de sistema eletrônico que contemple, no mínimo, as seguintes funcionalidades:
 
-## q28 · confere
+## q28 · confere · validada
 
 **Pergunta:** Que informações o registro de um indício de fraude deve conter, no mínimo?
 
@@ -1262,7 +1262,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º
 > Art. 2º As instituições devem compartilhar dados e informações com as demais instituições referidas no art. 1º com a finalidade de subsidiar seus procedimentos e controles para prevenção de fraudes.
 > § 2º O registro dos dados e das informações de que trata o § 1º, inciso I, deste artigo devem contemplar, no mínimo:
 
-## q29 · ajustado
+## q29 · ajustado · validada
 
 **Pergunta:** Que requisitos deve ter o consentimento do cliente para o registro dos seus dados no compartilhamento de indícios de fraude?
 
@@ -1300,7 +1300,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 5º
 > Art. 2º As instituições devem compartilhar dados e informações com as demais instituições referidas no art. 1º com a finalidade de subsidiar seus procedimentos e controles para prevenção de fraudes.
 > § 5º A documentação de que trata o inciso II do § 4º deve ficar à disposição do Banco Central do Brasil.
 
-## q30 · confere
+## q30 · confere · validada
 
 **Pergunta:** Por quanto tempo as instituições devem manter à disposição do Banco Central os dados sobre indícios de fraude compartilhados e a documentação relacionada?
 
@@ -1334,7 +1334,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 8º, I
 Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 > Art. 7º As instituições de que trata o art. 1º devem instituir mecanismos de acompanhamento e de controle com vistas a assegurar a efetividade do cumprimento do disposto nesta Resolução Conjunta, incluindo:
 
-## f01 · nova
+## f01 · nova · validada
 
 **Pergunta:** Qual é a pena para quem pratica atos de terrorismo?
 
@@ -1344,7 +1344,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 
 **Observação:** Recusa difícil: a Lei 13.810 e a Circular 3.978 mencionam terrorismo e a Lei 13.260 (Lei 13.810, art. 2º, III), então a busca traz trechos com pontuação alta. Se o autor decidir incluir a Lei 13.260 no corpus, esta pergunta muda de tipo.
 
-## f02 · nova
+## f02 · nova · validada
 
 **Pergunta:** Qual é a pena do crime de estelionato?
 
@@ -1354,7 +1354,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 
 **Observação:** Tema vizinho (fraude), com crimes e penas parecidos na Lei 7.492, o que pode induzir o modelo a responder.
 
-## f03 · nova
+## f03 · nova · validada
 
 **Pergunta:** Qual é a alíquota do IOF nas operações de câmbio?
 
@@ -1364,7 +1364,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 
 **Observação:** Câmbio aparece em várias normas do corpus, mas nenhuma trata de imposto.
 
-## f04 · nova
+## f04 · nova · validada
 
 **Pergunta:** Quais são as bases legais que autorizam o tratamento de dados pessoais?
 
@@ -1374,7 +1374,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 
 **Observação:** A Resolução Conjunta 6 fala em proteção de dados pessoais e em consentimento (art. 2º, §§ 3º, 4º e 6º); a resposta não pode tratar o consentimento dela como base legal geral.
 
-## f05 · nova
+## f05 · nova · validada
 
 **Pergunta:** Em quanto tempo o banco deve devolver o dinheiro de uma vítima de golpe pelo Pix?
 
@@ -1384,7 +1384,7 @@ Resolução Conjunta CMN/BCB 6/2023, art. 7º, caput
 
 **Observação:** Tema de fraude, próximo da Resolução Conjunta 6, mas sem resposta no corpus.
 
-## f06 · nova
+## f06 · nova · validada
 
 **Pergunta:** Qual é o capital mínimo exigido para constituir uma instituição de pagamento?
 
