@@ -5,7 +5,7 @@ Gerado por `npm run avaliar`. Não editar à mão.
 - Registros: 108, de 2026-10-08T12:53:24.699Z a 2026-10-08T12:53:27.239Z
 - k = 5 trechos ao modelo; busca registrada até a posição 20; limiar: desligado
 - Embeddings: Xenova/multilingual-e5-small; LLM: nenhum (só busca), sem fallback
-- Não medido aqui: se o conteúdo da resposta está certo e se ela afirma algo de `naoDeve`. Isso exige juiz (pessoa ou LLM).
+- Só busca: sem respostas para julgar.
 
 ## Busca (perguntas cobertas)
 

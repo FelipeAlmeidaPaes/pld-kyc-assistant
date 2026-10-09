@@ -37,7 +37,7 @@ export function normalizarCaminho(caminho: string): string {
   return partes.join(", ");
 }
 
-const compactar = (texto: string) => texto.replace(/\s+/g, " ").trim();
+export const compactar = (texto: string) => texto.replace(/\s+/g, " ").trim();
 
 export interface ResultadoDaValidacao {
   /** Citações conferidas, com sigla e caminho como estão no corpus. */

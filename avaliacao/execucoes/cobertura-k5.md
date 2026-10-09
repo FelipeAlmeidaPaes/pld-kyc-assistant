@@ -30,8 +30,8 @@ Pontuação do melhor trecho (mín. / mediana / máx.): se as faixas não se sob
 
 | variante | falsa recusa | recusa correta (fora) | citações pertinentes | cobertura das citações | erros |
 | --- | --- | --- | --- | --- | --- |
-| manual | 3/30 (10%) | 6/6 (100%) | 56/61 (92%) | 76% | 0 |
-| langchain | 3/30 (10%) | 6/6 (100%) | 53/57 (93%) | 75% | 0 |
+| manual | 3/30 (10%) | 6/6 (100%) | 57/61 (93%) | 76% | 0 |
+| langchain | 3/30 (10%) | 6/6 (100%) | 54/57 (95%) | 75% | 0 |
 | langchain-padrao | 10/30 (33%) | 6/6 (100%) | 35/41 (85%) | 57% | 0 |
 
 | variante | tokens de entrada (média) | tokens de saída (média) | custo de tabela | geração p50 / p95 | total p50 / p95 |
@@ -87,7 +87,7 @@ Posição do primeiro dispositivo exigido na busca (– se não veio), e o desfe
 | q19 | coberta | 1 · respondeu 1/1, correta | 1 · respondeu 2/2, correta | 1 · respondeu 2/2, correta |
 | q20 | coberta | 2 · respondeu 3/3, parcial | 2 · respondeu 3/3, parcial | 1 · respondeu 3/3, correta |
 | q21 | coberta | 12 · respondeu 0/1, parcial | 12 · respondeu 0/1, parcial | 19 · respondeu 0/1, incorreta, afirmou o que não devia |
-| q22 | coberta | 1 · respondeu 4/5, parcial | 1 · respondeu 4/5, parcial | 1 · recusou (citação não confere) |
+| q22 | coberta | 1 · respondeu 5/5, parcial | 1 · respondeu 5/5, parcial | 1 · recusou (citação não confere) |
 | q23 | coberta | 1 · respondeu 3/5, correta | 1 · respondeu 2/3, correta | 1 · recusou (citação não confere) |
 | q24 | coberta | 1 · respondeu 1/1, correta | 1 · respondeu 1/1, correta | 1 · respondeu 0/1, correta |
 | q25 | coberta | 2 · respondeu 3/3, parcial | 2 · recusou (citação não confere) | 6 · recusou (modelo: não cobre) |

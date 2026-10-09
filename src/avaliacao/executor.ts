@@ -16,6 +16,8 @@ export interface ConfiguracaoDaExecucao {
   busca?: string;
   /** `VERSAO_DO_PROMPT` das instruções e do esquema; ausente nas execuções anteriores a 2026-10-09. */
   versaoDoPrompt?: string;
+  /** Conferência de valores ligada (ADR 0012); ausente nas execuções anteriores a ela. */
+  conferenciaDeValores?: boolean;
 }
 
 /** Uma linha do arquivo da execução: uma pergunta numa variante. */

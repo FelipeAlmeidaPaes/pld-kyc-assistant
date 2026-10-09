@@ -70,7 +70,7 @@ async function main() {
       limiar: config.limiar,
       modeloDeEmbeddings: config.modeloDeEmbeddings,
       modeloDeLlm: config.provedores[0]?.modelo ?? null,
-      ...(semLlm ? {} : { versaoDoPrompt: VERSAO_DO_PROMPT }),
+      ...(semLlm ? {} : { versaoDoPrompt: VERSAO_DO_PROMPT, conferenciaDeValores: true }),
     };
     const divergente = anteriores.find((r) => JSON.stringify(r.configuracao) !== JSON.stringify(configuracao));
     if (divergente) {

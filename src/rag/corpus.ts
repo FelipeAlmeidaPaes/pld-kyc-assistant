@@ -1,5 +1,5 @@
 import { readdir, readFile } from "node:fs/promises";
-import type { Dispositivo, NormaNormalizada } from "../corpus/types.js";
+import type { Artigo, Dispositivo, NormaNormalizada } from "../corpus/types.js";
 import { chaveDaNorma, normalizarCaminho } from "./citacoes.js";
 
 const PASTA_NORMALIZADA = new URL("../../corpus/normalized/", import.meta.url);
@@ -14,6 +14,8 @@ export async function carregarCorpus(pasta: URL = PASTA_NORMALIZADA): Promise<No
 export interface DispositivoNoCorpus {
   sigla: string;
   dispositivo: Dispositivo;
+  /** O artigo inteiro, para chegar aos dispositivos que abrem este e aos que vêm abaixo dele. */
+  artigo: Artigo;
 }
 
 /** Busca de dispositivo por sigla e caminho, tolerante à grafia que o modelo usa na citação. */
@@ -22,9 +24,11 @@ export class IndiceDoCorpus {
 
   constructor(normas: NormaNormalizada[]) {
     for (const norma of normas) {
-      for (const dispositivo of norma.artigos.flatMap((a) => a.dispositivos)) {
-        const chave = `${chaveDaNorma(norma.fonte.sigla)}|${normalizarCaminho(dispositivo.caminho)}`;
-        this.porChave.set(chave, { sigla: norma.fonte.sigla, dispositivo });
+      for (const artigo of norma.artigos) {
+        for (const dispositivo of artigo.dispositivos) {
+          const chave = `${chaveDaNorma(norma.fonte.sigla)}|${normalizarCaminho(dispositivo.caminho)}`;
+          this.porChave.set(chave, { sigla: norma.fonte.sigla, dispositivo, artigo });
+        }
       }
     }
   }

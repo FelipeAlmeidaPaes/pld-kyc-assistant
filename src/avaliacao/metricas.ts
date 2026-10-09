@@ -22,6 +22,7 @@ export function categoriaDaRecusa(motivo: string | null): string {
   if (motivo.startsWith("o modelo indicou")) return "modelo: não cobre";
   if (motivo.startsWith("resposta sem citação")) return "sem citação";
   if (motivo.startsWith("citação não confere")) return "citação não confere";
+  if (motivo.startsWith("valor sem respaldo")) return "valor sem respaldo";
   return "outro";
 }
 

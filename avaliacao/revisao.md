@@ -994,7 +994,7 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 
 **Gabarito:** A fragmentação de depósitos ou de outro instrumento de transferência de recursos em espécie, inclusive boleto de pagamento, de forma a dissimular o valor total da movimentação (art. 1º, I, d); a fragmentação de saques em espécie a fim de burlar limites regulatórios de reportes (I, e); saques em cinco dias úteis em valores inferiores aos limites, de forma a dissimular o valor total e evitar comunicações de operações em espécie (I, k); e dois ou mais saques em espécie no caixa no mesmo dia, ou dois ou mais depósitos em espécie em terminais de autoatendimento em cinco dias úteis, com indícios de burla para evitar a identificação (I, l e I, m).
 
-**Observação:** Confere. Na primeira conferência, o Claude disse que a norma não fala em burlar a identificação, e estava errado: as alíneas k, l e m do inciso I tratam de saques e depósitos repetidos para evitar a identificação e as comunicações, que é o que o gabarito original dizia. Corrigido em 2026-10-08, depois que a avaliação de base mostrou respostas citando essas alíneas.
+**Observação:** Confere. Na primeira conferência, o Claude disse que a norma não fala em burlar a identificação, e estava errado: as alíneas k, l e m do inciso I tratam de saques e depósitos repetidos para evitar a identificação e as comunicações, que é o que o gabarito original dizia. Corrigido em 2026-10-08, depois que a avaliação de base mostrou respostas citando essas alíneas. Em 2026-10-09, o autor aprovou incluir a alínea f (depósitos ou aportes de grandes valores em espécie, de forma parcelada) em aceitos: também é fracionamento, e as respostas que a citavam perdiam em citação pertinente.
 
 **Dispositivos exigidos**
 
@@ -1013,6 +1013,11 @@ Carta Circular BCB 4.001/2020, art. 1º, § 2º
 Carta Circular BCB 4.001/2020, art. 1º, I
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
 > I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+
+Carta Circular BCB 4.001/2020, art. 1º, I, f
+> Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:
+> I - situações relacionadas com operações em espécie em moeda nacional com a utilização de contas de depósitos ou de contas de pagamento:
+> f) depósitos ou aportes de grandes valores em espécie, de forma parcelada, principalmente nos mesmos caixas ou terminais de autoatendimento próximos, destinados a uma única conta ou a várias contas em municípios ou agências distintas;
 
 Carta Circular BCB 4.001/2020, art. 1º, I, k
 > Art. 1º As operações ou as situações descritas a seguir exemplificam a ocorrência de indícios de suspeita para fins dos procedimentos de monitoramento e seleção previstos na Circular nº 3.978, de 23 de janeiro de 2020:

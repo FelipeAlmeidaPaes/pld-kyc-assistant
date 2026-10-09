@@ -40,9 +40,12 @@ export function montarRelatorio(
     `- Embeddings: ${config?.modeloDeEmbeddings ?? "–"}; LLM: ${config?.modeloDeLlm ?? "nenhum (só busca)"}, sem fallback`,
     ...(config?.busca ? [`- Busca do experimento: ${config.busca}`] : []),
     ...(config?.versaoDoPrompt ? [`- Prompt: versão ${config.versaoDoPrompt}`] : []),
+    ...(config?.conferenciaDeValores ? ["- Conferência de valores: ligada (prazos, percentuais, valores e datas contra o texto citado)"] : []),
     juiz
       ? `- Conteúdo das respostas julgado por ${juiz.provedor}/${juiz.modelo}, versão ${[...julgamentos.values()][0]!.versaoDoJuiz} das instruções (\`npm run julgar\`), comparando com o gabarito`
-      : "- Conteúdo das respostas ainda não julgado (`npm run julgar`).",
+      : registros.some((r) => r.resposta !== null)
+        ? "- Conteúdo das respostas ainda não julgado (`npm run julgar`)."
+        : "- Só busca: sem respostas para julgar.",
     "",
     `## Busca (perguntas cobertas)`,
     "",
