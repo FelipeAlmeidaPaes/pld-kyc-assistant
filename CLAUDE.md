@@ -112,7 +112,7 @@ docker compose up -d
   - Correções de gabarito aprovadas pelo autor (q22, q23; recusa aceita em q07 e q08, campo `recusaAceita`).
   - Experimentos de busca (ADR 0009): e5 small, base e large, texto completo ou enxuto, BM25, híbrida, e os dois embeddings do Gemini. `gemini-embedding-2` adotado; `.env` local já aponta para ele.
   - Qdrant: `manual__gemini-embedding-2` e `langchain__gemini-embedding-2` indexadas a partir do cache, sem gastar cota. **Falta `langchain-padrao__gemini-embedding-2`** (196 textos): até lá, o servidor e o `avaliar` falham com o `.env` atual (`montarVariantes` exige as três coleções). As coleções do e5-small continuam lá.
-  - A cota de embedding do dia acabou nos experimentos, nos dois modelos do Gemini (renova à meia-noite do Pacífico).
+  - A cota de embedding do dia acabou nos experimentos, nos dois modelos do Gemini. **O `retryDelay` do 429 não é confiável:** em 2026-10-08 13:57 UTC ele apontava ~23:53 UTC, mas às 00:17 UTC de 2026-10-09 um lote de 25 ainda era recusado, agora com "retry in 23h42m". Hipótese: renova à meia-noite do Pacífico (07:00 UTC), não confirmada.
   - Juiz do conteúdo (ADR 0010), rodado sobre a `base` (50 respostas, nemotron :free, custo zero). Amostra de 20 em `avaliacao/execucoes/base.auditoria.md`, à espera da auditoria do autor.
   - 126 testes.
 - **Achados:**
@@ -141,7 +141,7 @@ docker compose up -d
 
 ## Próximos passos
 1. Registrar a auditoria do autor sobre `base.auditoria.md` (concordância do juiz) e, se o juiz se mostrar rigoroso demais nas perguntas amplas, ajustar a regra 1 das instruções e julgar de novo.
-2. Com a cota renovada: `npm run indexar -- --variantes langchain-padrao` (196 textos) e `npm run avaliar -- gemini2` (36 embeddings de pergunta e 108 chamadas ao LLM) e `npm run julgar -- gemini2`; comparar com `base`. Há uma retomada agendada nesta sessão para 2026-10-09 00:15 UTC.
+2. Com a cota renovada: `npm run indexar -- --variantes langchain-padrao` (196 textos) e `npm run avaliar -- gemini2` (36 embeddings de pergunta e 108 chamadas ao LLM) e `npm run julgar -- gemini2`; comparar com `base`. A retomada de 00:15 UTC encontrou a cota esgotada; nova tentativa agendada para 2026-10-09 07:20 UTC. Para testar a cota, usar um lote de 25: um pedido só passa com a sobra do dia anterior.
 3. Repetir uma execução para medir o ruído do modelo (a de cima, com o cache, não gasta embedding).
 4. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): os vetores dos trechos já estão no cache; gasta só as 36 perguntas, se ainda não estiverem.
 5. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
