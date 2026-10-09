@@ -62,6 +62,7 @@ docker compose up -d
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
 - `docs/adr/`: decisões de arquitetura (0001 a 0012)
+- `docs/aprendizados-v1.md`: a história da v1 em linguagem simples (11 lições: problema, como descobrimos, o que fizemos e por quê), para quem não acompanhou o projeto. Atualizar se um número da v1 mudar
 - `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
 ## Decisões (detalhes em docs/adr)
@@ -121,6 +122,7 @@ docker compose up -d
   - Cobertura declarada e k = 8 (ADR 0011): execuções `cobertura-k5` e `cobertura-k8` (108 chamadas cada, nenhum erro), julgadas com o juiz `ba1252a1`. Prompt versão `932e4dad`.
   - Conferência de valores (ADR 0012) e q22 com a alínea I, f, em `aceitos` (aprovado pelo autor; relatórios regenerados). Execução `conferencia-k8` (108 chamadas, nenhum erro; 79 respostas julgadas).
   - 142 testes.
+  - Documentação dos aprendizados da v1 (`docs/aprendizados-v1.md`) e README atualizado (status, ADRs 0008 a 0012), a pedido do autor, antes da v2.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
