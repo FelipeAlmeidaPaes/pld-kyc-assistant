@@ -49,7 +49,7 @@ docker compose up -d
 - `src/ingest/bcb.ts`: API do BCB, escolha do PDF compilado, corte da assinatura, `paragrafosSoltos`
 - `src/ingest/encoding.ts`: detecção de charset (Planalto costuma usar windows-1252) e decodificação manual da faixa 0x80-0x9F, que o `TextDecoder` do Node 22.22 entrega como controle C1
 - `src/ingest/cli.ts`: CLI de ingestão
-- `src/rag/`: base comum das três variantes (ADR 0007): `trechos.ts` (um trecho por dispositivo, com contexto, e as partes dele; texto corrido para o divisor padrão), `embeddings.ts` (e5 com prefixos e `criarGerador`, que escolhe pelo nome do modelo), `embeddings-gemini.ts` (API do Gemini, em lote, com tipo de tarefa), `cache-de-vetores.ts` (vetor por hash do texto, em `.cache/vetores/`), `bm25.ts` (busca lexical e fusão RRF, usadas nos experimentos), `prompt.ts`, `citacoes.ts` e `resposta.ts` (validação de citação e regras de recusa), `config.ts`, `tipos.ts`
+- `src/rag/`: base comum das três variantes (ADR 0007): `conferencia.ts` (prazos, percentuais, valores e datas da resposta contra o texto citado, ADR 0012), `trechos.ts` (um trecho por dispositivo, com contexto, e as partes dele; texto corrido para o divisor padrão), `embeddings.ts` (e5 com prefixos e `criarGerador`, que escolhe pelo nome do modelo), `embeddings-gemini.ts` (API do Gemini, em lote, com tipo de tarefa), `cache-de-vetores.ts` (vetor por hash do texto, em `.cache/vetores/`), `bm25.ts` (busca lexical e fusão RRF, usadas nos experimentos), `prompt.ts`, `citacoes.ts` e `resposta.ts` (validação de citação e regras de recusa), `config.ts`, `tipos.ts`
 - `src/rag/manual/`: índice e busca com o cliente do Qdrant, cliente de chat sobre `fetch`, pipeline
 - `src/rag/langchain/`: `EmbeddingsDoGerador`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
 - `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts` (repete até 3 vezes a variante que falhar), `cli-servidor.ts`
@@ -61,7 +61,7 @@ docker compose up -d
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0011)
+- `docs/adr/`: decisões de arquitetura (0001 a 0012)
 - `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
 ## Decisões (detalhes em docs/adr)
@@ -76,6 +76,7 @@ docker compose up -d
 - **Avaliação (ADR 0008):** só perguntas validadas; só o provedor principal, sem fallback; 5 s entre chamadas; busca registrada até a posição 20; recall@5, acerto@5, MRR@20, falsa recusa, recusa correta, citações pertinentes e cobertura, tokens, custo e latência. Acerto do conteúdo e `naoDeve` pelo juiz (ADR 0010).
 - **Juiz (ADR 0010):** modelo `:free` do OpenRouter (`OPENROUTER_MODEL`), outra família que não a do Gemini; compara com o gabarito e dá correta, parcial ou incorreta, mais os itens de `naoDeve` afirmados. Só julga resposta a pergunta coberta. Amostra de 20 auditada pelo autor no chat; registrar a concordância.
 - **Resposta (ADR 0011):** o modelo declara `cobertura` (total, parcial, nenhuma) e `naoCoberto`; só "nenhuma" vira recusa, e a parcial sai com o que falta. Instruções: identificar o que a pergunta pede, enumerar tudo o que os trechos dizem sobre isso, nada além. `VERSAO_DO_PROMPT` (hash de instruções, mensagem e esquema) vai em cada execução. k = 8 trechos (`RAG_K`).
+- **Conferência de valores (ADR 0012):** todo prazo, percentual, valor em dinheiro e data sem ano da resposta tem de estar no texto do dispositivo citado, dos que o abrem ou dos que vêm abaixo dele, e esse texto tem de ter vindo na busca; senão, recusa (`valor sem respaldo nos dispositivos citados`). Comparação pelo valor ("24 horas" = "vinte e quatro horas"), sem LLM.
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -118,7 +119,8 @@ docker compose up -d
   - Juiz revisado (ADR 0010, revisão 1, versão `ba1252a1`): a pergunta define o que é exigido, e só conteúdo conta (número de artigo e remissão, não). `base` e `gemini2` julgadas de novo; julgamentos guardam a versão, e versão antiga não vale.
   - Juiz do conteúdo (ADR 0010). Auditoria: o autor concordou, em geral, que a primeira versão era rigorosa demais; a conferência item a item (`<rótulo>.auditoria.md`) não foi feita.
   - Cobertura declarada e k = 8 (ADR 0011): execuções `cobertura-k5` e `cobertura-k8` (108 chamadas cada, nenhum erro), julgadas com o juiz `ba1252a1`. Prompt versão `932e4dad`.
-  - 129 testes.
+  - Conferência de valores (ADR 0012) e q22 com a alínea I, f, em `aceitos` (aprovado pelo autor; relatórios regenerados). Execução `conferencia-k8` (108 chamadas, nenhum erro; 79 respostas julgadas).
+  - 141 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
@@ -152,6 +154,10 @@ docker compose up -d
   - **A instrução de enumerar não resolveu a omissão:** com k = 5, 6 das 10 parciais da `manual` foram declaradas "total"; em 4 o item faltante não veio na busca (o modelo não sabe que existe), em 2 (q16, q29) veio e foi omitido.
   - **Conteúdo de memória com citação válida:** q04 (sanções da Lei 9.613, art. 12). A alínea II, b, não vem na busca; a `langchain` (k = 8) escreveu multa de "20% (vinte por cento) do valor corrigido da operação", texto que não existe no corpus, e a `manual` (`gemini2` e k = 8) trouxe o conteúdo certo da alínea b atribuído à c. A validação de citação confere o dispositivo, não o conteúdo. O juiz pegou; o usuário não pegaria.
   - **k = 8 custa** 41% mais tokens de entrada e alguma precisão de citação (92–93% para 85–91%). Parte das "não pertinentes" é gabarito incompleto (q22, alínea f; ver pendências).
+  - **Conferência de valores:** sobre 342 respostas (as 263 gravadas antes, simuladas, e as 79 da `conferencia-k8`), recusa exatamente 2, as duas da q04 com valor de memória, e nenhuma falsa. Na própria `conferencia-k8` não agiu: na q04 o modelo citou a alínea II, b, que não veio na busca, e a validação de citação recusou antes.
+  - **Ruído medido:** `conferencia-k8` repete a configuração da `cobertura-k8`, e a conferência não agiu. Acerto fim a fim 21→20 (`manual`), 19→18 (`langchain`), 20→18 (padrão); 11 pares mudaram de desfecho. Diferença de até 2 perguntas entre execuções é ruído do modelo e do juiz. O ganho do k = 8 sobre o k = 5 (17, 16, 15) continua acima disso: 20 a 21, 18 a 19, 18 a 20.
+  - **q04 é falha de busca:** a Lei 9.613, art. 12, II, b, não fica entre os 8 primeiros em `manual` nem em `langchain` (no padrão vem, dentro do pedaço do art. 12, e o modelo erra o caminho ao citar). Sem ela, o modelo recusa (citando a alínea que não viu) ou completa de memória (barrado pela conferência).
+  - O juiz às vezes devolve justificativa de uma palavra ("parcial" na q28 da `base`; "incorreta" na q21 da `manual`, `conferencia-k8`, resposta que trata da relação do art. 11, § 1º, da Lei 9.613, e não da Carta Circular 4.001). Esses vereditos valem menos.
   - **No divisor padrão, a busca melhor não ajudou a resposta:** 10 das 15 recusas são "citação não confere" (o modelo escreve "alínea d" sem artigo, ou "art. 2º, II" sem o § 2º). É limite da variante, que não traz o caminho no texto.
   - **Juiz na `base`:** nenhuma resposta incorreta e nenhuma afirmou item de `naoDeve`; das 50, 28 corretas e 22 parciais. Acerto fim a fim: 10/30 (`manual`), 11/30 (`langchain`), 11/30 (`langchain-padrao`). As parciais são omissões: parte por busca incompleta (q27 sem o inciso II, q28 sem o III), parte por pergunta ampla em que o juiz cobra o gabarito inteiro (q16, q17). Se o juiz é rigoroso demais é o que a auditoria vai dizer. Uma justificativa veio só com a palavra "parcial" (q28, `langchain`).
   - **A busca é o gargalo:** em `manual`, 9 das 13 recusas indevidas são de perguntas sem nenhum dispositivo exigido entre os 5 trechos; 2 trouxeram só parte (q12, q13: a definição do art. 2º da Lei 13.810 não veio, e a regra 3 do prompt manda recusar resposta parcial); 2 trouxeram tudo (q08, ver pendências; q10, ruído do modelo). No divisor padrão, 6 recusas com tudo recuperado, quase todas "citação não confere": o modelo erra o caminho ao deduzi-lo do texto.
@@ -168,15 +174,12 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Conferência de conteúdo sem LLM: todo número, prazo, percentual e valor da resposta tem de aparecer no texto dos dispositivos citados (pega o caso da q04). Medir na avaliação.
-2. Repetir `cobertura-k8` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
-3. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
-4. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
-5. v2: servidor MCP expondo a busca.
+1. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
+2. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
+3. v2: servidor MCP expondo a busca.
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
 - Opcional: auditar o juiz revisado item a item (`avaliacao/execucoes/gemini2.auditoria.md`), para medir a concordância.
-- Gabarito da q22 (fracionamento): a Carta Circular 4.001, art. 1º, I, f ("depósitos ou aportes de grandes valores em espécie, de forma parcelada..."), não está nem em `dispositivos` nem em `aceitos`, e as respostas que a citam perdem em citação pertinente. Proposta: incluir em `aceitos`. Só o autor valida.
-- Opcional: auditar os julgamentos de `cobertura-k8` (`cobertura-k8.auditoria.md`).
+- Opcional: auditar os julgamentos de `conferencia-k8` (`conferencia-k8.auditoria.md`).

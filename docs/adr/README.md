@@ -15,3 +15,4 @@ Cada decisão relevante fica registrada aqui, com contexto, alternativas e conse
 | [0009](0009-embeddings-gemini.md) | Embeddings pela API do Gemini (`gemini-embedding-2`), com cache em disco | Aceita |
 | [0010](0010-juiz.md) | Juiz do conteúdo das respostas: LLM gratuito de outra família, auditado pelo autor | Aceita |
 | [0011](0011-cobertura-declarada.md) | Cobertura declarada pelo modelo no lugar da recusa de resposta parcial; 8 trechos | Aceita |
+| [0012](0012-conferencia-de-valores.md) | Prazos, percentuais, valores e datas da resposta conferidos contra o texto citado | Aceita |
