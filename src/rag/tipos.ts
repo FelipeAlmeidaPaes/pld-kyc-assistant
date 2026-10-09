@@ -22,8 +22,13 @@ export interface TrechoRecuperado extends Trecho {
 
 /** O que o modelo devolve. É o mesmo esquema nas três variantes. */
 export const esquemaDaSaida = z.object({
-  cobre: z.boolean().describe("true se os trechos respondem à pergunta; false se não respondem ou respondem só em parte"),
-  resposta: z.string().describe("resposta em português, vazia quando cobre é false"),
+  cobertura: z
+    .enum(["total", "parcial", "nenhuma"])
+    .describe("total: os trechos respondem a tudo o que a pergunta pede; parcial: a uma parte; nenhuma: a nada"),
+  resposta: z.string().describe("resposta em português, vazia quando a cobertura é nenhuma"),
+  naoCoberto: z
+    .string()
+    .describe("o que a pergunta pede e os trechos não respondem; vazio quando a cobertura é total"),
   citacoes: z
     .array(
       z.object({
@@ -57,6 +62,10 @@ export interface Resposta {
   recusa: boolean;
   motivoDaRecusa: string | null;
   resposta: string | null;
+  /** O que o modelo declarou: total ou parcial; null na recusa. Ausente nas execuções anteriores a 2026-10-09. */
+  cobertura?: "total" | "parcial" | null;
+  /** Na cobertura parcial, o que a pergunta pede e os trechos não respondem. */
+  naoCoberto?: string | null;
   /** Citações conferidas, com sigla e caminho como estão no corpus. */
   citacoes: Citacao[];
   trechos: { sigla: string; caminho: string | null; pontuacao: number }[];
@@ -75,6 +84,7 @@ export type Pipeline = (pergunta: string) => Promise<Resposta>;
 
 /** As duas metades de uma variante: só a busca, sem LLM, e o fluxo completo. */
 export interface VarianteMontada {
-  buscar: (pergunta: string) => Promise<TrechoRecuperado[]>;
+  /** Sem `k`, devolve o número de trechos da configuração, o mesmo que vai ao modelo. */
+  buscar: (pergunta: string, k?: number) => Promise<TrechoRecuperado[]>;
   perguntar: Pipeline;
 }

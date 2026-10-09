@@ -4,7 +4,7 @@ import type { Artigo, NormaNormalizada } from "../src/corpus/types.js";
 import type { Provedor } from "../src/rag/config.js";
 import { IndiceDoCorpus } from "../src/rag/corpus.js";
 import type { GeradorDeEmbeddings } from "../src/rag/embeddings.js";
-import { EmbeddingsE5 } from "../src/rag/langchain/embeddings.js";
+import { EmbeddingsDoGerador } from "../src/rag/langchain/embeddings.js";
 import { documentosDoDivisorPadrao, documentosDosTrechos } from "../src/rag/langchain/indice.js";
 import { criarModeloDeChat, criarPipelineLangchain } from "../src/rag/langchain/pipeline.js";
 import { criarClienteDeChat } from "../src/rag/manual/llm.js";
@@ -13,7 +13,12 @@ import { montarTrechos } from "../src/rag/trechos.js";
 import { iniciarLlmFalso, respostaDeChat } from "./fixtures/llm-falso.js";
 import { normaFicticia } from "./fixtures/norma-ficticia.js";
 
-const saidaValida = { cobre: true, resposta: "Com nome completo.", citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }] };
+const saidaValida = {
+  cobertura: "total" as const,
+  resposta: "Com nome completo.",
+  naoCoberto: "",
+  citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }],
+};
 const provedor = (nome: Provedor["nome"], urlBase: string): Provedor => ({
   nome,
   urlBase,
@@ -35,7 +40,7 @@ const llm = async (...args: Parameters<typeof iniciarLlmFalso>) => {
   return servidor;
 };
 
-describe("EmbeddingsE5", () => {
+describe("EmbeddingsDoGerador", () => {
   it("delega ao gerador do projeto, que põe os prefixos do e5", async () => {
     const chamadas: string[] = [];
     const gerador: GeradorDeEmbeddings = {
@@ -44,7 +49,7 @@ describe("EmbeddingsE5", () => {
       consultas: async (t) => (chamadas.push(`consulta:${t}`), t.map(() => [1, 0])),
       trechos: async (t) => (chamadas.push(`trechos:${t}`), t.map(() => [0, 1])),
     };
-    const embeddings = new EmbeddingsE5(gerador);
+    const embeddings = new EmbeddingsDoGerador(gerador);
     expect(await embeddings.embedQuery("p")).toEqual([1, 0]);
     expect(await embeddings.embedDocuments(["a", "b"])).toEqual([[0, 1], [0, 1]]);
     expect(chamadas).toEqual(["consulta:p", "trechos:a,b"]);

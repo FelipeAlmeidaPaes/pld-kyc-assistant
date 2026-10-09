@@ -1,7 +1,8 @@
 import { afterEach, describe, expect, it } from "vitest";
 import type { Provedor } from "../src/rag/config.js";
 import { IndiceDoCorpus } from "../src/rag/corpus.js";
-import { criarClienteDeChat, esquemaJson } from "../src/rag/manual/llm.js";
+import { z } from "zod";
+import { criarClienteDeChat, esquemaJson, esquemaJsonDe, pedirSaidaEstruturada } from "../src/rag/manual/llm.js";
 import { criarPipelineManual } from "../src/rag/manual/pipeline.js";
 import { INSTRUCOES } from "../src/rag/prompt.js";
 import type { Geracao, TrechoRecuperado } from "../src/rag/tipos.js";
@@ -9,7 +10,12 @@ import { montarTrechos } from "../src/rag/trechos.js";
 import { iniciarLlmFalso, respostaDeChat } from "./fixtures/llm-falso.js";
 import { normaFicticia } from "./fixtures/norma-ficticia.js";
 
-const saidaValida = { cobre: true, resposta: "Com nome completo.", citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }] };
+const saidaValida = {
+  cobertura: "total" as const,
+  resposta: "Com nome completo.",
+  naoCoberto: "",
+  citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }],
+};
 const provedor = (nome: Provedor["nome"], urlBase: string, precos: [number, number] | null = null): Provedor => ({
   nome,
   urlBase,
@@ -86,8 +92,24 @@ describe("criarClienteDeChat", () => {
     );
     expect(recusa.requisicoes).toHaveLength(1);
 
-    const torta = await llm(() => respostaDeChat({ cobre: "sim" } as never));
+    const torta = await llm(() => respostaDeChat({ cobertura: "sim" } as never));
     await expect(criarClienteDeChat([provedor("gemini", torta.url)], { usarFallback: false }).gerar("x", "y")).rejects.toThrow();
+  });
+
+  it("pede outra saída estruturada pelo mesmo caminho, com o nome e o esquema dados", async () => {
+    const esquema = z.object({ veredito: z.enum(["sim", "nao"]) });
+    const servidor = await llm(() => respostaDeChat({ veredito: "sim" } as never, "modelo-servido"));
+    const pedido = { instrucoes: "i", mensagem: "m", nome: "julgamento", esquema };
+    await expect(pedirSaidaEstruturada(provedor("openrouter", servidor.url), pedido)).resolves.toEqual({
+      saida: { veredito: "sim" },
+      modelo: "modelo-servido",
+      tokensEntrada: 120,
+      tokensSaida: 30,
+    });
+    expect((servidor.requisicoes[0] as any).corpo.response_format).toEqual({
+      type: "json_schema",
+      json_schema: { name: "julgamento", schema: esquemaJsonDe(esquema), strict: true },
+    });
   });
 
   it("exige ao menos um provedor configurado", () => {

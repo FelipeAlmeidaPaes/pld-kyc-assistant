@@ -8,7 +8,7 @@
     "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Circular&numero=3978",
     "urlVerificada": true
   },
-  "capturadoEm": "2026-10-07",
+  "capturadoEm": "2026-10-08",
   "documento": "https://normativos.bcb.gov.br/Lists/Normativos/Attachments/50905/Circ_3978_v6_L.pdf",
   "sha256": "8f89e136804780b139decdb1974f87493bb23b5e70f05845ccf3c93b169d594a",
   "artigos": [
@@ -2584,8 +2584,10 @@
           "tipo": "paragrafo",
           "rotulo": "§ 1º",
           "caminho": "art. 49, § 1º",
-          "texto": "A comunicação mencionada no caput deve ser realizada até o dia útil seguinte ao da ocorrência da operação ou do provisionamento. (Transformado em § 1º pela Resolução BCB nº 591, de 30/9/2026.)",
-          "notas": [],
+          "texto": "A comunicação mencionada no caput deve ser realizada até o dia útil seguinte ao da ocorrência da operação ou do provisionamento.",
+          "notas": [
+            "(Transformado em § 1º pela Resolução BCB nº 591, de 30/9/2026.)"
+          ],
           "revogado": false
         },
         {

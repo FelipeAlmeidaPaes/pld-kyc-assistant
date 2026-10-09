@@ -2,7 +2,9 @@
 
 Assistente de perguntas e respostas sobre normas brasileiras de prevenção à lavagem de dinheiro (PLD), financiamento do terrorismo e antifraude. Toda resposta se baseia no texto da norma e cita o dispositivo de origem.
 
-> Status: em desenvolvimento (v1). Pronto: estrutura do projeto, decisões de arquitetura e ingestão das seis normas do corpus (Planalto e BCB). Em andamento: indexação, busca e avaliação.
+> Status: v1 concluída. Na variante principal, 20 a 21 respostas certas em 30 perguntas (eram 11 no início), as 6 perguntas fora da base recusadas em todas as rodadas, e custo zero. Próximo: v2 (servidor MCP).
+>
+> **O que aprendemos na v1, e o porquê de cada escolha:** [docs/aprendizados-v1.md](docs/aprendizados-v1.md).
 
 ## Por que este projeto
 Normas de PLD/KYC são longas, remetem umas às outras e mudam com frequência. Um assistente que responde com confiança e sem fonte é pior do que nenhum assistente, ainda mais em compliance. Aqui, citação, recusa e custo são requisitos, e cada um é medido.
@@ -54,11 +56,16 @@ O projeto evolui junto com os módulos da pós-graduação.
 |---|---|---|
 | Stack | TypeScript e Node.js | [0001](docs/adr/0001-stack.md) |
 | LLM | Gemini (nível gratuito) principal, OpenRouter como fallback | [0002](docs/adr/0002-provedor-llm.md) |
-| Embeddings | Locais primeiro, comparados com API pela avaliação | [0003](docs/adr/0003-embeddings.md) |
+| Embeddings | Locais primeiro, comparados com API pela avaliação; trocados pelo Gemini, que ganhou por 38 p.p. em recall@5 | [0003](docs/adr/0003-embeddings.md), [0009](docs/adr/0009-embeddings-gemini.md) |
 | Banco vetorial | Qdrant local via Docker | [0004](docs/adr/0004-banco-vetorial.md) |
 | Corpus | Seis normas, sempre pelo texto compilado | [0005](docs/adr/0005-corpus-v1.md) |
 | PDF do BCB | Extraído com pdfjs-dist | [0006](docs/adr/0006-extracao-pdf.md) |
 | Variantes | Manual, LangChain e LangChain com divisor padrão | [0007](docs/adr/0007-tres-variantes.md) |
+| Avaliação | 30 perguntas cobertas e 6 fora da base, gabarito validado pelo autor, execução retomável | [0008](docs/adr/0008-avaliacao.md) |
+| Embeddings do Gemini | `gemini-embedding-2`, com cache em disco; busca híbrida medida e descartada | [0009](docs/adr/0009-embeddings-gemini.md) |
+| Juiz | LLM gratuito de outra família julga o conteúdo, com versão e auditoria do autor | [0010](docs/adr/0010-juiz.md) |
+| Resposta parcial | O modelo declara o que a base não cobre, em vez de recusar; 8 trechos | [0011](docs/adr/0011-cobertura-declarada.md) |
+| Conferência de valores | Prazos, percentuais e valores conferidos contra o texto citado | [0012](docs/adr/0012-conferencia-de-valores.md) |
 
 ## Como rodar
 Requisitos: Node.js 22 ou superior e Docker.
@@ -76,8 +83,16 @@ npm run indexar
 # Sobe o servidor com as três variantes em localhost:3000
 npm run servidor
 curl -X POST localhost:3000/manual/perguntar -H 'content-type: application/json' -d '{"pergunta": "..."}'
-# Só a busca, sem LLM (funciona sem chave):
+# Só a busca, sem LLM (sem chave só com EMBEDDINGS_MODELO=Xenova/multilingual-e5-small):
 curl -X POST localhost:3000/langchain-padrao/buscar -H 'content-type: application/json' -d '{"pergunta": "..."}'
+
+# Confere avaliacao/perguntas.json contra o corpus e gera avaliacao/revisao.md
+npm run avaliacao:revisao
+# Roda a avaliação nas três variantes (rótulo novo começa; o mesmo rótulo retoma) e gera o relatório
+npm run avaliar -- base
+npm run avaliar -- busca --sem-llm   # só a busca, sem LLM
+# Experimentos de busca em memória (modelos de embedding, BM25, híbrida), sem mexer no Qdrant
+npm run avaliacao:experimentos -- --modelo Xenova/multilingual-e5-base
 
 # Baixa a norma e grava o texto normalizado em corpus/normalized/
 npm run ingest -- lei-9613             # Planalto: página do texto compilado

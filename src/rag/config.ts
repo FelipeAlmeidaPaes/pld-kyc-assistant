@@ -20,6 +20,8 @@ export interface Provedor {
 export interface Configuracao {
   qdrantUrl: string;
   modeloDeEmbeddings: string;
+  /** Chave do Gemini, usada também pelos embeddings quando o modelo é "gemini-...". */
+  chaveGemini: string | null;
   /** Quantos trechos a busca devolve. */
   k: number;
   /** Pontuação mínima do melhor trecho para chamar o LLM; null desliga (calibrar na avaliação). */
@@ -84,7 +86,8 @@ export function lerConfiguracao(env: NodeJS.ProcessEnv = process.env): Configura
   return {
     qdrantUrl: env.QDRANT_URL || "http://localhost:6333",
     modeloDeEmbeddings: env.EMBEDDINGS_MODELO || "Xenova/multilingual-e5-small",
-    k: numero(env.RAG_K) ?? 5,
+    chaveGemini: env.GEMINI_API_KEY || null,
+    k: numero(env.RAG_K) ?? 8,
     limiar: numero(env.RAG_LIMIAR),
     provedores: [
       ...provedor(env, "gemini", "GEMINI", URL_GEMINI),

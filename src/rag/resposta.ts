@@ -1,4 +1,5 @@
 import { validarCitacoes } from "./citacoes.js";
+import { descreverQuantidade, quantidadesSemRespaldo } from "./conferencia.js";
 import type { IndiceDoCorpus } from "./corpus.js";
 import type { Geracao, Resposta, TrechoRecuperado, Variante } from "./tipos.js";
 
@@ -19,8 +20,10 @@ export function abaixoDoLimiar(trechos: TrechoRecuperado[], limiar: number | nul
 
 /**
  * Regras de recusa e de citação, iguais nas três variantes (ADR 0007). A resposta só sai se o
- * modelo disser que os trechos cobrem a pergunta, citar ao menos um dispositivo e todas as
- * citações conferirem com o corpus e com os trechos recuperados.
+ * modelo disser que os trechos cobrem a pergunta, ao menos em parte, citar ao menos um
+ * dispositivo e todas as citações conferirem com o corpus e com os trechos recuperados. Na
+ * cobertura parcial, a resposta sai com o que ficou sem resposta (ADR 0011). Prazo, percentual,
+ * valor ou data que não esteja no texto citado recusa a resposta inteira (ADR 0012).
  */
 export function concluirResposta(etapas: Etapas, indice: IndiceDoCorpus): Resposta {
   const { variante, pergunta, trechos, geracao, latenciaMs } = etapas;
@@ -42,12 +45,14 @@ export function concluirResposta(etapas: Etapas, indice: IndiceDoCorpus): Respos
     recusa: true,
     motivoDaRecusa,
     resposta: null,
+    cobertura: null,
+    naoCoberto: null,
     citacoes: [],
   });
 
   if (!geracao) return recusa("nenhum trecho recuperado atingiu a pontuação mínima");
   const { saida } = geracao;
-  if (!saida.cobre) return recusa("o modelo indicou que os trechos recuperados não cobrem a pergunta");
+  if (saida.cobertura === "nenhuma") return recusa("o modelo indicou que os trechos recuperados não cobrem a pergunta");
   if (saida.citacoes.length === 0) return recusa("resposta sem citação");
 
   const { validas, invalidas } = validarCitacoes(saida.citacoes, trechos, indice);
@@ -55,5 +60,18 @@ export function concluirResposta(etapas: Etapas, indice: IndiceDoCorpus): Respos
     const detalhe = invalidas.map((i) => `${i.citacao.sigla}, ${i.citacao.caminho} (${i.motivo})`).join("; ");
     return recusa(`citação não confere: ${detalhe}`);
   }
-  return { ...base, recusa: false, motivoDaRecusa: null, resposta: saida.resposta, citacoes: validas };
+  const semRespaldo = quantidadesSemRespaldo(saida.resposta, validas, trechos, indice);
+  if (semRespaldo.length > 0) {
+    return recusa(`valor sem respaldo nos dispositivos citados: ${semRespaldo.map(descreverQuantidade).join("; ")}`);
+  }
+  const parcial = saida.cobertura === "parcial";
+  return {
+    ...base,
+    recusa: false,
+    motivoDaRecusa: null,
+    resposta: saida.resposta,
+    cobertura: saida.cobertura,
+    naoCoberto: parcial ? saida.naoCoberto : null,
+    citacoes: validas,
+  };
 }
