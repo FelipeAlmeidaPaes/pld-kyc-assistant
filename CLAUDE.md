@@ -104,7 +104,6 @@ docker compose up -d
 ## Estado atual (2026-10-09, terceira sessão)
 - **Branch:** `avaliacao-v1` (correções do corpus, conjunto e execução da avaliação, juiz, cobertura declarada, k = 8, conferência de valores, experimentos de busca e a documentação dos aprendizados), mesclada na `main` por PR em 2026-10-09, a pedido do autor. A v2 começa numa branch nova, com nome descritivo, a partir da `main`. Esta sessão não consegue apagar branch remota: a `avaliacao-v1` fica no GitHub até o autor apagar.
 - **Histórico reescrito (2026-10-08, a pedido do autor):** `main` e `avaliacao-v1` passaram por `git filter-branch` para trocar autor e committer "Claude" pelo autor; conteúdo, datas e mensagens iguais. Os PRs #1 e #2 no GitHub ainda mostram os commits antigos.
-- **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
   - Corpus da v1 (seis normas) e ingestão. Corrigidos nesta sessão: travessão em windows-1252 perdido pelo Node (a Lei 9.613, art. 9º, parágrafo único, I, estava colado no parágrafo) e nota "(Transformado em § 1º ...)" no texto da Circular 3.978, art. 49, § 1º. Índice refeito: 939 pontos em `manual` e `langchain`, 196 no padrão, nenhum truncado.
@@ -181,7 +180,6 @@ docker compose up -d
 2. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus (o autor precisa validar as novas).
 
 ## Pendências com o autor
-- Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
 - Opcional: auditar o juiz revisado item a item (`avaliacao/execucoes/gemini2.auditoria.md`), para medir a concordância.
 - Opcional: auditar os julgamentos de `conferencia-k8` (`conferencia-k8.auditoria.md`).
