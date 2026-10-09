@@ -10,7 +10,12 @@ import { montarTrechos } from "../src/rag/trechos.js";
 import { iniciarLlmFalso, respostaDeChat } from "./fixtures/llm-falso.js";
 import { normaFicticia } from "./fixtures/norma-ficticia.js";
 
-const saidaValida = { cobre: true, resposta: "Com nome completo.", citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }] };
+const saidaValida = {
+  cobertura: "total" as const,
+  resposta: "Com nome completo.",
+  naoCoberto: "",
+  citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }],
+};
 const provedor = (nome: Provedor["nome"], urlBase: string, precos: [number, number] | null = null): Provedor => ({
   nome,
   urlBase,
@@ -87,7 +92,7 @@ describe("criarClienteDeChat", () => {
     );
     expect(recusa.requisicoes).toHaveLength(1);
 
-    const torta = await llm(() => respostaDeChat({ cobre: "sim" } as never));
+    const torta = await llm(() => respostaDeChat({ cobertura: "sim" } as never));
     await expect(criarClienteDeChat([provedor("gemini", torta.url)], { usarFallback: false }).gerar("x", "y")).rejects.toThrow();
   });
 

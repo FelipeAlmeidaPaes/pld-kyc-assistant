@@ -39,6 +39,7 @@ export function montarRelatorio(
     `- k = ${k} trechos ao modelo; busca registrada até a posição ${config?.profundidade ?? "–"}; limiar: ${config?.limiar ?? "desligado"}`,
     `- Embeddings: ${config?.modeloDeEmbeddings ?? "–"}; LLM: ${config?.modeloDeLlm ?? "nenhum (só busca)"}, sem fallback`,
     ...(config?.busca ? [`- Busca do experimento: ${config.busca}`] : []),
+    ...(config?.versaoDoPrompt ? [`- Prompt: versão ${config.versaoDoPrompt}`] : []),
     juiz
       ? `- Conteúdo das respostas julgado por ${juiz.provedor}/${juiz.modelo}, versão ${[...julgamentos.values()][0]!.versaoDoJuiz} das instruções (\`npm run julgar\`), comparando com o gabarito`
       : "- Conteúdo das respostas ainda não julgado (`npm run julgar`).",
@@ -103,13 +104,27 @@ export function montarRelatorio(
 
   if (julgamentos.size > 0) {
     const acertos = variantes.map((v) => ({ variante: v, ...calcularAcerto(v, registros, porId, julgamentos) }));
+    const comDeclaracao = acertos.some((a) => a.declaradasParciais !== null);
+    const declaracao = (a: (typeof acertos)[number]) => (comDeclaracao ? [a.declaradasParciais ?? "–", a.parciaisNaoDeclaradas ?? "–"] : []);
     linhas.push(
       "",
       `## Conteúdo (juiz: ${juiz!.modelo})`,
       "",
       "Acerto fim a fim: nas perguntas cobertas, resposta julgada correta ou recusa onde recusar é aceito.",
       "",
-      ...cabecalho(["variante", "julgadas", "corretas", "parciais", "incorretas", "acerto fim a fim", "afirmou o que não devia"]),
+      ...(comDeclaracao
+        ? ["Parcial declarada: o modelo disse que os trechos respondem só em parte. Parcial não declarada: o juiz deu parcial e o modelo disse total.", ""]
+        : []),
+      ...cabecalho([
+        "variante",
+        "julgadas",
+        "corretas",
+        "parciais",
+        "incorretas",
+        "acerto fim a fim",
+        "afirmou o que não devia",
+        ...(comDeclaracao ? ["parcial declarada", "parcial não declarada"] : []),
+      ]),
       ...acertos.map((a) =>
         linha([
           a.variante,
@@ -119,6 +134,7 @@ export function montarRelatorio(
           a.incorretas,
           fracao(a.acertoFimAFim),
           a.afirmaramNaoDeve,
+          ...declaracao(a),
         ]),
       ),
     );
@@ -182,7 +198,8 @@ function textoDaResposta(registro: RegistroDaAvaliacao): string {
   if (registro.erro) return `erro: ${registro.erro}`;
   const r = registro.resposta!;
   if (r.recusa) return `recusou (${r.motivoDaRecusa})`;
-  return `${r.resposta} — citações: ${r.citacoes.map((c) => `${c.sigla}, ${c.caminho}`).join("; ")}`;
+  const parcial = r.cobertura === "parcial" ? ` [parcial; sem resposta nos trechos: ${r.naoCoberto}]` : "";
+  return `${r.resposta}${parcial} — citações: ${r.citacoes.map((c) => `${c.sigla}, ${c.caminho}`).join("; ")}`;
 }
 
 /**

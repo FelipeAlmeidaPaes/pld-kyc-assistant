@@ -14,6 +14,8 @@ export interface ConfiguracaoDaExecucao {
   modeloDeLlm: string | null;
   /** Como a busca foi feita, quando não é a das variantes (experimentos de busca). */
   busca?: string;
+  /** `VERSAO_DO_PROMPT` das instruções e do esquema; ausente nas execuções anteriores a 2026-10-09. */
+  versaoDoPrompt?: string;
 }
 
 /** Uma linha do arquivo da execução: uma pergunta numa variante. */

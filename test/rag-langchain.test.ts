@@ -13,7 +13,12 @@ import { montarTrechos } from "../src/rag/trechos.js";
 import { iniciarLlmFalso, respostaDeChat } from "./fixtures/llm-falso.js";
 import { normaFicticia } from "./fixtures/norma-ficticia.js";
 
-const saidaValida = { cobre: true, resposta: "Com nome completo.", citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }] };
+const saidaValida = {
+  cobertura: "total" as const,
+  resposta: "Com nome completo.",
+  naoCoberto: "",
+  citacoes: [{ sigla: "Lei 99.999/2099", caminho: "art. 1º, I" }],
+};
 const provedor = (nome: Provedor["nome"], urlBase: string): Provedor => ({
   nome,
   urlBase,

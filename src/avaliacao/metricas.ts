@@ -162,6 +162,10 @@ export interface AcertoDaVariante {
   acertoFimAFim: { quantas: number; de: number };
   /** Respostas que afirmaram algum item de `naoDeve`. */
   afirmaramNaoDeve: number;
+  /** Respostas em que o modelo declarou cobertura parcial; null nas execuções sem a declaração. */
+  declaradasParciais: number | null;
+  /** Julgadas parciais pelo juiz, mas declaradas totais pelo modelo: a incompletude que fica escondida. */
+  parciaisNaoDeclaradas: number | null;
 }
 
 export function calcularAcerto(
@@ -177,6 +181,8 @@ export function calcularAcerto(
   const vereditos = aJulgar.flatMap((r) => julgamentos.get(chaveDoPar(r.perguntaId, r.variante)) ?? []);
   const contar = (v: Julgamento["veredito"]) => vereditos.filter((j) => j.veredito === v).length;
   const recusasAceitas = cobertas.filter((r) => r.resposta!.recusa && perguntas.get(r.perguntaId)!.recusaAceita).length;
+  const comDeclaracao = aJulgar.some((r) => r.resposta!.cobertura !== undefined);
+  const julgamentoDe = (r: RegistroDaAvaliacao) => julgamentos.get(chaveDoPar(r.perguntaId, r.variante));
   return {
     aJulgar: aJulgar.length,
     julgadas: vereditos.length,
@@ -185,5 +191,9 @@ export function calcularAcerto(
     incorretas: contar("incorreta"),
     acertoFimAFim: { quantas: contar("correta") + recusasAceitas, de: cobertas.length },
     afirmaramNaoDeve: vereditos.filter((j) => j.naoDeveAfirmados.length > 0).length,
+    declaradasParciais: comDeclaracao ? aJulgar.filter((r) => r.resposta!.cobertura === "parcial").length : null,
+    parciaisNaoDeclaradas: comDeclaracao
+      ? aJulgar.filter((r) => r.resposta!.cobertura === "total" && julgamentoDe(r)?.veredito === "parcial").length
+      : null,
   };
 }

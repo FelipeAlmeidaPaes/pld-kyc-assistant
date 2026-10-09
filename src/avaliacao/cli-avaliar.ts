@@ -4,6 +4,7 @@ import { parseArgs } from "node:util";
 import { lerConfiguracao } from "../rag/config.js";
 import { carregarCorpus } from "../rag/corpus.js";
 import { montarVariantes } from "../rag/montar.js";
+import { VERSAO_DO_PROMPT } from "../rag/prompt.js";
 import { VARIANTES, type Variante } from "../rag/tipos.js";
 import { criarLocalizador } from "./cobertura.js";
 import { chaveDoPar, executarAvaliacao, lerLinhas, lerRegistros, registrosAtuais } from "./executor.js";
@@ -69,6 +70,7 @@ async function main() {
       limiar: config.limiar,
       modeloDeEmbeddings: config.modeloDeEmbeddings,
       modeloDeLlm: config.provedores[0]?.modelo ?? null,
+      ...(semLlm ? {} : { versaoDoPrompt: VERSAO_DO_PROMPT }),
     };
     const divergente = anteriores.find((r) => JSON.stringify(r.configuracao) !== JSON.stringify(configuracao));
     if (divergente) {

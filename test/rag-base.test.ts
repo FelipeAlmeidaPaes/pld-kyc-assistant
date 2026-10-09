@@ -141,22 +141,41 @@ describe("concluirResposta", () => {
   });
   const citacao = { sigla: "Lei 99.999/2099", caminho: "art. 1º, I" };
 
+  const saida = (extra: Partial<SaidaDoModelo>): SaidaDoModelo => ({
+    cobertura: "total",
+    resposta: "Com nome completo.",
+    naoCoberto: "",
+    citacoes: [citacao],
+    ...extra,
+  });
+
   it("responde quando o modelo cobre e todas as citações conferem", () => {
-    const r = concluirResposta(etapas(geracao({ cobre: true, resposta: "Com nome completo.", citacoes: [citacao] })), indice);
-    expect(r).toMatchObject({ recusa: false, resposta: "Com nome completo.", citacoes: [citacao] });
+    const r = concluirResposta(etapas(geracao(saida({ naoCoberto: "sobra ignorada" }))), indice);
+    expect(r).toMatchObject({ recusa: false, resposta: "Com nome completo.", cobertura: "total", naoCoberto: null, citacoes: [citacao] });
     expect(r.metricas).toMatchObject({ provedor: "gemini", tokensEntrada: 100, tokensSaida: 20 });
+  });
+
+  it("responde a parte coberta e diz o que ficou sem resposta", () => {
+    const r = concluirResposta(etapas(geracao(saida({ cobertura: "parcial", naoCoberto: "o prazo fictício" }))), indice);
+    expect(r).toMatchObject({ recusa: false, cobertura: "parcial", naoCoberto: "o prazo fictício" });
   });
 
   it.each([
     [null, "nenhum trecho recuperado atingiu a pontuação mínima"],
-    [geracao({ cobre: false, resposta: "", citacoes: [] }), "o modelo indicou que os trechos recuperados não cobrem a pergunta"],
-    [geracao({ cobre: true, resposta: "Sem fonte.", citacoes: [] }), "resposta sem citação"],
+    [geracao(saida({ cobertura: "nenhuma", resposta: "", citacoes: [] })), "o modelo indicou que os trechos recuperados não cobrem a pergunta"],
+    [geracao(saida({ resposta: "Sem fonte.", citacoes: [] })), "resposta sem citação"],
     [
-      geracao({ cobre: true, resposta: "Inventada.", citacoes: [citacao, { sigla: "Lei 99.999/2099", caminho: "art. 7º" }] }),
+      geracao(saida({ resposta: "Inventada.", citacoes: [citacao, { sigla: "Lei 99.999/2099", caminho: "art. 7º" }] })),
       "citação não confere: Lei 99.999/2099, art. 7º (dispositivo não existe no corpus)",
     ],
   ])("recusa com motivo explícito (%#)", (g, motivo) => {
-    expect(concluirResposta(etapas(g), indice)).toMatchObject({ recusa: true, motivoDaRecusa: motivo, resposta: null, citacoes: [] });
+    expect(concluirResposta(etapas(g), indice)).toMatchObject({
+      recusa: true,
+      motivoDaRecusa: motivo,
+      resposta: null,
+      cobertura: null,
+      citacoes: [],
+    });
   });
 
   it("só aplica limiar quando configurado", () => {

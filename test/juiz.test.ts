@@ -173,7 +173,26 @@ describe("acerto e auditoria", () => {
       incorretas: 1,
       acertoFimAFim: { quantas: 2, de: 4 },
       afirmaramNaoDeve: 1,
+      declaradasParciais: null,
+      parciaisNaoDeclaradas: null,
     });
+  });
+
+  it("separa a parcial que o modelo declarou da que ele disse ser total", () => {
+    const declarada = { ...resposta("Só o nome."), cobertura: "parcial" as const, naoCoberto: "o documento" };
+    const escondida = { ...resposta("Só o nome."), cobertura: "total" as const, naoCoberto: null };
+    const completa = { ...resposta("Com nome completo."), cobertura: "total" as const, naoCoberto: null };
+    const comDeclaracao = [registro("q01", declarada), registro("q02", escondida), registro("q04", completa)];
+    const vereditos = [
+      julgamento("q01", declarada, "parcial"),
+      julgamento("q02", escondida, "parcial"),
+      julgamento("q04", completa, "correta"),
+    ];
+    const acerto = calcularAcerto("manual", comDeclaracao, perguntas, julgamentosValidos(comDeclaracao, vereditos));
+    expect(acerto).toMatchObject({ parciais: 2, declaradasParciais: 1, parciaisNaoDeclaradas: 1 });
+    const relatorio = montarRelatorio(comDeclaracao, [...perguntas.values()], vereditos);
+    expect(relatorio).toContain("| manual | 3 | 1 | 2 | 0 | 1/3 (33%) | 0 | 1 | 1 |");
+    expect(relatorio).toContain("[parcial; sem resposta nos trechos: o documento]");
   });
 
   it("mostra o juiz no relatório e na célula de cada pergunta", () => {
