@@ -10,7 +10,7 @@ A busca precisa filtrar por metadados (norma, data de referência, revogação) 
 - Qdrant rodando em Docker, definido em `docker-compose.yml`, com a versão da imagem fixada.
 - Cada ponto guarda no payload: fonte, artigo, caminhos dos dispositivos e data de referência.
 - Dispositivos revogados não são indexados.
-- A busca híbrida (vetor denso mais vetor esparso) será comparada com a busca só vetorial na avaliação.
+- A busca híbrida (vetor denso mais vetor esparso) será comparada com a busca só vetorial na avaliação. Comparada em 2026-10-09 com o `gemini-embedding-2`, em memória: perdeu em todas as configurações (ADR 0009). O Qdrant segue só com vetor denso.
 
 ## Alternativas consideradas
 - **sqlite-vec**: um arquivo só, sem Docker. Descartado porque o Qdrant traz busca híbrida e filtros prontos e é mais usado no mercado.

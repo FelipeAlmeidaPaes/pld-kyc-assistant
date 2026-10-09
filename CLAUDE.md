@@ -28,7 +28,7 @@ npm run avaliacao:revisao   # confere avaliacao/perguntas.json contra o corpus e
 npm run avaliar -- <rótulo>            # roda a avaliação nas três variantes (Gemini, sem fallback); mesmo rótulo retoma
 npm run avaliar -- <rótulo> --sem-llm  # só a busca; também --variantes, --perguntas, --so-relatorio
 npm run julgar -- <rótulo>             # juiz (OpenRouter :free) julga o conteúdo das respostas; gera <rótulo>.auditoria.md
-npm run avaliacao:experimentos -- --modelo <id> [--experimentos densa,bm25-radical5,hibrida,...]   # busca em memória, sem Qdrant
+npm run avaliacao:experimentos -- --modelo <id> [--experimentos densa,bm25-radical5,hibrida,...] [--k 8]   # busca em memória, sem Qdrant; com o Gemini, só "densa" e as híbridas sobre ela estão no cache
 ```
 
 Na sessão na nuvem, o Docker não sobe sozinho e o Docker Hub costuma responder 429 (limite de pulls anônimos):
@@ -69,7 +69,7 @@ docker compose up -d
 - **LLM:** Gemini nível gratuito como principal, OpenRouter como fallback, os dois pela API compatível com OpenAI (ADR 0002). Avaliação roda sem fallback. Toda resposta registra provedor e modelo.
 - **Custo zero (exigência do autor, ADR 0002):** `GEMINI_MODEL=gemini-3.5-flash-lite`; no OpenRouter só modelo `:free` (a configuração recusa outro, salvo `OPENROUTER_PERMITIR_PAGO=sim`; a conta tem crédito comprado). Nada de apelido `-latest`. Nunca trocar para modelo pago sem o autor pedir.
 - **Embeddings:** `gemini-embedding-2` pela API do Gemini (ADR 0009), que ganhou do e5-small por 38 p.p. em recall@5 (80% contra 42%). Cota gratuita de 1.000 textos por dia e por modelo, cada item de lote contando; todo vetor fica em cache por hash do texto, e reindexar ou repetir avaliação não gasta cota. O e5 local continua disponível pelo `EMBEDDINGS_MODELO` (ADR 0003).
-- **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
+- **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; só vetor denso: a busca híbrida perdeu (ADR 0004, 0009).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
 - **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
 - **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
@@ -112,7 +112,7 @@ docker compose up -d
   - Conjunto de avaliação: as 30 perguntas do autor, reescritas sem o nome da norma, mais 6 fora do corpus (f01 a f06). Gabaritos conferidos no texto: 11 conferem, 12 ajustados, 1 errado (q19), 6 sem base no texto. Validado pelo autor em bloco ("Tudo ok").
   - Executor e relatório (ADR 0008). Execuções gravadas: `busca-base` (só busca) e `base` (Gemini, 108 chamadas, 16 min, nenhum erro; um 503 absorvido pela nova tentativa), ambas com e5-small.
   - Correções de gabarito aprovadas pelo autor (q22, q23; recusa aceita em q07 e q08, campo `recusaAceita`).
-  - Experimentos de busca (ADR 0009): e5 small, base e large, texto completo ou enxuto, BM25, híbrida, e os dois embeddings do Gemini. `gemini-embedding-2` adotado; `.env` local já aponta para ele.
+  - Experimentos de busca (ADR 0009): e5 small, base e large, texto completo ou enxuto, BM25, híbrida, e os dois embeddings do Gemini. `gemini-embedding-2` adotado; `.env` local já aponta para ele. Híbrida com o Gemini medida e descartada (2026-10-09).
   - Qdrant: as três coleções do `gemini-embedding-2` indexadas (`manual` e `langchain` a partir do cache; `langchain-padrao` em 2026-10-09, 196 textos em 113 s). As coleções do e5-small continuam lá. O cache tem os 1.135 trechos e as 36 perguntas: repetir a avaliação ou os experimentos com o Gemini não gasta cota.
   - **Cota de embedding:** o `retryDelay` do 429 não é confiável (apontava meia-noite UTC). A cota renovou entre 00:17 e 07:21 UTC de 2026-10-09, o que bate com a meia-noite do Pacífico (07:00 UTC). Para testar, um lote de 25: um pedido só passa com a sobra do dia anterior.
   - Avaliação `gemini2` (2026-10-09): 108 chamadas ao Gemini em 10 min, nenhum erro; juiz em 58 respostas.
@@ -120,7 +120,7 @@ docker compose up -d
   - Juiz do conteúdo (ADR 0010). Auditoria: o autor concordou, em geral, que a primeira versão era rigorosa demais; a conferência item a item (`<rótulo>.auditoria.md`) não foi feita.
   - Cobertura declarada e k = 8 (ADR 0011): execuções `cobertura-k5` e `cobertura-k8` (108 chamadas cada, nenhum erro), julgadas com o juiz `ba1252a1`. Prompt versão `932e4dad`.
   - Conferência de valores (ADR 0012) e q22 com a alínea I, f, em `aceitos` (aprovado pelo autor; relatórios regenerados). Execução `conferencia-k8` (108 chamadas, nenhum erro; 79 respostas julgadas).
-  - 141 testes.
+  - 142 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
@@ -165,6 +165,7 @@ docker compose up -d
   - **Latência não compara variantes:** nas três, cada geração leva ~1 s ou ~10 s, sem padrão por variante. Provável fila ou limite do nível gratuito do Gemini. Nas perguntas da Carta Circular 4.001 (q21 a q25), `manual` e `langchain` não acham o dispositivo exigido entre os 20 primeiros: as alíneas do art. 39, I, da Circular 3.978 tomam as vagas, e o contexto longo repetido (caput e inciso) dilui o texto curto da alínea. Hipótese, não provada.
   - **Limitar trechos por artigo piora:** simulado sobre os 20 primeiros gravados, recall@5 cai de 42% para 32% (limite 1) e 39% (limite 2). Várias perguntas exigem incisos do mesmo artigo, e o que falta nem está entre os 20.
   - **Experimentos de busca** (ADR 0009, tabela completa lá): com e5, nada passou de 53% de recall@5 (e5-base ou e5-large, BM25 com radical, híbrida); híbrida simples com e5-small piorou (38%). `gemini-embedding-001` deu 69% e `gemini-embedding-2`, 80% (acerto@5 93%). Foram 20 configurações nas mesmas 30 perguntas: só a diferença do Gemini está bem acima do risco de ajuste ao conjunto.
+  - **Busca híbrida com o Gemini perde** (ADR 0009, 2026-10-09): densa 80% de recall@5 e 84% de recall@8; a melhor híbrida (densa com peso 2 + BM25 com radical), 63% e 80%. Com o Gemini, a densa está muito acima do BM25, e a fusão sobe trechos que só repetem palavras da pergunta. Trazer os irmãos do inciso ou alínea recuperado dá recall@8 de 86%, com 4 trechos a mais na mediana e até 87: não compensa. A q04 (art. 12, II, b, em 18º) não se resolve pela ordem.
   - Pontuação do melhor trecho: com e5-small, cobertas de 0,872 a 0,913 e fora do corpus de 0,838 a 0,864; com `gemini-embedding-2`, cobertas de 0,767 para cima e fora até 0,696. Um limiar separaria estas 36, mas com 6 perguntas fora do corpus ficaria ajustado a elas.
   - No divisor padrão o modelo deduz o caminho do dispositivo pelo texto e às vezes erra (ex.: "parágrafo único, I, I-A", ou a Lei 9.613 citada com o artigo errado); a validação recusa a resposta inteira.
   - Res. Conjunta 6, art. 8º, II, remete ao "art. 2º, § 6º, inciso II", mas o § 6º não tem incisos no texto do BCB (conferido no JSON bruto da API). É da norma, não do parser.
@@ -174,9 +175,8 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
-2. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
-3. v2: servidor MCP expondo a busca.
+1. v2: servidor MCP expondo a busca, validado com a mesma avaliação.
+2. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus (o autor precisa validar as novas).
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.

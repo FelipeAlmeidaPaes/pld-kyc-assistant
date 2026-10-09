@@ -77,15 +77,16 @@ export function criarBuscaBm25<T>(
 /**
  * Fusão por posição recíproca (RRF): cada lista dá a um item 1/(c + posição), e as notas somam.
  * Junta buscas de escalas diferentes (cosseno e BM25) sem calibrar uma contra a outra. c = 60 é o
- * valor do artigo original e o padrão de bibliotecas como o Qdrant.
+ * valor do artigo original e o padrão de bibliotecas como o Qdrant. Com `pesos`, a nota de cada
+ * lista é multiplicada pelo peso dela (1 se faltar): a busca mais confiável pesa mais.
  */
-export function fundirPorPosicao<T>(listas: T[][], chave: (item: T) => string, c = 60): ResultadoLexico<T>[] {
+export function fundirPorPosicao<T>(listas: T[][], chave: (item: T) => string, c = 60, pesos: number[] = []): ResultadoLexico<T>[] {
   const notas = new Map<string, ResultadoLexico<T>>();
-  for (const lista of listas) {
+  for (const [l, lista] of listas.entries()) {
     lista.forEach((item, i) => {
       const id = chave(item);
       const atual = notas.get(id) ?? { item, pontuacao: 0 };
-      atual.pontuacao += 1 / (c + i + 1);
+      atual.pontuacao += (pesos[l] ?? 1) / (c + i + 1);
       notas.set(id, atual);
     });
   }

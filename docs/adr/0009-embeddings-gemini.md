@@ -55,3 +55,22 @@ Avaliação `gemini2` contra a `base` (e5-small), mesmo LLM e mesmo conjunto (re
 | langchain-padrao | 59% → 76% | 70% → 83% | 13 → 15 de 30 | 12 → 13 de 30 |
 
 A busca nova reduziu à metade as recusas indevidas nas variantes por dispositivo e subiu o acerto do conteúdo em 3 a 6 perguntas. Com a primeira versão do juiz o ganho parecia menor (de 10–11 para 12–14), porque ele tratava número de artigo como contradição; a revisão está na ADR 0010. No divisor padrão a busca melhorou, mas o modelo continua errando o caminho do dispositivo ao citar.
+
+## Busca híbrida com o Gemini (2026-10-09)
+Medida com o `gemini-embedding-2` e os trechos e perguntas do cache, sem gastar cota (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2`). Fusão RRF (c = 60) da busca densa com BM25, com peso igual ou com a densa pesando o dobro. Medida em k = 5 e em k = 8, o k adotado (ADR 0011):
+
+| busca | recall@5 | acerto@5 | recall@8 | acerto@8 | MRR@20 |
+|---|---|---|---|---|---|
+| **densa (a atual)** | **80%** | **93%** | **84%** | 93% | **0,71** |
+| híbrida, BM25 | 56% | 67% | 69% | 80% | 0,58 |
+| híbrida, BM25 com radical de 5 letras | 58% | 77% | 75% | 90% | 0,63 |
+| híbrida, densa com peso 2 + BM25 | 64% | 77% | 76% | 90% | 0,61 |
+| híbrida, densa com peso 2 + BM25 com radical | 63% | 83% | 80% | 97% | 0,65 |
+
+**A híbrida perde em todas as configurações.** Com o e5, o BM25 empatava com a busca densa (42% a 49% contra 42%) e a fusão podia somar; com o Gemini, a densa está muito acima (80%), e a fusão traz para cima trechos que só repetem palavras da pergunta. Na melhor configuração, em k = 8, a híbrida ganha um dispositivo exigido em q15 e em q21 e perde em q02, q03, q04 e q06. O acerto@8 de 97% é uma pergunta a mais com ao menos um dispositivo exigido, à custa de recall.
+
+**A q04 não se resolve pela ordem:** a Lei 9.613, art. 12, II, b, fica em 18º na densa e na melhor híbrida. O texto dela ("ao dobro do lucro real...") não tem nada da pergunta; o que a liga à pergunta é o caput, que as alíneas irmãs também têm.
+
+**Também medido, sobre a ordem da densa, sem chamar a API: trazer os irmãos.** Quando a busca traz um inciso, alínea ou item, entram os outros da mesma lista. O recall@8 vai de 84% para 86%, com 4 trechos a mais na mediana e até 87 numa pergunta (as listas longas da Carta Circular 4.001). Não compensa.
+
+**Decisão:** a busca continua só densa. A fusão também tiraria a escala da pontuação (na melhor híbrida, o melhor trecho da pergunta coberta mais fraca fica em 0,045, abaixo do da pergunta fora do corpus mais forte, 0,049; na densa, 0,767 contra 0,696), e o limiar de recusa depende dela.

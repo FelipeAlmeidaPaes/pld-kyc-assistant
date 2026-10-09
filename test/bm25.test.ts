@@ -41,4 +41,11 @@ describe("fundirPorPosicao", () => {
     expect(fundido.map((r) => r.item)).toEqual(["b", "a", "c"]);
     expect(fundido[0]!.pontuacao).toBeCloseTo(1 / 62 + 1 / 61);
   });
+
+  it("multiplica a nota de cada lista pelo peso dela", () => {
+    const fundido = fundirPorPosicao([["a", "b"], ["b", "c"]], (x) => x, 60, [3, 1]);
+    expect(fundido.map((r) => r.item)).toEqual(["b", "a", "c"]);
+    expect(fundido[0]!.pontuacao).toBeCloseTo(3 / 62 + 1 / 61);
+    expect(fundido[1]!.pontuacao).toBeCloseTo(3 / 61);
+  });
 });
