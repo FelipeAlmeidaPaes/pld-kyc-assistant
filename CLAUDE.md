@@ -98,7 +98,7 @@ docker compose up -d
 - Autor dos commits é o autor do projeto, com a coautoria do Claude na linha `Co-Authored-By` (pedido do autor). A sessão na nuvem começa com `git config user.name` "Claude"; o gancho `.claude/hooks/session-start.sh` troca para `Felipe de Almeida Paes <41527579+FelipeAlmeidaPaes@users.noreply.github.com>` (o e-mail privado do GitHub, o mesmo dos commits dele na `main`) e roda `npm install`. Só vale para sessões abertas numa branch que tenha o gancho; até ele chegar à `main`, conferir `git config user.name` antes do primeiro commit.
 - Branch com nome legível, que diga o que ela faz, sem "claude" e sem sufixo aleatório (pedido do autor). A plataforma cria a sessão numa branch `claude/...-<sufixo>`: trabalhar numa branch nova com nome descritivo.
 
-## Estado atual (2026-10-08, terceira sessão)
+## Estado atual (2026-10-09, terceira sessão)
 - **Branch:** `avaliacao-v1`, a partir da `main` depois do PR #2: correções do corpus, retentativa da indexação, conjunto de avaliação, executor e avaliação de base. Sem PR: o autor não pediu. No GitHub só existem `main` e `avaliacao-v1` (o autor apagou as antigas; esta sessão não consegue apagar branch remota).
 - **Histórico reescrito (2026-10-08, a pedido do autor):** `main` e `avaliacao-v1` passaram por `git filter-branch` para trocar autor e committer "Claude" pelo autor; conteúdo, datas e mensagens iguais. Os PRs #1 e #2 no GitHub ainda mostram os commits antigos.
 - **Chaves:** o autor passou as chaves do Gemini e do OpenRouter pelo chat; estão no `.env` (fora do Git, permissão 600). Foram expostas no histórico da conversa: recomendado gerar novas e apagar estas.
@@ -111,8 +111,9 @@ docker compose up -d
   - Executor e relatório (ADR 0008). Execuções gravadas: `busca-base` (só busca) e `base` (Gemini, 108 chamadas, 16 min, nenhum erro; um 503 absorvido pela nova tentativa), ambas com e5-small.
   - Correções de gabarito aprovadas pelo autor (q22, q23; recusa aceita em q07 e q08, campo `recusaAceita`).
   - Experimentos de busca (ADR 0009): e5 small, base e large, texto completo ou enxuto, BM25, híbrida, e os dois embeddings do Gemini. `gemini-embedding-2` adotado; `.env` local já aponta para ele.
-  - Qdrant: `manual__gemini-embedding-2` e `langchain__gemini-embedding-2` indexadas a partir do cache, sem gastar cota. **Falta `langchain-padrao__gemini-embedding-2`** (196 textos): até lá, o servidor e o `avaliar` falham com o `.env` atual (`montarVariantes` exige as três coleções). As coleções do e5-small continuam lá.
-  - A cota de embedding do dia acabou nos experimentos, nos dois modelos do Gemini. **O `retryDelay` do 429 não é confiável:** em 2026-10-08 13:57 UTC ele apontava ~23:53 UTC, mas às 00:17 UTC de 2026-10-09 um lote de 25 ainda era recusado, agora com "retry in 23h42m". Hipótese: renova à meia-noite do Pacífico (07:00 UTC), não confirmada.
+  - Qdrant: as três coleções do `gemini-embedding-2` indexadas (`manual` e `langchain` a partir do cache; `langchain-padrao` em 2026-10-09, 196 textos em 113 s). As coleções do e5-small continuam lá. O cache tem os 1.135 trechos e as 36 perguntas: repetir a avaliação ou os experimentos com o Gemini não gasta cota.
+  - **Cota de embedding:** o `retryDelay` do 429 não é confiável (apontava meia-noite UTC). A cota renovou entre 00:17 e 07:21 UTC de 2026-10-09, o que bate com a meia-noite do Pacífico (07:00 UTC). Para testar, um lote de 25: um pedido só passa com a sobra do dia anterior.
+  - Avaliação `gemini2` (2026-10-09): 108 chamadas ao Gemini em 10 min, nenhum erro; juiz em 58 respostas.
   - Juiz do conteúdo (ADR 0010), rodado sobre a `base` (50 respostas, nemotron :free, custo zero). Amostra de 20 em `avaliacao/execucoes/base.auditoria.md`, à espera da auditoria do autor.
   - 126 testes.
 - **Achados:**
@@ -125,6 +126,20 @@ docker compose up -d
     | manual | 42% | 60% | 0,40 | 13/30 | 6/6 | 28/31 | 1.008 |
     | langchain | 42% | 60% | 0,40 | 12/30 | 6/6 | 30/33 | 1.008 |
     | langchain-padrao | 59% | 70% | 0,53 | 15/30 | 6/6 | 18/24 | 1.394 |
+  - **Avaliação com `gemini-embedding-2` (`gemini2`) contra a `base`** (e5-small). Falsa recusa já com `recusaAceita`; juiz: corretas/parciais/incorretas, das respostas julgadas:
+
+    | variante | recall@5 | acerto@5 | falsa recusa | recusa correta | citações pertinentes | juiz | acerto fim a fim | tokens de entrada |
+    |---|---|---|---|---|---|---|---|---|
+    | manual, base | 42% | 60% | 12/30 | 6/6 | 29/31 | 9/8/0 | 10/30 | 1.008 |
+    | manual, gemini2 | 80% | 93% | 6/30 | 6/6 | 45/46 | 10/10/2 | 12/30 | 890 |
+    | langchain, base | 42% | 60% | 11/30 | 6/6 | 31/33 | 10/8/0 | 11/30 | 1.008 |
+    | langchain, gemini2 | 80% | 93% | 6/30 | 6/6 | 46/47 | 13/9/1 | 14/30 | 890 |
+    | langchain-padrao, base | 59% | 70% | 13/30 | 6/6 | 21/24 | 9/6/0 | 11/30 | 1.394 |
+    | langchain-padrao, gemini2 | 76% | 83% | 15/30 | 6/6 | 23/26 | 10/2/1 | 12/30 | 1.381 |
+  - **A busca melhor dobrou as respostas, mas o acerto fim a fim subiu pouco** (de 10–11 para 12–14 de 30): as respostas novas saem "parciais" (omitem incisos) e o juiz passou a dar "incorreta".
+  - **As 4 "incorretas" do `gemini2` são erro do juiz** [provável]: em q16 (`manual`) ele chamou de contradição citar o § 4º, que não está no gabarito; em q30 (`manual` e `langchain`), repetir a remissão "art. 2º, § 6º, inciso II" que está no próprio texto da norma; em q10 (`langchain-padrao`), a resposta trouxe outros crimes (arts. 9º e 10) e o juiz tratou a pena deles como contradição, quando o certo seria "parcial". A regra 2 das instruções ("número diferente é contradição") está sendo aplicada a número de artigo e a fato de outro dispositivo.
+  - **Recusa de resposta parcial custa caro:** q12, q13 e q20 (`manual` e `langchain`) trouxeram parte dos dispositivos e foram recusadas pela regra 3 do prompt ("respondem só em parte → recusa").
+  - **No divisor padrão, a busca melhor não ajudou a resposta:** 10 das 15 recusas são "citação não confere" (o modelo escreve "alínea d" sem artigo, ou "art. 2º, II" sem o § 2º). É limite da variante, que não traz o caminho no texto.
   - **Juiz na `base`:** nenhuma resposta incorreta e nenhuma afirmou item de `naoDeve`; das 50, 28 corretas e 22 parciais. Acerto fim a fim: 10/30 (`manual`), 11/30 (`langchain`), 11/30 (`langchain-padrao`). As parciais são omissões: parte por busca incompleta (q27 sem o inciso II, q28 sem o III), parte por pergunta ampla em que o juiz cobra o gabarito inteiro (q16, q17). Se o juiz é rigoroso demais é o que a auditoria vai dizer. Uma justificativa veio só com a palavra "parcial" (q28, `langchain`).
   - **A busca é o gargalo:** em `manual`, 9 das 13 recusas indevidas são de perguntas sem nenhum dispositivo exigido entre os 5 trechos; 2 trouxeram só parte (q12, q13: a definição do art. 2º da Lei 13.810 não veio, e a regra 3 do prompt manda recusar resposta parcial); 2 trouxeram tudo (q08, ver pendências; q10, ruído do modelo). No divisor padrão, 6 recusas com tudo recuperado, quase todas "citação não confere": o modelo erra o caminho ao deduzi-lo do texto.
   - **O modelo não é determinístico:** `manual` e `langchain` mandam o mesmo pedido (749 tokens em q10, mesma busca), e em q10 um recusou e o outro respondeu; em q18 citaram conjuntos diferentes. Diferença de uma pergunta entre variantes é ruído.
@@ -140,17 +155,15 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Registrar a auditoria do autor sobre `base.auditoria.md` (concordância do juiz) e, se o juiz se mostrar rigoroso demais nas perguntas amplas, ajustar a regra 1 das instruções e julgar de novo.
-2. Com a cota renovada: `npm run indexar -- --variantes langchain-padrao` (196 textos) e `npm run avaliar -- gemini2` (36 embeddings de pergunta e 108 chamadas ao LLM) e `npm run julgar -- gemini2`; comparar com `base`. A retomada de 00:15 UTC encontrou a cota esgotada; nova tentativa agendada para 2026-10-09 07:20 UTC. Para testar a cota, usar um lote de 25: um pedido só passa com a sobra do dia anterior.
-3. Repetir uma execução para medir o ruído do modelo (a de cima, com o cache, não gasta embedding).
-4. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): os vetores dos trechos já estão no cache; gasta só as 36 perguntas, se ainda não estiverem.
+1. Juiz: com a auditoria do autor e a aprovação, corrigir a regra 2 (número de artigo e remissão não são contradição; só valor, prazo, pena ou órgão atribuído ao mesmo fato do gabarito), versionar as instruções no julgamento e julgar de novo `base` e `gemini2`.
+2. Decidir com o autor a regra 3 do prompt: recusar resposta parcial, ou responder a parte coberta e dizer o que falta.
+3. Repetir `gemini2` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
+4. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
 5. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
+6. v2: servidor MCP expondo a busca.
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
 - Auditar o juiz: dizer, para cada item de `avaliacao/execucoes/base.auditoria.md`, se concorda com o veredito.
-- Correções de gabarito achadas na avaliação de base (aprovadas e aplicadas em 2026-10-08):
-  - q22: a Carta Circular 4.001, art. 1º, I, k, l e m, também trata de fracionamento (saques abaixo do limite em cinco dias úteis; dois ou mais saques ou depósitos para evitar a identificação). A observação dizia que a norma não fala em burlar a identificação: errado. Proposta: incluir os três no gabarito e em `aceitos`.
-  - q23: a Circular 3.978, art. 39, I, c (operações incompatíveis com a capacidade financeira, renda, faturamento e patrimônio) responde à pergunta. Proposta: incluir em `aceitos`.
-  - q07 e q08: a regra 3 do prompt manda recusar quando os trechos respondem só em parte, e a lei não define gestão fraudulenta nem temerária. Proposta: aceitar a recusa como resposta correta nessas duas.
+- Aprovar a correção da regra 2 do juiz (próximos passos, 1) e decidir a regra 3 do prompt (próximos passos, 2).

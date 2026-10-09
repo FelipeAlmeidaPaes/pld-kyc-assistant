@@ -44,3 +44,14 @@ Experimentos só de busca, em memória, sobre os 939 trechos por dispositivo e a
 - **Risco de ajuste ao conjunto:** 20 configurações foram testadas nas mesmas 30 perguntas, sem conjunto separado. A diferença do Gemini (+38 p.p., cerca de 11 perguntas) está muito acima desse risco; as diferenças entre as configurações locais (de 1 a 11 p.p.) não.
 - Pontuação do melhor trecho com o `gemini-embedding-2`: cobertas de 0,767 para cima, fora do corpus até 0,696. Base para o limiar de recusa, com a ressalva da ADR 0008 (só 6 perguntas fora do corpus).
 - A avaliação com o LLM sobre a busca nova ficou para depois que a cota renovar (a do dia acabou nos experimentos).
+
+## Resultado com o LLM (2026-10-09)
+Avaliação `gemini2` contra a `base` (e5-small), mesmo LLM e mesmo conjunto (relatórios em `avaliacao/execucoes/`):
+
+| variante | recall@5 | acerto@5 | falsa recusa | acerto fim a fim (juiz) |
+|---|---|---|---|---|
+| manual | 42% → 80% | 60% → 93% | 12 → 6 de 30 | 10 → 12 de 30 |
+| langchain | 42% → 80% | 60% → 93% | 11 → 6 de 30 | 11 → 14 de 30 |
+| langchain-padrao | 59% → 76% | 70% → 83% | 13 → 15 de 30 | 11 → 12 de 30 |
+
+A busca nova reduziu à metade as recusas indevidas nas variantes por dispositivo. O acerto do conteúdo subiu menos, porque as respostas novas saem parciais e porque o juiz errou em quatro "incorretas" (ver ADR 0010 e CLAUDE.md). No divisor padrão a busca melhorou, mas o modelo continua errando o caminho do dispositivo ao citar.
