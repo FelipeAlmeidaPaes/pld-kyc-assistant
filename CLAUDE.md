@@ -114,8 +114,9 @@ docker compose up -d
   - Qdrant: as três coleções do `gemini-embedding-2` indexadas (`manual` e `langchain` a partir do cache; `langchain-padrao` em 2026-10-09, 196 textos em 113 s). As coleções do e5-small continuam lá. O cache tem os 1.135 trechos e as 36 perguntas: repetir a avaliação ou os experimentos com o Gemini não gasta cota.
   - **Cota de embedding:** o `retryDelay` do 429 não é confiável (apontava meia-noite UTC). A cota renovou entre 00:17 e 07:21 UTC de 2026-10-09, o que bate com a meia-noite do Pacífico (07:00 UTC). Para testar, um lote de 25: um pedido só passa com a sobra do dia anterior.
   - Avaliação `gemini2` (2026-10-09): 108 chamadas ao Gemini em 10 min, nenhum erro; juiz em 58 respostas.
-  - Juiz do conteúdo (ADR 0010), rodado sobre a `base` (50 respostas, nemotron :free, custo zero). Amostra de 20 em `avaliacao/execucoes/base.auditoria.md`, à espera da auditoria do autor.
-  - 126 testes.
+  - Juiz revisado (ADR 0010, revisão 1, versão `ba1252a1`): a pergunta define o que é exigido, e só conteúdo conta (número de artigo e remissão, não). `base` e `gemini2` julgadas de novo; julgamentos guardam a versão, e versão antiga não vale.
+  - Juiz do conteúdo (ADR 0010). Auditoria: o autor concordou, em geral, que a primeira versão era rigorosa demais; a conferência item a item (`<rótulo>.auditoria.md`) não foi feita.
+  - 127 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
@@ -126,18 +127,19 @@ docker compose up -d
     | manual | 42% | 60% | 0,40 | 13/30 | 6/6 | 28/31 | 1.008 |
     | langchain | 42% | 60% | 0,40 | 12/30 | 6/6 | 30/33 | 1.008 |
     | langchain-padrao | 59% | 70% | 0,53 | 15/30 | 6/6 | 18/24 | 1.394 |
-  - **Avaliação com `gemini-embedding-2` (`gemini2`) contra a `base`** (e5-small). Falsa recusa já com `recusaAceita`; juiz: corretas/parciais/incorretas, das respostas julgadas:
+  - **Avaliação com `gemini-embedding-2` (`gemini2`) contra a `base`** (e5-small). Falsa recusa já com `recusaAceita`; juiz revisado (`ba1252a1`): corretas/parciais/incorretas, das respostas julgadas:
 
     | variante | recall@5 | acerto@5 | falsa recusa | recusa correta | citações pertinentes | juiz | acerto fim a fim | tokens de entrada |
     |---|---|---|---|---|---|---|---|---|
-    | manual, base | 42% | 60% | 12/30 | 6/6 | 29/31 | 9/8/0 | 10/30 | 1.008 |
-    | manual, gemini2 | 80% | 93% | 6/30 | 6/6 | 45/46 | 10/10/2 | 12/30 | 890 |
-    | langchain, base | 42% | 60% | 11/30 | 6/6 | 31/33 | 10/8/0 | 11/30 | 1.008 |
-    | langchain, gemini2 | 80% | 93% | 6/30 | 6/6 | 46/47 | 13/9/1 | 14/30 | 890 |
-    | langchain-padrao, base | 59% | 70% | 13/30 | 6/6 | 21/24 | 9/6/0 | 11/30 | 1.394 |
-    | langchain-padrao, gemini2 | 76% | 83% | 15/30 | 6/6 | 23/26 | 10/2/1 | 12/30 | 1.381 |
-  - **A busca melhor dobrou as respostas, mas o acerto fim a fim subiu pouco** (de 10–11 para 12–14 de 30): as respostas novas saem "parciais" (omitem incisos) e o juiz passou a dar "incorreta".
-  - **As 4 "incorretas" do `gemini2` são erro do juiz** [provável]: em q16 (`manual`) ele chamou de contradição citar o § 4º, que não está no gabarito; em q30 (`manual` e `langchain`), repetir a remissão "art. 2º, § 6º, inciso II" que está no próprio texto da norma; em q10 (`langchain-padrao`), a resposta trouxe outros crimes (arts. 9º e 10) e o juiz tratou a pena deles como contradição, quando o certo seria "parcial". A regra 2 das instruções ("número diferente é contradição") está sendo aplicada a número de artigo e a fato de outro dispositivo.
+    | manual, base | 42% | 60% | 12/30 | 6/6 | 29/31 | 10/7/0 | 11/30 | 1.008 |
+    | manual, gemini2 | 80% | 93% | 6/30 | 6/6 | 45/46 | 15/7/0 | 17/30 | 890 |
+    | langchain, base | 42% | 60% | 11/30 | 6/6 | 31/33 | 12/6/0 | 13/30 | 1.008 |
+    | langchain, gemini2 | 80% | 93% | 6/30 | 6/6 | 46/47 | 15/8/0 | 16/30 | 890 |
+    | langchain-padrao, base | 59% | 70% | 13/30 | 6/6 | 21/24 | 10/5/0 | 12/30 | 1.394 |
+    | langchain-padrao, gemini2 | 76% | 83% | 15/30 | 6/6 | 23/26 | 11/1/1 | 13/30 | 1.381 |
+  - **A busca nova sobe o acerto fim a fim em 3 a 6 perguntas** (`manual` de 11 para 17 de 30). Com a primeira versão do juiz o ganho parecia de 1 a 3: ele tratava número de artigo e remissão como contradição (q16, q30) e cobrava o gabarito inteiro em vez do que a pergunta pede. Ao julgar de novo, nenhum veredito piorou.
+  - **Única "incorreta" que sobrou:** q10 (`langchain-padrao`), caso de fronteira: a resposta traz outros crimes da Lei 7.492 (arts. 9º e 10) e atribui à conduta perguntada a pena deles (1 a 5 anos), e não a do art. 6º (2 a 6).
+  - **O que ainda falta no `manual` com `gemini2`:** 6 recusas indevidas e 7 parciais (omitem incisos ou um dos prazos).
   - **Recusa de resposta parcial custa caro:** q12, q13 e q20 (`manual` e `langchain`) trouxeram parte dos dispositivos e foram recusadas pela regra 3 do prompt ("respondem só em parte → recusa").
   - **No divisor padrão, a busca melhor não ajudou a resposta:** 10 das 15 recusas são "citação não confere" (o modelo escreve "alínea d" sem artigo, ou "art. 2º, II" sem o § 2º). É limite da variante, que não traz o caminho no texto.
   - **Juiz na `base`:** nenhuma resposta incorreta e nenhuma afirmou item de `naoDeve`; das 50, 28 corretas e 22 parciais. Acerto fim a fim: 10/30 (`manual`), 11/30 (`langchain`), 11/30 (`langchain-padrao`). As parciais são omissões: parte por busca incompleta (q27 sem o inciso II, q28 sem o III), parte por pergunta ampla em que o juiz cobra o gabarito inteiro (q16, q17). Se o juiz é rigoroso demais é o que a auditoria vai dizer. Uma justificativa veio só com a palavra "parcial" (q28, `langchain`).
@@ -155,15 +157,14 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Juiz: com a auditoria do autor e a aprovação, corrigir a regra 2 (número de artigo e remissão não são contradição; só valor, prazo, pena ou órgão atribuído ao mesmo fato do gabarito), versionar as instruções no julgamento e julgar de novo `base` e `gemini2`.
-2. Decidir com o autor a regra 3 do prompt: recusar resposta parcial, ou responder a parte coberta e dizer o que falta.
-3. Repetir `gemini2` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
-4. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
-5. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
-6. v2: servidor MCP expondo a busca.
+1. Decidir com o autor a regra 3 do prompt: recusar resposta parcial, ou responder a parte coberta e dizer o que falta.
+2. Repetir `gemini2` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
+3. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
+4. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
+5. v2: servidor MCP expondo a busca.
 
 ## Pendências com o autor
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
-- Auditar o juiz: dizer, para cada item de `avaliacao/execucoes/base.auditoria.md`, se concorda com o veredito.
-- Aprovar a correção da regra 2 do juiz (próximos passos, 1) e decidir a regra 3 do prompt (próximos passos, 2).
+- Opcional: auditar o juiz revisado item a item (`avaliacao/execucoes/gemini2.auditoria.md`), para medir a concordância.
+- Decidir a regra 3 do prompt (próximos passos, 1).

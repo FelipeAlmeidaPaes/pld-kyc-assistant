@@ -5,6 +5,7 @@ import {
   hashDaResposta,
   INSTRUCOES_DO_JUIZ,
   type Julgamento,
+  VERSAO_DO_JUIZ,
   julgamentosValidos,
   julgarExecucao,
   mensagemDoJulgamento,
@@ -65,6 +66,7 @@ const julgamento = (perguntaId: string, r: Resposta, veredito: Julgamento["vered
   hashDaResposta: hashDaResposta(r),
   registradoEm: "2099-01-01T00:00:00.000Z",
   juiz: { provedor: "openrouter", modelo: "juiz-ficticio" },
+  versaoDoJuiz: VERSAO_DO_JUIZ,
   veredito,
   naoDeveAfirmados: [],
   justificativa: "Justificativa fictícia.",
@@ -128,9 +130,18 @@ describe("julgarExecucao", () => {
       perguntaId: "q01",
       veredito: "incorreta",
       juiz: { provedor: "openrouter", modelo: "juiz-servido" },
+      versaoDoJuiz: VERSAO_DO_JUIZ,
       naoDeveAfirmados: ["dizer que o cadastro é opcional"],
     });
     expect(esperas).toEqual([]);
+  });
+
+  it("descarta julgamento de outra versão das instruções, ou de antes do versionamento", () => {
+    const r = resposta("Com nome completo.");
+    const { versaoDoJuiz: _, ...semVersao } = julgamento("q01", r, "correta");
+    expect(julgamentosValidos([registro("q01", r)], [semVersao]).size).toBe(0);
+    expect(julgamentosValidos([registro("q01", r)], [julgamento("q01", r, "correta", { versaoDoJuiz: "antiga" })]).size).toBe(0);
+    expect(julgamentosValidos([registro("q01", r)], [julgamento("q01", r, "correta")]).size).toBe(1);
   });
 
   it("descarta julgamento de resposta que mudou depois", () => {
@@ -167,7 +178,7 @@ describe("acerto e auditoria", () => {
 
   it("mostra o juiz no relatório e na célula de cada pergunta", () => {
     const relatorio = montarRelatorio(registros, [...perguntas.values()], julgamentos);
-    expect(relatorio).toContain("Conteúdo das respostas julgado por openrouter/juiz-ficticio");
+    expect(relatorio).toContain(`Conteúdo das respostas julgado por openrouter/juiz-ficticio, versão ${VERSAO_DO_JUIZ}`);
     expect(relatorio).toContain("| manual | 2 | 1 | 0 | 1 | 2/4 (50%) | 1 |");
     expect(relatorio).toContain("respondeu 1/1, incorreta, afirmou o que não devia");
     expect(relatorio).toContain("> juiz: **correta**. Justificativa fictícia.");

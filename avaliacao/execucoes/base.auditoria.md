@@ -16,24 +16,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 10, caput; Circular BCB 3.978/2020, art. 10, § 1º; Circular BCB 3.978/2020, art. 10, § 2º
 
-**Justificativa do juiz:** A resposta aborda corretamente o objetivo da avaliação interna e os fatores a serem considerados (perfil de clientes, instituição, operações, atividades de funcionários/parceiros/terceirizados) bem como a avaliação de probabilidade e magnitude dos impactos. Porém, omite elementos exigidos pelo gabarito: a necessidade de categorias de risco que permitam controles reforçados ou simplificados (§3º), a documentação e aprovação pelo diretor responsável, o encaminhamento aos comitês de risco e auditoria e ao conselho/diretoria, e a revisão bienal ou diante de alteração significativa nos perfis de risco. Como não há afirmações que contrariem o gabarito, a resposta está parcialmente correta.
+**Justificativa do juiz:** parcial
 
-## A2 · q30 · manual · juiz: parcial
-
-**Pergunta:** Por quanto tempo as instituições devem manter à disposição do Banco Central os dados sobre indícios de fraude compartilhados e a documentação relacionada?
-
-**Gabarito:** Dez anos para os dados e informações compartilhados e para a documentação com os critérios e procedimentos de identificação do art. 2º, § 8º (art. 8º, II); cinco anos para os dados, registros e informações relativos à aplicação dos mecanismos de acompanhamento e de controle do art. 7º, contados de cada aplicação (art. 8º, III). A documentação sobre o sistema eletrônico também fica à disposição, sem prazo fixado (art. 8º, I).
-
-**Não deve afirmar:**
-(nenhum item)
-
-**Resposta do assistente:** As instituições devem deixar à disposição do Banco Central do Brasil, por dez anos, os dados e as informações compartilhados e a documentação com os critérios e procedimentos relacionados.
-
-**Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 8º, II
-
-**Justificativa do juiz:** A resposta menciona apenas o prazo de dez anos para os dados e informações compartilhados e a documentação com critérios e procedimentos (art. 8º, II), omitindo os prazos de cinco anos para os dados relacionados aos mecanismos de acompanhamento e controle (art. 8º, III) e a documentação sobre o sistema eletrônico sem prazo fixado (art. 8º, I). Tudo o que afirma está de acordo com o gabarito, mas não abrange toda a pergunta.
-
-## A3 · q16 · manual · juiz: parcial
+## A2 · q16 · manual · juiz: parcial
 
 **Pergunta:** O que é e como deve ser feita a avaliação interna de risco de lavagem de dinheiro e financiamento do terrorismo?
 
@@ -46,9 +31,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 10, caput; Circular BCB 3.978/2020, art. 10, § 1º, I; Circular BCB 3.978/2020, art. 10, § 1º, II; Circular BCB 3.978/2020, art. 10, § 1º, IV; Circular BCB 3.978/2020, art. 10, § 2º; Circular BCB 3.978/2020, art. 10, § 4º
 
-**Justificativa do juiz:** A resposta aborda o objetivo da avaliação interna e alguns de seus requisitos (perfis de risco dos clientes, da instituição e das atividades de funcionários, parceiros e terceirizados, bem como a avaliação por probabilidade e magnitude dos impactos). Porém, omite elementos essenciais do 'como deve ser feita' previstos no gabarito, tais como a consideração de operações, transações, produtos e serviços com todos os canais de distribuição e novas tecnologias; a definição de categorias de risco para controles reforçados ou simplificados; a necessidade de documentação, aprovação pelo diretor responsável, encaminhamento aos comitês de risco e auditoria e ao conselho ou diretoria; e a periodicidade de revisão a cada dois anos ou diante de alterações significativas. Não há afirmações que contrariem o gabarito, apenas informações adicionais (uso de avaliações de entidades públicas) que não o contradizem. Portanto, a resposta está parcialmente correta.
+**Justificativa do juiz:** A resposta aborda o objetivo da avaliação interna e menciona alguns dos fatores a serem considerados (perfis de risco dos clientes, da instituição e das atividades de funcionários, parceiros e terceirizados), mas omite a exigência de considerar também as operações, transações, produtos e serviços, com todos os canais de distribuição e novas tecnologias, que está prevista no gabarito como item mínimo obrigatório. Essa omissão caracteriza uma resposta parcial, pois não contradiz o gabarito, mas deixa de atender ao que a pergunta pede. Não há afirmações que contrariem o gabarito, e não há itens na lista 'Não deve afirmar' para serem listados.
 
-## A4 · q17 · manual · juiz: parcial
+## A3 · q17 · manual · juiz: parcial
 
 **Pergunta:** O que devem contemplar os procedimentos destinados a conhecer o cliente?
 
@@ -61,9 +46,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 13, caput
 
-**Justificativa do juiz:** A resposta menciona apenas identificação, qualificação e classificação, omitindo requisitos de compatibilidade com perfil de risco, política PLD/FT, avaliação interna de risco, formalização em manual aprovado pela diretoria, detalhes de identificação (nome completo e CPF/CNPJ), qualificação (local de residência/sede e capacidade financeira), classificação nas categorias de risco e análise da cadeia societária para pessoa jurídica. Tudo o que afirma está conforme o gabarito, mas deixa de fora parte do que a pergunta pede.
+**Justificativa do juiz:** A resposta menciona apenas a devida diligência na identificação, qualificação e classificação dos clientes, omitindo outros requisitos exigidos pelo gabarito, como compatibilidade com o perfil de risco, com a política de PLD/FT e com a avaliação interna de risco, formalização em manual aprovado pela diretoria, detalhes da identificação (nome completo e CPF ou firma e CNPJ), da qualificação (local de residência/sede e capacidade financeira), da classificação nas categorias de risco da avaliação interna e, para pessoa jurídica, a análise da cadeia de participação societária até o beneficiário final. Não há contradição com o gabarito, apenas falta de informações que a pergunta pede.
 
-## A5 · q18 · manual · juiz: parcial
+## A4 · q18 · manual · juiz: parcial
 
 **Pergunta:** Como a instituição deve conduzir o monitoramento de operações para detectar suspeitas de lavagem de dinheiro?
 
@@ -76,9 +61,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 38, § 2º; Circular BCB 3.978/2020, art. 38, § 3º, IV; Circular BCB 3.978/2020, art. 39, I, b; Circular BCB 3.978/2020, art. 39, I, c
 
-**Justificativa do juiz:** A resposta menciona a implementação de procedimentos de monitoramento e seleção aplicáveis às propostas de operações e a necessidade de estar descrito em manual aprovado pela diretoria, o que está de acordo com o gabarito. Porém, omite requisitos essenciais como a compatibilidade com a política de PLD/FT, a base na avaliação interna de risco, a consideração de pessoa exposta politicamente e seus relacionados, e o limite de 45 dias para o monitoramento e seleção. Não afirma nada que contradiga o gabarito.
+**Justificativa do juiz:** A resposta menciona a implementação de procedimentos de monitoramento e seleção aplicáveis às propostas de operações e a descrição em manual aprovado pela diretoria, mas omite requisitos essenciais do gabarito: compatibilidade com a política de PLD/FT, base na avaliação interna de risco, consideração de pessoa exposta politicamente e seus relacionados, e o limite de 45 dias para o monitoramento e seleção. Não há contradição com o gabarito, apenas faltas de informações que a pergunta pede, portanto a classificação é parcial.
 
-## A6 · q17 · langchain · juiz: parcial
+## A5 · q17 · langchain · juiz: parcial
 
 **Pergunta:** O que devem contemplar os procedimentos destinados a conhecer o cliente?
 
@@ -91,9 +76,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 13, caput
 
-**Justificativa do juiz:** A resposta menciona apenas a devida diligência na identificação, qualificação e classificação, omitindo requisitos como compatibilidade com perfil de risco, política de PLD/FT, avaliação interna de risco, formalização em manual aprovado pela diretoria, detalhes de identificação, qualificação e classificação específicos, e análise da cadeia societária para pessoa jurídica. Não há afirmações contrárias ao gabarito.
+**Justificativa do juiz:** A resposta menciona apenas a devida diligência na identificação, qualificação e classificação dos clientes, omitindo outros requisitos exigidos pelo gabarito, como compatibilidade com o perfil de risco, com a política de PLD/FT e com a avaliação interna de risco, formalização em manual aprovado pela diretoria, detalhes da identificação (nome completo e CPF ou firma e CNPJ), qualificação (local de residência/sede e capacidade financeira), classificação nas categorias de risco da avaliação interna e, para pessoa jurídica, análise da cadeia de participação societária até o beneficiário final. Não há contradição com o gabarito, portanto a resposta está parcial.
 
-## A7 · q29 · langchain-padrao · juiz: parcial
+## A6 · q29 · langchain-padrao · juiz: parcial
 
 **Pergunta:** Que requisitos deve ter o consentimento do cliente para o registro dos seus dados no compartilhamento de indícios de fraude?
 
@@ -106,9 +91,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 4º
 
-**Justificativa do juiz:** A resposta menciona a finalidade, a constância em contrato com cláusula em destaque ou outro instrumento jurídico válido, o que está de acordo com o gabarito. Porém, omite requisitos como o consentimento ser prévio e geral, ser com quem a instituição tenha relacionamento e a disponibilização da documentação ao Banco Central. Não há afirmações que contrariem o gabarito.
+**Justificativa do juiz:** A resposta menciona a finalidade, a forma de constar em contrato com cláusula em destaque ou outro instrumento, mas omite os requisitos de que o consentimento deve ser prévio e geral, que deve ser dado pelo cliente com quem a instituição tenha relacionamento e que a documentação deve ficar à disposição do Banco Central. Como não há afirmações que contradigam o gabarito, apenas faltam elementos que a pergunta pede, a resposta é parcial.
 
-## A8 · q28 · langchain · juiz: parcial
+## A7 · q28 · langchain · juiz: parcial
 
 **Pergunta:** Que informações o registro de um indício de fraude deve conter, no mínimo?
 
@@ -121,37 +106,52 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, I; Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, II; Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, IV
 
+**Justificativa do juiz:** A resposta inclui os itens I, II e IV do gabarito, mas omite o item III (identificação da instituição responsável pelo registro), que é solicitado pela pergunta. Não há afirmações que contradigam o gabarito.
+
+## A8 · q28 · manual · juiz: parcial
+
+**Pergunta:** Que informações o registro de um indício de fraude deve conter, no mínimo?
+
+**Gabarito:** A identificação de quem, segundo os indícios disponíveis, teria executado ou tentado executar a fraude, quando aplicável (I); a descrição dos indícios da ocorrência ou da tentativa de fraude (II); a identificação da instituição responsável pelo registro (III); e a identificação dos dados da conta destinatária e de seu titular, em caso de transferência ou pagamento (IV).
+
+**Não deve afirmar:**
+(nenhum item)
+
+**Resposta do assistente:** O registro dos dados e das informações sobre indícios de ocorrências ou de tentativas de fraudes deve contemplar, no mínimo: a identificação de quem, segundo os indícios disponíveis, teria executado ou tentado executar a fraude, quando aplicável; a descrição dos indícios da ocorrência ou da tentativa de fraude; e a identificação dos dados da conta destinatária e de seu titular, em caso de transferência ou pagamento de recursos.
+
+**Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, I; Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, II; Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 2º, IV
+
+**Justificativa do juiz:** A resposta inclui os itens I, II e IV do gabarito, mas omite o item III (identificação da instituição responsável pelo registro). Não há afirmações que contrariem o gabarito, portanto a resposta está parcial.
+
+## A9 · q27 · langchain · juiz: parcial
+
+**Pergunta:** Quais funcionalidades mínimas deve ter o sistema eletrônico de compartilhamento de indícios de fraude?
+
+**Gabarito:** O registro de dados e informações sobre indícios de ocorrências ou de tentativas de fraude identificadas pelas instituições (I); a alteração e a exclusão desses registros (II); e a consulta aos dados registrados (III).
+
+**Não deve afirmar:**
+(nenhum item)
+
+**Resposta do assistente:** O sistema eletrônico deve contemplar, no mínimo, o registro de dados e de informações sobre indícios de ocorrências ou de tentativas de fraudes identificadas pelas instituições em suas atividades (Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, I) e a consulta dos dados e das informações registrados de que trata o referido registro (Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, III).
+
+**Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, I; Resolução Conjunta CMN/BCB 6/2023, art. 2º, § 1º, III
+
 **Justificativa do juiz:** parcial
 
-## A9 · q18 · langchain · juiz: parcial
+## A10 · q20 · manual · juiz: parcial
 
-**Pergunta:** Como a instituição deve conduzir o monitoramento de operações para detectar suspeitas de lavagem de dinheiro?
+**Pergunta:** Com que periodicidade a instituição deve avaliar a efetividade da sua política e dos seus controles de PLD/FT, e a quem o relatório deve ser enviado?
 
-**Gabarito:** A instituição deve implementar procedimentos de monitoramento, seleção e análise de operações e situações para identificar e dispensar especial atenção às suspeitas de lavagem e de financiamento do terrorismo (art. 38), aplicados inclusive às propostas de operações (§ 2º). Os procedimentos devem ser compatíveis com a política de PLD/FT, definidos com base na avaliação interna de risco, considerar a condição de pessoa exposta politicamente e de seu representante, familiar ou estreito colaborador, e estar descritos em manual aprovado pela diretoria (§ 3º). O monitoramento e a seleção não podem passar de 45 dias da data da operação ou situação (art. 39, parágrafo único).
-
-**Não deve afirmar:**
-(nenhum item)
-
-**Resposta do assistente:** As instituições devem implementar procedimentos de monitoramento e seleção que permitam identificar operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo. Devem ser incluídas, especialmente, as operações realizadas e os produtos e serviços contratados que, considerando as partes envolvidas, os valores, as formas de realização, os instrumentos utilizados ou a falta de fundamento econômico ou legal, possam configurar indícios, tais como operações de depósito ou aporte em espécie, saque em espécie ou pedido de provisionamento para saque que apresentem indícios de ocultação ou dissimulação, bem como operações e produtos e serviços que apresentem incompatibilidade com a capacidade financeira do cliente (incluindo renda ou faturamento e patrimônio). Além disso, esses procedimentos devem ser aplicados inclusive às propostas de operações e devem estar descritos em manual específico aprovado pela diretoria da instituição.
-
-**Citações da resposta:** Circular BCB 3.978/2020, art. 39, I, c; Circular BCB 3.978/2020, art. 39, I, b; Circular BCB 3.978/2020, art. 38, § 2º; Circular BCB 3.978/2020, art. 38, § 3º, IV; Circular BCB 3.978/2020, art. 38, caput
-
-**Justificativa do juiz:** A resposta menciona a implementação de procedimentos de monitoramento e seleção, a aplicação às propostas de operações e a descrição em manual aprovado pela diretoria, o que está de acordo com o gabarito. Porém, omite requisitos essenciais do gabarito: que os procedimentos devem ser compatíveis com a política de PLD/FT, definidos com base na avaliação interna de risco, considerar a condição de pessoa exposta politicamente e de seu representante, familiar ou estreito colaborador, e que o monitoramento e a seleção não podem ultrapassar 45 dias da data da operação ou situação. Como não há afirmações que contrariem o gabarito, a resposta está parcialmente correta.
-
-## A10 · q12 · langchain-padrao · juiz: parcial
-
-**Pergunta:** O que significa cumprir "sem demora" a indisponibilidade de ativos determinada pelo Conselho de Segurança da ONU?
-
-**Gabarito:** "Sem demora" é imediatamente ou dentro de algumas horas (art. 2º, V). As pessoas obrigadas devem cumprir as resoluções e designações que determinem a indisponibilidade sem demora e sem prévio aviso aos sancionados (art. 9º).
+**Gabarito:** A instituição deve avaliar a efetividade da política, dos procedimentos e dos controles internos (art. 62), em relatório específico (§ 1º) elaborado anualmente, com data-base de 31 de dezembro, e encaminhado, para ciência, até 31 de março do ano seguinte ao comitê de auditoria, quando houver, e ao conselho de administração ou, se inexistente, à diretoria (§ 2º).
 
 **Não deve afirmar:**
 (nenhum item)
 
-**Resposta do assistente:** Significa realizar a ação imediatamente ou dentro de algumas horas.
+**Resposta do assistente:** A avaliação da efetividade deve ser documentada em relatório elaborado anualmente, com data-base de 31 de dezembro, o qual deve ser encaminhado para ciência até 31 de março do ano seguinte ao da data-base ao conselho de administração ou, se inexistente, à diretoria da instituição.
 
-**Citações da resposta:** Lei 13.810/2019, art. 2º, V
+**Citações da resposta:** Circular BCB 3.978/2020, art. 62, § 1º; Circular BCB 3.978/2020, art. 62, § 2º, I; Circular BCB 3.978/2020, art. 62, § 2º, II, b
 
-**Justificativa do juiz:** A resposta está correta ao afirmar que 'sem demora' significa imediatamente ou dentro de algumas horas, conforme o art. 2º, V do gabarito. Porém, omite a parte que diz que o cumprimento deve ser feito sem prévio aviso aos sancionados (art. 9º), deixando de fora parte do que a pergunta pede. Não há afirmações que contrariem o gabarito.
+**Justificativa do juiz:** A resposta está correta quanto à periodicidade (anual, data-base 31/12, envio até 31/03 do ano seguinte) e quanto ao envio ao conselho de administração ou diretoria, mas omite o envio ao comitê de auditoria, quando houver, que também é exigido pelo gabarito. Como a pergunta pede a quem o relatório deve ser enviado, a omissão de um dos destinatários caracteriza resposta parcial. Não há afirmações que contradigam o gabarito.
 
 ## A11 · q03 · manual · juiz: correta
 
@@ -166,7 +166,7 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 48, caput
 
-**Justificativa do juiz:** A resposta indica corretamente que as operações suspeitas devem ser comunicadas ao Coaf, atendendo ao que a pergunta pede (a quem). Não há contradição com o gabarito; a omissão do prazo de 24 horas e da obrigação de sigilo não é exigida pela pergunta, portanto a resposta está correta.
+**Justificativa do juiz:** A resposta indica que as operações suspeitas devem ser comunicadas ao Coaf, o que atende exatamente ao que a pergunta pergunta (a quem devem ser comunicadas). Não há contradição com o gabarito, nem omissão de algo que a pergunta pede.
 
 ## A12 · q14 · langchain · juiz: correta
 
@@ -181,7 +181,7 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Lei 13.810/2019, art. 9º, caput
 
-**Justificativa do juiz:** A resposta indica corretamente quem deve cumprir as determinações de indisponibilidade de ativos (pessoas naturais e jurídicas do art. 9º da Lei 9.613/1998), sem demora e sem prévio aviso, e menciona que o cumprimento refere‑se às resoluções do Conselho de Segurança da ONU ou às designações de seus comitês de sanções que determinem o bloqueio de ativos. Isso está em conformidade com o gabarito, que também afirma que tais pessoas devem cumprir as determinações sem demora e sem aviso prévio. A resposta omite alguns detalhes adicionais presentes no gabarito (como a forma definida pelo órgão regulador, a comunicação do Ministério da Justiça e a lista de outros órgãos), mas, conforme as regras, omissões não tornam a resposta incorreta desde que não haja contradição. Não há afirmações que contrariem o gabarito.
+**Justificativa do juiz:** A resposta indica corretamente quem deve cumprir as determinações de indisponibilidade de ativos: as pessoas naturais e jurídicas referidas no art. 9º da Lei 9.613/1998, sem demora e sem prévio aviso aos sancionados. Isso corresponde exatamente ao que o gabarito afirma como sujeito obrigado. Não há afirmações que contrariem o gabarito, nem omissão de algo que a pergunta peça (a pergunta apenas pergunta quem deve cumprir). Não há itens em 'Não deve afirmar' para listar.
 
 ## A13 · q11 · manual · juiz: correta
 
@@ -196,7 +196,7 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Lei 13.810/2019, art. 1º, caput
 
-**Justificativa do juiz:** A resposta do assistente reproduz exatamente o conteúdo do gabarito, sem acrescentar ou omitir informações relevantes, e não contém nenhuma afirmação que contradiga o gabarito.
+**Justificativa do juiz:** A resposta reproduz exatamente o conteúdo do gabarito, abordando o cumprimento de sanções impostas por resoluções do Conselho de Segurança das Nações Unidas, incluindo a indisponibilidade de ativos e a designação nacional de pessoas investigadas ou acusadas de terrorismo, seu financiamento ou atos correlacionados. Não há contradição nem omissão de elementos exigidos pela pergunta.
 
 ## A14 · q09 · langchain · juiz: correta
 
@@ -211,7 +211,7 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Lei 7.492/1986, art. 16, caput
 
-**Justificativa do juiz:** A resposta do assistente reproduz exatamente o conteúdo do gabarito, confirmando que é crime operar instituição financeira sem autorização ou com autorização falsa e indicando a pena de reclusão de 1 a 4 anos e multa. A inclusão da citaçăo Lei 7.492/1986, art. 16, caput é detalhe adicional que não contradiz o gabarito. Não há nenhum item na lista 'Não deve afirmar' para ser violado.
+**Justificativa do juiz:** A resposta do assistente reproduz exatamente o conteúdo do gabarito, confirmando que é crime e indicando a pena de reclusão de 1 a 4 anos e multa, sem acrescentar ou omitir informações relevantes à pergunta.
 
 ## A15 · q01 · langchain · juiz: correta
 
@@ -226,9 +226,24 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Lei 9.613/1998, art. 1º, caput
 
-**Justificativa do juiz:** A resposta descreve exatamente a conduta de lavagem de dinheiro conforme o gabarito e indica a pena de reclusão de 3 a 10 anos e multa, sem acrescentar informações contraditórias ou omitir partes solicitadas.
+**Justificativa do juiz:** A resposta descreve exatamente a conduta de lavagem de dinheiro e a pena prevista, conforme o gabarito, sem omissões ou contradições.
 
-## A16 · q26 · manual · juiz: correta
+## A16 · q30 · manual · juiz: correta
+
+**Pergunta:** Por quanto tempo as instituições devem manter à disposição do Banco Central os dados sobre indícios de fraude compartilhados e a documentação relacionada?
+
+**Gabarito:** Dez anos para os dados e informações compartilhados e para a documentação com os critérios e procedimentos de identificação do art. 2º, § 8º (art. 8º, II); cinco anos para os dados, registros e informações relativos à aplicação dos mecanismos de acompanhamento e de controle do art. 7º, contados de cada aplicação (art. 8º, III). A documentação sobre o sistema eletrônico também fica à disposição, sem prazo fixado (art. 8º, I).
+
+**Não deve afirmar:**
+(nenhum item)
+
+**Resposta do assistente:** As instituições devem deixar à disposição do Banco Central do Brasil, por dez anos, os dados e as informações compartilhados e a documentação com os critérios e procedimentos relacionados.
+
+**Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 8º, II
+
+**Justificativa do juiz:** A resposta indica que os dados e informações compartilhados, bem como a documentação com os critérios e procedimentos relacionados, devem ficar à disposição do Banco Central por dez anos, o que está de acordo com o item II do art. 8º da Resolução Conjunta CMN/BCB 6/2023 mencionado no gabarito. Não há contradição com o gabarito e a resposta abrange exatamente o que a pergunta pede.
+
+## A17 · q26 · manual · juiz: correta
 
 **Pergunta:** Quais instituições estão obrigadas a compartilhar dados sobre indícios de fraude, e qual está excluída dessa obrigação?
 
@@ -241,9 +256,9 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Resolução Conjunta CMN/BCB 6/2023, art. 1º, caput; Resolução Conjunta CMN/BCB 6/2023, art. 1º, § 1º
 
-**Justificativa do juiz:** A resposta menciona exatamente as instituições obrigadas (instituições financeiras, instituições de pagamento e demais instituições autorizadas a funcionar pelo Banco Central do Brasil) e a excluída (administradoras de consórcio), conforme o gabarito. Não há afirmações que contrariem o gabarito nem omissões relevantes.
+**Justificativa do juiz:** A resposta menciona exatamente as instituições obrigadas (instituições financeiras, instituições de pagamento e demais instituições autorizadas a funcionar pelo Banco Central do Brasil) e a excluída (administradoras de consórcio), conforme o gabarito, sem acrescentar ou omitir informações relevantes à pergunta.
 
-## A17 · q23 · langchain · juiz: correta
+## A18 · q23 · langchain · juiz: correta
 
 **Pergunta:** Qual sinal de alerta envolve a movimentação financeira do cliente em relação à sua capacidade econômica?
 
@@ -256,9 +271,24 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 39, I, c
 
-**Justificativa do juiz:** A resposta descreve o sinal de alerta de movimentação financeira incompatível com a capacidade econômica do cliente, incluindo renda, faturamento e patrimônio, o que está totalmente compatível com o gabarito. Não há afirmações que contrariem o gabarito nem omissões relevantes para a pergunta.
+**Justificativa do juiz:** A resposta descreve o sinal de alerta de movimentação financeira incompatível com a capacidade econômica do cliente, abrangendo renda, faturamento e patrimônio, o que está em conformidade com o gabarito. Não há contradições nem omissões relevantes.
 
-## A18 · q19 · langchain · juiz: correta
+## A19 · q18 · langchain · juiz: correta
+
+**Pergunta:** Como a instituição deve conduzir o monitoramento de operações para detectar suspeitas de lavagem de dinheiro?
+
+**Gabarito:** A instituição deve implementar procedimentos de monitoramento, seleção e análise de operações e situações para identificar e dispensar especial atenção às suspeitas de lavagem e de financiamento do terrorismo (art. 38), aplicados inclusive às propostas de operações (§ 2º). Os procedimentos devem ser compatíveis com a política de PLD/FT, definidos com base na avaliação interna de risco, considerar a condição de pessoa exposta politicamente e de seu representante, familiar ou estreito colaborador, e estar descritos em manual aprovado pela diretoria (§ 3º). O monitoramento e a seleção não podem passar de 45 dias da data da operação ou situação (art. 39, parágrafo único).
+
+**Não deve afirmar:**
+(nenhum item)
+
+**Resposta do assistente:** As instituições devem implementar procedimentos de monitoramento e seleção que permitam identificar operações e situações que possam indicar suspeitas de lavagem de dinheiro e de financiamento do terrorismo. Devem ser incluídas, especialmente, as operações realizadas e os produtos e serviços contratados que, considerando as partes envolvidas, os valores, as formas de realização, os instrumentos utilizados ou a falta de fundamento econômico ou legal, possam configurar indícios, tais como operações de depósito ou aporte em espécie, saque em espécie ou pedido de provisionamento para saque que apresentem indícios de ocultação ou dissimulação, bem como operações e produtos e serviços que apresentem incompatibilidade com a capacidade financeira do cliente (incluindo renda ou faturamento e patrimônio). Além disso, esses procedimentos devem ser aplicados inclusive às propostas de operações e devem estar descritos em manual específico aprovado pela diretoria da instituição.
+
+**Citações da resposta:** Circular BCB 3.978/2020, art. 39, I, c; Circular BCB 3.978/2020, art. 39, I, b; Circular BCB 3.978/2020, art. 38, § 2º; Circular BCB 3.978/2020, art. 38, § 3º, IV; Circular BCB 3.978/2020, art. 38, caput
+
+**Justificativa do juiz:** A resposta descreve como a instituição deve implementar procedimentos de monitoramento e seleção para identificar suspeitas de lavagem de dinheiro e financiamento do terrorismo, incluindo a aplicação às propostas de operações e a descrição em manual aprovado pela diretoria, o que está de acordo com o gabarito. Não há afirmações que contrariem o gabarito, e os elementos ausentes (avaliação interna de risco, condição de PEP, limite de 45 dias) não são exigidos pela pergunta, portanto a resposta está correta.
+
+## A20 · q19 · langchain · juiz: correta
 
 **Pergunta:** Qual é o prazo para comunicar ao Coaf uma operação suspeita de lavagem de dinheiro?
 
@@ -272,34 +302,4 @@ Amostra de 20 dos 50 julgamentos: metade não "correta", metade "correta", sorte
 
 **Citações da resposta:** Circular BCB 3.978/2020, art. 48, § 2º
 
-**Justificativa do juiz:** A resposta afirma exatamente o prazo indicado no gabarito: 'até o dia útil seguinte ao da decisão de comunicação', citando o art. 48, § 2º da Circular 3.978. Não menciona os prazos de 45 dias nem o art. 49, § 1º, portanto não incorre em nenhum dos itens de 'Não deve afirmar'. Tudo o que afirma está compatível com o gabarito e responde diretamente à pergunta.
-
-## A19 · q10 · langchain-padrao · juiz: correta
-
-**Pergunta:** É crime omitir informação ou prestar informação falsa a investidores ou à fiscalização sobre a situação financeira de uma instituição?
-
-**Gabarito:** Sim. É crime induzir ou manter em erro sócio, investidor ou repartição pública competente, relativamente a operação ou situação financeira, sonegando-lhe informação ou prestando-a falsamente. Pena: reclusão de 2 a 6 anos e multa.
-
-**Não deve afirmar:**
-(nenhum item)
-
-**Resposta do assistente:** Constitui crime fraudar a fiscalização ou o investidor inserindo ou fazendo inserir em documento comprobatório de investimento em títulos ou valores mobiliários declaração falsa ou diversa da que dele deveria constar (Lei 7.492/1986, art. 9º), bem como fazer inserir elemento falso ou omitir elemento exigido pela legislação em demonstrativos contábeis de instituição financeira, seguradora ou instituição integrante do sistema de distribuição de títulos de valores mobiliários (Lei 7.492/1986, art. 10).
-
-**Citações da resposta:** Lei 7.492/1986, art. 9º, caput; Lei 7.492/1986, art. 10, caput
-
-**Justificativa do juiz:** A resposta confirma que omitir ou prestar informação falsa a investidores ou à fiscalização constitui crime, o que está de acordo com o gabarito. Não há contradição nem omissão de informações essenciais à pergunta feita.
-
-## A20 · q10 · langchain · juiz: correta
-
-**Pergunta:** É crime omitir informação ou prestar informação falsa a investidores ou à fiscalização sobre a situação financeira de uma instituição?
-
-**Gabarito:** Sim. É crime induzir ou manter em erro sócio, investidor ou repartição pública competente, relativamente a operação ou situação financeira, sonegando-lhe informação ou prestando-a falsamente. Pena: reclusão de 2 a 6 anos e multa.
-
-**Não deve afirmar:**
-(nenhum item)
-
-**Resposta do assistente:** Constitui crime induzir ou manter em erro sócio, investidor ou repartição pública competente em relação a operação ou situação financeira, mediante a sonegação de informação ou a prestação falsa.
-
-**Citações da resposta:** Lei 7.492/1986, art. 6º, caput
-
-**Justificativa do juiz:** A resposta confirma que é crime induzir ou manter em erro sócio, investidor ou repartição pública competente mediante sonegação ou prestação falsa de informação, o que está totalmente de acordo com o gabarito. Não acrescenta informações contrárias e não omite nenhum elemento exigido pela pergunta (que apenas questiona se há crime). Não há itens na lista de 'Não deve afirmar' que sejam afirmados.
+**Justificativa do juiz:** A resposta afirma que a comunicação deve ser feita até o dia útil seguinte à decisão de comunicação, o que está de acordo com o gabarito. Não há contradição nem omissão do que a pergunta pede, e não afirma nenhum dos itens proibidos.

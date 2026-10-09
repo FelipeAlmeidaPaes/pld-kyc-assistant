@@ -48,10 +48,10 @@ Experimentos só de busca, em memória, sobre os 939 trechos por dispositivo e a
 ## Resultado com o LLM (2026-10-09)
 Avaliação `gemini2` contra a `base` (e5-small), mesmo LLM e mesmo conjunto (relatórios em `avaliacao/execucoes/`):
 
-| variante | recall@5 | acerto@5 | falsa recusa | acerto fim a fim (juiz) |
+| variante | recall@5 | acerto@5 | falsa recusa | acerto fim a fim (juiz revisado) |
 |---|---|---|---|---|
-| manual | 42% → 80% | 60% → 93% | 12 → 6 de 30 | 10 → 12 de 30 |
-| langchain | 42% → 80% | 60% → 93% | 11 → 6 de 30 | 11 → 14 de 30 |
-| langchain-padrao | 59% → 76% | 70% → 83% | 13 → 15 de 30 | 11 → 12 de 30 |
+| manual | 42% → 80% | 60% → 93% | 12 → 6 de 30 | 11 → 17 de 30 |
+| langchain | 42% → 80% | 60% → 93% | 11 → 6 de 30 | 13 → 16 de 30 |
+| langchain-padrao | 59% → 76% | 70% → 83% | 13 → 15 de 30 | 12 → 13 de 30 |
 
-A busca nova reduziu à metade as recusas indevidas nas variantes por dispositivo. O acerto do conteúdo subiu menos, porque as respostas novas saem parciais e porque o juiz errou em quatro "incorretas" (ver ADR 0010 e CLAUDE.md). No divisor padrão a busca melhorou, mas o modelo continua errando o caminho do dispositivo ao citar.
+A busca nova reduziu à metade as recusas indevidas nas variantes por dispositivo e subiu o acerto do conteúdo em 3 a 6 perguntas. Com a primeira versão do juiz o ganho parecia menor (de 10–11 para 12–14), porque ele tratava número de artigo como contradição; a revisão está na ADR 0010. No divisor padrão a busca melhorou, mas o modelo continua errando o caminho do dispositivo ao citar.
