@@ -211,7 +211,7 @@ describe("configuração", () => {
     });
     expect(config.provedores.map((p) => [p.nome, p.modelo])).toEqual([["gemini", "m1"], ["openrouter", "m2:free"]]);
     expect(config.usarFallback).toBe(false);
-    expect(config.k).toBe(5);
+    expect(config.k).toBe(8);
     expect(custoTabela(config.provedores[0]!, 1_000_000, 500_000)).toBeCloseTo(0.3);
     expect(custoTabela(config.provedores[1]!, 1_000_000, 500_000)).toBeNull();
     expect(lerConfiguracao({ GEMINI_API_KEY: "k1" }).provedores).toEqual([]);

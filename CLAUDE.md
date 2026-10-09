@@ -61,7 +61,7 @@ docker compose up -d
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0010)
+- `docs/adr/`: decisões de arquitetura (0001 a 0011)
 - `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
 ## Decisões (detalhes em docs/adr)
@@ -72,9 +72,10 @@ docker compose up -d
 - **Banco vetorial:** Qdrant em Docker, imagem fixada em v1.19.2; busca híbrida a avaliar (ADR 0004).
 - **Corpus v1:** Lei 9.613/1998, Lei 7.492/1986, Lei 13.810/2019, Circular BCB 3.978/2020, Carta Circular BCB 4.001/2020, Resolução Conjunta CMN/BCB 6/2023 (ADR 0005).
 - **PDF do BCB:** `pdfjs-dist` em versão exata, parágrafos remontados pela geometria (ADR 0006). Aceito pelo autor "por enquanto"; revisar se aparecer PDF que não leia bem.
-- **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings e5, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
+- **Variantes (ADR 0007):** `manual` (sem framework), `langchain` (LangChain.js com os nossos trechos) e `langchain-padrao` (divisor padrão do LangChain). Iguais: corpus, embeddings, LLM, instruções, esquema da saída, regra de recusa e citação. Muda: a orquestração e, no padrão, a divisão do texto. Dependências do RAG em versão exata.
 - **Avaliação (ADR 0008):** só perguntas validadas; só o provedor principal, sem fallback; 5 s entre chamadas; busca registrada até a posição 20; recall@5, acerto@5, MRR@20, falsa recusa, recusa correta, citações pertinentes e cobertura, tokens, custo e latência. Acerto do conteúdo e `naoDeve` pelo juiz (ADR 0010).
 - **Juiz (ADR 0010):** modelo `:free` do OpenRouter (`OPENROUTER_MODEL`), outra família que não a do Gemini; compara com o gabarito e dá correta, parcial ou incorreta, mais os itens de `naoDeve` afirmados. Só julga resposta a pergunta coberta. Amostra de 20 auditada pelo autor no chat; registrar a concordância.
+- **Resposta (ADR 0011):** o modelo declara `cobertura` (total, parcial, nenhuma) e `naoCoberto`; só "nenhuma" vira recusa, e a parcial sai com o que falta. Instruções: identificar o que a pergunta pede, enumerar tudo o que os trechos dizem sobre isso, nada além. `VERSAO_DO_PROMPT` (hash de instruções, mensagem e esquema) vai em cada execução. k = 8 trechos (`RAG_K`).
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -116,7 +117,8 @@ docker compose up -d
   - Avaliação `gemini2` (2026-10-09): 108 chamadas ao Gemini em 10 min, nenhum erro; juiz em 58 respostas.
   - Juiz revisado (ADR 0010, revisão 1, versão `ba1252a1`): a pergunta define o que é exigido, e só conteúdo conta (número de artigo e remissão, não). `base` e `gemini2` julgadas de novo; julgamentos guardam a versão, e versão antiga não vale.
   - Juiz do conteúdo (ADR 0010). Auditoria: o autor concordou, em geral, que a primeira versão era rigorosa demais; a conferência item a item (`<rótulo>.auditoria.md`) não foi feita.
-  - 127 testes.
+  - Cobertura declarada e k = 8 (ADR 0011): execuções `cobertura-k5` e `cobertura-k8` (108 chamadas cada, nenhum erro), julgadas com o juiz `ba1252a1`. Prompt versão `932e4dad`.
+  - 129 testes.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
   - **Falha de busca:** incisos do mesmo artigo carregam o mesmo caput como contexto e ocupam todas as vagas. Em "Por quanto tempo a instituição deve conservar os registros das operações?", os 5 primeiros são do art. 28 da Circular 3.978 (o que o registro deve conter); o trecho que responde (art. 67, III) está em 12º, e a Lei 9.613, art. 10, § 2º, fora dos 40 primeiros. O modelo recusou corretamente. É a q05 do conjunto. Candidatos a correção, a medir na avaliação: limitar trechos por artigo, MMR (o LangChain tem `maxMarginalRelevanceSearch`), busca híbrida, k maior.
@@ -139,8 +141,17 @@ docker compose up -d
     | langchain-padrao, gemini2 | 76% | 83% | 15/30 | 6/6 | 23/26 | 11/1/1 | 13/30 | 1.381 |
   - **A busca nova sobe o acerto fim a fim em 3 a 6 perguntas** (`manual` de 11 para 17 de 30). Com a primeira versão do juiz o ganho parecia de 1 a 3: ele tratava número de artigo e remissão como contradição (q16, q30) e cobrava o gabarito inteiro em vez do que a pergunta pede. Ao julgar de novo, nenhum veredito piorou.
   - **Única "incorreta" que sobrou:** q10 (`langchain-padrao`), caso de fronteira: a resposta traz outros crimes da Lei 7.492 (arts. 9º e 10) e atribui à conduta perguntada a pena deles (1 a 5 anos), e não a do art. 6º (2 a 6).
-  - **O que ainda falta no `manual` com `gemini2`:** 6 recusas indevidas e 7 parciais (omitem incisos ou um dos prazos).
-  - **Recusa de resposta parcial custa caro:** q12, q13 e q20 (`manual` e `langchain`) trouxeram parte dos dispositivos e foram recusadas pela regra 3 do prompt ("respondem só em parte → recusa").
+  - **Cobertura declarada e k = 8** (ADR 0011, tabela completa lá). Acerto fim a fim (de 30):
+
+    | variante | gemini2 | cobertura-k5 | cobertura-k8 | falsa recusa (k8) | parcial declarada / não declarada (k8) | citações pertinentes (k8) | tokens de entrada (k8) |
+    |---|---|---|---|---|---|---|---|
+    | manual | 17 | 17 | **21** | 1/30 | 4/5 | 91% | 1.469 |
+    | langchain | 16 | 16 | **19** | 1/30 | 4/6 | 85% | 1.469 |
+    | langchain-padrao | 13 | 15 | **20** | 6/30 | 2/3 | 79% | 2.222 |
+  - **Prompt e esquema, sozinhos, não subiram o acerto** em `manual` e `langchain`: as recusas indevidas caíram de 6 para 3, mas viraram parciais declaradas; o ganho de corretas (15 para 17) só compensou q07 e q08, que eram recusa aceita e agora respondem. O ganho veio do k = 8, com causa mecânica (q15, q20, q28: dispositivo nas posições 6 a 8).
+  - **A instrução de enumerar não resolveu a omissão:** com k = 5, 6 das 10 parciais da `manual` foram declaradas "total"; em 4 o item faltante não veio na busca (o modelo não sabe que existe), em 2 (q16, q29) veio e foi omitido.
+  - **Conteúdo de memória com citação válida:** q04 (sanções da Lei 9.613, art. 12). A alínea II, b, não vem na busca; a `langchain` (k = 8) escreveu multa de "20% (vinte por cento) do valor corrigido da operação", texto que não existe no corpus, e a `manual` (`gemini2` e k = 8) trouxe o conteúdo certo da alínea b atribuído à c. A validação de citação confere o dispositivo, não o conteúdo. O juiz pegou; o usuário não pegaria.
+  - **k = 8 custa** 41% mais tokens de entrada e alguma precisão de citação (92–93% para 85–91%). Parte das "não pertinentes" é gabarito incompleto (q22, alínea f; ver pendências).
   - **No divisor padrão, a busca melhor não ajudou a resposta:** 10 das 15 recusas são "citação não confere" (o modelo escreve "alínea d" sem artigo, ou "art. 2º, II" sem o § 2º). É limite da variante, que não traz o caminho no texto.
   - **Juiz na `base`:** nenhuma resposta incorreta e nenhuma afirmou item de `naoDeve`; das 50, 28 corretas e 22 parciais. Acerto fim a fim: 10/30 (`manual`), 11/30 (`langchain`), 11/30 (`langchain-padrao`). As parciais são omissões: parte por busca incompleta (q27 sem o inciso II, q28 sem o III), parte por pergunta ampla em que o juiz cobra o gabarito inteiro (q16, q17). Se o juiz é rigoroso demais é o que a auditoria vai dizer. Uma justificativa veio só com a palavra "parcial" (q28, `langchain`).
   - **A busca é o gargalo:** em `manual`, 9 das 13 recusas indevidas são de perguntas sem nenhum dispositivo exigido entre os 5 trechos; 2 trouxeram só parte (q12, q13: a definição do art. 2º da Lei 13.810 não veio, e a regra 3 do prompt manda recusar resposta parcial); 2 trouxeram tudo (q08, ver pendências; q10, ruído do modelo). No divisor padrão, 6 recusas com tudo recuperado, quase todas "citação não confere": o modelo erra o caminho ao deduzi-lo do texto.
@@ -157,8 +168,8 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. Decidir com o autor a regra 3 do prompt: recusar resposta parcial, ou responder a parte coberta e dizer o que falta.
-2. Repetir `gemini2` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
+1. Conferência de conteúdo sem LLM: todo número, prazo, percentual e valor da resposta tem de aparecer no texto dos dispositivos citados (pega o caso da q04). Medir na avaliação.
+2. Repetir `cobertura-k8` para medir o ruído do modelo (sem custo de embedding: tudo no cache).
 3. Busca híbrida com o Gemini (`npm run avaliacao:experimentos -- --modelo gemini-embedding-2 --experimentos hibrida,hibrida-radical5`): sem custo de embedding.
 4. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus.
 5. v2: servidor MCP expondo a busca.
@@ -167,4 +178,5 @@ docker compose up -d
 - Gerar chaves novas: as do `.env` são as que passaram pelo chat.
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).
 - Opcional: auditar o juiz revisado item a item (`avaliacao/execucoes/gemini2.auditoria.md`), para medir a concordância.
-- Decidir a regra 3 do prompt (próximos passos, 1).
+- Gabarito da q22 (fracionamento): a Carta Circular 4.001, art. 1º, I, f ("depósitos ou aportes de grandes valores em espécie, de forma parcelada..."), não está nem em `dispositivos` nem em `aceitos`, e as respostas que a citam perdem em citação pertinente. Proposta: incluir em `aceitos`. Só o autor valida.
+- Opcional: auditar os julgamentos de `cobertura-k8` (`cobertura-k8.auditoria.md`).

@@ -87,7 +87,7 @@ export function lerConfiguracao(env: NodeJS.ProcessEnv = process.env): Configura
     qdrantUrl: env.QDRANT_URL || "http://localhost:6333",
     modeloDeEmbeddings: env.EMBEDDINGS_MODELO || "Xenova/multilingual-e5-small",
     chaveGemini: env.GEMINI_API_KEY || null,
-    k: numero(env.RAG_K) ?? 5,
+    k: numero(env.RAG_K) ?? 8,
     limiar: numero(env.RAG_LIMIAR),
     provedores: [
       ...provedor(env, "gemini", "GEMINI", URL_GEMINI),

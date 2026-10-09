@@ -21,7 +21,7 @@ Cada variante também tem `POST /<variante>/buscar`, que devolve só os trechos 
 ### O que é igual nas três
 - Corpus normalizado e regra do índice (ADR 0005).
 - Modelo de embeddings e5 local, com os prefixos `query: ` e `passage: `. No LangChain, entra como uma classe `Embeddings` própria, que usa o mesmo gerador da variante manual.
-- Provedor e modelo de LLM (ADR 0002), texto das instruções e esquema da saída: `{ cobre, resposta, citacoes: [{ sigla, caminho }] }`.
+- Provedor e modelo de LLM (ADR 0002), texto das instruções e esquema da saída: `{ cobertura, resposta, naoCoberto, citacoes: [{ sigla, caminho }] }` (até 2026-10-09, `{ cobre, resposta, citacoes }`; ver ADR 0011).
 - Regras de recusa e validação de citação: a resposta só sai se cada citação existir no corpus e o texto do dispositivo estiver nos trechos recuperados. A regra é uma função compartilhada; o framework não oferece isso, e qualquer aplicação real escreveria essa parte.
 - Número de trechos recuperados e conjunto de avaliação.
 
