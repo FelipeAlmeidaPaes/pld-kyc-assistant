@@ -1,5 +1,6 @@
 import type { IndiceDoCorpus } from "./corpus.js";
 import type { Citacao, TrechoRecuperado } from "./tipos.js";
+import { temTextoProprio } from "./trechos.js";
 
 /**
  * Chave da norma a partir da sigla, tolerante a "nº", órgão e ano:
@@ -46,12 +47,14 @@ export interface ResultadoDaValidacao {
 }
 
 /**
- * Uma citação vale se o dispositivo existe no corpus e o texto dele está nos trechos recuperados
- * da mesma norma. Assim o modelo não cita de memória nem um dispositivo que não viu.
+ * Uma citação vale se o dispositivo existe no corpus, tem texto próprio (não está revogado nem
+ * vetado) e o texto dele está nos trechos recuperados da mesma norma. Assim o modelo não cita de
+ * memória nem um dispositivo que não viu. Sem trechos (null), só a existência e o texto próprio
+ * são conferidos: o servidor MCP não sabe o que o cliente leu (ADR 0013).
  */
 export function validarCitacoes(
   citacoes: Citacao[],
-  trechos: TrechoRecuperado[],
+  trechos: TrechoRecuperado[] | null,
   indice: IndiceDoCorpus,
 ): ResultadoDaValidacao {
   const resultado: ResultadoDaValidacao = { validas: [], invalidas: [] };
@@ -61,10 +64,14 @@ export function validarCitacoes(
       resultado.invalidas.push({ citacao, motivo: "dispositivo não existe no corpus" });
       continue;
     }
+    if (!temTextoProprio(encontrado.dispositivo)) {
+      resultado.invalidas.push({ citacao, motivo: "dispositivo sem texto próprio (revogado ou vetado)" });
+      continue;
+    }
     const texto = compactar(encontrado.dispositivo.texto);
-    const visto = trechos.some(
-      (t) => chaveDaNorma(t.sigla) === chaveDaNorma(encontrado.sigla) && compactar(t.texto).includes(texto),
-    );
+    const visto =
+      trechos === null ||
+      trechos.some((t) => chaveDaNorma(t.sigla) === chaveDaNorma(encontrado.sigla) && compactar(t.texto).includes(texto));
     if (!visto) {
       resultado.invalidas.push({ citacao, motivo: "texto do dispositivo não está nos trechos recuperados" });
       continue;

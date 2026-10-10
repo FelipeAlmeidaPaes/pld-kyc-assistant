@@ -8,7 +8,7 @@ Assistente de perguntas e respostas sobre normas brasileiras de PLD/FT e antifra
 | Versão | Módulos da pós | Entrega |
 |---|---|---|
 | v1 | 02 (APIs de LLM), 08 (arquitetura) | RAG com citação e recusa, avaliação e custo por consulta |
-| v2 | 03 (MCP) | Servidor MCP expondo a busca, validado com a mesma avaliação |
+| v2 | 03 (MCP) | Servidor MCP com busca, leitura de dispositivo e conferência da resposta, validado pela mesma avaliação (paridade da busca) |
 | v3 | 04, 06 (agentes) | Agente que usa o servidor MCP, comparado com o RAG direto |
 | Segurança | 10 | Prompt injection, testes adversariais, governança |
 
@@ -29,6 +29,10 @@ npm run avaliar -- <rótulo>            # roda a avaliação nas três variantes
 npm run avaliar -- <rótulo> --sem-llm  # só a busca; também --variantes, --perguntas, --so-relatorio
 npm run julgar -- <rótulo>             # juiz (OpenRouter :free) julga o conteúdo das respostas; gera <rótulo>.auditoria.md
 npm run avaliacao:experimentos -- --modelo <id> [--experimentos densa,bm25-radical5,hibrida,...] [--k 8]   # busca em memória, sem Qdrant; com o Gemini, só "densa" e as híbridas sobre ela estão no cache
+npm run --silent mcp                   # servidor MCP por stdio (--silent: o cabeçalho do npm sujaria o stdout)
+npm run mcp -- --http [--porta 3001]   # servidor MCP por Streamable HTTP, só em 127.0.0.1, em /mcp
+npm run avaliar -- <rótulo> --sem-llm --mcp stdio|<URL>   # busca da manual pela ferramenta buscar do servidor MCP
+npm run avaliacao:comparar-busca -- <rótulo-a> <rótulo-b> [--variante manual]   # mesma busca, trecho a trecho? sai com erro se não
 ```
 
 Na sessão na nuvem, o Docker não sobe sozinho e o Docker Hub costuma responder 429 (limite de pulls anônimos):
@@ -53,6 +57,7 @@ docker compose up -d
 - `src/rag/manual/`: índice e busca com o cliente do Qdrant, cliente de chat sobre `fetch`, pipeline
 - `src/rag/langchain/`: `EmbeddingsDoGerador`, documentos e indexação pelo `QdrantVectorStore`, `ChatOpenAI` com saída estruturada e cadeia em LCEL
 - `src/rag/montar.ts`, `servidor.ts` (Fastify), `cli-indexar.ts` (repete até 3 vezes a variante que falhar), `cli-servidor.ts`
+- `src/mcp/` (v2, ADR 0013): `servidor.ts` (ferramentas `buscar`, `ler_dispositivo`, `conferir_resposta` e instruções do servidor), `montar.ts` (busca da `manual` e corpus, uma vez por processo), `transportes.ts` (stdio com o stdout protegido; HTTP em `node:http` com guardas de Host e Origin), `cli.ts`, `cliente.ts` (cliente MCP e a busca pela ferramenta, para a avaliação)
 - `avaliacao/perguntas.json`: conjunto de avaliação (fonte da verdade). `avaliacao/revisao.md`: gerado dele, com o texto de cada dispositivo esperado, para o autor validar pelo celular; um teste falha se estiver desatualizado
 - `src/avaliacao/`: esquema e conferência do conjunto (`perguntas.ts`: todo dispositivo citado tem de estar no índice, na grafia exata do corpus), `revisao.ts`, `cli-revisao.ts`; executor com ritmo e retomada (`executor.ts`), dispositivos de cada trecho recuperado, inclusive do divisor padrão, localizado no texto corrido (`cobertura.ts`), `metricas.ts`, `relatorio.ts` (também a auditoria do juiz), `cli-avaliar.ts`; juiz do conteúdo (`juiz.ts`, `cli-julgar.ts`)
 - `avaliacao/execucoes/<rótulo>.jsonl` e `.md`: registros de cada execução (só recebem linhas novas; vale a mais recente de cada pergunta e variante) e o relatório; `<rótulo>.julgamentos.jsonl` e `<rótulo>.auditoria.md`: julgamentos do juiz e a amostra para o autor auditar
@@ -61,7 +66,8 @@ docker compose up -d
 - `test/fixtures/norma-ficticia.ts`: norma normalizada fictícia para os testes do RAG
 - `test/fixtures/planalto-ficticia.html`: norma fictícia que imita a estrutura do Planalto
 - `test/fixtures/pdf-ficticio.ts`: gera PDF fictício para testar a leitura de posições
-- `docs/adr/`: decisões de arquitetura (0001 a 0012)
+- `test/fixtures/servidor-mcp-stdio.ts`: servidor MCP com a norma fictícia, iniciado como processo filho pelo teste do stdio
+- `docs/adr/`: decisões de arquitetura (0001 a 0013)
 - `docs/aprendizados-v1.md`: a história da v1 em linguagem simples (11 lições: problema, como descobrimos, o que fizemos e por quê), para quem não acompanhou o projeto. Atualizar se um número da v1 mudar
 - `.claude/hooks/session-start.sh` e `.claude/settings.json`: gancho de início de sessão na nuvem (autor dos commits e `npm install`)
 
@@ -78,6 +84,7 @@ docker compose up -d
 - **Juiz (ADR 0010):** modelo `:free` do OpenRouter (`OPENROUTER_MODEL`), outra família que não a do Gemini; compara com o gabarito e dá correta, parcial ou incorreta, mais os itens de `naoDeve` afirmados. Só julga resposta a pergunta coberta. Amostra de 20 auditada pelo autor no chat; registrar a concordância.
 - **Resposta (ADR 0011):** o modelo declara `cobertura` (total, parcial, nenhuma) e `naoCoberto`; só "nenhuma" vira recusa, e a parcial sai com o que falta. Instruções: identificar o que a pergunta pede, enumerar tudo o que os trechos dizem sobre isso, nada além. `VERSAO_DO_PROMPT` (hash de instruções, mensagem e esquema) vai em cada execução. k = 8 trechos (`RAG_K`).
 - **Conferência de valores (ADR 0012):** todo prazo, percentual, valor em dinheiro e data sem ano da resposta tem de estar no texto do dispositivo citado, dos que o abrem ou dos que vêm abaixo dele, e esse texto tem de ter vindo na busca; senão, recusa (`valor sem respaldo nos dispositivos citados`). Comparação pelo valor ("24 horas" = "vinte e quatro horas"), sem LLM.
+- **Servidor MCP (ADR 0013):** SDK oficial v2 (`@modelcontextprotocol/server`, `/client`, `/node`) em versão exata. Ferramentas só de leitura: `buscar` (busca da `manual`, k padrão 8, máximo 20), `ler_dispositivo` (abertura, dispositivo e o que vem abaixo; só o artigo traz o artigo inteiro) e `conferir_resposta` (citação existente e com texto próprio, valores contra o texto citado; sem a regra "veio na busca", porque o servidor não sabe o que o cliente leu). Sem `perguntar`. stdio e Streamable HTTP sem estado, só em 127.0.0.1, sem autenticação. Validação por paridade da busca, sem LLM.
 - **Índice:** dispositivo sem texto próprio (revogado, vigência encerrada, só "(VETADO)") fica no texto normalizado e não entra no índice (ADR 0005). "(Vetado)" no meio de texto válido fica.
 
 ## Fontes oficiais: como baixar
@@ -101,8 +108,16 @@ docker compose up -d
 - Autor dos commits é o autor do projeto, com a coautoria do Claude na linha `Co-Authored-By` (pedido do autor). A sessão na nuvem começa com `git config user.name` "Claude"; o gancho `.claude/hooks/session-start.sh` troca para `Felipe de Almeida Paes <41527579+FelipeAlmeidaPaes@users.noreply.github.com>` (o e-mail privado do GitHub, o mesmo dos commits dele na `main`) e roda `npm install`. O gancho está na `main` desde a mesclagem da `avaliacao-v1` (2026-10-09); ainda assim, conferir `git config user.name` antes do primeiro commit.
 - Branch com nome legível, que diga o que ela faz, sem "claude" e sem sufixo aleatório (pedido do autor). A plataforma cria a sessão numa branch `claude/...-<sufixo>`: trabalhar numa branch nova com nome descritivo.
 
-## Estado atual (2026-10-09, terceira sessão)
-- **Branch:** `avaliacao-v1` (correções do corpus, conjunto e execução da avaliação, juiz, cobertura declarada, k = 8, conferência de valores, experimentos de busca e a documentação dos aprendizados), mesclada na `main` por PR em 2026-10-09, a pedido do autor. A v2 começa numa branch nova, com nome descritivo, a partir da `main`. Esta sessão não consegue apagar branch remota: a `avaliacao-v1` fica no GitHub até o autor apagar.
+## Estado atual (2026-10-10, quarta sessão)
+- **Branch:** `servidor-mcp` (v2), a partir da `main` (que já tem a `avaliacao-v1`, PR #3, e a remoção das notas de chave, PR #4). A plataforma criou a sessão na `claude/test-domain-connection-7yur2q`; não usada, pela convenção de nomes. A `avaliacao-v1` e a `remover-mencao-a-chaves` ficam no GitHub até o autor apagar.
+- **v2, pronto nesta sessão (ADR 0013):**
+  - Escopo decidido pelo autor: busca, leitura de dispositivo e conferência da resposta; paridade da busca sem LLM; stdio e HTTP.
+  - Servidor MCP com as três ferramentas e instruções; stdio e Streamable HTTP local. 24 testes novos, entre eles: as ferramentas nos protocolos 2026-07-28 e 2025, o HTTP por socket (403 para Host e Origin de fora, 404 fora de `/mcp`) e o stdio como processo filho, com `console.log` no servidor.
+  - Paridade: `mcp-stdio` e `mcp-http` contra a `conferencia-k8`, 36 de 36 perguntas com os mesmos 20 trechos e a mesma pontuação; recall@8 84%, acerto@8 93%, MRR@20 0,71. Nenhuma cota gasta (cache).
+  - No corpus real: `ler_dispositivo` com a Lei 9.613, art. 12, traz a alínea II, b (a que falta à busca na q04); `conferir_resposta` reprova os "20%" inventados e aprova o prazo de dez anos do inciso III.
+  - Claude Code real conectou ao servidor por stdio (`claude mcp add` e `claude mcp list`: "Connected"), iniciado de outra pasta; configuração removida depois. Uso das ferramentas por um modelo não testado.
+  - Correção na v1: citação de dispositivo revogado ou só "(VETADO)" passava na validação (texto vazio está contido em qualquer trecho). Nenhuma das 801 citações aceitas nas execuções gravadas era desse tipo.
+  - Versão do pacote: 0.2.0.
 - **Histórico reescrito (2026-10-08, a pedido do autor):** `main` e `avaliacao-v1` passaram por `git filter-branch` para trocar autor e committer "Claude" pelo autor; conteúdo, datas e mensagens iguais. Os PRs #1 e #2 no GitHub ainda mostram os commits antigos.
 - **Rede e ambiente:** como na sessão anterior. O `.npmrc` evita o download de binários CUDA do `onnxruntime-node`. As coleções do Qdrant ficam no volume do Docker e sobrevivem ao reinício da sessão; o Docker precisa ser religado (ver Comandos).
 - **Pronto:**
@@ -120,7 +135,7 @@ docker compose up -d
   - Juiz do conteúdo (ADR 0010). Auditoria: o autor concordou, em geral, que a primeira versão era rigorosa demais; a conferência item a item (`<rótulo>.auditoria.md`) não foi feita.
   - Cobertura declarada e k = 8 (ADR 0011): execuções `cobertura-k5` e `cobertura-k8` (108 chamadas cada, nenhum erro), julgadas com o juiz `ba1252a1`. Prompt versão `932e4dad`.
   - Conferência de valores (ADR 0012) e q22 com a alínea I, f, em `aceitos` (aprovado pelo autor; relatórios regenerados). Execução `conferencia-k8` (108 chamadas, nenhum erro; 79 respostas julgadas).
-  - 142 testes.
+  - 142 testes na v1; 166 com a v2.
   - Documentação dos aprendizados da v1 (`docs/aprendizados-v1.md`) e README atualizado (status, ADRs 0008 a 0012), a pedido do autor, antes da v2.
 - **Achados:**
   - `manual` e `langchain` mandam o mesmo pedido (mesmos tokens com o Gemini real) e recuperam os mesmos trechos; detalhes na ADR 0007.
@@ -176,8 +191,9 @@ docker compose up -d
   - Leis do Planalto e Res. Conjunta 6 conferidas por heurística, não contra um segundo extrator.
 
 ## Próximos passos
-1. v2: servidor MCP expondo a busca, validado com a mesma avaliação.
-2. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus (o autor precisa validar as novas).
+1. Autor: usar o servidor no Claude Code ou no Claude Desktop com perguntas reais e dizer se o roteiro das instruções é seguido (o cliente chama `conferir_resposta`?).
+2. v3: agente que usa o servidor MCP, comparado com o RAG direto pela avaliação. Medir também se o agente confere a resposta e corrige o que a conferência aponta.
+3. Limiar de recusa sem LLM, depois de ter mais perguntas fora do corpus (o autor precisa validar as novas).
 
 ## Pendências com o autor
 - Decidir se entram a Lei 13.260/2016 (financiamento do terrorismo) e a regulamentação do BCB para a Lei 13.810 (possivelmente a Resolução BCB 44/2020, a confirmar).

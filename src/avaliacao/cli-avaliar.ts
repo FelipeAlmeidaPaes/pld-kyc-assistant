@@ -1,11 +1,12 @@
 import { existsSync } from "node:fs";
 import { appendFile, mkdir, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
-import { lerConfiguracao } from "../rag/config.js";
+import { conectarAoServidorMcp, criarBuscaViaMcp } from "../mcp/cliente.js";
+import { lerConfiguracao, SemProvedorDeLlm } from "../rag/config.js";
 import { carregarCorpus } from "../rag/corpus.js";
 import { montarVariantes } from "../rag/montar.js";
 import { VERSAO_DO_PROMPT } from "../rag/prompt.js";
-import { VARIANTES, type Variante } from "../rag/tipos.js";
+import { VARIANTES, type Variante, type VarianteMontada } from "../rag/tipos.js";
 import { criarLocalizador } from "./cobertura.js";
 import { chaveDoPar, executarAvaliacao, lerLinhas, lerRegistros, registrosAtuais } from "./executor.js";
 import type { Julgamento } from "./juiz.js";
@@ -20,6 +21,8 @@ const USO = `Uso: npm run avaliar -- <rótulo> [opções]
   --perguntas q01,f01   subconjunto das perguntas
   --intervalo <s>       intervalo mínimo entre chamadas ao LLM (padrão: 5)
   --profundidade <n>    posições da busca registradas (padrão: 20)
+  --mcp <stdio|URL>     busca da manual pela ferramenta buscar do servidor MCP (só com --sem-llm);
+                        stdio inicia o servidor; a URL é a de um servidor no ar (npm run mcp -- --http)
   --so-relatorio        só refaz o relatório a partir do arquivo da execução
 Grava avaliacao/execucoes/<rótulo>.jsonl e .md. Rodar de novo com o mesmo rótulo retoma o que falta.`;
 
@@ -33,6 +36,7 @@ async function main() {
       intervalo: { type: "string", default: "5" },
       profundidade: { type: "string", default: "20" },
       "so-relatorio": { type: "boolean", default: false },
+      mcp: { type: "string" },
     },
   });
   const [rotulo] = positionals;
@@ -52,17 +56,27 @@ async function main() {
   const perguntas = escolhidas ? validadas.filter((p) => escolhidas.includes(p.id)) : validadas;
 
   if (!values["so-relatorio"]) {
-    const variantes = values.variantes ? values.variantes.split(",") : [...VARIANTES];
+    const viaMcp = values.mcp;
+    const variantes = values.variantes ? values.variantes.split(",") : viaMcp ? ["manual"] : [...VARIANTES];
     const invalidas = variantes.filter((v) => !(VARIANTES as readonly string[]).includes(v));
     if (invalidas.length > 0) throw new Error(`Variante desconhecida: ${invalidas.join(", ")}\n${USO}`);
 
     const semLlm = values["sem-llm"];
+    // O servidor MCP expõe a busca da manual, não o LLM (ADR 0013).
+    if (viaMcp && (!semLlm || variantes.some((v) => v !== "manual"))) throw new Error(`--mcp só com --sem-llm e a variante manual.\n${USO}`);
     const base = lerConfiguracao();
     // A avaliação roda sem fallback e só com o provedor principal (ADR 0002).
     const config = { ...base, usarFallback: false, provedores: semLlm ? [] : base.provedores.slice(0, 1) };
     if (!semLlm && config.provedores.length === 0) throw new Error("Sem provedor de LLM no .env. Use --sem-llm para avaliar só a busca.");
 
-    const montadas = await montarVariantes(config);
+    const clienteMcp = viaMcp ? await conectarAoServidorMcp(viaMcp) : null;
+    let montadas: Partial<Record<Variante, VarianteMontada>>;
+    if (clienteMcp) {
+      const buscar = criarBuscaViaMcp(clienteMcp, normas);
+      montadas = { manual: { buscar: (pergunta, k = config.k) => buscar(pergunta, k), perguntar: () => Promise.reject(new SemProvedorDeLlm()) } };
+    } else {
+      montadas = await montarVariantes(config);
+    }
     const anteriores = await lerRegistros(arquivo);
     const configuracao = {
       k: config.k,
@@ -70,6 +84,7 @@ async function main() {
       limiar: config.limiar,
       modeloDeEmbeddings: config.modeloDeEmbeddings,
       modeloDeLlm: config.provedores[0]?.modelo ?? null,
+      ...(viaMcp ? { busca: viaMcp === "stdio" ? "mcp-stdio" : "mcp-http" } : {}),
       ...(semLlm ? {} : { versaoDoPrompt: VERSAO_DO_PROMPT, conferenciaDeValores: true }),
     };
     const divergente = anteriores.find((r) => JSON.stringify(r.configuracao) !== JSON.stringify(configuracao));
@@ -80,7 +95,7 @@ async function main() {
 
     const resultado = await executarAvaliacao(perguntas, {
       execucao: rotulo,
-      variantes: Object.fromEntries(variantes.map((v) => [v, montadas[v as Variante]])),
+      variantes: Object.fromEntries(variantes.map((v) => [v, montadas[v as Variante]!])),
       configuracao,
       localizar: criarLocalizador(normas),
       feitos: new Set(registrosAtuais(anteriores).filter((r) => r.erro === null).map((r) => chaveDoPar(r.perguntaId, r.variante))),
@@ -92,6 +107,7 @@ async function main() {
       agora: () => Date.now(),
       avisar: (mensagem) => console.log(mensagem),
     });
+    await clienteMcp?.close();
     console.log(`registrados: ${resultado.registrados}; já feitos: ${resultado.pulados}; com erro: ${resultado.comErro}`);
   }
 

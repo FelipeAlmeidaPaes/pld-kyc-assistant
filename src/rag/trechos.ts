@@ -17,7 +17,7 @@ export function temTextoProprio(dispositivo: Dispositivo): boolean {
 }
 
 /** Dispositivo escrito como na norma: "Art. 1º ...", "§ 2º ...", "I - ...", "a) ...", "1. ...". */
-function comRotulo(artigo: Artigo, dispositivo: Dispositivo): string {
+export function comRotulo(artigo: Artigo, dispositivo: Dispositivo): string {
   switch (dispositivo.tipo) {
     case "caput":
       return `Art. ${artigo.numero} ${dispositivo.texto}`;
@@ -38,7 +38,7 @@ function comRotulo(artigo: Artigo, dispositivo: Dispositivo): string {
  * Dispositivos acima deste na hierarquia: o caput do artigo e, se houver, o parágrafo, o inciso e
  * a alínea que o abrem. Sem eles, "I - dos clientes;" não diz nada sozinho.
  */
-function ascendentes(artigo: Artigo, dispositivo: Dispositivo): Dispositivo[] {
+export function ascendentes(artigo: Artigo, dispositivo: Dispositivo): Dispositivo[] {
   if (dispositivo.tipo === "caput") return [];
   const partes = dispositivo.caminho.split(", ");
   const caminhos = [`${partes[0]}, caput`, ...partes.slice(1, -1).map((_, i) => partes.slice(0, i + 2).join(", "))];

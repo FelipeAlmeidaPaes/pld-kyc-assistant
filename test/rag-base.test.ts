@@ -121,6 +121,29 @@ describe("validarCitacoes", () => {
       "dispositivo não existe no corpus",
     ]);
   });
+
+  it("recusa dispositivo revogado ou só (VETADO), cujo texto vazio estaria em qualquer trecho", () => {
+    const citacoes = [
+      { sigla: "Lei 99.999/2099", caminho: "art. 1º, II" },
+      { sigla: "Lei 99.999/2099", caminho: "art. 2º" },
+    ];
+    const motivo = "dispositivo sem texto próprio (revogado ou vetado)";
+    expect(validarCitacoes(citacoes, contexto, indice).invalidas.map((i) => i.motivo)).toEqual([motivo, motivo]);
+    expect(validarCitacoes(citacoes, null, indice).invalidas.map((i) => i.motivo)).toEqual([motivo, motivo]);
+  });
+
+  it("sem trechos (servidor MCP), confere só a existência e o texto próprio", () => {
+    const { validas, invalidas } = validarCitacoes(
+      [
+        { sigla: "Lei 99.999/2099", caminho: "art. 2º, parágrafo único" },
+        { sigla: "Lei 99.999/2099", caminho: "art. 9º" },
+      ],
+      null,
+      indice,
+    );
+    expect(validas).toEqual([{ sigla: "Lei 99.999/2099", caminho: "art. 2º, parágrafo único" }]);
+    expect(invalidas.map((i) => i.motivo)).toEqual(["dispositivo não existe no corpus"]);
+  });
 });
 
 describe("concluirResposta", () => {

@@ -2,7 +2,7 @@
 
 Assistente de perguntas e respostas sobre normas brasileiras de prevenção à lavagem de dinheiro (PLD), financiamento do terrorismo e antifraude. Toda resposta se baseia no texto da norma e cita o dispositivo de origem.
 
-> Status: v1 concluída. Na variante principal, 20 a 21 respostas certas em 30 perguntas (eram 11 no início), as 6 perguntas fora da base recusadas em todas as rodadas, e custo zero. Próximo: v2 (servidor MCP).
+> Status: v2 em andamento. O servidor MCP expõe a busca, a leitura de dispositivo e a conferência da resposta, por stdio e por HTTP local, e devolve exatamente a mesma busca da v1 nas 36 perguntas da avaliação. Na v1, 20 a 21 respostas certas em 30 perguntas (eram 11 no início), as 6 perguntas fora da base recusadas em todas as rodadas, e custo zero.
 >
 > **O que aprendemos na v1, e o porquê de cada escolha:** [docs/aprendizados-v1.md](docs/aprendizados-v1.md).
 
@@ -29,6 +29,19 @@ Cada variante também tem `POST /<variante>/buscar`, que devolve só os trechos 
 
 Fora da v1: interface, servidor MCP, agentes e usuários.
 
+## Servidor MCP (v2)
+Expõe o assistente como ferramentas MCP para um cliente como o Claude Code, o Claude Desktop ou um agente. Quem escreve a resposta passa a ser o modelo do cliente; por isso, além da busca, o servidor oferece as conferências da v1 como ferramenta ([ADR 0013](docs/adr/0013-servidor-mcp.md)).
+
+| Ferramenta | O que faz |
+|---|---|
+| `buscar` | Os trechos mais próximos da consulta (padrão 8, até 20), cada um começando pela citação; a mesma busca da variante `manual` |
+| `ler_dispositivo` | O dispositivo pela citação, com os que o abrem e os que vêm abaixo; só com o artigo (`art. 12`), o artigo inteiro |
+| `conferir_resposta` | Confere, sem IA, se as citações existem e têm texto vigente e se cada prazo, percentual, valor e data está no texto citado |
+
+As instruções do servidor pedem ao cliente que busque, leia o dispositivo quando preciso, responda só com o texto citando cada afirmação e confira antes de entregar. Nada obriga o cliente a seguir: medir isso é a v3.
+
+Transportes: stdio, para o cliente iniciar o servidor como processo filho, e Streamable HTTP só em `127.0.0.1`, sem autenticação, com Host e Origin conferidos contra DNS rebinding.
+
 ## Corpus da v1
 | Norma | Tema |
 |---|---|
@@ -47,7 +60,7 @@ O projeto evolui junto com os módulos da pós-graduação.
 | Versão | Módulos | Entrega |
 |---|---|---|
 | v1 | 02 (APIs de LLM), 08 (arquitetura) | RAG com citação e recusa, avaliação e custo por consulta |
-| v2 | 03 (MCP) | Servidor MCP expondo a busca como ferramenta, validado com a mesma avaliação |
+| v2 | 03 (MCP) | Servidor MCP com a busca, a leitura de dispositivo e a conferência da resposta como ferramentas, validado pela mesma avaliação (paridade da busca) |
 | v3 | 04, 06 (agentes) | Agente que consulta o servidor MCP, comparado com o RAG direto |
 | Segurança | 10 (segurança e governança) | Proteção contra prompt injection, testes adversariais e governança |
 
@@ -66,6 +79,7 @@ O projeto evolui junto com os módulos da pós-graduação.
 | Juiz | LLM gratuito de outra família julga o conteúdo, com versão e auditoria do autor | [0010](docs/adr/0010-juiz.md) |
 | Resposta parcial | O modelo declara o que a base não cobre, em vez de recusar; 8 trechos | [0011](docs/adr/0011-cobertura-declarada.md) |
 | Conferência de valores | Prazos, percentuais e valores conferidos contra o texto citado | [0012](docs/adr/0012-conferencia-de-valores.md) |
+| Servidor MCP | Busca, leitura de dispositivo e conferência da resposta, por stdio e HTTP local; validado por paridade com a busca da v1 | [0013](docs/adr/0013-servidor-mcp.md) |
 
 ## Como rodar
 Requisitos: Node.js 22 ou superior e Docker.
@@ -93,6 +107,17 @@ npm run avaliar -- base
 npm run avaliar -- busca --sem-llm   # só a busca, sem LLM
 # Experimentos de busca em memória (modelos de embedding, BM25, híbrida), sem mexer no Qdrant
 npm run avaliacao:experimentos -- --modelo Xenova/multilingual-e5-base
+
+# Servidor MCP (precisa do Qdrant e da coleção da variante manual)
+npm run --silent mcp                 # stdio; --silent tira o cabeçalho do npm do stdout
+npm run mcp -- --http                # Streamable HTTP em http://127.0.0.1:3001/mcp
+npx @modelcontextprotocol/inspector node_modules/.bin/tsx src/mcp/cli.ts   # testar no navegador
+# No Claude Code, com o caminho absoluto do projeto:
+claude mcp add pld-kyc -- /caminho/do/projeto/node_modules/.bin/tsx /caminho/do/projeto/src/mcp/cli.ts
+claude mcp add --transport http pld-kyc http://127.0.0.1:3001/mcp   # ou pelo HTTP, com o servidor no ar
+# Paridade: a mesma avaliação, com a busca passando pelo servidor, comparada com a busca direta
+npm run avaliar -- mcp-stdio --sem-llm --mcp stdio
+npm run avaliacao:comparar-busca -- conferencia-k8 mcp-stdio
 
 # Baixa a norma e grava o texto normalizado em corpus/normalized/
 npm run ingest -- lei-9613             # Planalto: página do texto compilado

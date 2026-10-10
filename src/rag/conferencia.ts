@@ -176,17 +176,18 @@ export function parentesDoDispositivo(artigo: Artigo, dispositivo: Dispositivo):
 /**
  * Quantidades da resposta sem respaldo: nenhum dispositivo citado, nem os que o abrem ou vêm
  * abaixo dele, traz o mesmo valor na mesma unidade. Só vale texto que veio nos trechos: o que o
- * modelo não viu não sustenta a resposta, mesmo que esteja certo.
+ * modelo não viu não sustenta a resposta, mesmo que esteja certo. Sem trechos (null), vale todo o
+ * texto desses dispositivos: o servidor MCP não sabe o que o cliente leu (ADR 0013).
  */
 export function quantidadesSemRespaldo(
   resposta: string,
   citacoes: Citacao[],
-  trechos: TrechoRecuperado[],
+  trechos: TrechoRecuperado[] | null,
   indice: IndiceDoCorpus,
 ): Quantidade[] {
   const daResposta = extrairQuantidades(resposta);
   if (daResposta.length === 0) return [];
-  const vistos = trechos.map((t) => ({ norma: chaveDaNorma(t.sigla), texto: compactar(t.texto) }));
+  const vistos = trechos?.map((t) => ({ norma: chaveDaNorma(t.sigla), texto: compactar(t.texto) })) ?? null;
   const respaldo = new Set<string>();
   for (const citacao of citacoes) {
     const encontrado = indice.buscar(citacao.sigla, citacao.caminho);
@@ -194,7 +195,7 @@ export function quantidadesSemRespaldo(
     const norma = chaveDaNorma(encontrado.sigla);
     for (const d of parentesDoDispositivo(encontrado.artigo, encontrado.dispositivo)) {
       const texto = compactar(d.texto);
-      if (texto === "" || !vistos.some((t) => t.norma === norma && t.texto.includes(texto))) continue;
+      if (texto === "" || (vistos && !vistos.some((t) => t.norma === norma && t.texto.includes(texto)))) continue;
       for (const q of extrairQuantidades(d.texto)) respaldo.add(chaveDaQuantidade(q));
     }
   }

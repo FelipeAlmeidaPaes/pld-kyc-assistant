@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { criarLocalizador } from "../src/avaliacao/cobertura.js";
+import { compararBuscas } from "../src/avaliacao/comparacao-de-busca.js";
 import {
   CotaEsgotada,
   type DependenciasDoExecutor,
@@ -251,5 +252,40 @@ describe("métricas", () => {
     expect(relatorio).toContain("| manual | 1 | 100% | 100% | 1.00 |");
     expect(relatorio).toContain("| q01 | coberta | 1 · respondeu 1/1 |");
     expect(relatorio).toContain("| f01 | fora | recusou (sem citação) |");
+  });
+});
+
+describe("compararBuscas", () => {
+  const registro = (perguntaId: string, trechos: [string, number][], profundidade = 20, variante: RegistroDaAvaliacao["variante"] = "manual"): RegistroDaAvaliacao => ({
+    execucao: "teste",
+    perguntaId,
+    variante,
+    registradoEm: "2099-01-01T00:00:00.000Z",
+    configuracao: { k: 2, profundidade, limiar: null, modeloDeEmbeddings: "e5", modeloDeLlm: null },
+    busca: { trechos: trechos.map(([r, pontuacao]) => ({ referencias: [r], pontuacao })), ms: 1 },
+    resposta: null,
+    erro: null,
+  });
+
+  it("separa perguntas com a mesma busca, com divergência e registradas só numa execução", () => {
+    const a = [
+      registro("q01", [["Lei 99.999/2099, art. 1º, I", 0.9], ["Lei 99.999/2099, art. 1º, caput", 0.8]]),
+      registro("q02", [["Lei 99.999/2099, art. 1º, I", 0.9], ["Lei 99.999/2099, art. 1º, caput", 0.8]]),
+      registro("q03", [["Lei 99.999/2099, art. 1º, I", 0.9]]),
+      registro("q01", [["Lei 99.999/2099, art. 2º, parágrafo único", 0.7]], 20, "langchain"),
+    ];
+    const b = [
+      // Só até a menor profundidade: o terceiro trecho de q01 não conta.
+      registro("q01", [["Lei 99.999/2099, art. 1º, I", 0.9], ["Lei 99.999/2099, art. 1º, caput", 0.8], ["Lei 99.999/2099, art. 1º, § 1º", 0.7]], 2),
+      registro("q02", [["Lei 99.999/2099, art. 1º, I", 0.9], ["Lei 99.999/2099, art. 1º, caput", 0.8000001]]),
+      registro("q04", [["Lei 99.999/2099, art. 1º, I", 0.9]]),
+    ];
+    expect(compararBuscas(a, b, "manual")).toEqual({
+      iguais: ["q01"],
+      diferentes: [
+        { perguntaId: "q02", posicao: 2, a: "Lei 99.999/2099, art. 1º, caput (0.8)", b: "Lei 99.999/2099, art. 1º, caput (0.8000001)" },
+      ],
+      soNumaExecucao: ["q03", "q04"],
+    });
   });
 });
